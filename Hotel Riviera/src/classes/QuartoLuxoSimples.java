@@ -1,15 +1,18 @@
+package classes;
+
 /**
  * Classe que representa um quarto do tipo
- * Executivo Triplo do Hotel
+ * Luxo Simples do Hotel
  * @author Hugo Gabriel
  *
  */
-public class QuartoExecutivoTriplo extends Quarto{
-	public static final double VALOR_DA_DIARIA = 440.00;
-	public static final int CAPACIDADE = 3;
+
+public class QuartoLuxoSimples extends Quarto{
+	public static final double VALOR_DA_DIARIA = 520.00;
+	public static final int CAPACIDADE = 1;
 	
 	/**
-	 * Cria o quarto Executivo Triplo
+	 * Cria o quarto Luxo Simples
 	 * @param hospede 	
 	 * 		O nome completo do hospede deste quarto
 	 * @param numeroDoQuarto
@@ -18,10 +21,10 @@ public class QuartoExecutivoTriplo extends Quarto{
 	 * 		O hospede deve ser identificado no minimo com nome e sobrenome
 	 * 		O numero do quarto deve ser sempre inteiro positivo
 	 */
-	public QuartoExecutivoTriplo(String hospede, int numeroDoQuarto) throws Exception{
+	public QuartoLuxoSimples(String hospede, int numeroDoQuarto) throws Exception{
 		super(hospede, numeroDoQuarto);
 	}
-	
+
 	/**
 	 * Verifica se o quarto comporta um dado numero de pessoas
 	 * @param numeroDePessoas
@@ -36,24 +39,24 @@ public class QuartoExecutivoTriplo extends Quarto{
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public double valor() {
 		return VALOR_DA_DIARIA;
 	}
 	
 	/**
-	 * Fornece uma representacao do quarto Executivo Triplo como String
+	 * Fornece uma representacao do quarto Luxo Simples como String
 	 */
 	@Override
 	public String toString() {
-		return "Quarto Executivo Triplo " + super.toString();
+		return "Quarto Luxo Simples " + super.toString();
 	}
-
+	
 	/**
-	 * Verifica se o quarto Executivo Triplo e um objeto dado como parametro sao iguais
+	 * Verifica se o quarto Luxo Simples e um objeto dado como parametro sao iguais
 	 * 
-	 * Dois objetos da classe QuartoExecutivoTriplo sao iguais se possuem
+	 * Dois objetos da classe QuartoLuxoSimples sao iguais se possuem
 	 * mesmo numero do quarto e mesmo hospede
 	 * @param obj
 	 * 		O objeto a ser comparado
@@ -62,8 +65,9 @@ public class QuartoExecutivoTriplo extends Quarto{
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (!(obj instanceof QuartoExecutivoTriplo))
+		if(!(obj instanceof QuartoLuxoSimples))
 			return false;
 		return super.equals(obj);
 	}
+
 }

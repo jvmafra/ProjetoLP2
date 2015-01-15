@@ -1,3 +1,5 @@
+package classes;
+
 /**
  * Classe abstrata que representa
  * um quarto default do Hotel

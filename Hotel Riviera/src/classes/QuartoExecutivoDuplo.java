@@ -1,3 +1,5 @@
+package classes;
+
 /**
  * Classe que representa um quarto do tipo
  * Executivo Duplo do Hotel

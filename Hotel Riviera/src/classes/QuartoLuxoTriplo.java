@@ -1,16 +1,18 @@
+package classes;
+
 /**
  * Classe que representa um quarto do tipo
- * Luxo Duplo do Hotel
+ * Luxo Triplo do Hotel
  * @author Hugo Gabriel
  *
  */
 
-public class QuartoLuxoDuplo extends Quarto{
-	public static final double VALOR_DA_DIARIA = 570.00;
-	public static final int CAPACIDADE = 2;
+public class QuartoLuxoTriplo extends Quarto{
+	public static final double VALOR_DA_DIARIA = 620.00;
+	public static final int CAPACIDADE = 3;
 	
 	/**
-	 * Cria o quarto Luxo Duplo
+	 * Cria o quarto Luxo Triplo
 	 * @param hospede 	
 	 * 		O nome completo do hospede deste quarto
 	 * @param numeroDoQuarto
@@ -19,7 +21,7 @@ public class QuartoLuxoDuplo extends Quarto{
 	 * 		O hospede deve ser identificado no minimo com nome e sobrenome
 	 * 		O numero do quarto deve ser sempre inteiro positivo
 	 */
-	public QuartoLuxoDuplo(String hospede, int numeroDoQuarto) throws Exception{
+	public QuartoLuxoTriplo(String hospede, int numeroDoQuarto) throws Exception{
 		super(hospede, numeroDoQuarto);
 	}
 	
@@ -44,17 +46,17 @@ public class QuartoLuxoDuplo extends Quarto{
 	}
 	
 	/**
-	 * Fornece uma representacao do quarto Luxo Duplo como String
+	 * Fornece uma representacao do quarto Luxo Triplo como String
 	 */
 	@Override
 	public String toString() {
-		return "Quarto Luxo Duplo " + super.toString();
+		return "Quarto Luxo Triplo " + super.toString();
 	}
-	
+
 	/**
-	 * Verifica se o quarto Luxo Duplo e um objeto dado como parametro sao iguais
+	 * Verifica se o quarto Luxo Triplo e um objeto dado como parametro sao iguais
 	 * 
-	 * Dois objetos da classe QuartoLuxoDuplo sao iguais se possuem
+	 * Dois objetos da classe QuartoLuxoTriplo sao iguais se possuem
 	 * mesmo numero do quarto e mesmo hospede
 	 * @param obj
 	 * 		O objeto a ser comparado
@@ -63,9 +65,8 @@ public class QuartoLuxoDuplo extends Quarto{
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if(!(obj instanceof QuartoLuxoDuplo))
+		if(!(obj instanceof QuartoLuxoTriplo))
 			return false;
 		return super.equals(obj);
 	}
-
 }

@@ -1,3 +1,4 @@
+package classes;
 public class Hospede {
 	private String nome, CPF, RG, email, endereco;
 	private int telefone;

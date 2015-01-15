@@ -1,25 +1,25 @@
+package classes;
+
 /**
- * Classe que representa um quarto do tipo
- * Luxo Triplo do Hotel
+ * Classe que representa um Quarto Presidencial
  * @author Hugo Gabriel
  *
  */
-
-public class QuartoLuxoTriplo extends Quarto{
-	public static final double VALOR_DA_DIARIA = 620.00;
-	public static final int CAPACIDADE = 3;
+public class QuartoPresidencial extends Quarto{
+	public static final double VALOR_DA_DIARIA = 1200.00;
+	public static final int CAPACIDADE = 4;
 	
 	/**
-	 * Cria o quarto Luxo Triplo
+	 * Cria o quarto Presidencial
 	 * @param hospede 	
 	 * 		O nome completo do hospede deste quarto
 	 * @param numeroDoQuarto
 	 * 		O numero relativo ao quarto
-	 * @throws Exception
+	* @throws Exception
 	 * 		O hospede deve ser identificado no minimo com nome e sobrenome
 	 * 		O numero do quarto deve ser sempre inteiro positivo
 	 */
-	public QuartoLuxoTriplo(String hospede, int numeroDoQuarto) throws Exception{
+	public QuartoPresidencial(String hospede, int numeroDoQuarto) throws Exception{
 		super(hospede, numeroDoQuarto);
 	}
 	
@@ -31,7 +31,6 @@ public class QuartoLuxoTriplo extends Quarto{
 	 * 		false, se a capacidade maxima do quarto for excedida
 	 * 		true, se o quarto suportar o numero de pessoas desejado
 	 */
-	@Override
 	public boolean isCapacidadeValida(int capacidade){
 		if (capacidade > CAPACIDADE)
 			return false;
@@ -44,17 +43,17 @@ public class QuartoLuxoTriplo extends Quarto{
 	}
 	
 	/**
-	 * Fornece uma representacao do quarto Luxo Triplo como String
+	 * Fornece uma representacao do quarto Presidencial como String
 	 */
 	@Override
 	public String toString() {
-		return "Quarto Luxo Triplo " + super.toString();
+		return "Quarto Presidencial " + super.toString();
 	}
-
+	
 	/**
-	 * Verifica se o quarto Luxo Triplo e um objeto dado como parametro sao iguais
+	 * Verifica se o quarto Presidencial e um objeto dado como parametro sao iguais
 	 * 
-	 * Dois objetos da classe QuartoLuxoTriplo sao iguais se possuem
+	 * Dois objetos da classe QuartoPresidencial sao iguais se possuem
 	 * mesmo numero do quarto e mesmo hospede
 	 * @param obj
 	 * 		O objeto a ser comparado
@@ -63,8 +62,10 @@ public class QuartoLuxoTriplo extends Quarto{
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if(!(obj instanceof QuartoLuxoTriplo))
+		if (!(obj instanceof QuartoPresidencial))
 			return false;
 		return super.equals(obj);
 	}
+
+
 }

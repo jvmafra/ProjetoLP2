@@ -1,3 +1,5 @@
+package classes;
+
 
 public class EstrategiaSimples implements EstrategiaCobranca {
 	public static final double FATOR = 1;

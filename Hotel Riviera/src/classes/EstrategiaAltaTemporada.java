@@ -1,3 +1,5 @@
+package classes;
+
 
 public class EstrategiaAltaTemporada implements EstrategiaCobranca {
 	public static final double FATOR = 2;
