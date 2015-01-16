@@ -45,7 +45,7 @@ public class AluguelCarro implements Servicos {
 	
 	@Override
 	public String toString() {
-		return "AlugueuCarro [numero de dias=" + numDias + ", valor =" + valor + "]";
+		return "AluguelCarro [numero de dias=" + numDias + ", valor =" + valor + "]";
 	}
 
 	@Override
