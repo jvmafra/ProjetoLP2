@@ -20,7 +20,7 @@ public class Contrato {
 	private GregorianCalendar data_saida;
 	
 	/**
-	 * Cosntrutor que recebe as informacoes necessarias para criacao de um contrato
+	 * Construtor que recebe as informacoes necessarias para criacao de um contrato
 	 * @param servicos
 	 * 			Recebe uma lista de servicos (obrigatoriamente um quarto no minimo) ou outros servicos contratados no momento do cadastro
 	 * @param hospede
