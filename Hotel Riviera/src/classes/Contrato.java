@@ -16,8 +16,8 @@ public class Contrato {
 	private String formaDePagamento;
 	private int periodo;
 	private boolean aberto;
-	private GregorianCalendar data_entrada;
-	private GregorianCalendar data_saida;
+	private Calendar data_entrada;
+	private Calendar data_saida;
 	
 	/**
 	 * Construtor que recebe as informacoes necessarias para criacao de um contrato
@@ -32,7 +32,7 @@ public class Contrato {
 	 * @param formaDePagamento
 	 * 			Recebe a forma de pagamento do hospede
 	 */
-	public Contrato (List<Servicos> servicos, Hospede hospede, EstrategiaCobranca e, GregorianCalendar data_entrada, GregorianCalendar data_saida, String formaDePagamento) throws Exception{
+	public Contrato (List<Servicos> servicos, Hospede hospede, EstrategiaCobranca e, Calendar data_entrada, Calendar data_saida, String formaDePagamento) throws Exception{
 		if (data_saida.get(Calendar.MONTH) < data_entrada.get(Calendar.MONTH))
 			throw new Exception("Data invalida");
 		
@@ -255,7 +255,7 @@ public class Contrato {
 	 * Imprime todos os servicos especiais consumidos que constara na fatura final
 	 */
 	private String imprimeCadaServicoEspecial(){
-		String servicosEspeciais = "-";
+		String servicosEspeciais = "\n-";
 		for (int i = 1; i < servicos.size(); i++) {
 			servicosEspeciais += "\n\n" + servicos.get(i).toString();
 		}
@@ -271,10 +271,10 @@ public class Contrato {
 	public String imprimeFaturaFinal(){
 		return hospede.toString() + "\nData de entrada: " + getDataEntrada()
 				+ "\nData de saida: " + getDataSaida()
-				+ "\nDados do quarto" + servicos.get(0).toString()
-				+ "\nServicos especiais (pela ordem): " + imprimeCadaServicoEspecial()
-				+ "\nValor total dos servicos: " + calculaValorServicos() 
-				+ "\n\nValor total da estadia: " + calculaValorTotal()
+				+ "\nDados do quarto: " + servicos.get(0).toString()
+				+ "\n\nServicos especiais (pela ordem): " + imprimeCadaServicoEspecial()
+				+ "\n\n\nValor total dos servicos: " + calculaValorServicos() 
+				+ "\nValor total da estadia: " + calculaValorTotal()
 				+ "\nForma de pagamento: " + getFormaDePagamento()
 				+ "\n\nStatus do contrato: " + mostraStatus();
 	}
@@ -293,8 +293,8 @@ public class Contrato {
 		return hospede.toString()
 				+ "\nPeriodo da hospedagem: " + getPeriodo()
 				+ "\nDias restantes para termino da hospedagem: " + termino
-				+ servicos.get(0).toString()
-				+ "Status do contrato: " + mostraStatus();
+				+ "\n" + servicos.get(0).toString()
+				+ "\nStatus do contrato: " + mostraStatus();
 	}
 
 	/**
