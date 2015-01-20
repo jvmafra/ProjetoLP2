@@ -27,6 +27,7 @@ public class Opiniao {
 		
 		data = new GregorianCalendar();
 		this.comentario = comentario;
+		this.nota = nota;
 	}
 	
 	/**
@@ -81,7 +82,7 @@ public class Opiniao {
 	@Override
 	public String toString() {
 		return getComentario() + "\n" + getDataCompleta() 
-				+ "às" + getHora()
+				+  " às " + getHora()
 				+ "\nNota: " + getNota();
 
 	}
