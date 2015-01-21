@@ -16,8 +16,8 @@ import javax.swing.JButton;
 import javax.swing.JTextPane;
 
 public class LoginDeFuncionario extends JInternalFrame {
-	private JTextField login1;
-	private JTextField senha1;
+	private JTextField login;
+	private JTextField senha;
 
 	/**
 	 * Launch the application.
@@ -43,17 +43,17 @@ public class LoginDeFuncionario extends JInternalFrame {
 		setTitle("Login - Funcion\u00E1rio");
 		setBounds(100, 100, 494, 383);
 		
-		JLabel login = new JLabel("Login");
-		login.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+		JLabel login_1 = new JLabel("Login");
+		login_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		
-		login1 = new JTextField();
-		login1.setColumns(10);
+		login = new JTextField();
+		login.setColumns(10);
 		
-		JLabel senha = new JLabel("Senha");
-		senha.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+		JLabel senha_1 = new JLabel("Senha");
+		senha_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		
-		senha1 = new JTextField();
-		senha1.setColumns(10);
+		senha = new JTextField();
+		senha.setColumns(10);
 		
 		JButton botao_entrar = new JButton("Entrar");
 		botao_entrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
@@ -69,26 +69,26 @@ public class LoginDeFuncionario extends JInternalFrame {
 							.addGroup(groupLayout.createSequentialGroup()
 								.addGap(146)
 								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-									.addComponent(senha)
-									.addComponent(senha1, GroupLayout.PREFERRED_SIZE, 215, GroupLayout.PREFERRED_SIZE)))
+									.addComponent(senha_1)
+									.addComponent(senha, GroupLayout.PREFERRED_SIZE, 215, GroupLayout.PREFERRED_SIZE)))
 							.addGroup(groupLayout.createSequentialGroup()
 								.addContainerGap(145, Short.MAX_VALUE)
 								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-									.addComponent(login)
-									.addComponent(login1, GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE)))))
+									.addComponent(login_1)
+									.addComponent(login, GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE)))))
 					.addGap(117))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(141)
-					.addComponent(login)
+					.addComponent(login_1)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(login1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addComponent(login, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(23)
-					.addComponent(senha)
+					.addComponent(senha_1)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(senha1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addComponent(senha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(botao_entrar)
 					.addContainerGap(68, Short.MAX_VALUE))

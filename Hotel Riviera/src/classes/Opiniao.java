@@ -19,7 +19,10 @@ public class Opiniao {
 	 * 			A nota dada pelo hospede		
 	 */
 	public Opiniao (String comentario, int nota) throws Exception{
-		if (comentario.length() > 200)
+		if (comentario == null)
+			throw new Exception("Comentario nulo");
+		
+		if (comentario.length() > 140)
 			throw new Exception("Comentario longo demais");
 		
 		if (nota > 10 || nota < 0)

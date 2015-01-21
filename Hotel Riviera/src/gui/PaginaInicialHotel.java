@@ -75,7 +75,10 @@ public class PaginaInicialHotel extends JInternalFrame {
 		JRadioButtonMenuItem servicos_disponiveis = new JRadioButtonMenuItem("Servi\u00E7os dispon\u00EDveis");
 		relatorios.add(servicos_disponiveis);
 		
-		JMenu faturamento = new JMenu("Faturamento mensal");
+		JMenuItem mntmOpinies = new JMenuItem("Opini\u00F5es");
+		relatorios.add(mntmOpinies);
+		
+		JMenu faturamento = new JMenu("Faturamento");
 		menuBar.add(faturamento);
 		
 		JMenu sobre = new JMenu("Sobre");
