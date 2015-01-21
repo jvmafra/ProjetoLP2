@@ -14,6 +14,14 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
+import javax.swing.JTable;
+import javax.swing.JTree;
+import javax.swing.JProgressBar;
+import javax.swing.JScrollBar;
+import javax.swing.JSeparator;
+import javax.swing.JSlider;
+import javax.swing.Box;
+import java.awt.Color;
 
 public class LoginDeFuncionario extends JInternalFrame {
 	private JTextField login;
@@ -39,7 +47,7 @@ public class LoginDeFuncionario extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public LoginDeFuncionario() {
-		setFrameIcon(new ImageIcon("D:\\Imagens\\\u00CDcones Projeto LP2\\png\\hotel22.png"));
+		setFrameIcon(new ImageIcon("C:\\Users\\Mafra\\git\\Hotel Riviera\\src\\icones\\hotel22.png"));
 		setTitle("Login - Funcion\u00E1rio");
 		setBounds(100, 100, 494, 383);
 		
@@ -91,7 +99,7 @@ public class LoginDeFuncionario extends JInternalFrame {
 					.addComponent(senha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(botao_entrar)
-					.addContainerGap(68, Short.MAX_VALUE))
+					.addContainerGap(70, Short.MAX_VALUE))
 		);
 		getContentPane().setLayout(groupLayout);
 
