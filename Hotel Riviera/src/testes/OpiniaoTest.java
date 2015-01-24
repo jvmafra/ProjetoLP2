@@ -56,7 +56,7 @@ public class OpiniaoTest {
 	@Test
 	public void testaToString() {
 		Assert.assertEquals("Muito bom e muito confortável. Atendeu às expectativas"
-				+ "\n21/1/2015 às 12:23" + "\nNota: 9", op1.toString());
+				+ "\n21/1/2015 às 17:39" + "\nNota: 9", op1.toString());
 		
 		// Deve-se colocar a hora atual dos testes
 	}

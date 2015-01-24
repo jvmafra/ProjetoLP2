@@ -1,4 +1,5 @@
 package classes;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
@@ -11,13 +12,11 @@ import java.util.List;
 
 public class Contrato {
 	private Hospede hospede;
-	private List<Servicos> servicos;
+	private List<Servicos> servicos = new ArrayList<Servicos>();
 	private EstrategiaCobranca e;
 	private String formaDePagamento;
-	private int periodo;
+	private Periodo periodo;
 	private boolean aberto;
-	private Calendar data_entrada;
-	private Calendar data_saida;
 	
 	/**
 	 * Construtor que recebe as informacoes necessarias para criacao de um contrato
@@ -32,28 +31,16 @@ public class Contrato {
 	 * @param formaDePagamento
 	 * 			Recebe a forma de pagamento do hospede
 	 */
-	public Contrato (List<Servicos> servicos, Hospede hospede, EstrategiaCobranca e, Calendar data_entrada, Calendar data_saida, String formaDePagamento) throws Exception{
-		if (data_saida.get(Calendar.MONTH) < data_entrada.get(Calendar.MONTH))
-			throw new Exception("Data invalida");
-		
-		if (data_saida.get(Calendar.MONTH) == data_entrada.get(Calendar.MONTH))
-			periodo = data_saida.get(Calendar.DATE) - data_entrada.get(Calendar.DATE);
-		
-		if (data_saida.get(Calendar.MONTH) > data_entrada.get(Calendar.MONTH))
-			//NAO SEI COMO FAZER
-			
-		if (periodo <= 0)
-			throw new Exception("Periodo invalido");
+	public Contrato (Quarto quarto, Hospede hospede, EstrategiaCobranca e, Periodo periodo, String formaDePagamento) throws Exception{
 		
 		if (formaDePagamento.equals("") || formaDePagamento == null)
 			throw new Exception("Forma de pagamento invalida");
 		
 		this.hospede = hospede;
-		this.servicos = servicos;
 		this.e = e;
 		this.formaDePagamento = formaDePagamento;
-		this.data_entrada = data_entrada;
-		this.data_saida = data_saida;
+		this.periodo = periodo;
+		servicos.add(quarto);
 		
 		aberto = true;
 	}
@@ -102,39 +89,18 @@ public class Contrato {
 	 * @return periodo
 	 * 			Periodo da estadia do hospede
 	 */
-	public int getPeriodo() {
+	public Periodo getPeriodo() {
 		return periodo;
 	}
 	
 	/**
-	 * Retorna a data de entrada do hospede
-	 * @return data_completa
-	 * 			Data em forma de String
+	 * Retorna o numero de dias em que o hospede ficara hospedado
+	 * @return Numero de dias
 	 */
-	public String getDataEntrada(){
-		int dia = data_entrada.get(Calendar.DATE);
-		int mes = data_entrada.get(Calendar.MONTH) + 1;
-		int ano = data_entrada.get(Calendar.YEAR);
-		
-		String data_completa = dia + "/" + mes + "/" + ano;
-		
-		return data_completa;
+	public int numDias() {
+		return periodo.getNumeroDias();
 	}
 	
-	/**
-	 * Retorna a data de saida do hospede
-	 * @return data_completa
-	 * 			Data em forma de String
-	 */
-	public String getDataSaida(){
-		int dia = data_saida.get(Calendar.DATE);
-		int mes = data_saida.get(Calendar.MONTH) + 1;
-		int ano = data_saida.get(Calendar.YEAR);
-		
-		String data_completa = dia + "/" + mes + "/" + ano;
-		
-		return data_completa;
-	}
 	
 	/**
 	 * Adiciona um novo servico a lista de servicos do hospede
@@ -269,8 +235,7 @@ public class Contrato {
 	 * 			Contem as informacoes do hospede, o quarto, todos servicos usados e seu valor total, alem do valor final da estadia, a forma de pagamento e o status atual do contrato
 	 */
 	public String imprimeFaturaFinal(){
-		return hospede.toString() + "\nData de entrada: " + getDataEntrada()
-				+ "\nData de saida: " + getDataSaida()
+		return hospede.toString() + "\nPeriodo: " + getPeriodo().toString() + "(" + numDias() + " dias)"
 				+ "\nDados do quarto: " + servicos.get(0).toString()
 				+ "\n\nServicos especiais (pela ordem): " + imprimeCadaServicoEspecial()
 				+ "\n\n\nValor total dos servicos: " + calculaValorServicos() 
@@ -279,20 +244,16 @@ public class Contrato {
 				+ "\n\nStatus do contrato: " + mostraStatus();
 	}
 	
+
 	/**
 	 * Verifica um contrato atualmente. Como sera usado apenas para rapida verificacao nao contem informacoes de pagamento (apenas em relacao ao quarto ,que e fixo)
 	 * @return String
 	 * 			Contem as informacoes do hospede, o periodo, o quarto e o statis
 	 */
 	@Override
-	public String toString(){
-		Calendar data_atual = new GregorianCalendar();
-		int dia_atual = data_atual.get(Calendar.DATE);
-		int termino = data_saida.get(Calendar.DATE) - dia_atual;
-		
+	public String toString(){	
 		return hospede.toString()
-				+ "\nPeriodo da hospedagem: " + getPeriodo()
-				+ "\nDias restantes para termino da hospedagem: " + termino
+				+ "\nPeriodo da hospedagem: " + getPeriodo().toString()
 				+ "\n" + servicos.get(0).toString()
 				+ "\nStatus do contrato: " + mostraStatus();
 	}

@@ -5,22 +5,22 @@ public class Hospede {
 	
 	public Hospede(String nome, String CPF, String RG, String email, int telefone, String endereco) throws Exception{
 		if(nome.equals("") || nome.equals(null))
-			throw new Exception("nome inválido");
+			throw new Exception("Nome invalido");
 		
 		if(CPF.equals("") || CPF.equals(null) || CPF.length() != 11)
-			throw new Exception("CPF inválido");
+			throw new Exception("CPF invalido");
 		
 		if(RG.equals("") || RG.equals(null))
-			throw new Exception("RG inválido");
+			throw new Exception("RG invalido");
 		
 		if(email.equals("") || email.equals(null))
-			throw new Exception("e-mail inválido");
+			throw new Exception("E-mail invalido");
 		
 		if(endereco.equals("") || endereco.equals(null))
-			throw new Exception("endereço inválido");
+			throw new Exception("Endereco invalido");
 		
 		if(telefone == 000000000)
-			throw new Exception("telefone inválido");
+			throw new Exception("Telefone invalido");
 		
 	this.nome = nome;
 	this.CPF = CPF;
