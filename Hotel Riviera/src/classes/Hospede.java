@@ -1,9 +1,8 @@
 package classes;
 public class Hospede {
-	private String nome, CPF, RG, email, endereco;
-	private int telefone;
+	private String nome, CPF, RG, email, endereco, telefone;
 	
-	public Hospede(String nome, String CPF, String RG, String email, int telefone, String endereco) throws Exception{
+	public Hospede(String nome, String CPF, String RG, String email, String telefone, String endereco) throws Exception{
 		if(nome.equals("") || nome.equals(null))
 			throw new Exception("Nome invalido");
 		
@@ -19,8 +18,6 @@ public class Hospede {
 		if(endereco.equals("") || endereco.equals(null))
 			throw new Exception("Endereco invalido");
 		
-		if(telefone == 000000000)
-			throw new Exception("Telefone invalido");
 		
 	this.nome = nome;
 	this.CPF = CPF;
@@ -31,7 +28,7 @@ public class Hospede {
 	
 	}
 
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
@@ -75,7 +72,7 @@ public class Hospede {
 		this.endereco = endereco;
 	}
 	
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 

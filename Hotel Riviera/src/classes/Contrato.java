@@ -14,7 +14,7 @@ public class Contrato {
 	private Hospede hospede;
 	private List<Servicos> servicos = new ArrayList<Servicos>();
 	private EstrategiaCobranca e;
-	private String formaDePagamento;
+	private String NumCartao;
 	private Periodo periodo;
 	private boolean aberto;
 	
@@ -38,7 +38,7 @@ public class Contrato {
 		
 		this.hospede = hospede;
 		this.e = e;
-		this.formaDePagamento = formaDePagamento;
+		this.NumCartao = formaDePagamento;
 		this.periodo = periodo;
 		servicos.add(quarto);
 		
@@ -65,7 +65,7 @@ public class Contrato {
 	 * Retorna a forma de pagamento atual do cliente
 	 */
 	public String getFormaDePagamento() {
-		return formaDePagamento;
+		return NumCartao;
 	}
 	
 	/**
@@ -74,7 +74,7 @@ public class Contrato {
 	 * 			A nova forma de pagamento
 	 */
 	public void setFormaDePagamento(String formaDePagamento) {
-		this.formaDePagamento = formaDePagamento;
+		this.NumCartao = formaDePagamento;
 	}
 	
 	/**
@@ -166,7 +166,7 @@ public class Contrato {
 	/**
 	 * Retorna o telefone do hospede
 	 */
-	public int getTelefone() {
+	public String getTelefone() {
 		return hospede.getTelefone();
 	}
 	
