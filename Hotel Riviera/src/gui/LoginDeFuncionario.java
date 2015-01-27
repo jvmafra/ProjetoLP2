@@ -123,7 +123,7 @@ public class LoginDeFuncionario extends JFrame {
 			putValue(SHORT_DESCRIPTION, "Login de funcionario");
 		}
 		public void actionPerformed(ActionEvent e) {
-			if (login.getText().equals("admin") || senha.getText().equals("123456"))
+			if (login.getText().equals("admin") && senha.getText().equals("123456"))
 				 JOptionPane.showMessageDialog(null, "Acesso Permitido");
 			else
 				 JOptionPane.showMessageDialog(null, "Acesso Negado");

@@ -2,6 +2,8 @@ package classes;
 
 import java.util.Calendar;
 
+import excecoes.PeriodoInvalidoException;
+
 /**
  * Um periodo de tempo possui uma data inicial e uma data final.
  * Pode estar presente no contrato, no babysitter e no aluguel de carro.
@@ -21,9 +23,25 @@ public class Periodo {
 	 * 			A data final do servico/hospedagem
 	 */
 	public Periodo (Calendar data_inicial, Calendar data_final) throws Exception{
-		
 		if (data_inicial == null || data_final == null)
-			throw new Exception("Datas nulas");
+			throw new PeriodoInvalidoException("Datas nulas");
+		
+		if (data_final.get(Calendar.YEAR) < data_inicial.get(Calendar.YEAR))
+			throw new PeriodoInvalidoException("Selecione anos de entrada e saida válidos");
+		
+		if (data_final.get(Calendar.YEAR) == data_inicial.get(Calendar.YEAR)){
+			if (data_final.get(Calendar.MONTH) < data_inicial.get(Calendar.MONTH)){
+				throw new PeriodoInvalidoException("Selecione meses de entrada e saida válidos");
+			}
+			
+			else {
+				if (data_final.get(Calendar.MONTH) == data_inicial.get(Calendar.MONTH) && data_final.get(Calendar.DATE) <= data_inicial.get(Calendar.DATE))
+					throw new PeriodoInvalidoException("Selecione dias de entrada e saida válidos");
+			}
+		}
+		
+		
+		
 		
 		this.data_inicial = data_inicial;
 		this.data_final = data_final;
