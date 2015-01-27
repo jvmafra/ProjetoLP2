@@ -9,6 +9,7 @@ package classes;
 public abstract class Quarto implements Servicos{
 	private int numeroDoQuarto;
 	private String hospede;
+	private boolean camaExtra;
 	
 	/**
 	 * Cria um quarto
@@ -16,17 +17,20 @@ public abstract class Quarto implements Servicos{
 	 * 		O nome completo do hospede deste quarto
 	 * @param numeroDoQuarto
 	 * 		O numero relativo ao quarto
+	 * @param camaExtra
+	 *		Boolean indicando a existencia (ou nao) de cama extra no quarto
 	 * @throws Exception
 	 * 		O hospede deve ser identificado no minimo com nome e sobrenome
 	 * 		O numero do quarto deve ser sempre inteiro positivo
 	 */
-	public Quarto(String hospede, int numeroDoQuarto) throws Exception{
+	public Quarto(String hospede, int numeroDoQuarto, boolean camaExtra) throws Exception{
 		if (numeroDoQuarto <= 0)
 			throw new Exception("Numero do Quarto invalido");
 		if (hospede == null || hospede.split(" ").length < 2)
 			throw new Exception("Hospede invalido");
 		this.hospede = hospede;
-		this.numeroDoQuarto = numeroDoQuarto;		
+		this.numeroDoQuarto = numeroDoQuarto;
+		this.camaExtra = camaExtra;
 	}
 	
 	/**
@@ -42,6 +46,14 @@ public abstract class Quarto implements Servicos{
 	 * 		O nome do cliente
 	 */
 	public String getHospede(){ return hospede; }
+	
+	/**
+	 * Verifica se o quarto possui uma cama extra
+	 * @return
+	 * 		True, se o quarto possuir cama extra
+	 * 		False, se nao houver cama extra no quarto
+	 */
+	public boolean isCamaExtra() { return camaExtra; }
 
 	/**
 	 * Verifica se o quarto comporta um dado numero de pessoas

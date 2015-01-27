@@ -17,12 +17,14 @@ public class QuartoLuxoDuplo extends Quarto{
 	 * 		O nome completo do hospede deste quarto
 	 * @param numeroDoQuarto
 	 * 		O numero relativo ao quarto
+	 * @param camaExtra
+	 * 		Boolean indicando a existencia (ou nao) de cama extra no quarto
 	 * @throws Exception
 	 * 		O hospede deve ser identificado no minimo com nome e sobrenome
 	 * 		O numero do quarto deve ser sempre inteiro positivo
 	 */
-	public QuartoLuxoDuplo(String hospede, int numeroDoQuarto) throws Exception{
-		super(hospede, numeroDoQuarto);
+	public QuartoLuxoDuplo(String hospede, int numeroDoQuarto, boolean camaExtra) throws Exception{
+		super(hospede, numeroDoQuarto, camaExtra);
 	}
 	
 	/**
