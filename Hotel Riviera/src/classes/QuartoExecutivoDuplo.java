@@ -15,18 +15,15 @@ public class QuartoExecutivoDuplo extends Quarto {
 	
 	/**
 	 * Cria o quarto Executivo Duplo
-	 * @param hospede 	
-	 * 		O nome completo do hospede deste quarto
 	 * @param numeroDoQuarto
 	 * 		O numero relativo ao quarto
 	 * @param camaExtra
 	 * 		Boolean indicando a existencia (ou nao) de cama extra no quarto
 	 * @throws Exception
-	 * 		O hospede deve ser identificado no minimo com nome e sobrenome
 	 * 		O numero do quarto deve ser sempre inteiro positivo
 	 */
-	public QuartoExecutivoDuplo(String hospede, int numeroDoQuarto, boolean camaExtra) throws Exception{
-		super(hospede, numeroDoQuarto);	
+	public QuartoExecutivoDuplo(int numeroDoQuarto, boolean camaExtra) throws Exception{
+		super(numeroDoQuarto);	
 		this.camaExtra = camaExtra;
 	}
 	

@@ -13,16 +13,13 @@ public class QuartoLuxoTriplo extends Quarto{
 	
 	/**
 	 * Cria o quarto Luxo Triplo
-	 * @param hospede 	
-	 * 		O nome completo do hospede deste quarto
 	 * @param numeroDoQuarto
 	 * 		O numero relativo ao quarto
 	 * @throws Exception
-	 * 		O hospede deve ser identificado no minimo com nome e sobrenome
 	 * 		O numero do quarto deve ser sempre inteiro positivo
 	 */
-	public QuartoLuxoTriplo(String hospede, int numeroDoQuarto) throws Exception{
-		super(hospede, numeroDoQuarto);
+	public QuartoLuxoTriplo(int numeroDoQuarto) throws Exception{
+		super(numeroDoQuarto);
 	}
 	
 	/**

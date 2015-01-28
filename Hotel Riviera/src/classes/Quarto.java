@@ -8,27 +8,18 @@ package classes;
  */
 public abstract class Quarto implements Servicos{
 	private int numeroDoQuarto;
-	private String hospede;
-	private boolean camaExtra;
-	
 	
 	/**
 	 * 
 	 * Cria um quarto
-	 * @param hospede 	
-	 * 		O nome completo do hospede deste quarto
 	 * @param numeroDoQuarto
 	 * 		O numero relativo ao quarto
 	 * @throws Exception
-	 * 		O hospede deve ser identificado no minimo com nome e sobrenome
 	 * 		O numero do quarto deve ser sempre inteiro positivo
 	 */
-	public Quarto(String hospede, int numeroDoQuarto) throws Exception{
+	public Quarto(int numeroDoQuarto) throws Exception{
 		if (numeroDoQuarto <= 0)
 			throw new Exception("Numero do Quarto invalido");
-		if (hospede == null || hospede.split(" ").length < 2)
-			throw new Exception("Hospede invalido");
-		this.hospede = hospede;
 		this.numeroDoQuarto = numeroDoQuarto;
 	}
 	
@@ -38,14 +29,6 @@ public abstract class Quarto implements Servicos{
 	 * 		O numero do quarto
 	 */
 	public int getNumeroDoQuarto(){ return numeroDoQuarto;	}
-	
-	/**
-	 * Busca o nome do hospede associado ao quarto
-	 * @return
-	 * 		O nome do cliente
-	 */
-	public String getHospede(){ return hospede; }
-	
 
 	/**
 	 * Verifica se o quarto comporta um dado numero de pessoas
@@ -67,15 +50,14 @@ public abstract class Quarto implements Servicos{
 	 */
 	@Override
 	public String toString() {
-		return "[Numero do Quarto = " + numeroDoQuarto + ", Hospede = "
-				+ hospede + "]";
+		return "[Numero do Quarto = " + numeroDoQuarto + "]";
 	}
 	
 	/**
 	 * Verifica se o quarto e um objeto dado como parametro sao iguais
 	 * 
 	 * Dois objetos da classe Quarto sao iguais se possuem
-	 * mesmo numero do quarto e mesmo hospede
+	 * mesmo numero do quarto
 	 * @param obj
 	 * 		O objeto a ser comparado
 	 * @return
@@ -86,7 +68,7 @@ public abstract class Quarto implements Servicos{
 		if (!(obj instanceof Quarto))
 			return false;
 		Quarto q = (Quarto) obj;
-		return getNumeroDoQuarto()== q.getNumeroDoQuarto() && getHospede().equals(q.getHospede());
+		return getNumeroDoQuarto() == q.getNumeroDoQuarto();
 	}
 	
 	
