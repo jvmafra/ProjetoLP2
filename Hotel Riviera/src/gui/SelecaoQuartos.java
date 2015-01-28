@@ -13,6 +13,7 @@ import javax.swing.GroupLayout.Alignment;
 import java.awt.Font;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
@@ -43,6 +44,7 @@ public class SelecaoQuartos extends JFrame {
 	JRadioButton executivosimples;
 	JRadioButton executivoduplo;
 	JRadioButton executivotriplo;
+	JCheckBox cama_extra;
 	
 	private final Action selecionaPresidencial = new SwingAction();
 	private final Action selecionaLuxoSimples = new SwingAction_1();
@@ -51,6 +53,8 @@ public class SelecaoQuartos extends JFrame {
 	private final Action selecionaExecutivoSimples = new SwingAction_4();
 	private final Action selecionaExecutivoDuplo = new SwingAction_5();
 	private final Action selecionaExecutivoTriplo = new SwingAction_6();
+	private final Action marcaCamaExtra = new SwingAction_7();
+	private JTextField adicional;
 	
 
 	/**
@@ -123,7 +127,8 @@ public class SelecaoQuartos extends JFrame {
 		c.add(executivotriplo);
 		  
 		
-		JCheckBox cama_extra = new JCheckBox("Cama extra");
+		cama_extra = new JCheckBox("Cama extra");
+		cama_extra.setAction(marcaCamaExtra);
 		cama_extra.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		
 		JButton avancar = new JButton("Avan\u00E7ar");
@@ -138,9 +143,16 @@ public class SelecaoQuartos extends JFrame {
 		
 		JButton botao_voltar = new JButton("Voltar");
 		botao_voltar.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
+		
+		JLabel adicional1 = new JLabel("Adicional: R$");
+		adicional1.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
+		
+		adicional = new JTextField();
+		adicional.setEditable(false);
+		adicional.setColumns(10);
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
+			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(176)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
@@ -153,19 +165,23 @@ public class SelecaoQuartos extends JFrame {
 						.addComponent(luxosimples, GroupLayout.PREFERRED_SIZE, 137, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap())
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(104)
-					.addComponent(diaria1)
+					.addGap(29)
+					.addComponent(botao_voltar, GroupLayout.PREFERRED_SIZE, 79, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
+					.addComponent(avancar)
+					.addGap(42))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(85)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addComponent(diaria1)
+						.addComponent(adicional1))
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(diaria, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(diaria, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(adicional, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
 					.addComponent(cama_extra)
 					.addGap(102))
-				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-					.addGap(42)
-					.addComponent(botao_voltar, GroupLayout.PREFERRED_SIZE, 79, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
-					.addComponent(avancar)
-					.addGap(42))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -184,17 +200,24 @@ public class SelecaoQuartos extends JFrame {
 					.addComponent(executivoduplo, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(executivotriplo, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-							.addComponent(diaria1)
-							.addComponent(diaria, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addComponent(cama_extra))
-					.addPreferredGap(ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(botao_voltar, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
-						.addComponent(avancar))
-					.addGap(20))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(18)
+							.addComponent(cama_extra))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(diaria, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(diaria1))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(adicional, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(adicional1))
+							.addGap(18)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(botao_voltar, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+								.addComponent(avancar))
+							.addContainerGap())))
 		);
 		getContentPane().setLayout(groupLayout);
 
@@ -206,7 +229,12 @@ public class SelecaoQuartos extends JFrame {
 		}
 		public void actionPerformed(ActionEvent e) {
 			diaria.setText(String.valueOf(QuartoPresidencial.VALOR_DA_DIARIA));
+			if (cama_extra.isSelected()){
+				retiraCamaExtra();
+			}	
+				
 		}
+	
 	}
 	private class SwingAction_1 extends AbstractAction {
 		public SwingAction_1() {
@@ -215,6 +243,8 @@ public class SelecaoQuartos extends JFrame {
 		}
 		public void actionPerformed(ActionEvent e) {		
 			diaria.setText(String.valueOf(QuartoLuxoSimples.VALOR_DA_DIARIA));
+			if (cama_extra.isSelected())
+				colocaAdicional();
 		}
 	}
 	private class SwingAction_2 extends AbstractAction {
@@ -224,6 +254,8 @@ public class SelecaoQuartos extends JFrame {
 		}
 		public void actionPerformed(ActionEvent e) {
 			diaria.setText(String.valueOf(QuartoLuxoDuplo.VALOR_DA_DIARIA));
+			if (cama_extra.isSelected())
+				colocaAdicional();
 		}
 	}
 	
@@ -234,6 +266,8 @@ public class SelecaoQuartos extends JFrame {
 		}
 		public void actionPerformed(ActionEvent e) {
 			diaria.setText(String.valueOf(QuartoLuxoTriplo.VALOR_DA_DIARIA));
+			if (cama_extra.isSelected())
+				retiraCamaExtra();
 		}
 	}
 	private class SwingAction_4 extends AbstractAction {
@@ -243,6 +277,8 @@ public class SelecaoQuartos extends JFrame {
 		}
 		public void actionPerformed(ActionEvent e) {
 			diaria.setText(String.valueOf(QuartoExecutivoSimples.VALOR_DA_DIARIA));
+			if (cama_extra.isSelected())
+				colocaAdicional();
 		}	
 	}
 	private class SwingAction_5 extends AbstractAction {
@@ -252,6 +288,8 @@ public class SelecaoQuartos extends JFrame {
 		}
 		public void actionPerformed(ActionEvent e) {
 				diaria.setText(String.valueOf(QuartoExecutivoDuplo.VALOR_DA_DIARIA));
+				if (cama_extra.isSelected())
+					colocaAdicional();
 		}
 	}
 	private class SwingAction_6 extends AbstractAction {
@@ -261,6 +299,47 @@ public class SelecaoQuartos extends JFrame {
 		}
 		public void actionPerformed(ActionEvent e) {
 			diaria.setText(String.valueOf(QuartoExecutivoTriplo.VALOR_DA_DIARIA));
+			if (cama_extra.isSelected())
+				retiraCamaExtra();
 		}
 	}
+	private class SwingAction_7 extends AbstractAction {
+		public SwingAction_7() {
+			putValue(NAME, "Cama extra");
+			putValue(SHORT_DESCRIPTION, "Marque se deseja que seja adicionada uma cama extra");
+		}
+		public void actionPerformed(ActionEvent e) {
+			if (cama_extra.isSelected())
+				if (luxosimples.isSelected() || luxoduplo.isSelected() || executivosimples.isSelected() || executivoduplo.isSelected())
+					colocaAdicional();
+				else{
+					mensagemErro();
+					desmarcaCaixa();
+				}
+			else
+				retiraAdicional();
+		}
+	
+	}
+	
+	private void retiraAdicional() {
+		adicional.setText("");
+	}
+	private void colocaAdicional() {
+		adicional.setText("20,00");
+	}
+	private void mensagemErro() {
+		JOptionPane.showMessageDialog(null, "Esse quarto não possui a opção de cama extra.");
+	}
+	
+	private void desmarcaCaixa() {
+		cama_extra.setSelected(false);
+	}
+	
+	private void retiraCamaExtra() {
+		retiraAdicional();
+		desmarcaCaixa();
+		mensagemErro();
+	}
+	
 }

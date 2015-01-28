@@ -177,7 +177,6 @@ public class CadastroHospede extends JFrame {
 				JOptionPane.showMessageDialog(null, "Hospede criado!");
 			} catch (Exception e1) {
 				JOptionPane.showMessageDialog(null, e1.getMessage());
-				e1.printStackTrace();
 			}
 		}
 	}
