@@ -17,14 +17,12 @@ public class QuartoLuxoTriplo extends Quarto{
 	 * 		O nome completo do hospede deste quarto
 	 * @param numeroDoQuarto
 	 * 		O numero relativo ao quarto
-	 * @param camaExtra
-	 * 		Boolean indicando a existencia (ou nao) de cama extra no quarto
 	 * @throws Exception
 	 * 		O hospede deve ser identificado no minimo com nome e sobrenome
 	 * 		O numero do quarto deve ser sempre inteiro positivo
 	 */
-	public QuartoLuxoTriplo(String hospede, int numeroDoQuarto, boolean camaExtra) throws Exception{
-		super(hospede, numeroDoQuarto, camaExtra);
+	public QuartoLuxoTriplo(String hospede, int numeroDoQuarto) throws Exception{
+		super(hospede, numeroDoQuarto);
 	}
 	
 	/**
@@ -42,6 +40,9 @@ public class QuartoLuxoTriplo extends Quarto{
 		return true;
 	}
 
+	/**
+	 * Retorna o valor da diaria do quarto
+	 */
 	@Override
 	public double valor() {
 		return VALOR_DA_DIARIA;

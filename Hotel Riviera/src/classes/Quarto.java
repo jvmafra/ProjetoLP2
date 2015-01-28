@@ -17,20 +17,17 @@ public abstract class Quarto implements Servicos{
 	 * 		O nome completo do hospede deste quarto
 	 * @param numeroDoQuarto
 	 * 		O numero relativo ao quarto
-	 * @param camaExtra
-	 *		Boolean indicando a existencia (ou nao) de cama extra no quarto
 	 * @throws Exception
 	 * 		O hospede deve ser identificado no minimo com nome e sobrenome
 	 * 		O numero do quarto deve ser sempre inteiro positivo
 	 */
-	public Quarto(String hospede, int numeroDoQuarto, boolean camaExtra) throws Exception{
+	public Quarto(String hospede, int numeroDoQuarto) throws Exception{
 		if (numeroDoQuarto <= 0)
 			throw new Exception("Numero do Quarto invalido");
 		if (hospede == null || hospede.split(" ").length < 2)
 			throw new Exception("Hospede invalido");
 		this.hospede = hospede;
 		this.numeroDoQuarto = numeroDoQuarto;
-		this.camaExtra = camaExtra;
 	}
 	
 	/**
@@ -47,13 +44,6 @@ public abstract class Quarto implements Servicos{
 	 */
 	public String getHospede(){ return hospede; }
 	
-	/**
-	 * Verifica se o quarto possui uma cama extra
-	 * @return
-	 * 		True, se o quarto possuir cama extra
-	 * 		False, se nao houver cama extra no quarto
-	 */
-	public boolean isCamaExtra() { return camaExtra; }
 
 	/**
 	 * Verifica se o quarto comporta um dado numero de pessoas
@@ -65,12 +55,14 @@ public abstract class Quarto implements Servicos{
 	 */
 	public abstract boolean isCapacidadeValida(int numeroDePessoas);
 
-	
+	/**
+	 * Retorna o valor da diaria do quarto
+	 */
 	public abstract double valor();
+	
 	/**
 	 * Fornece uma representacao do quarto como String
 	 */
-	
 	@Override
 	public String toString() {
 		return "[Numero do Quarto = " + numeroDoQuarto + ", Hospede = "

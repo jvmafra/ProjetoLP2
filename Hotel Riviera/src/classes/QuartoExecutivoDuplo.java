@@ -9,7 +9,9 @@ package classes;
 public class QuartoExecutivoDuplo extends Quarto {
 
 	public static final double VALOR_DA_DIARIA = 385.00;
+	public static final double VALOR_DA_DIARIA_COM_CAMA_EXTRA = 405.00;
 	public static final int CAPACIDADE = 2;
+	private boolean camaExtra;
 	
 	/**
 	 * Cria o quarto Executivo Duplo
@@ -24,7 +26,8 @@ public class QuartoExecutivoDuplo extends Quarto {
 	 * 		O numero do quarto deve ser sempre inteiro positivo
 	 */
 	public QuartoExecutivoDuplo(String hospede, int numeroDoQuarto, boolean camaExtra) throws Exception{
-		super(hospede, numeroDoQuarto, camaExtra);	
+		super(hospede, numeroDoQuarto);	
+		this.camaExtra = camaExtra;
 	}
 	
 	/**
@@ -42,8 +45,21 @@ public class QuartoExecutivoDuplo extends Quarto {
 		return true;
 	}
 
+	/**
+	 * Verifica se o quarto possui uma cama extra
+	 * @return
+	 * 		True, se o quarto possuir cama extra
+	 * 		False, se nao houver cama extra no quarto
+	 */
+	public boolean isCamaExtra() { return camaExtra; }
+	
+	/**
+	 * Retorna o valor da diaria do quarto
+	 */
 	@Override
 	public double valor() {
+		if (camaExtra) 
+			return VALOR_DA_DIARIA_COM_CAMA_EXTRA;
 		return VALOR_DA_DIARIA;
 	}
 	

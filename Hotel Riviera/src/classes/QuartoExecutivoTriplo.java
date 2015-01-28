@@ -22,8 +22,8 @@ public class QuartoExecutivoTriplo extends Quarto{
 	 * 		O hospede deve ser identificado no minimo com nome e sobrenome
 	 * 		O numero do quarto deve ser sempre inteiro positivo
 	 */
-	public QuartoExecutivoTriplo(String hospede, int numeroDoQuarto, boolean camaExtra) throws Exception{
-		super(hospede, numeroDoQuarto, camaExtra);
+	public QuartoExecutivoTriplo(String hospede, int numeroDoQuarto) throws Exception{
+		super(hospede, numeroDoQuarto);
 	}
 	
 	/**
@@ -41,6 +41,9 @@ public class QuartoExecutivoTriplo extends Quarto{
 		return true;
 	}
 	
+	/**
+	 * Retorna o valor da diaria do quarto
+	 */
 	@Override
 	public double valor() {
 		return VALOR_DA_DIARIA;
