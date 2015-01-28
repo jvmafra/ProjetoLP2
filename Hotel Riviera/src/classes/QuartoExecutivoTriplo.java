@@ -41,6 +41,7 @@ public class QuartoExecutivoTriplo extends Quarto{
 		return true;
 	}
 	
+	
 	/**
 	 * Retorna o valor da diaria do quarto
 	 */

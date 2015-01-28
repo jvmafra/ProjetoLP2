@@ -45,6 +45,7 @@ public class QuartoExecutivoDuplo extends Quarto {
 		return true;
 	}
 
+	
 	/**
 	 * Verifica se o quarto possui uma cama extra
 	 * @return
@@ -62,6 +63,7 @@ public class QuartoExecutivoDuplo extends Quarto {
 			return VALOR_DA_DIARIA_COM_CAMA_EXTRA;
 		return VALOR_DA_DIARIA;
 	}
+	
 	
 	/**
 	 * Fornece uma representacao do quarto Executivo Duplo como String

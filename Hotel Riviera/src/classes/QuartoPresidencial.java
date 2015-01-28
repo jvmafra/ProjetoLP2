@@ -23,6 +23,7 @@ public class QuartoPresidencial extends Quarto{
 		super(hospede, numeroDoQuarto);
 	}
 	
+	
 	/**
 	 * Verifica se o quarto comporta um dado numero de pessoas
 	 * @param numeroDePessoas

@@ -39,6 +39,7 @@ public class QuartoLuxoTriplo extends Quarto{
 			return false;
 		return true;
 	}
+	
 
 	/**
 	 * Retorna o valor da diaria do quarto

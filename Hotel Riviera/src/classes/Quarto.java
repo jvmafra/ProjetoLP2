@@ -11,7 +11,9 @@ public abstract class Quarto implements Servicos{
 	private String hospede;
 	private boolean camaExtra;
 	
+	
 	/**
+	 * 
 	 * Cria um quarto
 	 * @param hospede 	
 	 * 		O nome completo do hospede deste quarto

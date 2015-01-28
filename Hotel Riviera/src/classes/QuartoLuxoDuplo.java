@@ -63,6 +63,7 @@ public class QuartoLuxoDuplo extends Quarto{
 		return VALOR_DA_DIARIA;
 	}
 	
+	
 	/**
 	 * Fornece uma representacao do quarto Luxo Duplo como String
 	 */

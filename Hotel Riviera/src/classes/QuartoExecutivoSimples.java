@@ -52,6 +52,7 @@ public class QuartoExecutivoSimples extends Quarto{
 	 */
 	public boolean isCamaExtra() { return camaExtra; }
 	
+	
 	/**
 	 * Retorna o valor da diaria do quarto
 	 */

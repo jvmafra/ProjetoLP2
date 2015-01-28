@@ -30,6 +30,7 @@ public class QuartoLuxoSimples extends Quarto{
 		this.camaExtra = camaExtra;
 	}
 
+	
 	/**
 	 * Verifica se o quarto comporta um dado numero de pessoas
 	 * @param numeroDePessoas
