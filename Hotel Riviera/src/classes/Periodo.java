@@ -68,9 +68,9 @@ public class Periodo {
 	 * 			Numero de dias totais da hospedagem
 	 */
 	public int getNumeroDias(){
-		return 0;
-		
-		// FALTA ELABORAR
+		 long m1 = data_inicial.getTimeInMillis();
+	      long m2 = data_final.getTimeInMillis();
+	      return (int) ((m2 - m1) / (24*60*60*1000));
 	}
 	
 	private int getAnoFinal() {

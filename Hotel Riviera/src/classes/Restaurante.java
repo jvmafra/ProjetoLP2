@@ -1,33 +1,39 @@
 package classes;
 
-public class Restaurante implements Servicos {
-	double valor;
-	String Pedido;
-	public Restaurante(double valor, String item)throws Exception {
-		if(valor < 0){
-			throw new Exception("valor passado invalido");
-		}
-		this.valor = valor;
-		Pedido = item;
-	}
+import java.util.ArrayList;
+import java.util.List;
 
-	public String getPedido() {
-		return Pedido;
+public class Restaurante {
+	private List<Refeicao> refeicoes = new ArrayList <>();
+	
+	public Restaurante(){
+		
 	}
-
-	public void setPedido(String pedido) {
-		Pedido = pedido;
+	public void adcionaRefeicao(Refeicao pedido){
+		refeicoes.add(pedido);
 	}
-
-	@Override
-	public double valor() {
-		return valor;
+	
+	public void removeRefeicao(Refeicao pedido){
+		refeicoes.remove(pedido);
+	}
+	
+	public int numIdasAoRestaurante(){
+		return refeicoes.size();
 	}
 
 	@Override
 	public String toString() {
-		return "Restaurante valor=" + valor  ;
+		if (numIdasAoRestaurante() == 0){
+			return "O hospede nao frequentou o restaurante";
+		}
+		String idas = "Idas ao restaurante: \n";
+		for (int i = 0; i < refeicoes.size(); i++) {
+			Refeicao refeicao = refeicoes.get(i);
+			idas += refeicao.toString() + "\n";
+		}
+		return idas;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -38,12 +44,14 @@ public class Restaurante implements Servicos {
 		if (getClass() != obj.getClass())
 			return false;
 		Restaurante other = (Restaurante) obj;
-		if (Double.doubleToLongBits(valor) != Double.doubleToLongBits(other.valor))
+		if (refeicoes == null) {
+			if (other.refeicoes != null)
+				return false;
+		} else if (!refeicoes.equals(other.refeicoes))
 			return false;
 		return true;
 	}
-
-
-
+	
+	
 	
 }
