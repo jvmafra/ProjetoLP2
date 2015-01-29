@@ -1,6 +1,8 @@
 package classes;
 
 import java.util.InputMismatchException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Classe que representa um hospede, que estara associado a um contrato.
@@ -28,7 +30,7 @@ public class Hospede {
 		if(RG.equals("") || RG.equals(null) || RG.length() != 7)
 			throw new Exception("RG invalido");
 		
-		if(email.equals("") || email.equals(null))
+		if(email.equals("") || email.equals(null) || verificaEmail(email) == false)
 			throw new Exception("E-mail invalido");
 		
 		if(endereco.equals("") || endereco.equals(null))
@@ -118,11 +120,23 @@ public class Hospede {
 		return nome.equals(h1.getNome()) && cpf.equals(h1.getCpf()) && rg.equals(h1.getRg())
 				&& endereco.equals(h1.getEndereco());
 	}
-/**
- * Esse metodo tem como funcao verificar se o cpf recebido e valido.
- * @param CPF
- * @return
- */
+	/**
+	 * Esse metodo tem como funcao verificar se o cpf recebido e valido.
+	 * @param CPF
+	 * @return
+	 */
+	
+	public boolean verificaEmail(String email){
+		Pattern p = Pattern
+				.compile("^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$");
+
+		Matcher m = p.matcher(email);
+		if (m.find()) 
+			return true;
+	
+		return false;
+		
+	}
 	private static boolean isCPF(String CPF) { // considera-se erro CPF's formados por uma sequencia de numeros iguais 
 		if (CPF.equals("00000000000") || CPF.equals("11111111111") || CPF.equals("22222222222") || 
 			CPF.equals("33333333333") || CPF.equals("44444444444") || CPF.equals("55555555555") || 
