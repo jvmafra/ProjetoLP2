@@ -181,14 +181,14 @@ public class Contrato {
 	 * Retorna o CPF do hospede
 	 */
 	public String getCPF() {
-		return hospede.getCPF();
+		return hospede.getCpf();
 	}
 	
 	/**
 	 * Retorna o RG do hospede
 	 */
 	public String getRG() {
-		return hospede.getRG();
+		return hospede.getRg();
 	}
 	
 	/**
