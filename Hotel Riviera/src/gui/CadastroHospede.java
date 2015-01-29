@@ -24,6 +24,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.Action;
 
 import classes.Hospede;
+import java.awt.event.ActionListener;
 
 public class CadastroHospede extends JFrame {
 	private JTextField nome;
@@ -97,22 +98,35 @@ public class CadastroHospede extends JFrame {
 		JButton concluir = new JButton("Concluir");
 		concluir.setAction(action);
 		concluir.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
+		
+		JButton limpar = new JButton("Limpar");
+		limpar.setFont(new Font("Dialog", Font.PLAIN, 15));
+		limpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				nome.setText("");
+				cpf.setText("");
+				rg.setText("");
+				telefone.setText("");
+				email.setText("");
+				endereco.setText("");
+			}
+		});
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addGroup(groupLayout.createSequentialGroup()
 									.addComponent(telefone_1)
 									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(telefone, GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE))
+									.addComponent(telefone, GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE))
 								.addGroup(groupLayout.createSequentialGroup()
 									.addComponent(endereco_1)
 									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(endereco, GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE))
+									.addComponent(endereco, GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE))
 								.addGroup(groupLayout.createSequentialGroup()
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addComponent(nome_1)
@@ -123,11 +137,13 @@ public class CadastroHospede extends JFrame {
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addComponent(email, GroupLayout.PREFERRED_SIZE, 353, GroupLayout.PREFERRED_SIZE)
 										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-											.addComponent(rg, GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
-											.addComponent(cpf, GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
-											.addComponent(nome, GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)))))
+											.addComponent(rg, GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
+											.addComponent(cpf, GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
+											.addComponent(nome, GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)))))
 							.addGap(52))
-						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(limpar)
+							.addGap(34)
 							.addComponent(concluir)
 							.addGap(41))))
 		);
@@ -158,8 +174,10 @@ public class CadastroHospede extends JFrame {
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(endereco_1)
 						.addComponent(endereco, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-					.addComponent(concluir)
+					.addPreferredGap(ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(concluir)
+						.addComponent(limpar))
 					.addGap(22))
 		);
 		getContentPane().setLayout(groupLayout);
