@@ -3,14 +3,13 @@ package classes;
 import java.util.InputMismatchException;
 
 /**
- * 
- * @authorEdvalGatão
- * Moidecorno, aitacom o javadoc
+ * Classe que representa um hospede, que estara associado a um contrato.
+ * @author Edval Galdino
  */
 public class Hospede {
 	private String nome, cpf, rg, email,endereco, telefone;
 	/**
-	 * Construtor da classe hospede. Recebe como parametro esses atributos abaixo.
+	 * Construtor da classe hospede.
 	 * @param nome
 	 * @param CPF
 	 * @param RG
@@ -20,26 +19,23 @@ public class Hospede {
 	 * @throws Exception
 	 */
 	public Hospede(String nome, String CPF, String RG, String email, String telefone, String endereco) throws Exception{
-		/**
-		 * Osparametrossãoverificados, seforemválidos é criado o hospede, no casodeinvalidolançaumaexceção.
-		 */
 		if(nome.equals("") || nome.equals(null))
-			throw new Exception("Nome inválido");
+			throw new Exception("Nome invalido");
 		
 		if(!(isCPF(CPF)))
-			throw new Exception("CPF inválido");
+			throw new Exception("CPF invalido");
 		
 		if(RG.equals("") || RG.equals(null) || RG.length() != 7)
-			throw new Exception("RG inválido");
+			throw new Exception("RG invalido");
 		
 		if(email.equals("") || email.equals(null))
-			throw new Exception("E-mail inválido");
+			throw new Exception("E-mail invalido");
 		
 		if(endereco.equals("") || endereco.equals(null))
-			throw new Exception("Endereço inválido");
+			throw new Exception("Endereco invalido");
 		
 		if(telefone.equals("") || endereco.equals(null))
-			throw new Exception("Telefone inválido");
+			throw new Exception("Telefone invalido");
 		
 	this.nome = nome;
 	this.cpf = CPF;
@@ -57,13 +53,13 @@ public class Hospede {
 		return telefone;
 	}
 /**
- * Muda o telefone, primeiramenteverificase o parametro é válido, no casodeconfirma-se a afirmação anterior, muda o telefone.
+ * Muda o telefone, primeiramenteverificase o parametro e valido, no caso de confirmar-se a afirmacao anterior, muda o telefone.
  * @param telefone
  * @throws Exception
  */
 	public void setTelefone(String telefone) throws Exception {
 		if(telefone.equals("") || endereco.equals(null))
-			throw new Exception("Telefone inválido");
+			throw new Exception("Telefone invalido");
 		this.telefone = telefone;
 	}
 /**
@@ -99,8 +95,9 @@ public class Hospede {
 	}
 
 /**
- * Retornaendereço.	
- * @returnendereço.
+ * Retorna endereco.	
+ * @return 
+ * 		endereco.
  */
 	public String getEndereco() {
 		return endereco;
@@ -108,9 +105,8 @@ public class Hospede {
 
 	@Override
 	public String toString() {
-		return"Hospede [nome=" + nome + ", cpf=" + cpf + ", rg=" + rg
-				+ ", email=" + email + ", endereco=" + endereco + ", telefone="
-				+ telefone + "]";
+		return "Nome: " + getNome() + "\nCPF: " + getCpf() + "\nRG: " + getRg() + "\nE-mail: " + getEmail()
+				+ "\nTelefone: " + getTelefone() + "\nEndereco: " + getEndereco();
 	}
 
 	@Override
@@ -123,7 +119,7 @@ public class Hospede {
 				&& endereco.equals(h1.getEndereco());
 	}
 /**
- * Esse metodo tem como função verificar se o cpf recebido é válido.
+ * Esse metodo tem como funcao verificar se o cpf recebido e valido.
  * @param CPF
  * @return
  */

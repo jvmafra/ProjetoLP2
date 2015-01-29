@@ -4,10 +4,9 @@ import java.util.Calendar;
 
 public class Refeicao {
 	double valor;
-	String descricao;
 	Calendar data;
 	
-	public Refeicao(double valor, String item, Calendar data) throws Exception {
+	public Refeicao(double valor, Calendar data) throws Exception {
 		if(valor < 0) {
 			throw new Exception("Valor da conta invalido.");
 		}
@@ -16,12 +15,7 @@ public class Refeicao {
 			throw new Exception("O restaurante nao estava funcionando nesse horario");
 		}
 		this.valor = valor;
-		this.descricao = item;
 		this.data = data;
-	}
-
-	public String getDescricao() {
-		return descricao;
 	}
 	
 	public Calendar getData() {
@@ -36,9 +30,6 @@ public class Refeicao {
 		return dia + "/" + mes + "/" + ano;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
 
 	public double getPreco() {
 		return valor;
@@ -46,8 +37,7 @@ public class Refeicao {
 
 	@Override
 	public String toString() {
-		return "Descricao: " + getDescricao()
-				+ "\nValor: R$ " + getPreco() + "\nData: " + getDataString();
+		return "Data: " + getDataString() + "\nValor: R$ "  + getPreco();
 	}
 
 	@Override
@@ -57,7 +47,7 @@ public class Refeicao {
 		
 		Refeicao rf = (Refeicao) obj;
 		
-		return getDescricao() == rf.getDescricao() && getPreco() == rf.getPreco();
+		return getDataString().equals(rf.getDataString()) && getPreco() == rf.getPreco();
 		
 	}
 	
