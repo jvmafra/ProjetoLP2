@@ -32,10 +32,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.JPasswordField;
 
 public class LoginDeFuncionario extends JFrame {
 	private JTextField login;
-	private JTextField senha;
+	private JPasswordField senha;
 	private final Action action = new SwingAction();
 
 	/**
@@ -71,7 +72,7 @@ public class LoginDeFuncionario extends JFrame {
 		JLabel senha_1 = new JLabel("Senha");
 		senha_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		
-		senha = new JTextField();
+		senha = new JPasswordField();
 		senha.setColumns(10);
 		
 		JButton botao_entrar = new JButton("Entrar");
