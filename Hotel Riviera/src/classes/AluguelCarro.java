@@ -1,28 +1,23 @@
 package classes;
 
 public class AluguelCarro implements Servicos {
-	boolean tanqueCheio;
-	boolean luxo;
-	boolean seguro;
-	int numDias;
-	double valor;
+	private Periodo periodo;
+	private boolean tanqueCheio;
+	private boolean luxo;
+	private boolean seguro;
+	private double valor;
 	
-	public AluguelCarro(boolean tanque, boolean luxo, boolean seguro, int numDias) throws Exception {
-		if(numDias <= 0 ){
-			throw new Exception("Numero de dias invalidos");		
-		}
+	public AluguelCarro(boolean tanque, boolean luxo, boolean seguro, Periodo p) throws Exception {
 		this.luxo = luxo;
-		this.numDias = numDias;
 		this.seguro = seguro;
 		this.tanqueCheio = tanque;
 	}
 	
-	public int getNumDias() {
-		return numDias;
+	public Periodo getPeriodo() {
+		return periodo;
 	}
-
-	public void setNumDias(int numDias) {
-		this.numDias = numDias;
+	public int getNumDias() {
+		return getPeriodo().getNumeroDias();
 	}
 
 	public boolean isTanqueCheio() {
@@ -39,13 +34,13 @@ public class AluguelCarro implements Servicos {
 
 	@Override
 	public double valor() {
-	valor = (numDias * luxo()) + seguro() + tanquecheio();
-		return 0;
+		valor = (getNumDias() * valorLuxo()) + valorSeguro() + valorTanqueCheio();
+		return valor;
 	}
 	
 	@Override
 	public String toString() {
-		return "AluguelCarro [numero de dias=" + numDias + ", valor =" + valor + "]";
+		return "ALUGUEL DE CARRO: " + "\nPeriodo: " + getNumDias() + "\nValor: R$ " + valor();
 	}
 
 	@Override
@@ -59,7 +54,7 @@ public class AluguelCarro implements Servicos {
 		AluguelCarro other = (AluguelCarro) obj;
 		if (luxo != other.luxo)
 			return false;
-		if (numDias != other.numDias)
+		if (getNumDias() != other.getNumDias())
 			return false;
 		if (seguro != other.seguro)
 			return false;
@@ -71,22 +66,22 @@ public class AluguelCarro implements Servicos {
 		return true;
 	}
 	
-	private int tanquecheio() {
-		if(tanqueCheio){
+	private int valorTanqueCheio() {
+		if(isTanqueCheio()){
 			return 150;
 		}
 		return 0;
 	}
 	
-	private int seguro() {
-		if(seguro){
+	private int valorSeguro() {
+		if(isSeguro()){
 			return 100;
 		}
 		return 0;
 	}
 	
-	private int luxo() {
-		if(luxo){
+	private int valorLuxo() {
+		if(isLuxo()){
 			return 100;
 		}
 		return 60;
