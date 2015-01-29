@@ -3,7 +3,7 @@ package classes;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Restaurante {
+public class Restaurante implements Servicos{
 	private List<Refeicao> refeicoes = new ArrayList <>();
 	
 	public Restaurante(){
@@ -19,6 +19,15 @@ public class Restaurante {
 	
 	public int numIdasAoRestaurante(){
 		return refeicoes.size();
+	}
+	
+	@Override
+	public double valor() {
+		double valorTotal = 0;
+		for (int i = 0; i < refeicoes.size(); i++) {
+			valorTotal += refeicoes.get(i).getPreco();
+		}
+		return valorTotal;
 	}
 
 	@Override

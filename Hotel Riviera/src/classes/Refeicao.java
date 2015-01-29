@@ -2,18 +2,18 @@ package classes;
 
 import java.util.Calendar;
 
-public class Refeicao implements Servicos {
+public class Refeicao {
 	double valor;
 	String descricao;
 	Calendar data;
 	
 	public Refeicao(double valor, String item, Calendar data) throws Exception {
 		if(valor < 0) {
-			throw new Exception("Valor da conta inválido.");
+			throw new Exception("Valor da conta invalido.");
 		}
 		
 		if (data.getTime().getHours() < 6 || data.getTime().getHours() > 22){
-			throw new Exception("O restaurante não estava funcionando nesse horário");
+			throw new Exception("O restaurante nao estava funcionando nesse horario");
 		}
 		this.valor = valor;
 		this.descricao = item;
@@ -40,15 +40,14 @@ public class Refeicao implements Servicos {
 		this.descricao = descricao;
 	}
 
-	@Override
-	public double valor() {
+	public double getPreco() {
 		return valor;
 	}
 
 	@Override
 	public String toString() {
-		return "Descrição: " + getDescricao()
-				+ "\nValor: R$ " + valor() + "\nData: " + getDataString();
+		return "Descricao: " + getDescricao()
+				+ "\nValor: R$ " + getPreco() + "\nData: " + getDataString();
 	}
 
 	@Override
@@ -58,7 +57,7 @@ public class Refeicao implements Servicos {
 		
 		Refeicao rf = (Refeicao) obj;
 		
-		return getDescricao() == rf.getDescricao() && valor() == rf.valor();
+		return getDescricao() == rf.getDescricao() && getPreco() == rf.getPreco();
 		
 	}
 	
