@@ -10,10 +10,9 @@ import excecoes.PeriodoInvalidoException;
  * @author Joao Victor Barroso Mafra
  */
 
-public class Periodo {
+public class Periodo implements Comparable<Periodo>{
 	private Calendar data_inicial;
 	private Calendar data_final;
-	
 	
 	/**
 	 * Construtor que recebe as duas datas do periodo (inicio e fim)
@@ -27,16 +26,16 @@ public class Periodo {
 			throw new PeriodoInvalidoException("Datas nulas");
 		
 		if (data_final.get(Calendar.YEAR) < data_inicial.get(Calendar.YEAR))
-			throw new PeriodoInvalidoException("Selecione anos de entrada e saida válidos");
+			throw new PeriodoInvalidoException("Selecione anos de entrada e saida validos");
 		
 		if (data_final.get(Calendar.YEAR) == data_inicial.get(Calendar.YEAR)){
 			if (data_final.get(Calendar.MONTH) < data_inicial.get(Calendar.MONTH)){
-				throw new PeriodoInvalidoException("Selecione meses de entrada e saida válidos");
+				throw new PeriodoInvalidoException("Selecione meses de entrada e saida validos");
 			}
 			
 			else {
 				if (data_final.get(Calendar.MONTH) == data_inicial.get(Calendar.MONTH) && data_final.get(Calendar.DATE) <= data_inicial.get(Calendar.DATE))
-					throw new PeriodoInvalidoException("Selecione dias de entrada e saida válidos");
+					throw new PeriodoInvalidoException("Selecione dias de entrada e saida validos");
 			}
 		}
 		
@@ -69,8 +68,8 @@ public class Periodo {
 	 */
 	public int getNumeroDias(){
 		 long m1 = data_inicial.getTimeInMillis();
-	      long m2 = data_final.getTimeInMillis();
-	      return (int) ((m2 - m1) / (24*60*60*1000));
+	     long m2 = data_final.getTimeInMillis();
+	     return (int) ((m2 - m1) / (24*60*60*1000));
 	}
 	
 	private int getAnoFinal() {
@@ -78,7 +77,7 @@ public class Periodo {
 		return ano_final;
 	}
 	
-
+	
 	private int getMesFinal() {
 		int mes_final = data_final.get(Calendar.MONTH) + 1;
 		return mes_final;
@@ -112,6 +111,18 @@ public class Periodo {
 	private String getDataFinal() {
 		String fim = getDiaFinal() + "/" + getMesFinal() + "/" + getAnoFinal();
 		return fim;
+	}
+	
+	/** Compara dois periodos de tempo e comparar se ha choque de datas
+	 */
+	public int compareTo(Periodo outroPeriodo){
+		return 0;
+	}
+	
+	/** Verifica se uma certa data esta contida num determinado periodo de tempo
+	 */
+	public boolean isContido(Calendar data){
+		return true;
 	}
 	
 	/**

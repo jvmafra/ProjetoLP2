@@ -50,6 +50,32 @@ public class PeriodoTest {
 	}
 	
 	@Test
+	public void testaNumDias() throws Exception {
+		Assert.assertEquals(8, p1.getNumeroDias());
+		
+		p2 = new Periodo(data_inicial, new GregorianCalendar(2015,1,28));
+		Assert.assertEquals(4, p2.getNumeroDias());
+		
+		p2 = new Periodo(data_inicial, new GregorianCalendar(2015,2,31));
+		Assert.assertEquals(35, p2.getNumeroDias());
+		
+		p2 = new Periodo(new GregorianCalendar(2015,11,31), new GregorianCalendar(2016,0,1));
+		Assert.assertEquals(1, p2.getNumeroDias());
+		
+		p2 = new Periodo(new GregorianCalendar(2015,11,31), new GregorianCalendar(2016,0,2));
+		Assert.assertEquals(2, p2.getNumeroDias());
+		
+		p2 = new Periodo(new GregorianCalendar(2015,3,30), new GregorianCalendar(2015,4,1));
+		Assert.assertEquals(1, p2.getNumeroDias());
+		
+		p2 = new Periodo(new GregorianCalendar(2015,3,30), new GregorianCalendar(2015,4,1));
+		Assert.assertEquals(1, p2.getNumeroDias());
+		
+		p2 = new Periodo(new GregorianCalendar(2015,3,30), new GregorianCalendar(2015,4,1));
+		Assert.assertEquals(1, p2.getNumeroDias());
+	}
+	
+	@Test
 	public void testaToString() {
 		Assert.assertEquals(p1.toString(), "24/2/2015 ate 4/3/2015");
 	}
