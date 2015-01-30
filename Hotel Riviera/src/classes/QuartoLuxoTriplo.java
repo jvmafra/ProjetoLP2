@@ -1,5 +1,8 @@
 package classes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Classe que representa um quarto do tipo
  * Luxo Triplo do Hotel
@@ -10,6 +13,7 @@ package classes;
 public class QuartoLuxoTriplo extends Quarto{
 	public static final double VALOR_DA_DIARIA = 620.00;
 	public static final int CAPACIDADE = 3;
+	private List<Periodo> periodo = new ArrayList<>();
 	
 	/**
 	 * Cria o quarto Luxo Triplo
@@ -44,6 +48,25 @@ public class QuartoLuxoTriplo extends Quarto{
 	@Override
 	public double valor() {
 		return VALOR_DA_DIARIA;
+	}
+	
+	/**
+	 * Adiciona um objeto do tipo Periodo na lista de periodos do quarto
+	 * @param p Periodo a ser adicionado
+	 * @return true se a operacao foi realizada corretamente
+	 */
+	public boolean adicionaPeriodo(Periodo p) {
+		return periodo.add(p);
+		
+	}
+	/**
+	 * Remove um objeto do tipo periodo da lista de periodos do quarto 
+	 * @param p Periodo a ser removido
+	 * @return trua se a operacao foi realizada
+	 */
+	public boolean removePeriodo(Periodo p){
+		return periodo.remove(p);
+				
 	}
 	
 	/**

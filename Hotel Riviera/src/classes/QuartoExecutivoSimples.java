@@ -1,5 +1,7 @@
 package classes;
 
+import java.util.ArrayList;
+import java.util.List;
 /**
  * Classe que representa um objeto do tipo
  * Executivo Simples
@@ -11,6 +13,7 @@ public class QuartoExecutivoSimples extends Quarto{
 	public static final double VALOR_DA_DIARIA_COM_CAMA_EXTRA = 380.00;
 	public static final int CAPACIDADE = 1;
 	private boolean camaExtra;
+	private List<Periodo> periodo = new ArrayList<>();
 	
 	/**
 	 * Cria o quarto Executivo Simples
@@ -58,6 +61,25 @@ public class QuartoExecutivoSimples extends Quarto{
 		if (camaExtra)
 			return VALOR_DA_DIARIA_COM_CAMA_EXTRA;
 		return VALOR_DA_DIARIA;
+	}
+	
+	/**
+	 * Adiciona um objeto do tipo Periodo na lista de periodos do quarto
+	 * @param p Periodo a ser adicionado
+	 * @return true se a operacao foi realizada corretamente
+	 */
+	public boolean adicionaPeriodo(Periodo p) {
+		return periodo.add(p);
+		
+	}
+	/**
+	 * Remove um objeto do tipo periodo da lista de periodos do quarto 
+	 * @param p Periodo a ser removido
+	 * @return trua se a operacao foi realizada
+	 */
+	public boolean removePeriodo(Periodo p){
+		return periodo.remove(p);
+				
 	}
 	
 	/**
