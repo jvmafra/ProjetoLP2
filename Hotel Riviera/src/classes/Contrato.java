@@ -5,6 +5,8 @@ import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 
+import excecoes.ContratoFechadoException;
+
 /**
  * Manipula um contrato de um hotel associado a um hospede.
  * @author Joao Victor Barroso Mafra
@@ -41,7 +43,7 @@ public class Contrato {
 		this.NumCartao = formaDePagamento;
 		this.periodo = periodo;
 		servicos.add(quarto);
-		
+		servicos.add(new Restaurante());
 		aberto = true;
 	}
 	
@@ -108,9 +110,7 @@ public class Contrato {
 	 * 			Um novo servico a ser adicionado
 	 */
 	public void adicionaServico(Servicos servico) throws Exception{
-		if (!(isAberto()))
-			throw new Exception("O contrato ja foi fechado");
-		
+		verificaQuartoFechado();
 		servicos.add(servico);
 	}
 	
@@ -244,7 +244,11 @@ public class Contrato {
 				+ "\n\nStatus do contrato: " + mostraStatus();
 	}
 	
-
+	private void verificaQuartoFechado() throws ContratoFechadoException {
+		if (!(isAberto()))
+			throw new ContratoFechadoException("O contrato ja foi fechado");
+	}
+	
 	/**
 	 * Verifica um contrato atualmente. Como sera usado apenas para rapida verificacao nao contem informacoes de pagamento (apenas em relacao ao quarto ,que e fixo)
 	 * @return String
