@@ -10,7 +10,7 @@ import excecoes.PeriodoInvalidoException;
  * @author Joao Victor Barroso Mafra
  */
 
-public class Periodo implements Comparable<Periodo>{
+public class Periodo{
 	private Calendar data_inicial;
 	private Calendar data_final;
 	
@@ -113,17 +113,24 @@ public class Periodo implements Comparable<Periodo>{
 		return fim;
 	}
 	
-	/** Compara dois periodos de tempo e comparar se ha choque de datas
+	/** Compara dois periodos de tempo e verifica se ha choque de datas
 	 */
-	public int compareTo(Periodo outroPeriodo){
-		return 0;
+	
+	public boolean periodoCoincide(Periodo outroPeriodo){
+		if(outroPeriodo == null)
+			return false;
+	 
+		return outroPeriodo.data_inicial.compareTo(data_final) <= 0 &&
+					(outroPeriodo.data_final.compareTo(data_inicial) >= 0 || outroPeriodo.data_inicial.compareTo(data_inicial) >= 0);
 	}
 	
-	/** Verifica se uma certa data esta contida num determinado periodo de tempo
-	 */
-	public boolean isContido(Calendar data){
-		return true;
+	public boolean dataIsContida(Calendar data){
+		if(data == null) 
+			return false;
+		
+		return data.compareTo(data_inicial) >= 0 && data.compareTo(data_final) <= 0;
 	}
+	
 	
 	/**
 	 * @return 
@@ -146,9 +153,7 @@ public class Periodo implements Comparable<Periodo>{
 		
 		Periodo p = (Periodo) obj;
 		
-		return getDiaInicial() == p.getDiaInicial() && getMesInicial() == p.getMesInicial()
-				&& getAnoInicial() == p.getAnoInicial() && getDiaFinal() == p.getDiaFinal() 
-				&& getMesFinal() == p.getMesFinal() && getAnoFinal() == p.getAnoFinal();
+		return periodoCoincide(p);
 	}
 	
 }
