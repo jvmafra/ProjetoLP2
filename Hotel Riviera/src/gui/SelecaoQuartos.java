@@ -21,13 +21,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import classes.QuartoExecutivoDuplo;
-import classes.QuartoExecutivoSimples;
-import classes.QuartoExecutivoTriplo;
-import classes.QuartoLuxoDuplo;
-import classes.QuartoLuxoSimples;
-import classes.QuartoLuxoTriplo;
-import classes.QuartoPresidencial;
+import classes.Quartos.QuartoExecutivoDuplo;
+import classes.Quartos.QuartoExecutivoSimples;
+import classes.Quartos.QuartoExecutivoTriplo;
+import classes.Quartos.QuartoLuxoDuplo;
+import classes.Quartos.QuartoLuxoSimples;
+import classes.Quartos.QuartoLuxoTriplo;
+import classes.Quartos.QuartoPresidencial;
 
 import javax.swing.AbstractAction;
 

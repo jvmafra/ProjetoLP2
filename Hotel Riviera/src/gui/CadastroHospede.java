@@ -23,7 +23,8 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.Action;
 
-import classes.Hospede;
+import classes.Pessoa.Hospede;
+
 import java.awt.event.ActionListener;
 
 public class CadastroHospede extends JFrame {

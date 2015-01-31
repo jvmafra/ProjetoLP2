@@ -9,8 +9,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import classes.Opiniao;
-import classes.Periodo;
+import classes.HotelOpiniaoServicosPeriodo.Opiniao;
+import classes.HotelOpiniaoServicosPeriodo.Periodo;
 
 public class PeriodoTest {
 	

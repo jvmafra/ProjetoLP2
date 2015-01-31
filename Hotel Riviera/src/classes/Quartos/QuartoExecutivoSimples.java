@@ -1,24 +1,24 @@
-package classes;
+package classes.Quartos;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import classes.HotelOpiniaoServicosPeriodo.Periodo;
 /**
- * Classe que representa um quarto do tipo
- * Executivo Duplo do Hotel
+ * Classe que representa um objeto do tipo
+ * Executivo Simples
  * @author Hugo Gabriel
  *
  */
-public class QuartoExecutivoDuplo extends Quarto {
-
-	public static final double VALOR_DA_DIARIA = 385.00;
-	public static final double VALOR_DA_DIARIA_COM_CAMA_EXTRA = 405.00;
-	public static final int CAPACIDADE = 2;
+public class QuartoExecutivoSimples extends Quarto{
+	public static final double VALOR_DA_DIARIA = 360.00;
+	public static final double VALOR_DA_DIARIA_COM_CAMA_EXTRA = 380.00;
+	public static final int CAPACIDADE = 1;
 	private boolean camaExtra;
 	private List<Periodo> periodo = new ArrayList<>();
 	
 	/**
-	 * Cria o quarto Executivo Duplo
+	 * Cria o quarto Executivo Simples
 	 * @param numeroDoQuarto
 	 * 		O numero relativo ao quarto
 	 * @param camaExtra
@@ -26,11 +26,11 @@ public class QuartoExecutivoDuplo extends Quarto {
 	 * @throws Exception
 	 * 		O numero do quarto deve ser sempre inteiro positivo
 	 */
-	public QuartoExecutivoDuplo(int numeroDoQuarto, boolean camaExtra) throws Exception{
-		super(numeroDoQuarto);	
+	public QuartoExecutivoSimples(int numeroDoQuarto, boolean camaExtra) throws Exception{
+		super(numeroDoQuarto);
 		this.camaExtra = camaExtra;
+		
 	}
-	
 	/**
 	 * Verifica se o quarto comporta um dado numero de pessoas
 	 * @param numeroDePessoas
@@ -40,12 +40,11 @@ public class QuartoExecutivoDuplo extends Quarto {
 	 * 		true, se o quarto suportar o numero de pessoas desejado
 	 */
 	@Override
-	public boolean isCapacidadeValida(int capacidade) {
+	public boolean isCapacidadeValida(int capacidade){
 		if (capacidade > CAPACIDADE)
 			return false;
 		return true;
 	}
-
 	
 	/**
 	 * Verifica se o quarto possui uma cama extra
@@ -55,12 +54,13 @@ public class QuartoExecutivoDuplo extends Quarto {
 	 */
 	public boolean isCamaExtra() { return camaExtra; }
 	
+	
 	/**
 	 * Retorna o valor da diaria do quarto
 	 */
 	@Override
 	public double valor() {
-		if (camaExtra) 
+		if (camaExtra)
 			return VALOR_DA_DIARIA_COM_CAMA_EXTRA;
 		return VALOR_DA_DIARIA;
 	}
@@ -84,20 +84,18 @@ public class QuartoExecutivoDuplo extends Quarto {
 				
 	}
 	
-	
 	/**
 	 * Fornece uma representacao do quarto Executivo Duplo como String
 	 */
 	@Override
 	public String toString() {
-		return "Quarto Executivo Duplo - Diaria = "+ VALOR_DA_DIARIA  
-				+ " Capacidade Maxima" + CAPACIDADE + super.toString();
+		return "Quarto Executivo Simples " + super.toString();
 	}
-	
+
 	/**
-	 * Verifica se o quarto Executivo Duplo e um objeto dado como parametro sao iguais
+	 * Verifica se o quarto Executivo Simples e um objeto dado como parametro sao iguais
 	 * 
-	 * Dois objetos da classe QuartoExecutivoDuplo sao iguais se possuem
+	 * Dois objetos da classe QuartoExecutivoSimples sao iguais se possuem
 	 * mesmo numero do quarto e mesmo hospede
 	 * @param obj
 	 * 		O objeto a ser comparado
@@ -106,9 +104,10 @@ public class QuartoExecutivoDuplo extends Quarto {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (!(obj instanceof QuartoExecutivoDuplo))
+		if (!(obj instanceof QuartoExecutivoSimples))
 			return false;
 		return super.equals(obj);
 	}
-
+	
+	
 }

@@ -32,7 +32,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.Action;
 
-import classes.Periodo;
+import classes.HotelOpiniaoServicosPeriodo.Periodo;
 
 public class DadosDaReserva extends JFrame {
 

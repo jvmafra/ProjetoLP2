@@ -1,4 +1,4 @@
-package classes;
+package classes.Pessoa;
 
 import java.util.InputMismatchException;
 import java.util.regex.Matcher;

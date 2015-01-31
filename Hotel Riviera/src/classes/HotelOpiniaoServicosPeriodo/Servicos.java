@@ -1,4 +1,4 @@
-package classes;
+package classes.HotelOpiniaoServicosPeriodo;
 
 /**
  * Interface Servico. Todo servico tem seu valor

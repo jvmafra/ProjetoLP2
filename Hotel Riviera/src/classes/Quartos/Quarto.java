@@ -1,4 +1,7 @@
-package classes;
+package classes.Quartos;
+
+import classes.HotelOpiniaoServicosPeriodo.Periodo;
+import classes.HotelOpiniaoServicosPeriodo.Servicos;
 
 /**
  * Classe abstrata que representa

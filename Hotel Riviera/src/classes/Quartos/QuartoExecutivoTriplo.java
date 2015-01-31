@@ -1,29 +1,33 @@
-package classes;
+package classes.Quartos;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import classes.HotelOpiniaoServicosPeriodo.Periodo;
+
 /**
- * Classe que representa um Quarto Presidencial
+ * Classe que representa um quarto do tipo
+ * Executivo Triplo do Hotel
  * @author Hugo Gabriel
  *
  */
-public class QuartoPresidencial extends Quarto{
-	public static final double VALOR_DA_DIARIA = 1200.00;
-	public static final int CAPACIDADE = 4;
+public class QuartoExecutivoTriplo extends Quarto{
+	public static final double VALOR_DA_DIARIA = 440.00;
+	public static final int CAPACIDADE = 3;
 	private List<Periodo> periodo = new ArrayList<>();
 	
 	/**
-	 * Cria o quarto Presidencial
+	 * Cria o quarto Executivo Triplo
 	 * @param numeroDoQuarto
 	 * 		O numero relativo ao quarto
+	 * @param camaExtra
+	 * 		Boolean indicando a existencia (ou nao) de cama extra no quarto
 	 * @throws Exception
 	 * 		O numero do quarto deve ser sempre inteiro positivo
 	 */
-	public QuartoPresidencial(int numeroDoQuarto) throws Exception{
+	public QuartoExecutivoTriplo(int numeroDoQuarto) throws Exception{
 		super(numeroDoQuarto);
 	}
-	
 	
 	/**
 	 * Verifica se o quarto comporta um dado numero de pessoas
@@ -33,12 +37,14 @@ public class QuartoPresidencial extends Quarto{
 	 * 		false, se a capacidade maxima do quarto for excedida
 	 * 		true, se o quarto suportar o numero de pessoas desejado
 	 */
+	@Override
 	public boolean isCapacidadeValida(int capacidade){
 		if (capacidade > CAPACIDADE)
 			return false;
 		return true;
 	}
-
+	
+	
 	/**
 	 * Retorna o valor da diaria do quarto
 	 */
@@ -67,17 +73,17 @@ public class QuartoPresidencial extends Quarto{
 	}
 	
 	/**
-	 * Fornece uma representacao do quarto Presidencial como String
+	 * Fornece uma representacao do quarto Executivo Triplo como String
 	 */
 	@Override
 	public String toString() {
-		return "Quarto Presidencial " + super.toString();
+		return "Quarto Executivo Triplo " + super.toString();
 	}
-	
+
 	/**
-	 * Verifica se o quarto Presidencial e um objeto dado como parametro sao iguais
+	 * Verifica se o quarto Executivo Triplo e um objeto dado como parametro sao iguais
 	 * 
-	 * Dois objetos da classe QuartoPresidencial sao iguais se possuem
+	 * Dois objetos da classe QuartoExecutivoTriplo sao iguais se possuem
 	 * mesmo numero do quarto e mesmo hospede
 	 * @param obj
 	 * 		O objeto a ser comparado
@@ -86,10 +92,8 @@ public class QuartoPresidencial extends Quarto{
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (!(obj instanceof QuartoPresidencial))
+		if (!(obj instanceof QuartoExecutivoTriplo))
 			return false;
 		return super.equals(obj);
 	}
-
-
 }

@@ -1,9 +1,13 @@
-package classes;
+package classes.HotelOpiniaoServicosPeriodo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import classes.Baba.ListaBabas;
+import classes.Carro.ListaCarros;
+import classes.Pessoa.Contrato;
 
 /**
  * Manipula operacoes relacionadas ao Hotel como um todo

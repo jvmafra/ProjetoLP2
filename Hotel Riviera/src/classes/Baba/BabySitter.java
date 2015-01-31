@@ -1,4 +1,7 @@
-package classes;
+package classes.Baba;
+
+import classes.HotelOpiniaoServicosPeriodo.Periodo;
+import classes.HotelOpiniaoServicosPeriodo.Servicos;
 
 /**
  * Servico BabySitter, que deve ter um periodo e claro, uma baba.

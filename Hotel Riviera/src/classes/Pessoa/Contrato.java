@@ -1,10 +1,18 @@
-package classes;
+package classes.Pessoa;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 
+import classes.Alimentacao.Refeicao;
+import classes.Alimentacao.Restaurante;
+import classes.Baba.BabySitter;
+import classes.Carro.AluguelCarro;
+import classes.FormasCobranca.EstrategiaCobranca;
+import classes.HotelOpiniaoServicosPeriodo.Periodo;
+import classes.HotelOpiniaoServicosPeriodo.Servicos;
+import classes.Quartos.Quarto;
 import excecoes.ContratoFechadoException;
 import excecoes.PeriodoInvalidoException;
 

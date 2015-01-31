@@ -1,4 +1,4 @@
-package classes;
+package classes.Carro;
 
 /**
  * Manipula uma lista de carros que estarao presentes no Hotel. Eh possivel

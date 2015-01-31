@@ -1,4 +1,4 @@
-package classes;
+package classes.FormasCobranca;
 
 
 public class EstrategiaAltaTemporada implements EstrategiaCobranca {

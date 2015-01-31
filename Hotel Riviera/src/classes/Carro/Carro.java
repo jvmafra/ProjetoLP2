@@ -1,4 +1,4 @@
-package classes;
+package classes.Carro;
 
 /**
  * Um carro possui uma placa de identificacao, a identificacao se eh considerado
@@ -11,6 +11,7 @@ package classes;
 import java.util.ArrayList;
 import java.util.List;
 
+import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import excecoes.PlacaInvalidaException;
 
 public class Carro {

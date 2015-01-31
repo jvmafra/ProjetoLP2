@@ -1,4 +1,4 @@
-package classes;
+package classes.Baba;
 
 /**
  * Manipula uma lista de babas que estarao presentes no Hotel. Eh possivel

@@ -1,4 +1,4 @@
-package classes;
+package classes.Baba;
 
 /**
  * Cada baba possui um nome e uma lista de periodos, que servira para administrar
@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import excecoes.NomeInvalidoException;
 
 public class Baba {

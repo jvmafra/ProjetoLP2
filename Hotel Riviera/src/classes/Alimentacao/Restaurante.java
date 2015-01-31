@@ -1,7 +1,9 @@
-package classes;
+package classes.Alimentacao;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import classes.HotelOpiniaoServicosPeriodo.Servicos;
 
 public class Restaurante implements Servicos{
 	private List<Refeicao> refeicoes = new ArrayList <>();

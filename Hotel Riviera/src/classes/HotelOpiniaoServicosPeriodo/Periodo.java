@@ -1,4 +1,4 @@
-package classes;
+package classes.HotelOpiniaoServicosPeriodo;
 
 import java.util.Calendar;
 

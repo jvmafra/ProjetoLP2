@@ -1,4 +1,4 @@
-package classes;
+package classes.Carro;
 
 /**
  * Servico Aluguel de Carro, que deve ter um periodo e claro, um carro.
@@ -9,6 +9,8 @@ package classes;
  * @author Joao Victor Barroso Mafra e Adiel Andrade
  */
 
+import classes.HotelOpiniaoServicosPeriodo.Periodo;
+import classes.HotelOpiniaoServicosPeriodo.Servicos;
 import excecoes.PeriodoInvalidoException;
 
 public class AluguelCarro implements Servicos {
