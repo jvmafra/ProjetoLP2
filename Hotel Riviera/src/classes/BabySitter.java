@@ -1,11 +1,20 @@
 package classes;
 
+/**
+ * Servico BabySitter, que deve ter um periodo e claro, uma baba.
+ * Implementa a interface servicos, tendo portanto um valor a ser adicionado ao montante
+ * do hospede
+ * 
+ * @author Joao Victor Barroso Mafra e Adiel Andrade
+ */
+
 public class BabySitter implements Servicos {
-	int horarioInicio;
-	int horas;
-	double valor;
+	private int horarioInicio;
+	private int horas;
+	private Baba baba;
+	private double valor;
 	
-	public BabySitter(int horarioInicial, int horas)throws Exception{
+	public BabySitter(Baba baba, int horarioInicial, int horas)throws Exception{
 		if( horarioInicial< 0 || horarioInicial > 24){
 			throw new Exception("horario passado invalido");
 		}
@@ -45,11 +54,17 @@ public class BabySitter implements Servicos {
 	public void setHoras(int horas) {
 		this.horas = horas;
 	}
+	
+	public Baba getBaba(){
+		return baba;
+	}
 
 	@Override
 	public String toString() {
-		return "BabySitter [horarioInicio=" + horarioInicio + ", horas="
-				+ horas + "]";
+		return getBaba().toString();
+		
+		// Falta ver como sera a questão do periodo para imprimir. Se for
+		// usar a classe Periodo mesmo ja tem toString feito
 	}
 
 	@Override
