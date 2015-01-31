@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
  * @author Edval Galdino
  */
 public class Hospede {
-	private String nome, cpf, rg, email,endereco, telefone;
+	private String nome, cpf, rg, email,endereco, telefone, numCartao;
 	/**
 	 * Construtor da classe hospede.
 	 * @param nome
@@ -20,7 +20,7 @@ public class Hospede {
 	 * @param endereco
 	 * @throws Exception
 	 */
-	public Hospede(String nome, String CPF, String RG, String email, String telefone, String endereco) throws Exception{
+	public Hospede(String nome, String CPF, String RG, String email, String telefone, String endereco, String numCartao) throws Exception{
 		if(nome.equals("") || nome.equals(null))
 			throw new Exception("Nome invalido");
 		
@@ -39,6 +39,10 @@ public class Hospede {
 		if(telefone.equals("") || endereco.equals(null))
 			throw new Exception("Telefone invalido");
 		
+		if (!(validaCartaoDeCredito(numCartao))){
+			throw new Exception("Cartao de credito invalido");
+		}
+		
 	this.nome = nome;
 	this.cpf = CPF;
 	this.email= email;
@@ -46,6 +50,19 @@ public class Hospede {
 	this.endereco = endereco;
 	this.rg = RG;
 	
+	}
+	private boolean validaCartaoDeCredito(String numero) {
+		int s1 = 0, s2 = 0;
+		String invertida = new StringBuffer(numero).reverse().toString();
+		for (int i = 0 ;i < invertida.length();i++) {
+			int digito = Character.digit(invertida.charAt(i), 10);
+			if(i % 2 == 0) { s1 += digito; }
+			else {
+				s2 += 2 * digito;
+				if (digito >= 5) { s2 -= 9; }
+			}
+		}
+		return (s1 + s2) % 10 == 0;
 	}
 /**
  * Retorna a String telefone.
@@ -94,6 +111,13 @@ public class Hospede {
  */
 	public String getEmail() {
 		return email;
+	}
+	
+	public String getNumeroCartao(){
+		return numCartao;
+	}
+	public void setNumeroCartao(String num){
+		numCartao = num;
 	}
 
 /**

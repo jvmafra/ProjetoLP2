@@ -34,6 +34,7 @@ public class CadastroHospede extends JFrame {
 	private JTextField email;
 	private JTextField endereco;
 	private final Action action = new SwingAction();
+	private JTextField numCartao;
 
 	/**
 	 * Launch the application.
@@ -111,22 +112,29 @@ public class CadastroHospede extends JFrame {
 				endereco.setText("");
 			}
 		});
+		
+		JLabel lblCarto = new JLabel("Cart\u00E3o");
+		lblCarto.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
+		
+		numCartao = new JTextField();
+		numCartao.setColumns(10);
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
+				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+							.addGap(152)
+							.addComponent(limpar)
+							.addPreferredGap(ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+							.addComponent(concluir))
 						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addGroup(groupLayout.createSequentialGroup()
 									.addComponent(telefone_1)
 									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(telefone, GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(endereco_1)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(endereco, GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE))
+									.addComponent(telefone, GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE))
 								.addGroup(groupLayout.createSequentialGroup()
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addComponent(nome_1)
@@ -137,15 +145,20 @@ public class CadastroHospede extends JFrame {
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addComponent(email, GroupLayout.PREFERRED_SIZE, 353, GroupLayout.PREFERRED_SIZE)
 										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-											.addComponent(rg, GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
-											.addComponent(cpf, GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
-											.addComponent(nome, GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)))))
-							.addGap(52))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(limpar)
-							.addGap(34)
-							.addComponent(concluir)
-							.addGap(41))))
+											.addComponent(rg, GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+											.addComponent(cpf, GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+											.addComponent(nome, GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE))))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(endereco_1)
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+										.addComponent(numCartao, GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+										.addComponent(endereco, GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE))))))
+					.addGap(52))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblCarto)
+					.addContainerGap(423, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -154,31 +167,35 @@ public class CadastroHospede extends JFrame {
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(nome_1)
 						.addComponent(nome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(27)
+					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(cpf_1)
 						.addComponent(cpf, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(26)
+					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(rg_1)
 						.addComponent(rg, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(27)
+					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(email_1)
 						.addComponent(email, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(28)
+					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(telefone_1)
 						.addComponent(telefone, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(28)
+					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(endereco_1)
 						.addComponent(endereco, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(concluir)
-						.addComponent(limpar))
-					.addGap(22))
+						.addComponent(lblCarto)
+						.addComponent(numCartao, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(42)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(limpar)
+						.addComponent(concluir))
+					.addContainerGap())
 		);
 		getContentPane().setLayout(groupLayout);
 
@@ -191,7 +208,7 @@ public class CadastroHospede extends JFrame {
 		}
 		public void actionPerformed(ActionEvent e) {	
 			try {
-				Hospede hospede = new Hospede(nome.getText(), cpf.getText(), rg.getText(), email.getText(), telefone.getText(), endereco.getText());
+				Hospede hospede = new Hospede(nome.getText(), cpf.getText(), rg.getText(), email.getText(), telefone.getText(), endereco.getText(), numCartao.getText());
 				JOptionPane.showMessageDialog(null, "Hospede criado!");
 			} catch (Exception e1) {
 				JOptionPane.showMessageDialog(null, e1.getMessage());

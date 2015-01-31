@@ -2,6 +2,8 @@ package classes;
 
 import java.util.Calendar;
 
+import excecoes.PeriodoInvalidoException;
+
 public class Refeicao {
 	double valor;
 	Calendar data;
@@ -12,7 +14,7 @@ public class Refeicao {
 		}
 		
 		if (data.getTime().getHours() < 6 || data.getTime().getHours() > 22){
-			throw new Exception("O restaurante nao estava funcionando nesse horario");
+			throw new PeriodoInvalidoException("O restaurante nao estava funcionando nesse horario");
 		}
 		this.valor = valor;
 		this.data = data;

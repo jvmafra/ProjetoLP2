@@ -9,7 +9,7 @@ public class Restaurante implements Servicos{
 	public Restaurante(){
 		
 	}
-	public void adcionaRefeicao(Refeicao pedido){
+	public void adicionaRefeicao(Refeicao pedido){
 		refeicoes.add(pedido);
 	}
 	

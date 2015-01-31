@@ -17,7 +17,6 @@ public class Contrato {
 	private Hospede hospede;
 	private List<Servicos> servicos = new ArrayList<Servicos>();
 	private EstrategiaCobranca e;
-	private String NumCartao;
 	private Periodo periodo;
 	private boolean aberto;
 	private Restaurante restaurante;
@@ -35,14 +34,9 @@ public class Contrato {
 	 * @param formaDePagamento
 	 * 			Recebe a forma de pagamento do hospede
 	 */
-	public Contrato (Quarto quarto, Hospede hospede, EstrategiaCobranca e, Periodo periodo, String formaDePagamento) throws Exception{
-		
-		if (formaDePagamento.equals("") || formaDePagamento == null)
-			throw new Exception("Forma de pagamento invalida");
-		
+	public Contrato (Quarto quarto, Hospede hospede, EstrategiaCobranca e, Periodo periodo) throws Exception{	
 		this.hospede = hospede;
 		this.e = e;
-		this.NumCartao = formaDePagamento;
 		this.periodo = periodo;
 		restaurante = new Restaurante();
 		quarto.adicionaPeriodo(periodo);
@@ -69,22 +63,6 @@ public class Contrato {
 	 */
 	public void setE(EstrategiaCobranca e) {
 		this.e = e;
-	}
-	
-	/**
-	 * Retorna a forma de pagamento atual do cliente
-	 */
-	public String getFormaDePagamento() {
-		return NumCartao;
-	}
-	
-	/**
-	 * Modifica a forma de pagamento
-	 * @param formaDePagamento
-	 * 			A nova forma de pagamento
-	 */
-	public void setFormaDePagamento(String formaDePagamento) {
-		this.NumCartao = formaDePagamento;
 	}
 	
 	/**
@@ -144,7 +122,7 @@ public class Contrato {
 		if (getPeriodo().dataIsContida(r.getData())){
 			throw new PeriodoInvalidoException("Data nao esta contida na hospedagem");
 		}
-		getRestaurante().adcionaRefeicao(r);
+		getRestaurante().adicionaRefeicao(r);
 	}
 	
 	/**
@@ -275,7 +253,7 @@ public class Contrato {
 				+ "\n\nServicos especiais (pela ordem): " + imprimeCadaServicoEspecial()
 				+ "\n\n\nValor total dos servicos: " + calculaValorServicos() 
 				+ "\nValor total da estadia: " + calculaValorTotal()
-				+ "\nForma de pagamento: " + getFormaDePagamento()
+				+ "\nForma de pagamento: " + hospede.getNumeroCartao()
 				+ "\n\nStatus do contrato: " + mostraStatus();
 	}
 	
