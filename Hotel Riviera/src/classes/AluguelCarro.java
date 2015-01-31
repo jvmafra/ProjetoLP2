@@ -1,31 +1,48 @@
 package classes;
 
+/**
+ * Servico Aluguel de Carro, que deve ter um periodo e claro, um carro.
+ * Tambem recebe no construtor as opcoes do hospede (se vira com tanque cheio/seguro)
+ * e implementa a interface servicos, tendo portanto um valor a ser adicionado ao montante
+ * do hospede
+ * 
+ * @author Joao Victor Barroso Mafra e Adiel Andrade
+ */
+
+import excecoes.PeriodoInvalidoException;
+
 public class AluguelCarro implements Servicos {
 	private Periodo periodo;
 	private boolean tanqueCheio;
-	private boolean luxo;
 	private boolean seguro;
 	private double valor;
+	private Carro carro;
 	
-	public AluguelCarro(boolean tanque, boolean luxo, boolean seguro, Periodo p) throws Exception {
-		this.luxo = luxo;
+	public AluguelCarro(Carro carro, boolean tanque, boolean seguro, Periodo p) throws Exception {
+		if (!(carro.isDisponivel(p)))
+			throw new PeriodoInvalidoException("O carro esta ocupado nesse periodo");
+		
+		getCarro().adicionaPeriodo(p);
 		this.seguro = seguro;
 		this.tanqueCheio = tanque;
+		this.periodo = periodo;
+		this.carro = carro;
 	}
 	
 	public Periodo getPeriodo() {
 		return periodo;
 	}
+	
+	public Carro getCarro(){
+		return carro;
+	}
+	
 	public int getNumDias() {
 		return getPeriodo().getNumeroDias();
 	}
 
 	public boolean isTanqueCheio() {
 		return tanqueCheio;
-	}
-
-	public boolean isLuxo() {
-		return luxo;
 	}
 
 	public boolean isSeguro() {
@@ -45,25 +62,13 @@ public class AluguelCarro implements Servicos {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
+		if (!(obj instanceof AluguelCarro)){
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		AluguelCarro other = (AluguelCarro) obj;
-		if (luxo != other.luxo)
-			return false;
-		if (getNumDias() != other.getNumDias())
-			return false;
-		if (seguro != other.seguro)
-			return false;
-		if (tanqueCheio != other.tanqueCheio)
-			return false;
-		if (Double.doubleToLongBits(valor) != Double
-				.doubleToLongBits(other.valor))
-			return false;
-		return true;
+		}
+		
+		AluguelCarro outro = (AluguelCarro) obj;
+		
+		return getCarro().equals(outro.getCarro()) && getPeriodo().equals(outro.getPeriodo());
 	}
 	
 	private int valorTanqueCheio() {
@@ -81,7 +86,7 @@ public class AluguelCarro implements Servicos {
 	}
 	
 	private int valorLuxo() {
-		if(isLuxo()){
+		if(carro.isLuxo()){
 			return 100;
 		}
 		return 60;

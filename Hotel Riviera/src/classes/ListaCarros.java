@@ -1,12 +1,20 @@
 package classes;
 
+/**
+ * Manipula uma lista de carros que estarao presentes no Hotel. Eh possivel
+ * adicionar ou remover um carro, bem como verificar a existencia de um.
+ * 
+ * @author Joao Victor Barroso Mafra e Adiel Andrade
+ */
+
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListaCarros {
 	private List<Carro> carros = new ArrayList <>();
 	
-	public void adcionaCarro(Carro carro){
+	public void adicionaCarro(Carro carro){
 		carros.add(carro);
 	}
 	
@@ -18,9 +26,9 @@ public class ListaCarros {
 		return carros.size();
 	}
 	
-	public boolean verificaCarroExiste(Carro carro){
-		for (int i = 0; i < numCarros(); i++) {
-			if(carro.equals(carros.get(i))){
+	public boolean verificaCarro(String placa){
+		for (Carro carro: carros) {
+			if(carro.getPlaca().equals(placa)){
 				return true;
 			}
 			
@@ -29,10 +37,14 @@ public class ListaCarros {
 		
 	}
 	
-	
 	@Override
 	public String toString() {
-		return "ListaCarros [carros=" + carros + "]";
+		String todasPlacas = "CARROS: \n";
+		for (Carro carro: carros){
+			todasPlacas += "\n" + carro.getPlaca();
+		}
+		
+		return todasPlacas;
 	}
 
 	@Override

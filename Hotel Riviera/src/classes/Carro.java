@@ -1,19 +1,31 @@
 package classes;
 
+/**
+ * Um carro possui uma placa de identificacao, a identificacao se eh considerado
+ * de luxo ou nao e uma lista de periodos, que sera modificada a medida que o carro
+ * eh alugado por alguem ou devolvido.
+ * 
+ * @author Joao Victor Barroso Mafra e Adiel Andrade
+ */
+
+import java.util.ArrayList;
+import java.util.List;
+
 import excecoes.PlacaInvalidaException;
 
 public class Carro {
 	private String placa;
 	private boolean luxo;
-	private Periodo periodo;
+	private List<Periodo> periodos;
 	
 	public Carro(String placa, boolean luxo, Periodo p) throws PlacaInvalidaException{
 		if(verificaPlacaValida(placa)){
 			throw new PlacaInvalidaException();
 		}
-		this.periodo= p;
 		this.luxo = luxo;
 		this.placa = placa;
+		
+		periodos = new ArrayList<>();
 	}
 	
 	public String getPlaca() {
@@ -36,39 +48,28 @@ public class Carro {
 	}
 	
 
-	public Periodo getPeriodo() {
-		return periodo;
+	public List<Periodo> getPeriodos() {
+		return periodos;
 	}
 	
 
-	public void setPeriodo(Periodo periodo) {
-		this.periodo = periodo;
+	public void adicionaPeriodo(Periodo periodo) {
+		getPeriodos().add(periodo);
 	}
 	
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Carro other = (Carro) obj;
-		if (luxo != other.luxo)
-			return false;
-		if (periodo == null) {
-			if (other.periodo != null)
+	public void removePeriodo(Periodo periodo) {
+		getPeriodos().remove(periodo);				
+	}
+	
+	public boolean isDisponivel(Periodo p){
+		for (Periodo periodo: periodos){
+			if (p.periodoCoincide(periodo))
 				return false;
-		} else if (!periodo.equals(other.periodo))
-			return false;
-		if (placa == null) {
-			if (other.placa != null)
-				return false;
-		} else if (!placa.equals(other.placa))
-			return false;
+		}
+		
 		return true;
 	}
+	
 
 	private boolean verificaPlacaValida(String placa){
 		if((!(placa.length() == 7 ))){
@@ -88,6 +89,22 @@ public class Carro {
 	}
 	return true;
 	
+	}
+	
+	@Override
+	public boolean equals(Object obj){
+		if (!(obj instanceof Carro))
+			return false;
+		
+		Carro c = (Carro) obj;
+		
+		return getPlaca().equals(c.getPlaca()) && isLuxo() == c.isLuxo();
+	}
+	
+	@Override
+	public String toString() {
+		return "Placa: " + getPlaca();
+	}
 }
 
 
@@ -101,6 +118,3 @@ public class Carro {
 
 
 
-
-
-}
