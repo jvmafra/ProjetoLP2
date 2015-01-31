@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import excecoes.ContratoFechadoException;
+import excecoes.PeriodoInvalidoException;
 
 /**
  * Manipula um contrato de um hotel associado a um hospede.
@@ -19,6 +20,7 @@ public class Contrato {
 	private String NumCartao;
 	private Periodo periodo;
 	private boolean aberto;
+	private Restaurante restaurante;
 	
 	/**
 	 * Construtor que recebe as informacoes necessarias para criacao de um contrato
@@ -42,11 +44,17 @@ public class Contrato {
 		this.e = e;
 		this.NumCartao = formaDePagamento;
 		this.periodo = periodo;
+		restaurante = new Restaurante();
+		quarto.adicionaPeriodo(periodo);
 		servicos.add(quarto);
-		servicos.add(new Restaurante());
+		servicos.add(restaurante);
 		aberto = true;
 	}
 	
+	public Restaurante getRestaurante() {
+		return restaurante;
+	}
+
 	/**
 	 * Retorna a estrategia atual de cobranca
 	 */
@@ -105,13 +113,38 @@ public class Contrato {
 	
 	
 	/**
-	 * Adiciona um novo servico a lista de servicos do hospede
-	 * @param servico
-	 * 			Um novo servico a ser adicionado
+	 * Adiciona um novo aluguel de carro a lista de servicos
+	 * @param aluguel
+	 * 			Um novo aluguel de carro
 	 */
-	public void adicionaServico(Servicos servico) throws Exception{
-		verificaQuartoFechado();
-		servicos.add(servico);
+	public void adicionaAluguelCarro(AluguelCarro aluguel) throws Exception{
+		verificaContratoFechado();
+		verificaCoincidenciaNumDias(aluguel.getPeriodo());
+		servicos.add(aluguel);
+	}
+	
+	/**
+	 * Adiciona um novo servico de BabySitter ao contrato
+	 * @param baby
+	 * 			Um servico de BabySitter
+	 */
+	public void adicionaBabySitter(BabySitter baby) throws ContratoFechadoException, PeriodoInvalidoException {
+		verificaContratoFechado();
+		verificaCoincidenciaNumDias(baby.getPeriodo());
+		servicos.add(baby);
+	}
+	
+	/**
+	 * Adiciona uma nova refeicao ao objeto restaurante, que e mais um servico do contrato
+	 * @param r
+	 * 			Uma nova refeicao a ser adicionada.
+	 */
+	public void adicionaRefeicao(Refeicao r) throws ContratoFechadoException, PeriodoInvalidoException{
+		verificaContratoFechado();
+		if (getPeriodo().dataIsContida(r.getData())){
+			throw new PeriodoInvalidoException("Data nao esta contida na hospedagem");
+		}
+		getRestaurante().adcionaRefeicao(r);
 	}
 	
 	/**
@@ -126,11 +159,13 @@ public class Contrato {
 	/**
 	 * Modifica o status do contrato. De fechado para aberto ou vice-versa
 	 */
-	public void setStatus(){
+	public boolean fechaContrato(){
 		if (isAberto())
+			return false;
+		else {
 			aberto = false;
-		else
-			aberto = true;
+			return true;
+		}
 	}
 	
 	/**
@@ -244,9 +279,15 @@ public class Contrato {
 				+ "\n\nStatus do contrato: " + mostraStatus();
 	}
 	
-	private void verificaQuartoFechado() throws ContratoFechadoException {
+	private void verificaContratoFechado() throws ContratoFechadoException {
 		if (!(isAberto()))
 			throw new ContratoFechadoException("O contrato ja foi fechado");
+	}
+	
+	private void verificaCoincidenciaNumDias(Periodo p)
+			throws PeriodoInvalidoException {
+		if (p.getNumeroDias() > getPeriodo().getNumeroDias())
+			throw new PeriodoInvalidoException("Numero de dias invalido");
 	}
 	
 	/**

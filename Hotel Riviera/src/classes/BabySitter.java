@@ -13,6 +13,7 @@ public class BabySitter implements Servicos {
 	private int horas;
 	private Baba baba;
 	private double valor;
+	private Periodo periodo;
 	
 	public BabySitter(Baba baba, int horarioInicial, int horas)throws Exception{
 		if( horarioInicial< 0 || horarioInicial > 24){
@@ -57,6 +58,10 @@ public class BabySitter implements Servicos {
 	
 	public Baba getBaba(){
 		return baba;
+	}
+	
+	public Periodo getPeriodo() {
+		return periodo;
 	}
 
 	@Override

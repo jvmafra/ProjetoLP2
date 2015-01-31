@@ -37,7 +37,7 @@ public class Hotel {
 	public void check_out(Contrato c){
 		getContratos_abertos().remove(c);
 		getContratos_fechados().add(c);
-		c.setStatus();
+		c.fechaContrato();
 	}
 	
 	/**

@@ -45,6 +45,10 @@ public abstract class Quarto implements Servicos{
 	 */
 	public abstract double valor();
 	
+	public abstract boolean adicionaPeriodo(Periodo p);
+	
+	public abstract boolean removePeriodo(Periodo p);
+	
 	/**
 	 * Fornece uma representacao do quarto como String
 	 */
