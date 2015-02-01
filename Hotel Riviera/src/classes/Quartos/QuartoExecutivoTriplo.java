@@ -14,7 +14,7 @@ import classes.HotelOpiniaoServicosPeriodo.Periodo;
 public class QuartoExecutivoTriplo extends Quarto{
 	public static final double VALOR_DA_DIARIA = 440.00;
 	public static final int CAPACIDADE = 3;
-	private List<Periodo> periodo = new ArrayList<>();
+	private List<Periodo> periodos = new ArrayList<>();
 	
 	/**
 	 * Cria o quarto Executivo Triplo
@@ -59,7 +59,7 @@ public class QuartoExecutivoTriplo extends Quarto{
 	 * @return true se a operacao foi realizada corretamente
 	 */
 	public boolean adicionaPeriodo(Periodo p) {
-		return periodo.add(p);
+		return periodos.add(p);
 		
 	}
 	/**
@@ -68,7 +68,7 @@ public class QuartoExecutivoTriplo extends Quarto{
 	 * @return trua se a operacao foi realizada
 	 */
 	public boolean removePeriodo(Periodo p){
-		return periodo.remove(p);
+		return periodos.remove(p);
 				
 	}
 	
@@ -95,5 +95,10 @@ public class QuartoExecutivoTriplo extends Quarto{
 		if (!(obj instanceof QuartoExecutivoTriplo))
 			return false;
 		return super.equals(obj);
+	}
+	
+	@Override
+	public List<Periodo> getPeriodos() {
+		return periodos;
 	}
 }

@@ -17,7 +17,7 @@ public class QuartoExecutivoDuplo extends Quarto {
 	public static final double VALOR_DA_DIARIA_COM_CAMA_EXTRA = 405.00;
 	public static final int CAPACIDADE = 2;
 	private boolean camaExtra;
-	private List<Periodo> periodo = new ArrayList<>();
+	private List<Periodo> periodos = new ArrayList<>();
 	
 	/**
 	 * Cria o quarto Executivo Duplo
@@ -73,7 +73,7 @@ public class QuartoExecutivoDuplo extends Quarto {
 	 * @return true se a operacao foi realizada corretamente
 	 */
 	public boolean adicionaPeriodo(Periodo p) {
-		return periodo.add(p);
+		return periodos.add(p);
 		
 	}
 	/**
@@ -82,7 +82,7 @@ public class QuartoExecutivoDuplo extends Quarto {
 	 * @return trua se a operacao foi realizada
 	 */
 	public boolean removePeriodo(Periodo p){
-		return periodo.remove(p);
+		return periodos.remove(p);
 				
 	}
 	
@@ -111,6 +111,11 @@ public class QuartoExecutivoDuplo extends Quarto {
 		if (!(obj instanceof QuartoExecutivoDuplo))
 			return false;
 		return super.equals(obj);
+	}
+
+	@Override
+	public List<Periodo> getPeriodos() {
+		return periodos;
 	}
 
 }
