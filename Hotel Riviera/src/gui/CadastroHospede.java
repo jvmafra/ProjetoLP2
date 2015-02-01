@@ -26,16 +26,20 @@ import javax.swing.Action;
 import classes.Pessoa.Hospede;
 
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+
+import javax.swing.JFormattedTextField;
+import javax.swing.text.MaskFormatter;
 
 public class CadastroHospede extends JFrame {
 	private JTextField nome;
-	private JTextField cpf;
+	private JFormattedTextField cpf;
 	private JTextField rg;
 	private JTextField telefone;
 	private JTextField email;
 	private JTextField endereco;
 	private final Action action = new SwingAction();
-	private JTextField numCartao;
+	private JFormattedTextField numCartao;
 
 	/**
 	 * Launch the application.
@@ -59,7 +63,7 @@ public class CadastroHospede extends JFrame {
 	public CadastroHospede() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastroHospede.class.getResource("/icones/hotel22.png")));
 		setTitle("Novo h\u00F3spede");
-		setBounds(100, 100, 495, 383);
+		setBounds(100, 100, 737, 503);
 		
 		JLabel nome_1 = new JLabel("Nome");
 		nome_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
@@ -82,12 +86,27 @@ public class CadastroHospede extends JFrame {
 		nome = new JTextField();
 		nome.setColumns(10);
 		
-		cpf = new JTextField();
+		MaskFormatter format = null;
+		try {
+			format = new MaskFormatter("###.###.###-##");
+			format.setValidCharacters("1234567890");
+			format.setPlaceholderCharacter('_');
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}  
+		cpf = new JFormattedTextField(format);
 		cpf.setColumns(10);
 		
-		rg = new JTextField();
+		try {
+			format = new MaskFormatter("#.###.###");
+			format.setValidCharacters("1234567890");
+			format.setPlaceholderCharacter('_');
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}  
+		rg = new JFormattedTextField(format);
 		rg.setColumns(10);
-		
+
 		telefone = new JTextField();
 		telefone.setColumns(10);
 		
@@ -97,12 +116,23 @@ public class CadastroHospede extends JFrame {
 		endereco = new JTextField();
 		endereco.setColumns(10);
 		
+		try {
+			format = new MaskFormatter("####.####.####.####");
+			format.setValidCharacters("1234567890");
+			format.setPlaceholderCharacter('_');
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		numCartao = new JFormattedTextField(format);
+		numCartao.setColumns(10);
+		
+
 		JButton concluir = new JButton("Concluir");
 		concluir.setAction(action);
 		concluir.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		
 		JButton limpar = new JButton("Limpar");
-		limpar.setFont(new Font("Dialog", Font.PLAIN, 15));
+		limpar.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		limpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				nome.setText("");
@@ -116,27 +146,24 @@ public class CadastroHospede extends JFrame {
 		
 		JLabel lblCarto = new JLabel("Cart\u00E3o");
 		lblCarto.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
-		
-		numCartao = new JTextField();
-		numCartao.setColumns(10);
+
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-							.addGap(152)
-							.addComponent(limpar)
-							.addPreferredGap(ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
-							.addComponent(concluir))
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addContainerGap()
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(limpar)
+									.addGap(35)
+									.addComponent(concluir))
+								.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
 									.addComponent(telefone_1)
 									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(telefone, GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE))
-								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(telefone, GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE))
+								.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addComponent(nome_1)
 										.addComponent(cpf_1)
@@ -144,22 +171,22 @@ public class CadastroHospede extends JFrame {
 										.addComponent(email_1))
 									.addGap(28)
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(email, GroupLayout.PREFERRED_SIZE, 353, GroupLayout.PREFERRED_SIZE)
+										.addComponent(rg, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
 										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-											.addComponent(rg, GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
-											.addComponent(cpf, GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
-											.addComponent(nome, GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE))))
-								.addGroup(groupLayout.createSequentialGroup()
+											.addComponent(email, GroupLayout.PREFERRED_SIZE, 353, GroupLayout.PREFERRED_SIZE)
+											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+												.addComponent(nome, GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE)
+												.addComponent(cpf, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE)))))
+								.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
 									.addComponent(endereco_1)
 									.addPreferredGap(ComponentPlacement.UNRELATED)
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(numCartao, GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-										.addComponent(endereco, GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE))))))
-					.addGap(52))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblCarto)
-					.addContainerGap(423, Short.MAX_VALUE))
+										.addComponent(numCartao, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
+										.addComponent(endereco, GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE))))
+							.addGap(52))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(lblCarto)
+							.addContainerGap(669, Short.MAX_VALUE))))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -194,8 +221,8 @@ public class CadastroHospede extends JFrame {
 						.addComponent(numCartao, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(42)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(limpar)
-						.addComponent(concluir))
+						.addComponent(concluir)
+						.addComponent(limpar))
 					.addContainerGap())
 		);
 		getContentPane().setLayout(groupLayout);
@@ -209,7 +236,9 @@ public class CadastroHospede extends JFrame {
 		}
 		public void actionPerformed(ActionEvent e) {	
 			try {
-				Hospede hospede = new Hospede(nome.getText(), cpf.getText(), rg.getText(), email.getText(), telefone.getText(), endereco.getText(), numCartao.getText());
+				Hospede hospede = new Hospede(nome.getText(), cpf.getText().replace(".","").replace("-",""), 
+						rg.getText().replace(".",""), email.getText(), telefone.getText(), 
+						endereco.getText(), numCartao.getText().replace(".",""));
 				JOptionPane.showMessageDialog(null, "Hospede criado!");
 			} catch (Exception e1) {
 				JOptionPane.showMessageDialog(null, e1.getMessage());
