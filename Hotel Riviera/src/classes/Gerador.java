@@ -9,6 +9,7 @@ import classes.Baba.*;
 import classes.Pessoa.*;
 import classes.HotelOpiniaoServicosPeriodo.*;
 
+
 public class Gerador {
 	
 	public static void main(String[] args) throws Exception {
