@@ -13,7 +13,7 @@ public class Refeicao {
 			throw new Exception("Valor da conta invalido.");
 		}
 		
-		if (data.getTime().getHours() < 6 || data.getTime().getHours() > 22){
+		if (data.get(Calendar.HOUR_OF_DAY) < 6 || data.get(Calendar.HOUR_OF_DAY) > 22){
 			throw new PeriodoInvalidoException("O restaurante nao estava funcionando nesse horario");
 		}
 		this.valor = valor;

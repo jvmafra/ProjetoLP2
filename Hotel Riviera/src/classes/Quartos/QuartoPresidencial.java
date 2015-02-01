@@ -14,7 +14,7 @@ import classes.HotelOpiniaoServicosPeriodo.Periodo;
 public class QuartoPresidencial extends Quarto{
 	public static final double VALOR_DA_DIARIA = 1200.00;
 	public static final int CAPACIDADE = 4;
-	private List<Periodo> periodo = new ArrayList<>();
+	private List<Periodo> periodos = new ArrayList<>();
 	
 	/**
 	 * Cria o quarto Presidencial
@@ -56,7 +56,7 @@ public class QuartoPresidencial extends Quarto{
 	 * @return true se a operacao foi realizada corretamente
 	 */
 	public boolean adicionaPeriodo(Periodo p) {
-		return periodo.add(p);
+		return periodos.add(p);
 		
 	}
 	/**
@@ -65,8 +65,7 @@ public class QuartoPresidencial extends Quarto{
 	 * @return trua se a operacao foi realizada
 	 */
 	public boolean removePeriodo(Periodo p){
-		return periodo.remove(p);
-				
+		return periodos.remove(p);
 	}
 	
 	/**
@@ -92,6 +91,11 @@ public class QuartoPresidencial extends Quarto{
 		if (!(obj instanceof QuartoPresidencial))
 			return false;
 		return super.equals(obj);
+	}
+	
+	@Override
+	public List<Periodo> getPeriodos() {
+		return periodos;
 	}
 
 

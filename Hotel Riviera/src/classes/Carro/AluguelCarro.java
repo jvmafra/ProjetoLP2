@@ -27,7 +27,7 @@ public class AluguelCarro implements Servicos {
 		getCarro().adicionaPeriodo(p);
 		this.seguro = seguro;
 		this.tanqueCheio = tanque;
-		this.periodo = periodo;
+		this.periodo = p;
 		this.carro = carro;
 	}
 	

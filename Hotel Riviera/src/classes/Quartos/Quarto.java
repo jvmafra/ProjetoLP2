@@ -1,6 +1,10 @@
 package classes.Quartos;
 
+
 import java.io.Serializable;
+
+import java.util.List;
+
 
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import classes.HotelOpiniaoServicosPeriodo.Servicos;
@@ -53,6 +57,8 @@ public abstract class Quarto implements Servicos, Serializable{
 	public abstract boolean adicionaPeriodo(Periodo p);
 	
 	public abstract boolean removePeriodo(Periodo p);
+	
+	public abstract List<Periodo> getPeriodos();
 	
 	/**
 	 * Fornece uma representacao do quarto como String

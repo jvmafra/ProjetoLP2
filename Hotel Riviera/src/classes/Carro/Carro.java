@@ -21,8 +21,8 @@ public class Carro implements Serializable{
 	private List<Periodo> periodos;
 	
 	public Carro(String placa, boolean luxo, Periodo p) throws PlacaInvalidaException{
-		if(verificaPlacaValida(placa)){
-			throw new PlacaInvalidaException();
+		if(!(verificaPlacaValida(placa))){
+			throw new PlacaInvalidaException("Placa invalida");
 		}
 		this.luxo = luxo;
 		this.placa = placa;
@@ -78,12 +78,12 @@ public class Carro implements Serializable{
 			return false;
 		}
 		for (int i = 0; i < placa.length(); i++) {
-			if (i <= 4){
+			if (i < 3){
 				if(!(Character.isLetter(placa.charAt(i)))){
 					return false;					
 				}
 			}
-			if (i > 4 ){
+			if (i > 2 ){
 				if(!(Character.isDigit(placa.charAt(i)))){
 					return false;
 			}
