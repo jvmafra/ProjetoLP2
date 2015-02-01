@@ -8,13 +8,14 @@ package classes.Carro;
  * @author Joao Victor Barroso Mafra e Adiel Andrade
  */
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import excecoes.PlacaInvalidaException;
 
-public class Carro {
+public class Carro implements Serializable{
 	private String placa;
 	private boolean luxo;
 	private List<Periodo> periodos;

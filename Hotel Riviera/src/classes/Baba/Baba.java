@@ -8,6 +8,7 @@ package classes.Baba;
  * @author Joao Victor Barroso Mafra e Adiel Andrade
  */
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import excecoes.NomeInvalidoException;
 
-public class Baba {
+public class Baba implements Serializable{
 	private String nome;
 	private List<Periodo> periodos;
 	
@@ -70,11 +71,5 @@ public class Baba {
 	public String toString(){
 		return "Nome: " + getNome();
 	}
-	
-	
-	
-	
-	
-	
-	
+
 }

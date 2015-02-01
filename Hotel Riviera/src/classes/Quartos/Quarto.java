@@ -1,5 +1,7 @@
 package classes.Quartos;
 
+import java.io.Serializable;
+
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import classes.HotelOpiniaoServicosPeriodo.Servicos;
 
@@ -9,7 +11,7 @@ import classes.HotelOpiniaoServicosPeriodo.Servicos;
  * @author Hugo Gabriel
  *
  */
-public abstract class Quarto implements Servicos{
+public abstract class Quarto implements Servicos, Serializable{
 	private int numeroDoQuarto;
 	
 	/**

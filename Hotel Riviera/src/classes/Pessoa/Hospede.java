@@ -1,5 +1,6 @@
 package classes.Pessoa;
 
+import java.io.Serializable;
 import java.util.InputMismatchException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -8,7 +9,7 @@ import java.util.regex.Pattern;
  * Classe que representa um hospede, que estara associado a um contrato.
  * @author Edval Galdino
  */
-public class Hospede {
+public class Hospede implements Serializable{
 	private String nome, cpf, rg, email,endereco, telefone, numCartao;
 	/**
 	 * Construtor da classe hospede.
