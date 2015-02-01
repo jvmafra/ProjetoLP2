@@ -127,7 +127,7 @@ public class Contrato {
 	 */
 	public void adicionaRefeicao(Refeicao r) throws ContratoFechadoException, PeriodoInvalidoException{
 		verificaContratoFechado();
-		if (getPeriodo().dataIsContida(r.getData())){
+		if (!(getPeriodo().dataIsContida(r.getData()))){
 			throw new PeriodoInvalidoException("Data nao esta contida na hospedagem");
 		}
 		getRestaurante().adicionaRefeicao(r);
