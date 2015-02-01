@@ -40,9 +40,7 @@ public class Gerador {
 		GerenteDeArquivos.salvaHospede(h, false);
 		GerenteDeArquivos.salvaHospede(h2, false);
 		
-		System.out.println(GerenteDeArquivos.getHospede("Joao Mafra"));
-
-		
+		System.out.println(GerenteDeArquivos.getHospede("Joao Mafra"));		
 		
 		for (int i = 0; i < 5; i++) {
 			QuartoExecutivoSimples q = new QuartoExecutivoSimples(i + 101, false);

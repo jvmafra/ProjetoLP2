@@ -2,11 +2,7 @@ package classes;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInput;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
@@ -19,7 +15,6 @@ import classes.Quartos.*;
 public class GerenteDeArquivos {
 	private final static String DIR = "Documentos do Hotel", HOSPEDES = "//Hospedes", 
 								QUARTOS = "//Quartos", BABAS = "//Babas", CARROS = "\\Carros";
-	private static ObjectInputStream leitorObj;
 	static {
 		try {
 			new File(DIR).mkdir();
