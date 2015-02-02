@@ -28,16 +28,16 @@ public class Hospede implements Serializable{
 		if(!(isCPF(CPF)))
 			throw new Exception("CPF invalido");
 		
-		if(RG.equals("") || RG.equals(null) || RG.length() != 7)
+		if(RG.equals("") || RG == null || RG.length() != 7)
 			throw new Exception("RG invalido");
 		
-		if(email.equals("") || email.equals(null) || verificaEmail(email) == false)
+		if(email.equals("") || email == null || verificaEmail(email) == false)
 			throw new Exception("E-mail invalido");
 		
-		if(endereco.equals("") || endereco.equals(null))
+		if(endereco.equals("") || endereco == null)
 			throw new Exception("Endereco invalido");
 		
-		if(telefone.equals("") || endereco.equals(null))
+		if(telefone.equals("") || telefone == null || telefone.length() < 8 || telefone.length() > 12)
 			throw new Exception("Telefone invalido");
 		
 		if (!(validaCartaoDeCredito(numCartao))){

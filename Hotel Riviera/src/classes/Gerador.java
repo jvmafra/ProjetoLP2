@@ -24,8 +24,8 @@ public class Gerador {
 		
 		System.out.println(GerenteDeArquivos.getCarro("PFD1809"));
 		
-		Baba b = new Baba("Edval Galdino");
-		Baba b2 = new Baba("Adiel Andrade");
+		Baba b = new Baba("Edval Galdino", "9999999999");
+		Baba b2 = new Baba("Adiel Andrade", "9122227777");
 		
 		GerenteDeArquivos.salvaBaba(b, false);
 		GerenteDeArquivos.salvaBaba(b2, false);
