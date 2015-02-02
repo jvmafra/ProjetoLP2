@@ -11,7 +11,6 @@ package classes.Carro;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import excecoes.PlacaInvalidaException;
 
@@ -20,7 +19,7 @@ public class Carro implements Serializable{
 	private boolean luxo;
 	private List<Periodo> periodos;
 	
-	public Carro(String placa, boolean luxo, Periodo p) throws PlacaInvalidaException{
+	public Carro(String placa, boolean luxo) throws PlacaInvalidaException{
 		if(!(verificaPlacaValida(placa))){
 			throw new PlacaInvalidaException("Placa invalida");
 		}
