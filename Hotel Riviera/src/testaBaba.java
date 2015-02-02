@@ -14,7 +14,7 @@ public class testaBaba {
 	//	System.out.println(c2);
 		//System.out.println(c.HOUR_OF_DAY);
 		Periodo p = new Periodo(c, c2);
-		Baba b = new Baba("Maria");
+		Baba b = new Baba("Maria", "9999999999");
 		BabySitter bs = new BabySitter(b, p);
 		
 		System.out.println(bs.valor());
@@ -22,6 +22,8 @@ public class testaBaba {
 		
 		//System.out.println(bs.getHorarioInicio());
 		//System.out.println(bs.getHorarioTermino());
+		
+		Calendar d = new GregorianCalendar();
 	}
 	
 

@@ -14,18 +14,34 @@ import java.util.List;
 
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import excecoes.NomeInvalidoException;
+import excecoes.TelefoneInvalidoException;
 
 public class Baba implements Serializable{
-	private String nome;
+	private String nome, telefone;
 	private List<Periodo> periodos;
 	
-	public Baba(String nome) throws NomeInvalidoException{
-		if (nome == null || nome.equals("")){
+	public Baba(String nome, String telefone) throws NomeInvalidoException, TelefoneInvalidoException{
+		if (nome == null || nome.equals(""))
 			throw new NomeInvalidoException("Nome invalido");
-		}
 		
+		if(telefone.equals("") || telefone == null || telefone.length() < 8 || telefone.length() > 12)
+			throw new TelefoneInvalidoException("Telefone invalido");
+		
+		
+		this.telefone = telefone;
 		this.nome = nome;
 		periodos = new ArrayList<Periodo>();
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) throws TelefoneInvalidoException {
+	if(telefone.equals("") || telefone == null || telefone.length() < 8 || telefone.length() > 12)
+		throw new TelefoneInvalidoException("Telefone invalido");
+		
+		this.telefone = telefone;
 	}
 
 	public String getNome() {
