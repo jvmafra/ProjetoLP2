@@ -25,25 +25,8 @@ public class Periodo{
 	public Periodo (Calendar data_inicial, Calendar data_final) throws Exception{
 		if (data_inicial == null || data_final == null)
 			throw new PeriodoInvalidoException("Datas nulas");
-		
-		if (data_final.get(Calendar.YEAR) < data_inicial.get(Calendar.YEAR))
-			throw new PeriodoInvalidoException("Selecione anos de entrada e saida validos");
-		
-		if (data_final.get(Calendar.YEAR) == data_inicial.get(Calendar.YEAR)){
-			if (data_final.get(Calendar.MONTH) < data_inicial.get(Calendar.MONTH)){
-				throw new PeriodoInvalidoException("Selecione meses de entrada e saida validos");
-			}
-			else {
-				if (data_final.get(Calendar.MONTH) == data_inicial.get(Calendar.MONTH)){
-					if (data_final.get(Calendar.DATE) < data_inicial.get(Calendar.DATE)){
-						throw new PeriodoInvalidoException("Selecione dias de entrada e saida validos");
-						} else if (data_final.get(Calendar.DATE) == data_inicial.get(Calendar.DATE) 
-							&& data_final.get(Calendar.HOUR_OF_DAY) <= data_inicial.get(Calendar.HOUR_OF_DAY)){
-						throw new PeriodoInvalidoException("Selecione horas de entrada e saida validos");
-					}	
-				}
-			}
-		}
+		if (data_inicial.after(data_final))
+			throw new PeriodoInvalidoException("Selecione datas de entrada e saida validos");
 		this.data_inicial = data_inicial;
 		this.data_final = data_final;
 	}
