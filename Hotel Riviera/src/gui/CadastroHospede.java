@@ -30,12 +30,15 @@ import java.text.ParseException;
 
 import javax.swing.JFormattedTextField;
 import javax.swing.text.MaskFormatter;
+import javax.swing.JToolBar;
+import org.eclipse.wb.swing.FocusTraversalOnArray;
+import java.awt.Component;
 
 public class CadastroHospede extends JFrame {
 	private JTextField nome;
 	private JFormattedTextField cpf;
 	private JTextField rg;
-	private JTextField telefone;
+	private JFormattedTextField telefone;
 	private JTextField email;
 	private JTextField endereco;
 	private final Action action = new SwingAction();
@@ -83,13 +86,14 @@ public class CadastroHospede extends JFrame {
 		JLabel endereco_1 = new JLabel("Endere\u00E7o");
 		endereco_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		
+		MaskFormatter format = null;
+		
 		nome = new JTextField();
 		nome.setColumns(10);
 		
-		MaskFormatter format = null;
+		
 		try {
 			format = new MaskFormatter("###.###.###-##");
-			format.setValidCharacters("1234567890");
 			format.setPlaceholderCharacter('_');
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -99,7 +103,6 @@ public class CadastroHospede extends JFrame {
 		
 		try {
 			format = new MaskFormatter("#.###.###");
-			format.setValidCharacters("1234567890");
 			format.setPlaceholderCharacter('_');
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -107,7 +110,13 @@ public class CadastroHospede extends JFrame {
 		rg = new JFormattedTextField(format);
 		rg.setColumns(10);
 
-		telefone = new JTextField();
+		try {
+			format = new MaskFormatter("###########"); // 11 digitos
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}  
+		telefone = new JFormattedTextField(format);
+		
 		telefone.setColumns(10);
 		
 		email = new JTextField();
@@ -118,7 +127,6 @@ public class CadastroHospede extends JFrame {
 		
 		try {
 			format = new MaskFormatter("####.####.####.####");
-			format.setValidCharacters("1234567890");
 			format.setPlaceholderCharacter('_');
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -154,16 +162,12 @@ public class CadastroHospede extends JFrame {
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(limpar)
-									.addGap(35)
-									.addComponent(concluir))
-								.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
 									.addComponent(telefone_1)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(telefone, GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE))
-								.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+									.addGap(18)
+									.addComponent(telefone, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addGroup(groupLayout.createSequentialGroup()
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addComponent(nome_1)
 										.addComponent(cpf_1)
@@ -172,17 +176,20 @@ public class CadastroHospede extends JFrame {
 									.addGap(28)
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addComponent(rg, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
-										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-											.addComponent(email, GroupLayout.PREFERRED_SIZE, 353, GroupLayout.PREFERRED_SIZE)
-											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-												.addComponent(nome, GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE)
-												.addComponent(cpf, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE)))))
-								.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+										.addComponent(email, GroupLayout.PREFERRED_SIZE, 353, GroupLayout.PREFERRED_SIZE)
+										.addComponent(cpf, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE)
+										.addComponent(nome, GroupLayout.PREFERRED_SIZE, 550, GroupLayout.PREFERRED_SIZE))
+									.addPreferredGap(ComponentPlacement.RELATED, 45, Short.MAX_VALUE))
+								.addGroup(groupLayout.createSequentialGroup()
 									.addComponent(endereco_1)
 									.addPreferredGap(ComponentPlacement.UNRELATED)
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addComponent(numCartao, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE)
-										.addComponent(endereco, GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE))))
+										.addComponent(endereco, GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)
+										.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+											.addComponent(limpar, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
+											.addGap(28)
+											.addComponent(concluir)))))
 							.addGap(52))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(lblCarto)
@@ -210,7 +217,7 @@ public class CadastroHospede extends JFrame {
 					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(telefone_1)
-						.addComponent(telefone, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(telefone))
 					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(endereco_1)
@@ -219,13 +226,14 @@ public class CadastroHospede extends JFrame {
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblCarto)
 						.addComponent(numCartao, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(42)
+					.addGap(122)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(concluir)
-						.addComponent(limpar))
-					.addContainerGap())
+						.addComponent(limpar)
+						.addComponent(concluir))
+					.addGap(48))
 		);
 		getContentPane().setLayout(groupLayout);
+		getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{concluir, limpar, telefone_1, telefone, nome_1, cpf_1, rg_1, email_1, rg, email, nome, cpf, endereco_1, numCartao, endereco, lblCarto}));
 
 	}
 
