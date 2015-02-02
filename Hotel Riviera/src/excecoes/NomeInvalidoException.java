@@ -1,6 +1,6 @@
 package excecoes;
 
-public class NomeInvalidoException extends Exception{
+public class NomeInvalidoException extends EntradaDeDadosException{
 	public NomeInvalidoException(String causa) {
 		super(causa);
 	}
