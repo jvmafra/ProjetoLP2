@@ -1,5 +1,8 @@
 package classes.Baba;
 
+import java.util.Calendar;
+
+import classes.HotelOpiniaoServicosPeriodo.Hotel;
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import classes.HotelOpiniaoServicosPeriodo.Servicos;
 
@@ -12,47 +15,68 @@ import classes.HotelOpiniaoServicosPeriodo.Servicos;
  */
 
 public class BabySitter implements Servicos {
-	private int horarioInicio;
+	private static final int VALOR_HORA_NORMAL = 25;
+	private static final int VALOR_HORA_DOBRADA = 50;
+	private int horaDeInicio;
+	private int horaDeTermino;
 	private int horas;
 	private Baba baba;
 	private double valor;
 	private Periodo periodo;
 	
-	public BabySitter(Baba baba, int horarioInicial, int horas)throws Exception{
-		if( horarioInicial< 0 || horarioInicial > 24){
-			throw new Exception("horario passado invalido");
-		}
-		if( horas < 1 || horas > 24){
-			throw new Exception("horario passado invalido");
-		}
-		this.horas = horas;
-		this.horarioInicio =horarioInicial;
+	
+	public BabySitter(Baba baba, Periodo periodo)throws Exception{
+		this.periodo = periodo;
+		this.baba = baba;
+		this.horaDeInicio = periodo.getData_inicial().get(Calendar.HOUR_OF_DAY);
+		this.horaDeTermino = periodo.getData_final().get(Calendar.HOUR_OF_DAY);
 	}
 
 	@Override
 	public double valor() {
-		for (int i = 0; i < horas; i++) {
-			if(horarioInicio == 24)
-			horarioInicio = 1;
-			if(horarioInicio > 18 || horarioInicio < 7){
-				valor +=25;
-			}else{
-				valor +=50;
+		
+		int diasCompletos = getHoras() / 24;
+		int horasRemanescentes = getHoras() % 24;
+		int valorDobrado = diasCompletos * 13 * VALOR_HORA_DOBRADA;
+		int valorNormal = diasCompletos * 11 * VALOR_HORA_NORMAL;
+
+		if (horasRemanescentes > 0){
+			if (horaDeInicio >= 18){
+				horasRemanescentes -=  (24 - horaDeInicio);
+				valorDobrado += (24 - horaDeInicio) * VALOR_HORA_DOBRADA;
 			}
+			if (horaDeTermino < 7){
+				horasRemanescentes -= (7 - horaDeTermino);
+				valorDobrado += (7- horaDeTermino) * VALOR_HORA_DOBRADA;
+				}
+			}
+		if (horasRemanescentes > 11){
+			valorDobrado += (horasRemanescentes - 11) * VALOR_HORA_DOBRADA;
+			horasRemanescentes -= 11;	
 		}
-		return valor;
+		if (horasRemanescentes > 0){
+			valorNormal += horasRemanescentes * VALOR_HORA_NORMAL;
+		}
+		return valorNormal + valorDobrado;
+		
 	}
 
 	public int getHorarioInicio() {
-		return horarioInicio;
+		return horaDeInicio;
+	}
+	public int getHorarioTermino() {
+		return horaDeTermino;
+	}
+	public void setHorarioTermino(int horarioTermino) {
+		this.horaDeTermino = horarioTermino;
 	}
 
 	public void setHorarioInicio(int horarioInicio) {
-		this.horarioInicio = horarioInicio;
+		this.horaDeInicio = horarioInicio;
 	}
 
 	public int getHoras() {
-		return horas;
+		return periodo.getTotalDeHoras();
 	}
 
 	public void setHoras(int horas) {
@@ -84,7 +108,7 @@ public class BabySitter implements Servicos {
 		if (getClass() != obj.getClass())
 			return false;
 		BabySitter other = (BabySitter) obj;
-		if (horarioInicio != other.horarioInicio)
+		if (horaDeInicio != other.horaDeInicio)
 			return false;
 		if (horas != other.horas)
 			return false;
