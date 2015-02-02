@@ -38,7 +38,7 @@ public class CadastroHospede extends JFrame {
 	private JTextField nome;
 	private JFormattedTextField cpf;
 	private JTextField rg;
-	private JFormattedTextField telefone;
+	private JTextField telefone;
 	private JTextField email;
 	private JTextField endereco;
 	private final Action action = new SwingAction();
@@ -110,13 +110,7 @@ public class CadastroHospede extends JFrame {
 		rg = new JFormattedTextField(format);
 		rg.setColumns(10);
 
-		try {
-			format = new MaskFormatter("###########"); // 11 digitos
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}  
-		telefone = new JFormattedTextField(format);
-		
+		telefone = new JTextField();		
 		telefone.setColumns(10);
 		
 		email = new JTextField();
