@@ -34,6 +34,7 @@ import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
 
 import javax.swing.Action;
+import java.awt.event.ActionListener;
 
 public class SelecaoQuartos extends JFrame {
 	private JTextField diaria;
@@ -83,36 +84,72 @@ public class SelecaoQuartos extends JFrame {
 		setBounds(100, 100, 494, 384);
 		
 		presidencial = new JRadioButton("Presidencial");
+		presidencial.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cama_extra.setVisible(false);
+			}
+		});
 		presidencial.setAction(selecionaPresidencial);
 		presidencial.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		bg.add(presidencial);
 		
 		luxosimples = new JRadioButton("Luxo Simples");
+		luxosimples.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cama_extra.setVisible(true);
+			}
+		});
 		luxosimples.setAction(selecionaLuxoSimples);
 		luxosimples.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		bg.add(luxosimples);
 		
 		luxoduplo = new JRadioButton("Luxo Duplo");
+		luxoduplo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cama_extra.setVisible(true);
+			}
+		});
+		
 		luxoduplo.setAction(selecionaLuxoDuplo);
 		luxoduplo.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		bg.add(luxoduplo);
 		
 		luxotriplo = new JRadioButton("Luxo Triplo");
+		luxotriplo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cama_extra.setVisible(false);
+			}
+		});
 		luxotriplo.setAction(selecionaLuxoTriplo);
 		luxotriplo.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		bg.add(luxotriplo);
 		
 		executivosimples = new JRadioButton("Executivo Simples");
+		executivosimples.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cama_extra.setVisible(true);
+			}
+		});
 		executivosimples.setAction(selecionaExecutivoSimples);
 		executivosimples.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		bg.add(executivosimples);
 		
 		executivoduplo = new JRadioButton("Executivo Duplo");
+		executivoduplo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cama_extra.setVisible(true);
+			}
+		});
 		executivoduplo.setAction(selecionaExecutivoDuplo);
 		executivoduplo.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		bg.add(executivoduplo);
 		
 		executivotriplo = new JRadioButton("Executivo Triplo");
+		executivotriplo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cama_extra.setVisible(false);
+			}
+		});
 		executivotriplo.setAction(selecionaExecutivoTriplo);
 		executivotriplo.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		bg.add(executivotriplo);
@@ -130,6 +167,7 @@ public class SelecaoQuartos extends JFrame {
 		cama_extra = new JCheckBox("Cama extra");
 		cama_extra.setAction(marcaCamaExtra);
 		cama_extra.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+		cama_extra.setVisible(false);
 		
 		JButton avancar = new JButton("Avan\u00E7ar");
 		avancar.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
