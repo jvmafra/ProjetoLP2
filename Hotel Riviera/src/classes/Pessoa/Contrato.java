@@ -13,6 +13,8 @@ import classes.FormasCobranca.EstrategiaCobranca;
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import classes.HotelOpiniaoServicosPeriodo.Servicos;
 import classes.Quartos.Quarto;
+import classes.Quartos.QuartoExecutivoDuplo;
+import classes.Quartos.QuartoExecutivoSimples;
 import excecoes.ContratoFechadoException;
 import excecoes.PeriodoInvalidoException;
 

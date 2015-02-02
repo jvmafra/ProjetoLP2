@@ -17,8 +17,8 @@ public class Gerador {
 		Calendar data2 = new GregorianCalendar (2014, 3, 12);
 		Periodo p = new Periodo(data1, data2);
 		
-		Carro c = new Carro("PFD1809", false, p);
-		Carro c1 = new Carro("JAO0929", false, p);
+		Carro c = new Carro("PFD1809", false);
+		Carro c1 = new Carro("JAO0929", false);
 		GerenteDeArquivos.salvaCarro(c, false);
 		GerenteDeArquivos.salvaCarro(c1, false);
 		
@@ -43,15 +43,15 @@ public class Gerador {
 		System.out.println(GerenteDeArquivos.getHospede("Joao Mafra"));		
 		
 		for (int i = 0; i < 5; i++) {
-			QuartoExecutivoSimples q = new QuartoExecutivoSimples(i + 101, false);
+			QuartoExecutivoSimples q = new QuartoExecutivoSimples(i + 101);
 			GerenteDeArquivos.salvaQuarto(q, false);
 		}
 		for (int i = 0; i < 5; i++) {
-			QuartoExecutivoDuplo q = new QuartoExecutivoDuplo(i + 106, false);
+			QuartoExecutivoDuplo q = new QuartoExecutivoDuplo(i + 106);
 			GerenteDeArquivos.salvaQuarto(q, false);
 		}
 		for (int i = 0; i < 10; i++) {
-			QuartoExecutivoDuplo q = new QuartoExecutivoDuplo(i + 201, false);
+			QuartoExecutivoDuplo q = new QuartoExecutivoDuplo(i + 201);
 			GerenteDeArquivos.salvaQuarto(q, false);
 		}
 		for (int i = 0; i < 10; i++) {
@@ -63,15 +63,15 @@ public class Gerador {
 			GerenteDeArquivos.salvaQuarto(q, false);
 		}
 		for (int i = 0; i < 5; i++) {
-			QuartoLuxoSimples q = new QuartoLuxoSimples(i + 501, false);
+			QuartoLuxoSimples q = new QuartoLuxoSimples(i + 501);
 			GerenteDeArquivos.salvaQuarto(q, false);
 		}
 		for (int i = 0; i < 5; i++) {
-			QuartoLuxoDuplo q = new QuartoLuxoDuplo(i + 506, false);
+			QuartoLuxoDuplo q = new QuartoLuxoDuplo(i + 506);
 			GerenteDeArquivos.salvaQuarto(q, false);
 		}
 		for (int i = 0; i < 10; i++) {
-			QuartoLuxoDuplo q = new QuartoLuxoDuplo(i + 601, false);
+			QuartoLuxoDuplo q = new QuartoLuxoDuplo(i + 601);
 			GerenteDeArquivos.salvaQuarto(q, false);
 		}
 		for (int i = 0; i < 10; i++) {

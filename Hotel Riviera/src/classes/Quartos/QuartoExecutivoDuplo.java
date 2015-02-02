@@ -28,11 +28,15 @@ public class QuartoExecutivoDuplo extends Quarto {
 	 * @throws Exception
 	 * 		O numero do quarto deve ser sempre inteiro positivo
 	 */
-	public QuartoExecutivoDuplo(int numeroDoQuarto, boolean camaExtra) throws Exception{
+	public QuartoExecutivoDuplo(int numeroDoQuarto) throws Exception{
 		super(numeroDoQuarto);	
-		this.camaExtra = camaExtra;
+		this.camaExtra = false;
 	}
 	
+	public void setCamaExtra(boolean camaExtra) {
+		this.camaExtra = camaExtra;
+	}
+
 	/**
 	 * Verifica se o quarto comporta um dado numero de pessoas
 	 * @param numeroDePessoas
@@ -92,8 +96,8 @@ public class QuartoExecutivoDuplo extends Quarto {
 	 */
 	@Override
 	public String toString() {
-		return "Quarto Executivo Duplo - Diaria = "+ VALOR_DA_DIARIA  
-				+ " Capacidade Maxima" + CAPACIDADE + super.toString();
+		return  super.toString() + " - Executivo Duplo";  
+				
 	}
 	
 	/**

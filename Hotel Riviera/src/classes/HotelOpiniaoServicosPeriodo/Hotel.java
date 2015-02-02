@@ -11,6 +11,13 @@ import classes.Carro.Carro;
 import classes.Carro.ListaCarros;
 import classes.Pessoa.Contrato;
 import classes.Quartos.Quarto;
+import classes.Quartos.QuartoExecutivoDuplo;
+import classes.Quartos.QuartoExecutivoSimples;
+import classes.Quartos.QuartoExecutivoTriplo;
+import classes.Quartos.QuartoLuxoDuplo;
+import classes.Quartos.QuartoLuxoSimples;
+import classes.Quartos.QuartoLuxoTriplo;
+import classes.Quartos.QuartoPresidencial;
 
 /**
  * Manipula operacoes relacionadas ao Hotel como um todo
@@ -28,7 +35,13 @@ public class Hotel {
 	 * Ao ser inicializado o hotel, sao geradas listas de quartos, carros e babas.
 	 */
 	public Hotel() {
-		// INSTANCIAR TODOS OS QUARTOS/BABAS/CARROS
+		instanciaPresidenciais();
+		instanciaExecutivosSimples();
+		instanciaExecutivosDuplo();
+		instanciaExecutivosTriplos();
+		instanciaLuxosSimples();
+		instanciaLuxosDuplo();
+		instanciaLuxosTriplos();
 	}
 	
 	/**
@@ -153,6 +166,103 @@ public class Hotel {
 			todas_opinioes += "\n\n" + opinioes.get(i).toString();
 		}	
 		return todas_opinioes;
+	}
+	
+	private void instanciaPresidenciais(){
+		int i = 0;
+		while (i < 5){
+			try {
+				Quarto quarto = new QuartoPresidencial(i + 1);
+				quartos.add(quarto);
+				i++;
+			} catch (Exception e) {
+			}
+			
+		}
+	}
+	
+	private void instanciaExecutivosSimples(){
+		int i = 0, j = 6;
+		while (i < 5){
+			try {
+				Quarto quarto = new QuartoExecutivoSimples(j);
+				quartos.add(quarto);
+				i++;
+				j++;
+			} catch (Exception e) {
+			}
+			
+		}
+	}
+	
+	private void instanciaExecutivosDuplo(){
+		int i = 0, j = 11;
+		while (i < 15){
+			try {
+				Quarto quarto = new QuartoExecutivoDuplo(j);
+				quartos.add(quarto);
+				i++;
+				j++;
+			} catch (Exception e) {
+			}
+			
+		}
+	}
+	
+	private void instanciaExecutivosTriplos(){
+		int i = 0, j = 26;
+		while (i < 20){
+			try {
+				Quarto quarto = new QuartoExecutivoTriplo(j);
+				quartos.add(quarto);
+				i++;
+				j++;
+			} catch (Exception e) {
+			}
+			
+		}
+	}
+	
+	private void instanciaLuxosSimples(){
+		int i = 0, j = 46;
+		while (i < 5){
+			try {
+				Quarto quarto = new QuartoLuxoSimples(j);
+				quartos.add(quarto);
+				i++;
+				j++;
+			} catch (Exception e) {
+			}
+			
+		}
+	}
+	
+	private void instanciaLuxosDuplo(){
+		int i = 0, j = 51;
+		while (i < 15){
+			try {
+				Quarto quarto = new QuartoLuxoDuplo(j);
+				quartos.add(quarto);
+				i++;
+				j++;
+			} catch (Exception e) {
+			}
+			
+		}
+	}
+	
+	private void instanciaLuxosTriplos(){
+		int i = 0, j = 66;
+		while (i < 20){
+			try {
+				Quarto quarto = new QuartoLuxoTriplo(j);
+				quartos.add(quarto);
+				i++;
+				j++;
+			} catch (Exception e) {
+			}
+			
+		}
 	}
 	
 

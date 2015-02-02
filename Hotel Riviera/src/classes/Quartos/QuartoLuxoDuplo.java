@@ -28,11 +28,15 @@ public class QuartoLuxoDuplo extends Quarto{
 	 * @throws Exception
 	 * 		O numero do quarto deve ser sempre inteiro positivo
 	 */
-	public QuartoLuxoDuplo(int numeroDoQuarto, boolean camaExtra) throws Exception{
+	public QuartoLuxoDuplo(int numeroDoQuarto) throws Exception{
 		super(numeroDoQuarto);
-		this.camaExtra = camaExtra;
+		this.camaExtra = false;
 	}
 	
+	public void setCamaExtra(boolean camaExtra) {
+		this.camaExtra = camaExtra;
+	}
+
 	/**
 	 * Verifica se o quarto comporta um dado numero de pessoas
 	 * @param numeroDePessoas
@@ -90,7 +94,7 @@ public class QuartoLuxoDuplo extends Quarto{
 	 */
 	@Override
 	public String toString() {
-		return "Quarto Luxo Duplo " + super.toString();
+		return super.toString() + " - Luxo Duplo";
 	}
 	
 	/**
