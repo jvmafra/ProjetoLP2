@@ -32,16 +32,17 @@ public class Periodo{
 			if (data_final.get(Calendar.MONTH) < data_inicial.get(Calendar.MONTH)){
 				throw new PeriodoInvalidoException("Selecione meses de entrada e saida validos");
 			}
-			
 			else {
-				if (data_final.get(Calendar.MONTH) == data_inicial.get(Calendar.MONTH) && data_final.get(Calendar.DATE) <= data_inicial.get(Calendar.DATE))
-					throw new PeriodoInvalidoException("Selecione dias de entrada e saida validos");
+				if (data_final.get(Calendar.MONTH) == data_inicial.get(Calendar.MONTH)){
+					if (data_final.get(Calendar.DATE) < data_inicial.get(Calendar.DATE)){
+						throw new PeriodoInvalidoException("Selecione dias de entrada e saida validos");
+						} else if (data_final.get(Calendar.DATE) == data_inicial.get(Calendar.DATE) 
+							&& data_final.get(Calendar.HOUR_OF_DAY) <= data_inicial.get(Calendar.HOUR_OF_DAY)){
+						throw new PeriodoInvalidoException("Selecione horas de entrada e saida validos");
+					}	
+				}
 			}
 		}
-		
-		
-		
-		
 		this.data_inicial = data_inicial;
 		this.data_final = data_final;
 	}
@@ -70,6 +71,11 @@ public class Periodo{
 		 long m1 = data_inicial.getTimeInMillis();
 	     long m2 = data_final.getTimeInMillis();
 	     return (int) ((m2 - m1) / (24*60*60*1000));
+	}
+	public int getTotalDeHoras(){
+		 long m1 = data_inicial.getTimeInMillis();
+	     long m2 = data_final.getTimeInMillis();
+	     return (int) ((m2 - m1) / (60*60*1000));
 	}
 	
 	private int getAnoFinal() {
