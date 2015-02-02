@@ -26,10 +26,13 @@ public class QuartoExecutivoSimples extends Quarto{
 	 * @throws Exception
 	 * 		O numero do quarto deve ser sempre inteiro positivo
 	 */
-	public QuartoExecutivoSimples(int numeroDoQuarto, boolean camaExtra) throws Exception{
+	public QuartoExecutivoSimples(int numeroDoQuarto) throws Exception{
 		super(numeroDoQuarto);
-		this.camaExtra = camaExtra;
+		this.camaExtra = false;
 		
+	}
+	public void setCamaExtra(boolean camaExtra) {
+		this.camaExtra = camaExtra;
 	}
 	/**
 	 * Verifica se o quarto comporta um dado numero de pessoas
@@ -89,7 +92,7 @@ public class QuartoExecutivoSimples extends Quarto{
 	 */
 	@Override
 	public String toString() {
-		return "Quarto Executivo Simples " + super.toString();
+		return super.toString() + " - Executivo Simples";  
 	}
 
 	/**

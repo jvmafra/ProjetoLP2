@@ -77,7 +77,7 @@ public class QuartoExecutivoTriplo extends Quarto{
 	 */
 	@Override
 	public String toString() {
-		return "Quarto Executivo Triplo " + super.toString();
+		return super.toString() + " - Executivo Triplo";
 	}
 
 	/**

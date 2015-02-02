@@ -73,7 +73,7 @@ public class QuartoPresidencial extends Quarto{
 	 */
 	@Override
 	public String toString() {
-		return "Quarto Presidencial " + super.toString();
+		return super.toString() + " - Presidencial";
 	}
 	
 	/**

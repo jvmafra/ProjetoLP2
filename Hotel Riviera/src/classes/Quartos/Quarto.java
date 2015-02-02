@@ -54,10 +54,19 @@ public abstract class Quarto implements Servicos, Serializable{
 	 */
 	public abstract double valor();
 	
+	/**
+	 * Adiciona um novo periodo de aluguel ao quarto
+	 */
 	public abstract boolean adicionaPeriodo(Periodo p);
 	
+	/**
+	 * Remove um periodo do quarto apos sua devolucao
+	 */
 	public abstract boolean removePeriodo(Periodo p);
 	
+	/**
+	 * Retorna a lista de periodos do quarto
+	 */
 	public abstract List<Periodo> getPeriodos();
 	
 	/**
@@ -65,7 +74,7 @@ public abstract class Quarto implements Servicos, Serializable{
 	 */
 	@Override
 	public String toString() {
-		return "[Numero do Quarto = " + numeroDoQuarto + "]";
+		return "Nº: " + getNumeroDoQuarto();
 	}
 	
 	/**
