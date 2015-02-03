@@ -12,11 +12,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import classes.HotelOpiniaoServicosPeriodo.Alugavel;
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import excecoes.NomeInvalidoException;
 import excecoes.TelefoneInvalidoException;
 
-public class Baba implements Serializable{
+public class Baba implements Serializable, Alugavel{
 	private String nome, telefone;
 	private List<Periodo> periodos;
 	

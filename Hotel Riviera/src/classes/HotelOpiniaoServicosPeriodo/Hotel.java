@@ -80,57 +80,20 @@ public class Hotel {
 	}
 	
 	/**
-	 * Retorna uma list com os quartos disponiveis em determinado periodo
+	 * Retorna uma list com algum tipo de servico alugavel em determinado periodo
 	 */
-	public List<Quarto> verificaQuartosDisponiveis(Periodo p){
-		List<Quarto> disponiveis = new ArrayList<>();
-		for (Quarto quarto: quartos){
+	public List<Alugavel> verificaAlugaveisDisponiveis(Periodo p, List<Alugavel> lista){
+		List<Alugavel> disponiveis = new ArrayList<>();
+		for (Alugavel alugavel: lista){
 			boolean disponivel = true;
-			for (Periodo p1: quarto.getPeriodos()){
+			for (Periodo p1: alugavel.getPeriodos()){
 				if (p1.periodoCoincide(p))
 					disponivel = false;
 			if (disponivel == true)
-				disponiveis.add(quarto);	
+				disponiveis.add(alugavel);	
 			}
 		}
 		
-		return disponiveis;
-	}
-	
-	/**
-	 * Retorna uma list com as babas disponiveis em determinado periodo
-	 */
-	public List<Baba> verificaBabasDisponiveis(Periodo p){
-		List<Baba> disponiveis = new ArrayList<>();
-		for (Baba baba: babas){
-			boolean disponivel = true;
-			for (Periodo p1: baba.getPeriodos()){
-				if (p1.periodoCoincide(p))
-					disponivel = false;
-			if (disponivel == true)
-				disponiveis.add(baba);	
-			}
-		}
-			
-		return disponiveis;
-		
-	}
-	
-	/**
-	 * Retorna uma list com os carros disponiveis em determinado periodo
-	 */
-	public List<Carro> verificaCarrosDisponiveis(Periodo p){
-		List<Carro> disponiveis = new ArrayList<>();
-		for (Carro carro: carros){
-			boolean disponivel = true;
-			for (Periodo p1: carro.getPeriodos()){
-				if (p1.periodoCoincide(p))
-					disponivel = false;
-			if (disponivel == true)
-				disponiveis.add(carro);	
-			}
-		}
-			
 		return disponiveis;
 	}
 	

@@ -11,10 +11,12 @@ package classes.Carro;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import classes.HotelOpiniaoServicosPeriodo.Alugavel;
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import excecoes.PlacaInvalidaException;
 
-public class Carro implements Serializable{
+public class Carro implements Serializable, Alugavel{
 	private String placa;
 	private boolean luxo;
 	private List<Periodo> periodos;

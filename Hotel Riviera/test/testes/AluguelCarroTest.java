@@ -48,8 +48,7 @@ public class AluguelCarroTest {
 			ac2 = new AluguelCarro (c1, true, true , p2);
 			Assert.fail("Deveria lancar excecao");
 		} catch(Exception e) {
-			System.out.println(e.getMessage());
-		Assert.assertEquals("O carro esta ocupado nesse periodo", e.getMessage());
+			Assert.assertEquals("O carro esta ocupado nesse periodo", e.getMessage());
 		}
 	}
 
