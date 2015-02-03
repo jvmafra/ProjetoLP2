@@ -9,6 +9,9 @@ package classes.Carro;
  * @author Joao Victor Barroso Mafra e Adiel Andrade
  */
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import classes.HotelOpiniaoServicosPeriodo.Servico;
 import excecoes.PeriodoInvalidoException;
@@ -24,11 +27,12 @@ public class AluguelCarro implements Servico {
 		if (!(carro.isDisponivel(p)))
 			throw new PeriodoInvalidoException("O carro esta ocupado nesse periodo");
 		
-		getCarro().adicionaPeriodo(p);
+		
 		this.seguro = seguro;
 		this.tanqueCheio = tanque;
 		this.periodo = p;
 		this.carro = carro;
+		getCarro().adicionaPeriodo(p);
 	}
 	
 	public Periodo getPeriodo() {
@@ -70,7 +74,7 @@ public class AluguelCarro implements Servico {
 		
 		AluguelCarro outro = (AluguelCarro) obj;
 		
-		return getCarro().equals(outro.getCarro()) && getPeriodo().equals(outro.getPeriodo());
+		return getCarro().equals(outro.getCarro()) && valor() == outro.valor();
 	}
 	
 	private int valorTanqueCheio() {
@@ -94,5 +98,6 @@ public class AluguelCarro implements Servico {
 		return 60;
 	}
 	
+
 	
 }
