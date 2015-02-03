@@ -40,6 +40,7 @@ public class PaginaInicialHotel extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
 	public PaginaInicialHotel() {
 		setTitle("\u00C1rea do funcion\u00E1rio");
 		setBounds(100, 100, 494, 383);
