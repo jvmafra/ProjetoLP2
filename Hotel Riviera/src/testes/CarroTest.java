@@ -17,14 +17,7 @@ public class CarroTest {
 	private Carro c1;
 	private Carro c2;
 	private Carro c3;
-	Calendar data1 = new GregorianCalendar(2015, 5, 20);
-	Calendar data2 = new GregorianCalendar(2015, 5, 28);
-	private Periodo p;
 	
-	@Before
-	public void setUp() throws Exception {
-		p = new Periodo(data1, data2);
-	}
 	
 
 	@Test
@@ -77,5 +70,7 @@ public class CarroTest {
 		Assert.assertTrue(c1.isDisponivel(p2));
 		
 	}
+	
+	
 	
 }

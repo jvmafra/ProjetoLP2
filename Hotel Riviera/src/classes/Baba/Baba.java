@@ -24,7 +24,7 @@ public class Baba implements Serializable{
 		if (nome == null || nome.equals(""))
 			throw new NomeInvalidoException("Nome invalido");
 		
-		if(telefone.equals("") || telefone == null || telefone.length() < 8 || telefone.length() > 12)
+		if(telefone == null || verificaTelefone(telefone))
 			throw new TelefoneInvalidoException("Telefone invalido");
 		
 		
@@ -32,16 +32,40 @@ public class Baba implements Serializable{
 		this.nome = nome;
 		periodos = new ArrayList<Periodo>();
 	}
+	
+	private boolean verificaTelefone(String telefone){
+		if(telefone.equals("")){
+			return true;
+		}
+		if(telefone.length() < 8 ){
+			return true;
+		}
+		if(telefone.length() > 12){
+			return true;
+		}
+		for (int i = 0; i < telefone.length(); i++) {
+			if(Character.isLetter(telefone.charAt(i))){
+				return true;					
+			}
+		}
+		return false;
+	}
+	
+	
 
 	public String getTelefone() {
 		return telefone;
 	}
 
 	public void setTelefone(String telefone) throws TelefoneInvalidoException {
-	if(telefone.equals("") || telefone == null || telefone.length() < 8 || telefone.length() > 12)
+	if(verificaTelefone(telefone))
 		throw new TelefoneInvalidoException("Telefone invalido");
 		
 		this.telefone = telefone;
+	}
+	
+	public String getNumero(){
+		return telefone;
 	}
 
 	public String getNome() {
@@ -84,7 +108,7 @@ public class Baba implements Serializable{
 	
 	@Override
 	public String toString(){
-		return "Nome: " + getNome();
+		return "Nome: " + getNome() + "/n" +"Numero: " + getNumero();
 	}
 
 }
