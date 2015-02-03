@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 import classes.HotelOpiniaoServicosPeriodo.Hotel;
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
-import classes.HotelOpiniaoServicosPeriodo.Servicos;
+import classes.HotelOpiniaoServicosPeriodo.Servico;
 
 /**
  * Servico BabySitter, que deve ter um periodo e claro, uma baba.
@@ -14,7 +14,7 @@ import classes.HotelOpiniaoServicosPeriodo.Servicos;
  * @author Joao Victor Barroso Mafra e Adiel Andrade
  */
 
-public class BabySitter implements Servicos {
+public class BabySitter implements Servico {
 	private static final int VALOR_HORA_NORMAL = 25;
 	private static final int VALOR_HORA_DOBRADA = 50;
 	private int horaDeInicio;
@@ -95,7 +95,7 @@ public class BabySitter implements Servicos {
 	public String toString() {
 		return getBaba().toString();
 		
-		// Falta ver como sera a questão do periodo para imprimir. Se for
+		// Falta ver como sera a questï¿½o do periodo para imprimir. Se for
 		// usar a classe Periodo mesmo ja tem toString feito
 	}
 

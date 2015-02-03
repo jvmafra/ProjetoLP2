@@ -5,6 +5,6 @@ package classes.HotelOpiniaoServicosPeriodo;
  * @author Joao Victor Barroso Mafra
  */
 
-public interface Servicos {
+public interface Servico {
 	public double valor();
 }

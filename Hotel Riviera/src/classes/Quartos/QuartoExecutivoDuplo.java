@@ -18,6 +18,7 @@ public class QuartoExecutivoDuplo extends Quarto {
 	public static final int CAPACIDADE = 2;
 	private boolean camaExtra;
 	private List<Periodo> periodos = new ArrayList<>();
+	private Periodo periodoAtual;
 	
 	/**
 	 * Cria o quarto Executivo Duplo

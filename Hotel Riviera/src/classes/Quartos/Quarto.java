@@ -7,7 +7,7 @@ import java.util.List;
 
 
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
-import classes.HotelOpiniaoServicosPeriodo.Servicos;
+import classes.HotelOpiniaoServicosPeriodo.Servico;
 
 /**
  * Classe abstrata que representa
@@ -15,7 +15,7 @@ import classes.HotelOpiniaoServicosPeriodo.Servicos;
  * @author Hugo Gabriel
  *
  */
-public abstract class Quarto implements Servicos, Serializable{
+public abstract class Quarto implements Servico, Serializable{
 	private int numeroDoQuarto;
 	
 	/**
@@ -74,7 +74,7 @@ public abstract class Quarto implements Servicos, Serializable{
 	 */
 	@Override
 	public String toString() {
-		return "Nº: " + getNumeroDoQuarto();
+		return "Nï¿½: " + getNumeroDoQuarto();
 	}
 	
 	/**

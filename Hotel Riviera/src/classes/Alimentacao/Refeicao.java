@@ -1,7 +1,9 @@
 package classes.Alimentacao;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
+import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import excecoes.PeriodoInvalidoException;
 
 public class Refeicao {

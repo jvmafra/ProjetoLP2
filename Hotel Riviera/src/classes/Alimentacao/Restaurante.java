@@ -3,65 +3,44 @@ package classes.Alimentacao;
 import java.util.ArrayList;
 import java.util.List;
 
-import classes.HotelOpiniaoServicosPeriodo.Servicos;
+import classes.HotelOpiniaoServicosPeriodo.Periodo;
+import classes.HotelOpiniaoServicosPeriodo.Servico;
 
-public class Restaurante implements Servicos{
-	private List<Refeicao> refeicoes = new ArrayList <>();
+public class Restaurante implements Servico{
+	private Refeicao refeicao;
 	
-	public Restaurante(){
+	public Restaurante (Refeicao refeicao){
+		this.refeicao = refeicao;
+	}
+
+	public Refeicao getRefeicao() {
+		return refeicao;
+	}
+	
+	@Override
+	public double valor(){
+		return getRefeicao().getPreco();
+	}
+	
+	
+	public String getData(){
+		return getRefeicao().getDataString();
+	}
+	
+	@Override
+	public String toString(){
+		return getRefeicao().toString();
+	}
+	
+	@Override
+	public boolean equals(Object obj){
+		if (!(obj instanceof Restaurante))
+			return false;
+		Restaurante outro = (Restaurante) obj;
 		
-	}
-	public void adicionaRefeicao(Refeicao pedido){
-		refeicoes.add(pedido);
+		return getRefeicao().equals(outro.getRefeicao());
 	}
 	
-	public void removeRefeicao(Refeicao pedido){
-		refeicoes.remove(pedido);
-	}
-	
-	public int numIdasAoRestaurante(){
-		return refeicoes.size();
-	}
-	
-	@Override
-	public double valor() {
-		double valorTotal = 0;
-		for (int i = 0; i < refeicoes.size(); i++) {
-			valorTotal += refeicoes.get(i).getPreco();
-		}
-		return valorTotal;
-	}
-
-	@Override
-	public String toString() {
-		if (numIdasAoRestaurante() == 0){
-			return "O hospede nao frequentou o restaurante";
-		}
-		String idas = "Idas ao restaurante: \n";
-		for (int i = 0; i < refeicoes.size(); i++) {
-			Refeicao refeicao = refeicoes.get(i);
-			idas += refeicao.toString() + "\n";
-		}
-		return idas;
-	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Restaurante other = (Restaurante) obj;
-		if (refeicoes == null) {
-			if (other.refeicoes != null)
-				return false;
-		} else if (!refeicoes.equals(other.refeicoes))
-			return false;
-		return true;
-	}
 	
 	
 	

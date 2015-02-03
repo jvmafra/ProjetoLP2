@@ -10,10 +10,10 @@ package classes.Carro;
  */
 
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
-import classes.HotelOpiniaoServicosPeriodo.Servicos;
+import classes.HotelOpiniaoServicosPeriodo.Servico;
 import excecoes.PeriodoInvalidoException;
 
-public class AluguelCarro implements Servicos {
+public class AluguelCarro implements Servico {
 	private Periodo periodo;
 	private boolean tanqueCheio;
 	private boolean seguro;

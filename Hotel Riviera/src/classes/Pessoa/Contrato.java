@@ -11,7 +11,7 @@ import classes.Baba.BabySitter;
 import classes.Carro.AluguelCarro;
 import classes.FormasCobranca.EstrategiaCobranca;
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
-import classes.HotelOpiniaoServicosPeriodo.Servicos;
+import classes.HotelOpiniaoServicosPeriodo.Servico;
 import classes.Quartos.Quarto;
 import classes.Quartos.QuartoExecutivoDuplo;
 import classes.Quartos.QuartoExecutivoSimples;
@@ -25,11 +25,10 @@ import excecoes.PeriodoInvalidoException;
 
 public class Contrato {
 	private Hospede hospede;
-	private List<Servicos> servicos = new ArrayList<Servicos>();
-	private EstrategiaCobranca e;
+	private List<Servico> servicos = new ArrayList<Servico>();
+	private EstrategiaCobranca estrategia;
 	private Periodo periodo;
 	private boolean aberto;
-	private Restaurante restaurante;
 	
 	/**
 	 * Construtor que recebe as informacoes necessarias para criacao de um contrato
@@ -46,24 +45,19 @@ public class Contrato {
 	 */
 	public Contrato (Quarto quarto, Hospede hospede, EstrategiaCobranca e, Periodo periodo) throws Exception{	
 		this.hospede = hospede;
-		this.e = e;
+		this.estrategia = e;
 		this.periodo = periodo;
-		restaurante = new Restaurante();
+		
 		quarto.adicionaPeriodo(periodo);
 		servicos.add(quarto);
-		servicos.add(restaurante);
 		aberto = true;
-	}
-	
-	public Restaurante getRestaurante() {
-		return restaurante;
 	}
 
 	/**
 	 * Retorna a estrategia atual de cobranca
 	 */
 	public EstrategiaCobranca getEstrategia() {
-		return e;
+		return estrategia;
 	}
 	
 	/**
@@ -72,13 +66,13 @@ public class Contrato {
 	 * 			A nova estrategia
 	 */
 	public void setE(EstrategiaCobranca e) {
-		this.e = e;
+		this.estrategia = e;
 	}
 	
 	/**
 	 * Retorna a lista atual de servicos presentes no contrato
 	 */
-	public List<Servicos> getServicos() {
+	public List<Servico> getServicos() {
 		return servicos;
 	}
 	
@@ -101,38 +95,13 @@ public class Contrato {
 	
 	
 	/**
-	 * Adiciona um novo aluguel de carro a lista de servicos
-	 * @param aluguel
-	 * 			Um novo aluguel de carro
+	 * Adiciona um novo servico ao contrato
+	 * @param servico
+	 * 			Um novo servico a ser adicionado
 	 */
-	public void adicionaAluguelCarro(AluguelCarro aluguel) throws Exception{
+	public void adicionaServico(Servico servico) throws Exception{
 		verificaContratoFechado();
-		verificaCoincidenciaNumDias(aluguel.getPeriodo());
-		servicos.add(aluguel);
-	}
-	
-	/**
-	 * Adiciona um novo servico de BabySitter ao contrato
-	 * @param baby
-	 * 			Um servico de BabySitter
-	 */
-	public void adicionaBabySitter(BabySitter baby) throws ContratoFechadoException, PeriodoInvalidoException {
-		verificaContratoFechado();
-		verificaCoincidenciaNumDias(baby.getPeriodo());
-		servicos.add(baby);
-	}
-	
-	/**
-	 * Adiciona uma nova refeicao ao objeto restaurante, que e mais um servico do contrato
-	 * @param r
-	 * 			Uma nova refeicao a ser adicionada.
-	 */
-	public void adicionaRefeicao(Refeicao r) throws ContratoFechadoException, PeriodoInvalidoException{
-		verificaContratoFechado();
-		if (!(getPeriodo().dataIsContida(r.getData()))){
-			throw new PeriodoInvalidoException("Data nao esta contida na hospedagem");
-		}
-		getRestaurante().adicionaRefeicao(r);
+		servicos.add(servico);
 	}
 	
 	/**
@@ -163,9 +132,9 @@ public class Contrato {
 	 */
 	public double calculaValorServicos(){
 		double soma = 0;
-		Iterator<Servicos> it = servicos.iterator();
+		Iterator<Servico> it = servicos.iterator();
 		while(it.hasNext()) {
-			Servicos umServico = it.next();
+			Servico umServico = it.next();
 			soma += umServico.valor();		
 		}
 		
@@ -272,11 +241,6 @@ public class Contrato {
 			throw new ContratoFechadoException("O contrato ja foi fechado");
 	}
 	
-	private void verificaCoincidenciaNumDias(Periodo p)
-			throws PeriodoInvalidoException {
-		if (p.getNumeroDias() > getPeriodo().getNumeroDias())
-			throw new PeriodoInvalidoException("Numero de dias invalido");
-	}
 	
 	/**
 	 * Verifica um contrato atualmente. Como sera usado apenas para rapida verificacao nao contem informacoes de pagamento (apenas em relacao ao quarto ,que e fixo)
