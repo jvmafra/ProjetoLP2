@@ -37,7 +37,7 @@ public class Hospede implements Serializable{
 		if(CPF == null || !(isCPF(CPF)))
 			throw new CpfInvalidoExcepcion("CPF invalido");
 		
-		if(RG == null || RG.equals("") || RG.length() != 7 )
+		if(RG == null || RG.equals("") || RG.length() != 7 || validoRg(RG))
 			throw new RgInvalidoException("RG invalido");
 		
 		if(email == null || email.equals("") || verificaEmail(email) == false)
@@ -62,7 +62,7 @@ public class Hospede implements Serializable{
 	
 	}
 	/**
-	 * Testa numero de cartão de crédito
+	 * Testa numero de cartï¿½o de crï¿½dito
 	 * @param numero
 	 * @return
 	 */
@@ -176,6 +176,16 @@ public class Hospede implements Serializable{
 		return false;
 		
 	}
+	
+	private boolean validoRg(String Rg){
+		for (int i = 0; i < Rg.length(); i++) {
+			if(Character.isLetter(Rg.charAt(i))){
+				return true;					
+				}	
+		}
+		return false;
+		
+	}
 	private static boolean isCPF(String CPF) { // considera-se erro CPF's formados por uma sequencia de numeros iguais 
 		if (CPF.equals("00000000000") || CPF.equals("11111111111") || CPF.equals("22222222222") || 
 			CPF.equals("33333333333") || CPF.equals("44444444444") || CPF.equals("55555555555") || 
@@ -216,6 +226,8 @@ public class Hospede implements Serializable{
 			}
 		catch (InputMismatchException erro) { return(false); } }
 				
-			}
+
+}
+
 
 	

@@ -33,6 +33,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JPasswordField;
+import javax.swing.border.TitledBorder;
 
 public class LoginDeFuncionario extends JFrame {
 	private JTextField login;
@@ -62,60 +63,53 @@ public class LoginDeFuncionario extends JFrame {
 	public LoginDeFuncionario() {
 		setTitle("Login - Funcion\u00E1rio");
 		setBounds(100, 100, 494, 383);
+		getContentPane().setLayout(null);
 		
-		JLabel login_1 = new JLabel("Login");
-		login_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+		JPanel panel = new JPanel();
+		panel.setBounds(12, 12, 470, 331);
+		getContentPane().add(panel);
+		panel.setLayout(null);
 		
-		login = new JTextField();
-		login.setColumns(10);
-		
-		JLabel senha_1 = new JLabel("Senha");
-		senha_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
-		
-		senha = new JPasswordField();
-		senha.setColumns(10);
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new TitledBorder(null, "Borda v\u00E1 te catar", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_1.setBounds(63, 71, 301, 172);
+		panel.add(panel_1);
+		panel_1.setLayout(null);
 		
 		JButton botao_entrar = new JButton("Entrar");
+		botao_entrar.addActionListener(new ActionListener() {
+			// galera isso foi uma das coisas que nathaniel fez. Serve para mudar de frame.
+			public void actionPerformed(ActionEvent e) {
+				PaginaInicialHotel frame = new PaginaInicialHotel();
+				frame.setVisible(true);
+				setVisible(false);
+			}
+		});
+		botao_entrar.setBounds(104, 133, 75, 27);
+		panel_1.add(botao_entrar);
 		botao_entrar.setAction(action);
 		
 		botao_entrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
-		GroupLayout groupLayout = new GroupLayout(getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(botao_entrar))
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-							.addGroup(groupLayout.createSequentialGroup()
-								.addGap(146)
-								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-									.addComponent(senha_1)
-									.addComponent(senha, GroupLayout.PREFERRED_SIZE, 215, GroupLayout.PREFERRED_SIZE)))
-							.addGroup(groupLayout.createSequentialGroup()
-								.addContainerGap(145, Short.MAX_VALUE)
-								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-									.addComponent(login_1)
-									.addComponent(login, GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE)))))
-					.addGap(117))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(141)
-					.addComponent(login_1)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(login, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(23)
-					.addComponent(senha_1)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(senha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(botao_entrar)
-					.addContainerGap(70, Short.MAX_VALUE))
-		);
-		getContentPane().setLayout(groupLayout);
+		
+		JLabel senha_1 = new JLabel("Senha");
+		senha_1.setBounds(42, 85, 44, 17);
+		panel_1.add(senha_1);
+		senha_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+		
+		senha = new JPasswordField();
+		senha.setBounds(104, 78, 114, 19);
+		panel_1.add(senha);
+		senha.setColumns(10);
+		
+		JLabel login_1 = new JLabel("Login");
+		login_1.setBounds(54, 37, 37, 17);
+		panel_1.add(login_1);
+		login_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+		
+		login = new JTextField();
+		login.setBounds(104, 35, 114, 19);
+		panel_1.add(login);
+		login.setColumns(10);
 
 	}
 	private class SwingAction extends AbstractAction {

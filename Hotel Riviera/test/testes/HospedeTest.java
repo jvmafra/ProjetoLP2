@@ -18,6 +18,7 @@ public class HospedeTest {
 	@Before
 	public void iniciaHospede() throws Exception{
 		h1 = new Hospede("Edval","10530025485", "3224432", "e@hot.com", "8888888888", "ary", "4001635716004159");
+	
 	}
 
 	@Test
@@ -80,9 +81,16 @@ public class HospedeTest {
 			Assert.assertEquals("RG invalido", e.getMessage());
 		}
 			
-// uma maneira de quebrar o codigo seria colocando sete letras, o rg seria invalido, mas passaria pelas exceções.
-		try{
+	try{
 			h3 = new Hospede("Alane" ,"10530025485", "era pra ter um numero aki" , "adiel.rocha@ccc.ufcg.edu.br", "08396250807" , "Rua: kkdkdk", "3841001111222233334");
+			Assert.fail("Deveria lancar excecao");
+		} catch(EntradaDeDadosException e) {
+			Assert.assertEquals("RG invalido", e.getMessage());
+		}
+		
+		
+		try{
+			h3 = new Hospede("Alane" ,"10530025485", "111111p" , "adiel.rocha@ccc.ufcg.edu.br", "08396250807" , "Rua: kkdkdk", "3841001111222233334");
 			Assert.fail("Deveria lancar excecao");
 		} catch(EntradaDeDadosException e) {
 			Assert.assertEquals("RG invalido", e.getMessage());
@@ -215,19 +223,19 @@ public class HospedeTest {
 			}
 			
 		}
+
+		@Test
+		public void testToString() {
+			Assert.assertEquals("Nome: " + h1.getNome() + "\nCPF: " + h1.getCpf()
+				+ "\nRG: " + h1.getRg() + "\nEmail: " + h1.getEmail() + "\nEndereco: " + h1.getEndereco()
+				+ "\nTelefone: " + h1.getTelefone(), h1.toString() );
+		}
+		
+		@Test
+		public void testEquals() throws Exception{
+			h3 = new Hospede("Adiel Andrade Rocha", "87654321098", "0982828718", "adiel.rocha@ccc.ufcg.edu.br", "08396250807" , "Rua: kkdkdk", "3841001111222233334");
+			Assert.assertTrue(h1.equals(h3));
+			Assert.assertFalse(h2.equals(h3));
+		}
+
 }
-//		@Test
-//		public void testToString() {
-//			Assert.assertEquals("Nome: " + h1.getNome() + "\nCPF: " + h1.getCpf()
-//				+ "\nRG: " + h1.getRg() + "\nEmail: " + h1.getEmail() + "\nEndereco: " + h1.getEndereco()
-//				+ "\nTelefone: " + h1.getTelefone(), h1.toString() );
-//		}
-//		
-//		@Test
-//		public void testEquals() throws Exception{
-//			h3 = new Hospede("Adiel Andrade Rocha", "87654321098", "0982828718", "adiel.rocha@ccc.ufcg.edu.br", "08396250807" , "Rua: kkdkdk", "3841001111222233334");
-//			Assert.assertTrue(h1.equals(h3));
-//			Assert.assertFalse(h2.equals(h3));
-//		}
-//
-//}
