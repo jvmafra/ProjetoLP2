@@ -68,7 +68,8 @@ public class CarroTest {
 		c1= new Carro("asd1234" , true);
 		
 		Assert.assertTrue(c1.isDisponivel(p2));
-		
+		c1.adicionaPeriodo(p2);
+		Assert.assertFalse(c1.isDisponivel(p2));
 	}
 	
 	
