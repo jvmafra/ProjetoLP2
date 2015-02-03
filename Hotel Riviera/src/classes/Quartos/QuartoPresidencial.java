@@ -15,6 +15,7 @@ public class QuartoPresidencial extends Quarto{
 	public static final double VALOR_DA_DIARIA = 1200.00;
 	public static final int CAPACIDADE = 4;
 	private List<Periodo> periodos = new ArrayList<>();
+	private Periodo periodoAtual;
 	
 	/**
 	 * Cria o quarto Presidencial
@@ -47,9 +48,19 @@ public class QuartoPresidencial extends Quarto{
 	 */
 	@Override
 	public double valor() {
-		return VALOR_DA_DIARIA;
+		return VALOR_DA_DIARIA * getPeriodoAtual().getNumeroDias();
 	}
 	
+	public Periodo getPeriodoAtual() {
+		return periodoAtual;
+	}
+
+
+	public void setPeriodoAtual(Periodo periodoAtual) {
+		this.periodoAtual = periodoAtual;
+	}
+
+
 	/**
 	 * Adiciona um objeto do tipo Periodo na lista de periodos do quarto
 	 * @param p Periodo a ser adicionado

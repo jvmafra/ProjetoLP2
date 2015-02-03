@@ -29,6 +29,7 @@ public class Contrato {
 	private EstrategiaCobranca estrategia;
 	private Periodo periodo;
 	private boolean aberto;
+	private Quarto quarto;
 	
 	/**
 	 * Construtor que recebe as informacoes necessarias para criacao de um contrato
@@ -47,6 +48,7 @@ public class Contrato {
 		this.hospede = hospede;
 		this.estrategia = e;
 		this.periodo = periodo;
+		this.quarto = quarto;
 		
 		quarto.adicionaPeriodo(periodo);
 		servicos.add(quarto);
@@ -131,6 +133,7 @@ public class Contrato {
 	 * 			O somatorio do valor de todos os servicos
 	 */
 	public double calculaValorServicos(){
+		getQuarto().setPeriodoAtual(getPeriodo());
 		double soma = 0;
 		Iterator<Servico> it = servicos.iterator();
 		while(it.hasNext()) {
@@ -141,6 +144,10 @@ public class Contrato {
 		return soma;
 	}
 	
+	public Quarto getQuarto() {
+		return quarto;
+	}
+
 	/**
 	 * Calcula o valor de todos os servicos usando a estrategia de cobranca, que depende do periodo
 	 */

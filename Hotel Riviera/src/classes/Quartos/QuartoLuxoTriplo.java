@@ -16,7 +16,16 @@ public class QuartoLuxoTriplo extends Quarto{
 	public static final double VALOR_DA_DIARIA = 620.00;
 	public static final int CAPACIDADE = 3;
 	private List<Periodo> periodos = new ArrayList<>();
+	private Periodo periodoAtual;
 	
+	public Periodo getPeriodoAtual() {
+		return periodoAtual;
+	}
+
+	public void setPeriodoAtual(Periodo periodoAtual) {
+		this.periodoAtual = periodoAtual;
+	}
+
 	/**
 	 * Cria o quarto Luxo Triplo
 	 * @param numeroDoQuarto
@@ -49,7 +58,7 @@ public class QuartoLuxoTriplo extends Quarto{
 	 */
 	@Override
 	public double valor() {
-		return VALOR_DA_DIARIA;
+		return VALOR_DA_DIARIA * getPeriodoAtual().getNumeroDias();
 	}
 	
 	/**

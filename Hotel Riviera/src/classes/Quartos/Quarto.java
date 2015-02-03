@@ -2,10 +2,9 @@ package classes.Quartos;
 
 
 import java.io.Serializable;
-
 import java.util.List;
 
-
+import classes.HotelOpiniaoServicosPeriodo.Alugavel;
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import classes.HotelOpiniaoServicosPeriodo.Servico;
 
@@ -15,7 +14,7 @@ import classes.HotelOpiniaoServicosPeriodo.Servico;
  * @author Hugo Gabriel
  *
  */
-public abstract class Quarto implements Servico, Serializable{
+public abstract class Quarto implements Servico, Serializable, Alugavel{
 	private int numeroDoQuarto;
 	
 	/**
@@ -68,6 +67,12 @@ public abstract class Quarto implements Servico, Serializable{
 	 * Retorna a lista de periodos do quarto
 	 */
 	public abstract List<Periodo> getPeriodos();
+	
+	/** Retorna o periodo do quarto alugado atualmente */
+	public abstract Periodo getPeriodoAtual();
+	
+	/** Modifica o periodo atual do quarto  */
+	public abstract void setPeriodoAtual(Periodo periodo);
 	
 	/**
 	 * Fornece uma representacao do quarto como String

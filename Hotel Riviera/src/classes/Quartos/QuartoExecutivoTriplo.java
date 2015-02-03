@@ -15,6 +15,7 @@ public class QuartoExecutivoTriplo extends Quarto{
 	public static final double VALOR_DA_DIARIA = 440.00;
 	public static final int CAPACIDADE = 3;
 	private List<Periodo> periodos = new ArrayList<>();
+	private Periodo periodoAtual;
 	
 	/**
 	 * Cria o quarto Executivo Triplo
@@ -50,9 +51,17 @@ public class QuartoExecutivoTriplo extends Quarto{
 	 */
 	@Override
 	public double valor() {
-		return VALOR_DA_DIARIA;
+		return VALOR_DA_DIARIA * getPeriodoAtual().getNumeroDias();
 	}
 	
+	public Periodo getPeriodoAtual() {
+		return periodoAtual;
+	}
+
+	public void setPeriodoAtual(Periodo periodoAtual) {
+		this.periodoAtual = periodoAtual;
+	}
+
 	/**
 	 * Adiciona um objeto do tipo Periodo na lista de periodos do quarto
 	 * @param p Periodo a ser adicionado
