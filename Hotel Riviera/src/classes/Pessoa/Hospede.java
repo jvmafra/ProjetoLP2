@@ -5,6 +5,15 @@ import java.util.InputMismatchException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import excecoes.CpfInvalidoExcepcion;
+import excecoes.EmailInvalidoExcepcion;
+import excecoes.EnderecoInvalidoException;
+import excecoes.EntradaDeDadosException;
+import excecoes.NomeInvalidoException;
+import excecoes.NumeroCartaoException;
+import excecoes.RgInvalidoException;
+import excecoes.TelefoneInvalidoException;
+
 /**
  * Classe que representa um hospede, que estara associado a um contrato.
  * @author Edval Galdino
@@ -21,27 +30,27 @@ public class Hospede implements Serializable{
 	 * @param endereco
 	 * @throws Exception
 	 */
-	public Hospede(String nome, String CPF, String RG, String email, String telefone, String endereco, String numCartao) throws Exception{
-		if(nome.equals("") || nome.equals(null))
-			throw new Exception("Nome invalido");
+	public Hospede(String nome, String CPF, String RG, String email, String telefone, String endereco, String numCartao) throws EntradaDeDadosException{
+		if(nome == null || nome.equals(""))
+			throw new NomeInvalidoException("Nome invalido");
 		
-		if(!(isCPF(CPF)))
-			throw new Exception("CPF invalido");
+		if(CPF == null || !(isCPF(CPF)))
+			throw new CpfInvalidoExcepcion("CPF invalido");
 		
-		if(RG.equals("") || RG == null || RG.length() != 7)
-			throw new Exception("RG invalido");
+		if(RG == null || RG.equals("") || RG.length() != 7 )
+			throw new RgInvalidoException("RG invalido");
 		
-		if(email.equals("") || email == null || verificaEmail(email) == false)
-			throw new Exception("E-mail invalido");
+		if(email == null || email.equals("") || verificaEmail(email) == false)
+			throw new EmailInvalidoExcepcion("E-mail invalido");
 		
-		if(endereco.equals("") || endereco == null)
-			throw new Exception("Endereco invalido");
+		if(endereco == null || endereco.equals(""))
+			throw new EnderecoInvalidoException("Endereco invalido");
 		
-		if(telefone.equals("") || telefone == null || telefone.length() < 8 || telefone.length() > 12)
-			throw new Exception("Telefone invalido");
+		if(telefone == null || telefone.equals("") ||  telefone.length() < 8 || telefone.length() > 12)
+			throw new TelefoneInvalidoException("Telefone invalido");
 		
-		if (!(validaCartaoDeCredito(numCartao))){
-			throw new Exception("Cartao de credito invalido");
+		if (numCartao == null || numCartao.equals("") || !(validaCartaoDeCredito(numCartao))){
+			throw new NumeroCartaoException("Cartao de credito invalido");
 		}
 		
 	this.nome = nome;
@@ -52,6 +61,11 @@ public class Hospede implements Serializable{
 	this.rg = RG;
 	
 	}
+	/**
+	 * Testa numero de cartão de crédito
+	 * @param numero
+	 * @return
+	 */
 	private boolean validaCartaoDeCredito(String numero) {
 		int s1 = 0, s2 = 0;
 		String invertida = new StringBuffer(numero).reverse().toString();
@@ -78,8 +92,8 @@ public class Hospede implements Serializable{
  * @throws Exception
  */
 	public void setTelefone(String telefone) throws Exception {
-		if(telefone.equals("") || endereco.equals(null))
-			throw new Exception("Telefone invalido");
+		if(telefone == null || telefone.equals(""))
+			throw new TelefoneInvalidoException("Telefone invalido");
 		this.telefone = telefone;
 	}
 /**
@@ -202,7 +216,6 @@ public class Hospede implements Serializable{
 			}
 		catch (InputMismatchException erro) { return(false); } }
 				
-		
-	}
+			}
 
 	
