@@ -111,5 +111,6 @@ public class Baba implements Serializable, Alugavel{
 	public String toString(){
 		return "Nome: " + getNome() + "/n" +"Numero: " + getNumero();
 	}
-
+	
+	
 }

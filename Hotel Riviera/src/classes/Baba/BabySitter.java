@@ -1,17 +1,22 @@
 package classes.Baba;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import classes.HotelOpiniaoServicosPeriodo.Hotel;
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import classes.HotelOpiniaoServicosPeriodo.Servico;
+import excecoes.BabaInvalidaException;
+import excecoes.NomeInvalidoException;
+import excecoes.PeriodoInvalidoException;
+import excecoes.TelefoneInvalidoException;
 
 /**
  * Servico BabySitter, que deve ter um periodo e claro, uma baba.
  * Implementa a interface servicos, tendo portanto um valor a ser adicionado ao montante
  * do hospede
  * 
- * @author Joao Victor Barroso Mafra e Adiel Andrade
+ * @author Joao Victor Barroso Mafra e Adiel Andrade e Hugo Gabriel
  */
 
 public class BabySitter implements Servico {
@@ -26,10 +31,23 @@ public class BabySitter implements Servico {
 	
 	
 	public BabySitter(Baba baba, Periodo periodo)throws Exception{
+		if ( baba == null ){
+			throw new BabaInvalidaException("Baba passada invalida");
+			
+		}
+		if ( periodo == null ){
+			throw new PeriodoInvalidoException("Datas nulas");
+			
+		}
+		
+		if (!(baba.isDisponivel(periodo))){
+			throw new PeriodoInvalidoException("Baba esta indisponivel nesse periodo");
+		}
 		this.periodo = periodo;
 		this.baba = baba;
 		this.horaDeInicio = periodo.getData_inicial().get(Calendar.HOUR_OF_DAY);
 		this.horaDeTermino = periodo.getData_final().get(Calendar.HOUR_OF_DAY);
+		getBaba().adicionaPeriodo(periodo);
 	}
 
 	@Override
@@ -93,7 +111,7 @@ public class BabySitter implements Servico {
 
 	@Override
 	public String toString() {
-		return getBaba().toString();
+		return getBaba().toString() + "/n" + "valor" + valor();
 		
 		// Falta ver como sera a quest�o do periodo para imprimir. Se for
 		// usar a classe Periodo mesmo ja tem toString feito
@@ -113,6 +131,34 @@ public class BabySitter implements Servico {
 		if (horas != other.horas)
 			return false;
 		return true;
+	}
+	public static void main(String[] args) throws Exception {
+		Calendar data_inicial = new GregorianCalendar(2015, 1, 24, 20, 0 );
+		Calendar data_final = new GregorianCalendar(2015, 1, 25, 6 ,0);
+		
+		Calendar data_inicial2 = new GregorianCalendar(2015, 1, 24, 8,0 );
+		Calendar data_final2 = new GregorianCalendar(2015, 1, 24, 17, 0);
+		
+		Calendar data_inicial3 = new GregorianCalendar(2015, 1, 24, 0,0 );
+		Calendar data_final3 = new GregorianCalendar(2015, 1, 25, 0, 0);
+		 Periodo p;
+		 Periodo p2;
+		 Periodo p3;
+		BabySitter baby;
+		BabySitter baby2;
+		BabySitter baby3;
+		Baba bb = new Baba("Adiel Andrade", "96250807" );
+		Baba bb3 = new Baba("Adiel Andrade", "96250807" );
+		Baba bb2 = new Baba("Adiel Andrade", "96250807" );
+		p = new Periodo(data_inicial, data_final);
+		p2 = new Periodo(data_inicial2, data_final2);
+		p3 = new Periodo(data_inicial3, data_final3);
+		baby = new BabySitter(bb, p);
+		baby2 =new BabySitter(bb2, p2);
+		baby3 =new BabySitter(bb3, p3);	
+		System.out.println(baby.valor());
+		System.out.println(baby2.valor());
+		System.out.println(baby3.valor());
 	}
 	
 	
