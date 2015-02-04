@@ -178,6 +178,7 @@ public class Hospede implements Serializable{
 	}
 
 	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -202,7 +203,10 @@ public class Hospede implements Serializable{
 				return false;
 		} else if (!endereco.equals(other.endereco))
 			return false;
-		if (idade.equals(other.idade))
+		if (idade == null) {
+			if (other.idade != null)
+				return false;
+		} else if (!idade.equals(other.idade))
 			return false;
 		if (nome == null) {
 			if (other.nome != null)
