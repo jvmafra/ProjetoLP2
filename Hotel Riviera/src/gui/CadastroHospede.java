@@ -80,29 +80,6 @@ public class CadastroHospede extends JFrame {
 		setBounds(100, 100, 737, 503);
 		
 		MaskFormatter format = null;
-		
-		
-		try {
-			format = new MaskFormatter("###.###.###-##");
-			format.setPlaceholderCharacter('_');
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}  
-		
-		try {
-			format = new MaskFormatter("#######");
-			format.setPlaceholderCharacter('_');
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}  
-		
-		try {
-			format = new MaskFormatter("####.####.####.####");
-			format.setPlaceholderCharacter('_');
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		
 
 		JButton concluir = new JButton("Concluir");
 		concluir.setBounds(594, 384, 91, 28);
@@ -151,6 +128,12 @@ public class CadastroHospede extends JFrame {
 				cpf_1.setBounds(18, 50, 28, 18);
 				DadosHospedes.add(cpf_1);
 				cpf_1.setFont(new Font("Dialog", Font.PLAIN, 10));
+				try {
+					format = new MaskFormatter("###.###.###-##");
+					format.setPlaceholderCharacter('_');
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}  
 				cpf = new JFormattedTextField(format);
 				cpf.setBounds(61, 50, 96, 19);
 				DadosHospedes.add(cpf);
@@ -165,6 +148,12 @@ public class CadastroHospede extends JFrame {
 				email.setBounds(61, 85, 165, 19);
 				DadosHospedes.add(email);
 				email.setColumns(10);
+				try {
+					format = new MaskFormatter("#######");
+					format.setPlaceholderCharacter('_');
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}  
 				rg = new JFormattedTextField(format);
 				rg.setBounds(61, 120, 96, 19);
 				DadosHospedes.add(rg);
@@ -199,6 +188,12 @@ public class CadastroHospede extends JFrame {
 						lblCarto.setBounds(290, 90, 49, 18);
 						DadosHospedes.add(lblCarto);
 						lblCarto.setFont(new Font("Dialog", Font.PLAIN, 10));
+						try {
+							format = new MaskFormatter("####.####.####.####");
+							format.setPlaceholderCharacter('_');
+						} catch (ParseException e) {
+							e.printStackTrace();
+						}
 						numCartao = new JFormattedTextField(format);
 						numCartao.setBounds(353, 90, 134, 19);
 						DadosHospedes.add(numCartao);
