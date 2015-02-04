@@ -240,7 +240,7 @@ public class CadastroHospede extends JFrame {
 		public void actionPerformed(ActionEvent e) {	
 			try {
 				Hospede hospede = new Hospede(nome.getText(), cpf.getText().replace(".","").replace("-",""), 
-						rg.getText().replace(".",""), email.getText(), telefone.getText(), 
+						rg.getText().replace(".",""), "20" ,email.getText(), telefone.getText(), 
 						endereco.getText(), numCartao.getText().replace(".",""));
 				JOptionPane.showMessageDialog(null, "Hospede criado!");
 			} catch (Exception e1) {

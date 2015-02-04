@@ -5,21 +5,35 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
 import java.awt.BorderLayout;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
+
 import java.awt.Font;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JPopupMenu;
+
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 import javax.swing.JMenuItem;
 import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JTextField;
+
+import classes.Arquivos;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PaginaInicialHotel extends JFrame {
+	private JTextField login;
+	private JTextField senha;
 
 	/**
 	 * Launch the application.
@@ -43,7 +57,7 @@ public class PaginaInicialHotel extends JFrame {
 	
 	public PaginaInicialHotel() {
 		setTitle("\u00C1rea do funcion\u00E1rio");
-		setBounds(100, 100, 494, 383);
+		setBounds(100, 100, 799, 507);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -86,6 +100,52 @@ public class PaginaInicialHotel extends JFrame {
 		
 		JMenu sair = new JMenu("Sair");
 		menuBar.add(sair);
+		
+		login = new JTextField();
+		login.setColumns(10);
+		
+		senha = new JTextField();
+		senha.setColumns(10);
+		
+		JButton confirmar = new JButton("Confirmar");
+		confirmar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					Sistema.getHotel().cadastraFuncionario(login.getText(), senha.getText());
+					Arquivos.salvaHotel(Sistema.getHotel());
+					System.out.println(Sistema.getHotel().getFuncionarios().size());
+				} catch (Exception e) {
+					System.out.println("Nao foi possivel cadastrar");
+				}
+			}
+		});
+		GroupLayout groupLayout = new GroupLayout(getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(63)
+							.addComponent(login, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
+							.addGap(26)
+							.addComponent(senha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(119)
+							.addComponent(confirmar)))
+					.addContainerGap(512, Short.MAX_VALUE))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(79)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(login, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
+						.addComponent(senha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(32)
+					.addComponent(confirmar)
+					.addContainerGap(298, Short.MAX_VALUE))
+		);
+		getContentPane().setLayout(groupLayout);
 
 	}
 
