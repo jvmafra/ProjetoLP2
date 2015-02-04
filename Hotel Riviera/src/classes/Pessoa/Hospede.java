@@ -17,7 +17,7 @@ import excecoes.TelefoneInvalidoException;
 
 /**
  * Classe que representa um hospede, que estara associado a um contrato.
- * @author Edval Galdino e Adiel Andrade
+ * @author Edval Galdino e Adiel Andrade Rocha
  */
 public class Hospede implements Serializable{
 	private String nome, cpf, rg, idade , email,endereco, telefone, numCartao ;
