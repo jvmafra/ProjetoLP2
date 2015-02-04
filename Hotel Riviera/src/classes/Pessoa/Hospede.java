@@ -20,8 +20,8 @@ import excecoes.TelefoneInvalidoException;
  * @author Edval Galdino
  */
 public class Hospede implements Serializable{
-	private String nome, cpf, rg, email,endereco, telefone, numCartao ;
-	private int idade;
+	private String nome, cpf, rg, idade , email,endereco, telefone, numCartao ;
+	private int idades;
 	/**
 	 * Construtor da classe hospede.
 	 * @param nome
@@ -33,8 +33,8 @@ public class Hospede implements Serializable{
 	 * @param idade
 	 * @throws Exception
 	 */
-	public Hospede(String nome, String CPF, String RG,int idade , String email, String telefone, String endereco, String numCartao) throws EntradaDeDadosException{
-		if(idade <18 || idade >120)
+	public Hospede(String nome, String CPF, String RG,String idade , String email, String telefone, String endereco, String numCartao) throws EntradaDeDadosException{
+		if(!(verificaIdade(idade)))
 			throw new IdadeInvalidaException("Idade indisponivel para cadastro");
 		
 		if(nome == null || nome.equals(""))
@@ -67,6 +67,12 @@ public class Hospede implements Serializable{
 	this.rg = RG;
 	this.idade = idade;
 	
+	}
+	private boolean verificaIdade(String idade) {
+		int idades = Integer.parseInt(idade);
+		if(idades<18 || idades> 120)
+			return false;
+		return true;
 	}
 	/**
 	 * Testa numero de cart�o de cr�dito
@@ -107,9 +113,9 @@ public class Hospede implements Serializable{
 	
 	/**
 	 * Retorna Idade
-	 * @return idades
+	 * @return idade
 	 */
-	public int getIdade() {		
+	public String getIdade() {		
 		
 		return idade;
 
@@ -196,7 +202,7 @@ public class Hospede implements Serializable{
 				return false;
 		} else if (!endereco.equals(other.endereco))
 			return false;
-		if (idade != other.idade)
+		if (idade.equals(other.idade))
 			return false;
 		if (nome == null) {
 			if (other.nome != null)
