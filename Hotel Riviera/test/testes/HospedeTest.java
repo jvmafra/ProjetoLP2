@@ -1,4 +1,4 @@
-// Adiel e Edval
+// Adiel Andrade e Edval
 
 package testes;
 
