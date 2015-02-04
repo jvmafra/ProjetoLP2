@@ -6,6 +6,7 @@ import java.util.GregorianCalendar;
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import classes.HotelOpiniaoServicosPeriodo.Servico;
 import excecoes.PeriodoInvalidoException;
+import excecoes.ValorInvalidoException;
 
 public class Refeicao implements Servico{
 	double valor;
@@ -13,7 +14,7 @@ public class Refeicao implements Servico{
 	
 	public Refeicao(double valor, Calendar data) throws Exception {
 		if(valor < 0) {
-			throw new Exception("Valor da conta invalido.");
+			throw new ValorInvalidoException("Valor da conta invalido.");
 		}
 		
 		if (data.get(Calendar.HOUR_OF_DAY) < 6 || data.get(Calendar.HOUR_OF_DAY) > 22){
