@@ -6,7 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import classes.Alimentacao.Refeicao;
-import classes.Alimentacao.Restaurante;
 import classes.Baba.BabySitter;
 import classes.Carro.AluguelCarro;
 import classes.FormasCobranca.EstrategiaCobranca;
@@ -239,7 +238,6 @@ public class Contrato {
 				+ "\n\nServicos especiais (pela ordem): " + imprimeCadaServicoEspecial()
 				+ "\n\n\nValor total dos servicos: " + calculaValorServicos() 
 				+ "\nValor total da estadia: " + calculaValorTotal()
-				+ "\nForma de pagamento: " + hospede.getNumeroCartao()
 				+ "\n\nStatus do contrato: " + mostraStatus();
 	}
 	
@@ -256,10 +254,7 @@ public class Contrato {
 	 */
 	@Override
 	public String toString(){	
-		return hospede.toString()
-				+ "\nPeriodo da hospedagem: " + getPeriodo().toString()
-				+ "\n" + servicos.get(0).toString()
-				+ "\nStatus do contrato: " + mostraStatus();
+		return hospede.getNome() + " - " + servicos.get(0).toString() + " - " + mostraStatus();
 	}
 
 	/**

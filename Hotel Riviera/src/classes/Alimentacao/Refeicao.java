@@ -4,9 +4,10 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
+import classes.HotelOpiniaoServicosPeriodo.Servico;
 import excecoes.PeriodoInvalidoException;
 
-public class Refeicao {
+public class Refeicao implements Servico{
 	double valor;
 	Calendar data;
 	
@@ -35,13 +36,13 @@ public class Refeicao {
 	}
 
 
-	public double getPreco() {
+	public double valor() {
 		return valor;
 	}
 
 	@Override
 	public String toString() {
-		return "Data: " + getDataString() + "\nValor: R$ "  + getPreco();
+		return "Data: " + getDataString() + "\nValor: R$ "  + valor();
 	}
 
 	@Override
@@ -51,7 +52,7 @@ public class Refeicao {
 		
 		Refeicao rf = (Refeicao) obj;
 		
-		return getDataString().equals(rf.getDataString()) && getPreco() == rf.getPreco();
+		return getDataString().equals(rf.getDataString()) && valor() == rf.valor();
 		
 	}
 	

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import classes.Baba.Baba;
 import classes.Carro.Carro;
@@ -22,12 +23,12 @@ import classes.Quartos.QuartoPresidencial;
  * @author Joao Victor Barroso Mafra
  */
 public class Hotel {
-	private List<Contrato> contratos_abertos = new ArrayList<>();
-	private List<Contrato> contratos_fechados = new ArrayList<>();
+	private List<Contrato> contratos = new ArrayList<>();
 	private List<Opiniao> opinioes = new ArrayList<>();
 	private List<Quarto> quartos = new ArrayList<>();
 	private List<Baba> babas = new ArrayList<>();
 	private List<Carro> carros = new ArrayList<>();
+	private Map<String, String> funcionarios = new TreeMap<>();
 	
 	/**
 	 * Ao ser inicializado o hotel, sao geradas listas de quartos, carros e babas.
@@ -46,31 +47,22 @@ public class Hotel {
 	 * Adiciona um novo contrato
 	 */
 	public void check_in(Contrato c){
-		getContratos_abertos().add(c);
+		getContratos().add(c);
 	}
 	
 	/**
-	 * Remove um contrato e o coloca como fechado
+	 * Coloca certo contrato como fechado
 	 */
 	public void check_out(Contrato c){
-		getContratos_abertos().remove(c);
-		getContratos_fechados().add(c);
 		c.fechaContrato();
 	}
-	
-	/**
-	 * Retorna uma list com os contratos em aberto
+		/**
+	 * Retorna uma list com os contratos do hotel
 	 */
-	public List<Contrato> getContratos_abertos() {
-		return contratos_abertos;
+	public List<Contrato> getContratos() {
+		return contratos;
 	}
 	
-	/**
-	 * Retorna uma list com os contratos ja finalizados
-	 */
-	public List<Contrato> getContratos_fechados() {
-		return contratos_fechados;
-	}
 	
 	/**
 	 * Retorna uma list com as opinioes dos hospedes
@@ -98,24 +90,109 @@ public class Hotel {
 	}
 	
 	/**
-	 * Adiciona uma nova baba ao hotel
+	 * Retorna uma list com os contratos associados a certo hospede
 	 */
-	public void AdicionaBaba(Baba baba){
+	public List<Contrato> pesquisaContrato(String nome_cpf){
+		List<Contrato> contratos_hospede = new ArrayList<>();
+		for (Contrato contrato: contratos){
+			if (contrato.getCPF().equals(nome_cpf) || contrato.getNome().equals(nome_cpf))
+				contratos_hospede.add(contrato);
+		}
+		
+		return contratos_hospede;
+	}
+	
+	/**
+	 * Retorna uma list apenas com os contratos em aberto
+	 */
+	public List<Contrato> getContratosAbertos(){
+		List<Contrato> contratos_abertos = new ArrayList<>();
+		for (Contrato contrato: contratos){
+			if (contrato.isAberto())
+				contratos_abertos.add(contrato);
+		}
+		
+		return contratos_abertos;
+	}
+	
+	/**
+	 * Retorna uma list apenas com os contratos em aberto
+	 */
+	public List<Contrato> getContratosFechados(){
+		List<Contrato> contratos_fechados = new ArrayList<>();
+		for (Contrato contrato: contratos){
+			if (contrato.isAberto() == false)
+				contratos_fechados.add(contrato);
+		}
+		
+		return contratos_fechados;
+	}
+	
+	/**
+	 * Verifica login e senha no momento que um funcionario tenta logar no sistema do hotel
+	 * @return True ou False
+	 * 			Dependendo se aquele funcionario ja esta cadastrado ou nao
+	 */
+	public boolean verificaLogin(String login, String senha){
+		if(funcionarios.containsKey(login) && funcionarios.get(login).equals(senha))
+			return true;
+		return false;
+	}
+	
+	/**
+	 * Cadastra um novo funcionario que agora tera acesso ao sistema do hotel
+	 */
+	public void cadastraFuncionario(String login, String senha) throws Exception{
+		if (login == null || login.equals(""))
+			throw new Exception("Digite um login");
+		if (senha == null || senha.equals(""))
+			throw new Exception("Digite uma senha");
+		
+		funcionarios.put(login, senha);
+	}
+	
+	
+	
+	/**
+	 * Cadastra uma nova baba no hotel
+	 */
+	public void adicionaBaba(Baba baba){
 		babas.add(baba);
 	}
 	
 	/**
-	 * Adiciona um novo carro ao hotel
+	 * Cadastra um novo carro no hotel
 	 */
-	public void AdicionaCarro(Carro carro){
+	public void adicionaCarro(Carro carro){
 		carros.add(carro);
 	}
 	
 	/**
-	 * Adiciona um novo quarto ao hotel
+	 * Cadastra um novo quarto no hotel
 	 */
-	public void AdicionaQuarto(Quarto q){
+	public void adicionaQuarto(Quarto q){
 		quartos.add(q);
+	}
+	
+	/**
+	 * Remove uma nova baba no hotel
+	 */
+	public void removeBaba(Baba baba){
+		babas.remove(baba);
+	}
+	
+	/**
+	 * Remove um novo carro no hotel
+	 */
+	public void removeCarro(Carro carro){
+		carros.remove(carro);
+	}
+	
+	/**
+	 * Remove um novo quarto no hotel
+	 */
+	public void removeQuarto(Quarto q){
+		quartos.remove(q);
 	}
 	
 	/**
