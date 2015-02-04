@@ -9,6 +9,7 @@ import excecoes.CpfInvalidoExcepcion;
 import excecoes.EmailInvalidoExcepcion;
 import excecoes.EnderecoInvalidoException;
 import excecoes.EntradaDeDadosException;
+import excecoes.IdadeInvalidaException;
 import excecoes.NomeInvalidoException;
 import excecoes.NumeroCartaoException;
 import excecoes.RgInvalidoException;
@@ -19,7 +20,8 @@ import excecoes.TelefoneInvalidoException;
  * @author Edval Galdino
  */
 public class Hospede implements Serializable{
-	private String nome, cpf, rg, email,endereco, telefone, numCartao;
+	private String nome, cpf, rg, email,endereco, telefone, numCartao ;
+	private int idade;
 	/**
 	 * Construtor da classe hospede.
 	 * @param nome
@@ -28,9 +30,13 @@ public class Hospede implements Serializable{
 	 * @param email
 	 * @param telefone
 	 * @param endereco
+	 * @param idade
 	 * @throws Exception
 	 */
-	public Hospede(String nome, String CPF, String RG, String email, String telefone, String endereco, String numCartao) throws EntradaDeDadosException{
+	public Hospede(String nome, String CPF, String RG,int idade , String email, String telefone, String endereco, String numCartao) throws EntradaDeDadosException{
+		if(idade <18 || idade >120)
+			throw new IdadeInvalidaException("Idade indisponivel para cadastro");
+		
 		if(nome == null || nome.equals(""))
 			throw new NomeInvalidoException("Nome invalido");
 		
@@ -59,6 +65,7 @@ public class Hospede implements Serializable{
 	this.telefone = telefone;
 	this.endereco = endereco;
 	this.rg = RG;
+	this.idade = idade;
 	
 	}
 	/**
@@ -96,6 +103,20 @@ public class Hospede implements Serializable{
 			throw new TelefoneInvalidoException("Telefone invalido");
 		this.telefone = telefone;
 	}
+	
+	
+	/**
+	 * Retorna Idade
+	 * @return idades
+	 */
+	public int getIdade() {		
+		
+		return idade;
+
+	}
+	
+	
+	
 /**
  * Retornanome.
  * @returnnome.
@@ -105,8 +126,8 @@ public class Hospede implements Serializable{
 	}
 
 	/**
-	 * retornaCpf
-	 * @returnCpf
+	 * retorna Cpf
+	 * @return Cpf
 	 */
 	public String getCpf() {
 		return cpf;
@@ -147,17 +168,57 @@ public class Hospede implements Serializable{
 	@Override
 	public String toString() {
 		return "Nome: " + getNome() + "\nCPF: " + getCpf() + "\nRG: " + getRg() + "\nE-mail: " + getEmail()
-				+ "\nTelefone: " + getTelefone() + "\nEndereco: " + getEndereco();
+				+ "\nTelefone: " + getTelefone() + "\nEndereco: " + getEndereco() + "\nIdade: "+ getIdade();
 	}
 
+	
 	@Override
 	public boolean equals(Object obj) {
-		if(!(obj instanceof Hospede))
+		if (this == obj)
+			return true;
+		if (obj == null)
 			return false;
-		Hospede h1 = (Hospede) obj;
-		
-		return nome.equals(h1.getNome()) && cpf.equals(h1.getCpf()) && rg.equals(h1.getRg())
-				&& endereco.equals(h1.getEndereco());
+		if (!(obj instanceof Hospede))
+			return false;
+		Hospede other = (Hospede) obj;
+		if (cpf == null) {
+			if (other.cpf != null)
+				return false;
+		} else if (!cpf.equals(other.cpf))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (endereco == null) {
+			if (other.endereco != null)
+				return false;
+		} else if (!endereco.equals(other.endereco))
+			return false;
+		if (idade != other.idade)
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (numCartao == null) {
+			if (other.numCartao != null)
+				return false;
+		} else if (!numCartao.equals(other.numCartao))
+			return false;
+		if (rg == null) {
+			if (other.rg != null)
+				return false;
+		} else if (!rg.equals(other.rg))
+			return false;
+		if (telefone == null) {
+			if (other.telefone != null)
+				return false;
+		} else if (!telefone.equals(other.telefone))
+			return false;
+		return true;
 	}
 	/**
 	 * Esse metodo tem como funcao verificar se o cpf recebido e valido.
