@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
+
 import classes.Baba.Baba;
 import classes.Carro.Carro;
 import classes.Pessoa.Contrato;
@@ -26,6 +28,7 @@ public class Hotel {
 	private List<Quarto> quartos = new ArrayList<>();
 	private List<Baba> babas = new ArrayList<>();
 	private List<Carro> carros = new ArrayList<>();
+	private Map<String, String> funcionarios = new TreeMap<>();
 	
 	/**
 	 * Ao ser inicializado o hotel, sao geradas listas de quartos, carros e babas.
@@ -126,24 +129,70 @@ public class Hotel {
 	}
 	
 	/**
+	 * Verifica login e senha no momento que um funcionario tenta logar no sistema do hotel
+	 * @return True ou False
+	 * 			Dependendo se aquele funcionario ja esta cadastrado ou nao
+	 */
+	public boolean verificaLogin(String login, String senha){
+		if(funcionarios.containsKey(login) && funcionarios.get(login).equals(senha))
+			return true;
+		return false;
+	}
+	
+	/**
+	 * Cadastra um novo funcionario que agora tera acesso ao sistema do hotel
+	 */
+	public void cadastraFuncionario(String login, String senha) throws Exception{
+		if (login == null || login.equals(""))
+			throw new Exception("Digite um login");
+		if (senha == null || senha.equals(""))
+			throw new Exception("Digite uma senha");
+		
+		funcionarios.put(login, senha);
+	}
+	
+	
+	
+	/**
 	 * Cadastra uma nova baba no hotel
 	 */
-	public void AdicionaBaba(Baba baba){
+	public void adicionaBaba(Baba baba){
 		babas.add(baba);
 	}
 	
 	/**
 	 * Cadastra um novo carro no hotel
 	 */
-	public void AdicionaCarro(Carro carro){
+	public void adicionaCarro(Carro carro){
 		carros.add(carro);
 	}
 	
 	/**
 	 * Cadastra um novo quarto no hotel
 	 */
-	public void AdicionaQuarto(Quarto q){
+	public void adicionaQuarto(Quarto q){
 		quartos.add(q);
+	}
+	
+	/**
+	 * Remove uma nova baba no hotel
+	 */
+	public void removeBaba(Baba baba){
+		babas.remove(baba);
+	}
+	
+	/**
+	 * Remove um novo carro no hotel
+	 */
+	public void removeCarro(Carro carro){
+		carros.remove(carro);
+	}
+	
+	/**
+	 * Remove um novo quarto no hotel
+	 */
+	public void removeQuarto(Quarto q){
+		quartos.remove(q);
 	}
 	
 	/**
