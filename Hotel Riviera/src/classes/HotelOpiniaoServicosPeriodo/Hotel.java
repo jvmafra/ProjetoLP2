@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import classes.Baba.Baba;
 import classes.Carro.Carro;
 import classes.Pessoa.Contrato;
@@ -22,8 +21,7 @@ import classes.Quartos.QuartoPresidencial;
  * @author Joao Victor Barroso Mafra
  */
 public class Hotel {
-	private List<Contrato> contratos_abertos = new ArrayList<>();
-	private List<Contrato> contratos_fechados = new ArrayList<>();
+	private List<Contrato> contratos = new ArrayList<>();
 	private List<Opiniao> opinioes = new ArrayList<>();
 	private List<Quarto> quartos = new ArrayList<>();
 	private List<Baba> babas = new ArrayList<>();
@@ -46,31 +44,22 @@ public class Hotel {
 	 * Adiciona um novo contrato
 	 */
 	public void check_in(Contrato c){
-		getContratos_abertos().add(c);
+		getContratos().add(c);
 	}
 	
 	/**
-	 * Remove um contrato e o coloca como fechado
+	 * Coloca certo contrato como fechado
 	 */
 	public void check_out(Contrato c){
-		getContratos_abertos().remove(c);
-		getContratos_fechados().add(c);
 		c.fechaContrato();
 	}
-	
-	/**
-	 * Retorna uma list com os contratos em aberto
+		/**
+	 * Retorna uma list com os contratos do hotel
 	 */
-	public List<Contrato> getContratos_abertos() {
-		return contratos_abertos;
+	public List<Contrato> getContratos() {
+		return contratos;
 	}
 	
-	/**
-	 * Retorna uma list com os contratos ja finalizados
-	 */
-	public List<Contrato> getContratos_fechados() {
-		return contratos_fechados;
-	}
 	
 	/**
 	 * Retorna uma list com as opinioes dos hospedes
@@ -98,21 +87,60 @@ public class Hotel {
 	}
 	
 	/**
-	 * Adiciona uma nova baba ao hotel
+	 * Retorna uma list com os contratos associados a certo hospede
+	 */
+	public List<Contrato> pesquisaContrato(String nome_cpf){
+		List<Contrato> contratos_hospede = new ArrayList<>();
+		for (Contrato contrato: contratos){
+			if (contrato.getCPF().equals(nome_cpf) || contrato.getNome().equals(nome_cpf))
+				contratos_hospede.add(contrato);
+		}
+		
+		return contratos_hospede;
+	}
+	
+	/**
+	 * Retorna uma list apenas com os contratos em aberto
+	 */
+	public List<Contrato> getContratosAbertos(){
+		List<Contrato> contratos_abertos = new ArrayList<>();
+		for (Contrato contrato: contratos){
+			if (contrato.isAberto())
+				contratos_abertos.add(contrato);
+		}
+		
+		return contratos_abertos;
+	}
+	
+	/**
+	 * Retorna uma list apenas com os contratos em aberto
+	 */
+	public List<Contrato> getContratosFechados(){
+		List<Contrato> contratos_fechados = new ArrayList<>();
+		for (Contrato contrato: contratos){
+			if (contrato.isAberto() == false)
+				contratos_fechados.add(contrato);
+		}
+		
+		return contratos_fechados;
+	}
+	
+	/**
+	 * Cadastra uma nova baba no hotel
 	 */
 	public void AdicionaBaba(Baba baba){
 		babas.add(baba);
 	}
 	
 	/**
-	 * Adiciona um novo carro ao hotel
+	 * Cadastra um novo carro no hotel
 	 */
 	public void AdicionaCarro(Carro carro){
 		carros.add(carro);
 	}
 	
 	/**
-	 * Adiciona um novo quarto ao hotel
+	 * Cadastra um novo quarto no hotel
 	 */
 	public void AdicionaQuarto(Quarto q){
 		quartos.add(q);
