@@ -1,5 +1,6 @@
 package classes.HotelOpiniaoServicosPeriodo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,7 +23,7 @@ import classes.Quartos.QuartoPresidencial;
  * Manipula operacoes relacionadas ao Hotel como um todo
  * @author Joao Victor Barroso Mafra
  */
-public class Hotel {
+public class Hotel implements Serializable{
 	private List<Contrato> contratos = new ArrayList<>();
 	private List<Opiniao> opinioes = new ArrayList<>();
 	private List<Quarto> quartos = new ArrayList<>();
@@ -30,6 +31,10 @@ public class Hotel {
 	private List<Carro> carros = new ArrayList<>();
 	private Map<String, String> funcionarios = new TreeMap<>();
 	
+	public Map<String, String> getFuncionarios() {
+		return funcionarios;
+	}
+
 	/**
 	 * Ao ser inicializado o hotel, sao geradas listas de quartos, carros e babas.
 	 */

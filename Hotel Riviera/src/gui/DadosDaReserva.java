@@ -183,8 +183,8 @@ public class DadosDaReserva extends JFrame {
 	}
 	private class SwingAction extends AbstractAction {
 		public SwingAction() {
-			putValue(NAME, "Avançar");
-			putValue(SHORT_DESCRIPTION, "Botão avançar");
+			putValue(NAME, "AvanÃ§ar");
+			putValue(SHORT_DESCRIPTION, "Botï¿½o avanï¿½ar");
 		}
 		public void actionPerformed(ActionEvent e) {
 			Date data1 = (Date) dataInicial.getValue();

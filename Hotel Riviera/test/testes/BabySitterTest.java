@@ -22,7 +22,7 @@ public class BabySitterTest {
 	private Baba bb2;
 	private Baba bb3;
 	Calendar data_inicial = new GregorianCalendar(2015, 1, 24, 20,0 );
-	Calendar data_final = new GregorianCalendar(2015, 1, 25, 7 ,0);
+	Calendar data_final = new GregorianCalendar(2015, 1, 25, 5 ,0);
 	
 	Calendar data_inicial2 = new GregorianCalendar(2015, 1, 24, 8,0 );
 	Calendar data_final2 = new GregorianCalendar(2015, 1, 24, 17, 0);
