@@ -39,6 +39,7 @@ public class LoginDeFuncionario extends JFrame {
 	private JTextField login;
 	private JPasswordField senha;
 	private final Action action = new SwingAction();
+	private boolean acessoPermitido = false;
 
 	/**
 	 * Launch the application.
@@ -71,7 +72,7 @@ public class LoginDeFuncionario extends JFrame {
 		panel.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new TitledBorder(null, "Borda v\u00E1 te catar", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_1.setBorder(new TitledBorder(null, "Login Funcionario", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_1.setBounds(63, 71, 301, 172);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
@@ -81,15 +82,18 @@ public class LoginDeFuncionario extends JFrame {
 			// galera isso foi uma das coisas que nathaniel fez. Serve para mudar de frame.
 			public void actionPerformed(ActionEvent e) {
 				PaginaInicialHotel frame = new PaginaInicialHotel();
-				frame.setVisible(true);
-				setVisible(false);
+				
+				if(acessoPermitido){
+					frame.setVisible(true);
+					setVisible(false);
+			}
 			}
 		});
 		botao_entrar.setBounds(104, 133, 75, 27);
 		panel_1.add(botao_entrar);
 		botao_entrar.setAction(action);
 		
-		botao_entrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+		botao_entrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14)); 
 		
 		JLabel senha_1 = new JLabel("Senha");
 		senha_1.setBounds(42, 85, 44, 17);
@@ -118,12 +122,14 @@ public class LoginDeFuncionario extends JFrame {
 			putValue(SHORT_DESCRIPTION, "Login de funcionario");
 		}
 		public void actionPerformed(ActionEvent e) {
-			if (login.getText().equals("admin") && senha.getText().equals("123456"))
-				 JOptionPane.showMessageDialog(null, "Acesso Permitido");
+			if (login.getText().equals("admin") && senha.getText().equals("123456")){
+				JOptionPane.showMessageDialog(null, "Acesso Permitido");
+				acessoPermitido = true;
+			
+		}
 			else
 				 JOptionPane.showMessageDialog(null, "Acesso Negado");
 			
 		}
 	}
 }
-

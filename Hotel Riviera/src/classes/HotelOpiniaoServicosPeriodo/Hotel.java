@@ -307,6 +307,10 @@ public class Hotel implements Serializable{
 			
 		}
 	}
+
+	public List<Quarto> getQuartos() {
+		return quartos;
+	}
 	
 
 }
