@@ -1,5 +1,6 @@
 package classes.Baba;
 
+import java.awt.font.NumericShaper.Range;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -64,14 +65,10 @@ public class BabySitter implements Servico {
 				valorDobrado += (24 - horaDeInicio) * VALOR_HORA_DOBRADA;
 			}
 			if (horaDeTermino < 7){
-				horasRemanescentes -= (7 - horaDeTermino);
-				valorDobrado += (7- horaDeTermino) * VALOR_HORA_DOBRADA;
+				horasRemanescentes -= horaDeTermino;
+				valorDobrado += horaDeTermino * VALOR_HORA_DOBRADA;
 				}
 			}
-		if (horasRemanescentes > 11){
-			valorDobrado += (horasRemanescentes - 11) * VALOR_HORA_DOBRADA;
-			horasRemanescentes -= 11;	
-		}
 		if (horasRemanescentes > 0){
 			valorNormal += horasRemanescentes * VALOR_HORA_NORMAL;
 		}
@@ -132,34 +129,34 @@ public class BabySitter implements Servico {
 			return false;
 		return true;
 	}
-	public static void main(String[] args) throws Exception {
-		Calendar data_inicial = new GregorianCalendar(2015, 1, 24, 20, 0 );
-		Calendar data_final = new GregorianCalendar(2015, 1, 25, 6 ,0);
-		
-		Calendar data_inicial2 = new GregorianCalendar(2015, 1, 24, 8,0 );
-		Calendar data_final2 = new GregorianCalendar(2015, 1, 24, 17, 0);
-		
-		Calendar data_inicial3 = new GregorianCalendar(2015, 1, 24, 0,0 );
-		Calendar data_final3 = new GregorianCalendar(2015, 1, 25, 0, 0);
-		 Periodo p;
-		 Periodo p2;
-		 Periodo p3;
-		BabySitter baby;
-		BabySitter baby2;
-		BabySitter baby3;
-		Baba bb = new Baba("Adiel Andrade", "96250807" );
-		Baba bb3 = new Baba("Adiel Andrade", "96250807" );
-		Baba bb2 = new Baba("Adiel Andrade", "96250807" );
-		p = new Periodo(data_inicial, data_final);
-		p2 = new Periodo(data_inicial2, data_final2);
-		p3 = new Periodo(data_inicial3, data_final3);
-		baby = new BabySitter(bb, p);
-		baby2 =new BabySitter(bb2, p2);
-		baby3 =new BabySitter(bb3, p3);	
-		System.out.println(baby.valor());
-		System.out.println(baby2.valor());
-		System.out.println(baby3.valor());
-	}
+//	public static void main(String[] args) throws Exception {
+//		Calendar data_inicial = new GregorianCalendar(2015, 1, 24, 20, 0 );
+//		Calendar data_final = new GregorianCalendar(2015, 1, 25, 6 ,0);
+//		
+//		Calendar data_inicial2 = new GregorianCalendar(2015, 1, 24, 8,0 );
+//		Calendar data_final2 = new GregorianCalendar(2015, 1, 24, 17, 0);
+//		
+//		Calendar data_inicial3 = new GregorianCalendar(2015, 1, 24, 0,0 );
+//		Calendar data_final3 = new GregorianCalendar(2015, 1, 25, 0, 0);
+//		 Periodo p;
+//		 Periodo p2;
+//		 Periodo p3;
+//		BabySitter baby;
+//		BabySitter baby2;
+//		BabySitter baby3;
+//		Baba bb = new Baba("Adiel Andrade", "96250807" );
+//		Baba bb3 = new Baba("Adiel Andrade", "96250807" );
+//		Baba bb2 = new Baba("Adiel Andrade", "96250807" );
+//		p = new Periodo(data_inicial, data_final);
+//		p2 = new Periodo(data_inicial2, data_final2);
+//		p3 = new Periodo(data_inicial3, data_final3);
+//		baby = new BabySitter(bb, p);
+//		baby2 =new BabySitter(bb2, p2);
+//		baby3 =new BabySitter(bb3, p3);	
+//		System.out.println(baby.valor());
+//		System.out.println(baby2.valor());
+//		System.out.println(baby3.valor());
+//	}
 	
 	
 }

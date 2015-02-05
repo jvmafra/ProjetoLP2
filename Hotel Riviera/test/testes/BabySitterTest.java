@@ -80,7 +80,7 @@ public class BabySitterTest {
 		baby = new BabySitter(bb, p);
 		baby2 =new BabySitter(bb2, p2);
 		baby3 =new BabySitter(bb3, p3);		
-		Assert.assertEquals(baby.valor() , 350.0 ,2);
+		Assert.assertEquals(baby.valor() , 450.0 ,2);
 		Assert.assertEquals(baby2.valor(), 225.0 ,2);
 		Assert.assertEquals(baby3.valor(), 925.0 ,2);
 	
