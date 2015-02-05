@@ -42,7 +42,6 @@ public class Sistema {
 	 */
 	private void initialize() {
 		frame = new LoginDeFuncionario();
-		frame.setBounds(100, 100, 749, 598);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}

@@ -63,11 +63,11 @@ public class LoginDeFuncionario extends JFrame {
 	 */
 	public LoginDeFuncionario() {
 		setTitle("Login - Funcion\u00E1rio");
-		setBounds(100, 100, 494, 383);
+		setBounds(100, 100, 835, 590);
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(12, 12, 470, 331);
+		panel.setBounds(206, 107, 470, 331);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -128,8 +128,11 @@ public class LoginDeFuncionario extends JFrame {
 			
 		}
 			else
-				 JOptionPane.showMessageDialog(null, "Acesso Negado");
-			
+				 JOptionPane.showMessageDialog(null, "Acesso Negado");{
+				login.setText("");
+				senha.setText("");
+				 }
 		}
+		
 	}
 }

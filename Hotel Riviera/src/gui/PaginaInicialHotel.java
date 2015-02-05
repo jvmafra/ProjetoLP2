@@ -24,6 +24,7 @@ import javax.swing.Action;
 import javax.swing.JTextField;
 import java.awt.Color;
 import java.awt.SystemColor;
+import javax.swing.JPanel;
 
 public class PaginaInicialHotel extends JFrame {
 	private final Action action = new SwingAction();
@@ -35,21 +36,7 @@ public class PaginaInicialHotel extends JFrame {
 	private final Action action_6 = new SwingAction_5();
 	private final Action action_7 = new SwingAction_6();
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PaginaInicialHotel frame = new PaginaInicialHotel();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
@@ -59,8 +46,7 @@ public class PaginaInicialHotel extends JFrame {
 	public PaginaInicialHotel() {
 	
 		setTitle("\u00C1rea do funcion\u00E1rio");
-		setBounds(100, 100, 494, 383);
-		
+		setBounds(100, 100, 835, 590);		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
@@ -96,8 +82,10 @@ public class PaginaInicialHotel extends JFrame {
 		
 		JMenu sair = new JMenu("Sair");
 		menuBar.add(sair);
-		getContentPane().setLayout(null);
 
+//		JFrame framePrincipal = new CadastroHospede();
+//		framePrincipal.setBounds(12, 12, 811, 517);
+//		setContentPane(framePrincipal);
 	}
 
 	private static void addPopup(Component component, final JPopupMenu popup) {
