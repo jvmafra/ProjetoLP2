@@ -1,17 +1,12 @@
 package testes;
 
-import static org.junit.Assert.*;
-
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import classes.Baba.Baba;
-
-
 import org.junit.Assert;
-
 import org.junit.Test;
 
+import classes.Baba.Baba;
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import excecoes.NomeInvalidoException;
 import excecoes.PlacaInvalidaException;
@@ -23,9 +18,7 @@ public class BabaTest {
 	private Baba b1;
 	private Baba b2;
 	private Baba b3;
-	
-	
-	
+
 	
 	@Test
 	public void testConstrutor() {

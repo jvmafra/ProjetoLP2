@@ -1,25 +1,23 @@
 package gui;
 
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-import javax.swing.JRadioButton;
-
-import java.awt.BorderLayout;
-
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.ButtonGroup;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-
-import java.awt.Font;
-
-import javax.swing.ButtonGroup;
-import javax.swing.JOptionPane;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JCheckBox;
 import javax.swing.JButton;
-import javax.swing.ImageIcon;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 import classes.Quartos.QuartoExecutivoDuplo;
 import classes.Quartos.QuartoExecutivoSimples;
@@ -29,14 +27,11 @@ import classes.Quartos.QuartoLuxoSimples;
 import classes.Quartos.QuartoLuxoTriplo;
 import classes.Quartos.QuartoPresidencial;
 
-import javax.swing.AbstractAction;
-
-import java.awt.event.ActionEvent;
-
-import javax.swing.Action;
-import java.awt.event.ActionListener;
-
 public class SelecaoQuartos extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField diaria;
 	JRadioButton presidencial;
 	JRadioButton luxosimples;

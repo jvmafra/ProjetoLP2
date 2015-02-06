@@ -13,6 +13,10 @@ import classes.HotelOpiniaoServicosPeriodo.Periodo;
  */
 
 public class QuartoLuxoDuplo extends Quarto{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final double VALOR_DA_DIARIA = 570.00;
 	public static final double VALOR_DA_DIARIA_COM_CAMA_EXTRA = 590.00;
 	public static final int CAPACIDADE = 2;

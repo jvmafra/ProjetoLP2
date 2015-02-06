@@ -1,6 +1,5 @@
 package classes.Quartos;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +11,10 @@ import classes.HotelOpiniaoServicosPeriodo.Periodo;
  *
  */
 public class QuartoPresidencial extends Quarto{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final double VALOR_DA_DIARIA = 1200.00;
 	public static final int CAPACIDADE = 4;
 	private List<Periodo> periodos = new ArrayList<>();

@@ -1,41 +1,37 @@
 package gui;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
 import java.awt.Font;
 import java.awt.Toolkit;
-
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JLabel;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.SpinnerDateModel;
-
-import java.util.Date;
+import java.awt.event.ActionEvent;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
-import javax.swing.JRadioButton;
-import javax.swing.JButton;
 import javax.swing.AbstractAction;
-
-import java.awt.event.ActionEvent;
-
 import javax.swing.Action;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SpinnerDateModel;
+import javax.swing.border.EmptyBorder;
 
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 
 public class DadosDaReserva extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel botao_avancar;
 	private JTextField numCartao;
 	private JSpinner dataInicial;

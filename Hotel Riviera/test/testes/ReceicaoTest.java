@@ -1,7 +1,5 @@
 package testes;
 
-import static org.junit.Assert.*;
-
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -9,7 +7,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import classes.Alimentacao.Refeicao;
-import classes.Carro.AluguelCarro;
 
 public class ReceicaoTest {
 	Calendar data = new GregorianCalendar(2015, 5, 22, 3, 0);

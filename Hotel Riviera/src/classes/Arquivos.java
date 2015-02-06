@@ -6,12 +6,8 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import classes.Baba.Baba;
-import classes.Carro.Carro;
-import classes.Pessoa.Hospede;
-import classes.Quartos.*;
-
 import classes.HotelOpiniaoServicosPeriodo.*;
+
 public class Arquivos {
 	private final static String DIR = "Documentos do Hotel";
 	static {

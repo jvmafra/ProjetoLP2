@@ -1,16 +1,11 @@
 package classes.Baba;
 
-import java.awt.font.NumericShaper.Range;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
-import classes.HotelOpiniaoServicosPeriodo.Hotel;
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import classes.HotelOpiniaoServicosPeriodo.Servico;
 import excecoes.BabaInvalidaException;
-import excecoes.NomeInvalidoException;
 import excecoes.PeriodoInvalidoException;
-import excecoes.TelefoneInvalidoException;
 
 /**
  * Servico BabySitter, que deve ter um periodo e claro, uma baba.
@@ -27,7 +22,6 @@ public class BabySitter implements Servico {
 	private int horaDeTermino;
 	private int horas;
 	private Baba baba;
-	private double valor;
 	private Periodo periodo;
 	
 	

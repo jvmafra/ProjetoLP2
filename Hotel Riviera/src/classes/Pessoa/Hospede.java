@@ -20,8 +20,11 @@ import excecoes.TelefoneInvalidoException;
  * @author Edval Galdino e Adiel Andrade 
  */
 public class Hospede implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String nome, cpf, rg, idade , email,endereco, telefone, numCartao ;
-	private int idades;
 	/**
 	 * Construtor da classe hospede.
 	 * @param nome

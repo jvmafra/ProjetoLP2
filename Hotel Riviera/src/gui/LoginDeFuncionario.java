@@ -1,41 +1,26 @@
 package gui;
 
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-
-import java.awt.BorderLayout;
-
-import javax.swing.JPanel;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
-
 import java.awt.Font;
-
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JTextPane;
-import javax.swing.JTable;
-import javax.swing.JTree;
-import javax.swing.JProgressBar;
-import javax.swing.JScrollBar;
-import javax.swing.JSeparator;
-import javax.swing.JSlider;
-import javax.swing.Box;
-
-import java.awt.Color;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 public class LoginDeFuncionario extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField login;
 	private JPasswordField senha;
 	private final Action action = new SwingAction();

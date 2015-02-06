@@ -15,6 +15,10 @@ import classes.HotelOpiniaoServicosPeriodo.Servico;
  *
  */
 public abstract class Quarto implements Servico, Serializable, Alugavel{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int numeroDoQuarto;
 	
 	/**

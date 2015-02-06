@@ -1,20 +1,15 @@
 package testes;
 
-import static org.junit.Assert.*;
-
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-
-import classes.Baba.Baba;
-import classes.Baba.BabySitter;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import classes.Baba.Baba;
+import classes.Baba.BabySitter;
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
-import excecoes.NomeInvalidoException;
-import excecoes.TelefoneInvalidoException;
 
 
 public class BabySitterTest {

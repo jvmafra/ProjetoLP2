@@ -17,6 +17,10 @@ import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import excecoes.PlacaInvalidaException;
 
 public class Carro implements Serializable, Alugavel{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String descricao;
 	private String placa;
 	private boolean luxo;

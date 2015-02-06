@@ -1,10 +1,8 @@
 package testes;
 
-import static org.junit.Assert.*;
-
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import excecoes.PeriodoInvalidoException;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,7 +1,5 @@
 package testes;
 
-import static org.junit.Assert.*;
-
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -9,7 +7,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import classes.HotelOpiniaoServicosPeriodo.Opiniao;
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 
 public class PeriodoTest {

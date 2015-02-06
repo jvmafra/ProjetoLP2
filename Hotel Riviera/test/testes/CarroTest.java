@@ -1,17 +1,13 @@
 package testes;
 
-import static org.junit.Assert.*;
-
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 import classes.Carro.Carro;
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
-import excecoes.PlacaInvalidaException;
 
 public class CarroTest {
 	private Carro c1;

@@ -1,34 +1,24 @@
 package gui;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import java.awt.Window.Type;
 import java.awt.Font;
-
-import javax.swing.JLabel;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JCheckBox;
-import javax.swing.JButton;
-import javax.swing.AbstractAction;
-import javax.swing.JOptionPane;
-
 import java.awt.event.ActionEvent;
-
-import javax.swing.Action;
-
-import classes.Carro.Carro;
-import excecoes.PlacaInvalidaException;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+import classes.Carro.Carro;
+
 public class NovoCarro extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField descricao;
 	private JTextField placa;
 	private JCheckBox luxo;

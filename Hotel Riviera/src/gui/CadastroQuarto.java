@@ -1,21 +1,21 @@
 package gui;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import java.awt.Window.Type;
-
-import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.EmptyBorder;
 
 import classes.Quartos.QuartoExecutivoDuplo;
 import classes.Quartos.QuartoExecutivoSimples;
@@ -24,15 +24,13 @@ import classes.Quartos.QuartoLuxoDuplo;
 import classes.Quartos.QuartoLuxoSimples;
 import classes.Quartos.QuartoLuxoTriplo;
 import classes.Quartos.QuartoPresidencial;
-import java.awt.Font;
-import javax.swing.JLabel;
-import javax.swing.AbstractAction;
-import java.awt.event.ActionEvent;
-import javax.swing.Action;
-import javax.swing.JList;
 
 public class CadastroQuarto extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	JComboBox quartos;
 	private final Action action = new SwingAction();

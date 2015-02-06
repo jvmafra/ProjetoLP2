@@ -1,13 +1,10 @@
 package testes;
 
-import static org.junit.Assert.*;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import classes.HotelOpiniaoServicosPeriodo.Opiniao;
-import classes.Quartos.QuartoExecutivoTriplo;
 
 public class OpiniaoTest {
 	private Opiniao op1;

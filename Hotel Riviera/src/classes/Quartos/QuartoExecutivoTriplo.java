@@ -12,6 +12,10 @@ import classes.HotelOpiniaoServicosPeriodo.Periodo;
  *
  */
 public class QuartoExecutivoTriplo extends Quarto{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final double VALOR_DA_DIARIA = 440.00;
 	public static final int CAPACIDADE = 3;
 	private List<Periodo> periodos = new ArrayList<>();

@@ -2,7 +2,6 @@ package classes.HotelOpiniaoServicosPeriodo;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -24,6 +23,10 @@ import classes.Quartos.QuartoPresidencial;
  * @author Joao Victor Barroso Mafra
  */
 public class Hotel implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private List<Contrato> contratos = new ArrayList<>();
 	private List<Opiniao> opinioes = new ArrayList<>();
 	private List<Quarto> quartos = new ArrayList<>();

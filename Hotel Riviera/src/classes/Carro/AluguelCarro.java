@@ -9,9 +9,6 @@ package classes.Carro;
  * @author Joao Victor Barroso Mafra e Adiel Andrade
  */
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import classes.HotelOpiniaoServicosPeriodo.Servico;
 import excecoes.PeriodoInvalidoException;

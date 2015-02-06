@@ -18,6 +18,10 @@ import excecoes.NomeInvalidoException;
 import excecoes.TelefoneInvalidoException;
 
 public class Baba implements Serializable, Alugavel{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String nome, telefone;
 	private List<Periodo> periodos;
 	
