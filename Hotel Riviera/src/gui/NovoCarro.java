@@ -26,14 +26,12 @@ import javax.swing.Action;
 
 import classes.Carro.Carro;
 import excecoes.PlacaInvalidaException;
+import java.awt.event.ActionListener;
 
 public class NovoCarro extends JFrame {
-
-	private JPanel contentPane;
+	private JTextField descricao;
 	private JTextField placa;
-	private final Action limpar_dados = new SwingAction();
-	JCheckBox IsLuxo;
-	private final Action cadastrar_veiculo = new SwingAction_1();
+	private JCheckBox luxo;
 
 	/**
 	 * Launch the application.
@@ -60,92 +58,67 @@ public class NovoCarro extends JFrame {
 		setTitle("Cadastrar novo carro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 528, 333);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
+		getContentPane().setLayout(null);
 		
-		JLabel lblPlacaDoVeculo = new JLabel("Placa do ve\u00EDculo");
-		lblPlacaDoVeculo.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
+		JLabel lblDescircao = new JLabel("Descricao: ");
+		lblDescircao.setBounds(133, 92, 95, 15);
+		lblDescircao.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		getContentPane().add(lblDescircao);
+		
+		descricao = new JTextField();
+		descricao.setBounds(213, 90, 163, 19);
+		getContentPane().add(descricao);
+		descricao.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Placa:");
+		lblNewLabel.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		lblNewLabel.setBounds(133, 132, 70, 15);
+		getContentPane().add(lblNewLabel);
 		
 		placa = new JTextField();
+		placa.setBounds(213, 130, 114, 19);
+		getContentPane().add(placa);
 		placa.setColumns(10);
 		
-		IsLuxo = new JCheckBox("Luxo");
-		IsLuxo.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+		luxo = new JCheckBox("Luxo");
+		luxo.setFont(new Font("NanumGothic", Font.BOLD, 14));
+		luxo.setBounds(338, 128, 129, 23);
+		getContentPane().add(luxo);
 		
-		JButton btnVoltar = new JButton("Voltar");
+		JButton voltar = new JButton("Voltar");
+		voltar.setFont(new Font("NanumGothic", Font.BOLD, 14));
+		voltar.setBounds(53, 252, 117, 25);
+		getContentPane().add(voltar);
 		
 		JButton limpar = new JButton("Limpar");
-		limpar.setAction(limpar_dados);
+		limpar.setFont(new Font("NanumGothic", Font.BOLD, 14));
+		limpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				luxo.setSelected(false);
+				placa.setText("");
+				descricao.setText("");
+			}
+		});
+		limpar.setBounds(201, 252, 117, 25);
+		getContentPane().add(limpar);
 		
-		JButton cadastrar = new JButton("Cadastar");
-		cadastrar.setAction(cadastrar_veiculo);
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(54)
-					.addComponent(btnVoltar)
-					.addPreferredGap(ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-					.addComponent(limpar)
-					.addGap(75)
-					.addComponent(cadastrar)
-					.addGap(78))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(136)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-						.addComponent(IsLuxo)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(lblPlacaDoVeculo)
-							.addGap(18)
-							.addComponent(placa, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(154, Short.MAX_VALUE))
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(112)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(placa, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblPlacaDoVeculo))
-					.addGap(18)
-					.addComponent(IsLuxo)
-					.addPreferredGap(ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnVoltar)
-						.addComponent(cadastrar)
-						.addComponent(limpar))
-					.addGap(20))
-		);
-		contentPane.setLayout(gl_contentPane);
-	}
-	private class SwingAction extends AbstractAction {
-		public SwingAction() {
-			putValue(NAME, "Limpar");
-			putValue(SHORT_DESCRIPTION, "Limpar dados do cadastro");
-		}
-		public void actionPerformed(ActionEvent e) {
-			IsLuxo.setSelected(false);
-			placa.setText("");
-			
-		}
-	}
-	private class SwingAction_1 extends AbstractAction {
-		public SwingAction_1() {
-			putValue(NAME, "Cadastrar");
-			putValue(SHORT_DESCRIPTION, "Cadastrar veiculo");
-		}
-		public void actionPerformed(ActionEvent e) {
-			
+		JButton concluir = new JButton("Concluir");
+		concluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 				try {
-					Carro carro = new Carro("carro", placa.getText(), IsLuxo.isSelected());
+					Carro carro = new Carro(descricao.getText(), placa.getText(), luxo.isSelected());
 					JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
+					Sistema.getHotel().adicionaCarro(carro);
 				}  catch (Exception e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
 				
 			}
-				
-		}
+		});
+		concluir.setFont(new Font("NanumGothic", Font.BOLD, 14));
+		concluir.setBounds(353, 252, 117, 25);
+		getContentPane().add(concluir);
 	}
+	
+}
 

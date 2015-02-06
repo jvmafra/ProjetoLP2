@@ -311,6 +311,14 @@ public class Hotel implements Serializable{
 	public List<Quarto> getQuartos() {
 		return quartos;
 	}
+
+	public List<Baba> getBabas() {
+		return babas;
+	}
+
+	public List<Carro> getCarros() {
+		return carros;
+	}
 	
 
 }
