@@ -8,4 +8,9 @@ public class EstrategiaAltaTemporada implements EstrategiaCobranca {
 	public double getFator(){
 		return EstrategiaAltaTemporada.FATOR;
 	}
+	
+	@Override
+	public String toString(){
+		return "ALTA TEMPORADA";
+	}
 }

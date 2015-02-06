@@ -83,7 +83,7 @@ public abstract class Quarto implements Servico, Serializable, Alugavel{
 	 */
 	@Override
 	public String toString() {
-		return "N�: " + getNumeroDoQuarto();
+		return "N: " + getNumeroDoQuarto();
 	}
 	
 	/**

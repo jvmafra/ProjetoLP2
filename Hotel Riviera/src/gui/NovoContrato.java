@@ -39,9 +39,10 @@ import classes.FormasCobranca.EstrategiaSimples;
 import classes.HotelOpiniaoServicosPeriodo.Hotel;
 import classes.Pessoa.Hospede;
 import classes.Quartos.Quarto;
+import javax.swing.UIManager;
 
 
-public class CadastroHospede extends JFrame {
+public class NovoContrato extends JFrame {
 	/**
 	 * 
 	 */
@@ -55,8 +56,9 @@ public class CadastroHospede extends JFrame {
 	private final Action action = new SwingAction();
 	private JFormattedTextField numCartao;
 	
-	Hotel hotel = new Hotel();
 	private final Action action_1 = new SwingAction_1();
+	
+	Hotel hotel = new Hotel();
 	
 	/**
 	 * Launch the application.
@@ -65,7 +67,7 @@ public class CadastroHospede extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CadastroHospede frame = new CadastroHospede();
+					NovoContrato frame = new NovoContrato();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -77,8 +79,8 @@ public class CadastroHospede extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CadastroHospede() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastroHospede.class.getResource("/icones/hotel22.png")));
+	public NovoContrato() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(NovoContrato.class.getResource("/icones/hotel22.png")));
 		setTitle("Cadastro");
 		
 		setBounds(100, 100, 835, 590);
@@ -167,7 +169,7 @@ public class CadastroHospede extends JFrame {
 						DadosHospedes.add(endereco_1);
 						endereco_1.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 						
-						JLabel lblCarto = new JLabel("Cartão");
+						JLabel lblCarto = new JLabel("Cartao");
 						lblCarto.setBounds(528, 17, 49, 18);
 						DadosHospedes.add(lblCarto);
 						lblCarto.setFont(new Font("NanumGothic", Font.PLAIN, 14));
@@ -185,17 +187,12 @@ public class CadastroHospede extends JFrame {
 						JPanel EstrategiasPagamento = new JPanel();
 						EstrategiasPagamento.setBounds(409, 228, 311, 160);
 						margemGeral.add(EstrategiasPagamento);
-						EstrategiasPagamento.setBorder(new TitledBorder(null, "Estratégia de cobrança.", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+						EstrategiasPagamento.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Estrategia de Cobranca", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 						EstrategiasPagamento.setLayout(null);
 						
-						JList<EstrategiaCobranca> list_1 = new JList<EstrategiaCobranca>();
-						list_1.setBounds(29, 23, 259, 64);
-						list_1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-						
 						JScrollPane scrollPane_1 = new JScrollPane();
-						scrollPane_1.setBounds(29, 23, 259, 64);
+						scrollPane_1.setBounds(29, 23, 259, 126);
 						EstrategiasPagamento.add(scrollPane_1);
-						scrollPane_1.setViewportView(list_1);
 						
 						DefaultListModel<EstrategiaCobranca> lista = new DefaultListModel<EstrategiaCobranca>();
 						EstrategiaCobranca e1 = new EstrategiaAltaTemporada();
@@ -208,6 +205,11 @@ public class CadastroHospede extends JFrame {
 						lista.addElement(e4);
 						lista.addElement(e3);
 						lista.addElement(e2);
+						
+						JList<EstrategiaCobranca> list_1 = new JList<EstrategiaCobranca>();
+						EstrategiasPagamento.add(list_1);
+						list_1.setBounds(29, 24, 257, 62);
+						list_1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 						
 						list_1.setModel(lista);
 						

@@ -23,4 +23,9 @@ public class EstrategiaSaoJoao implements EstrategiaCobranca{
 			return FATOR;
 	}
 	
+	@Override
+	public String toString(){
+		return "SAO JOAO";
+	}
+	
 }

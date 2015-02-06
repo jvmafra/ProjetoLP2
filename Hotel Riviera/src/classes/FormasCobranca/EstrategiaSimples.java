@@ -8,4 +8,9 @@ public class EstrategiaSimples implements EstrategiaCobranca {
 	public double getFator(){
 		return EstrategiaSimples.FATOR;
 	}
+	
+	@Override
+	public String toString(){
+		return "SIMPLES";
+	}
 }

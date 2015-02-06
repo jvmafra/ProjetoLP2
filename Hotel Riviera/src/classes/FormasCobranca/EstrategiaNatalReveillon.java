@@ -8,5 +8,10 @@ public class EstrategiaNatalReveillon implements EstrategiaCobranca{
 	public double getFator(){
 		return EstrategiaNatalReveillon.FATOR;
 	}
+	
+	@Override
+	public String toString(){
+		return "NATAL/REVEILLON";
+	}
 
 }

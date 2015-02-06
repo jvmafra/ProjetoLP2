@@ -29,7 +29,7 @@ public class PaginaInicialHotel extends JFrame {
 
 	/**
 	 * Create the frame.
-	 * @param CadastroHospede 
+	 * @param NovoContrato 
 	 */
 	
 	public PaginaInicialHotel() {
@@ -94,7 +94,7 @@ public class PaginaInicialHotel extends JFrame {
 			putValue(SHORT_DESCRIPTION, "");
 		}
 		public void actionPerformed(ActionEvent e) {
-			CadastroHospede cadastro = new CadastroHospede();
+			NovoContrato cadastro = new NovoContrato();
 			cadastro.setVisible(true);
 			setVisible(false);
 		}
