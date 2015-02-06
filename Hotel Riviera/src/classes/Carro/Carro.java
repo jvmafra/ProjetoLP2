@@ -17,20 +17,31 @@ import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import excecoes.PlacaInvalidaException;
 
 public class Carro implements Serializable, Alugavel{
+	private String descricao;
 	private String placa;
 	private boolean luxo;
 	private List<Periodo> periodos;
 	
-	public Carro(String placa, boolean luxo) throws PlacaInvalidaException{
+	public Carro(String descricao,String placa, boolean luxo) throws Exception{
+		if (descricao == null || descricao.equals("")){
+			throw new Exception("Descricao invalida");
+		}
+		
 		if(!(verificaPlacaValida(placa))){
 			throw new PlacaInvalidaException("Placa invalida");
 		}
+		
 		this.luxo = luxo;
 		this.placa = placa;
+		this.descricao = descricao;
 		
 		periodos = new ArrayList<>();
 	}
 	
+	public String getDescricao() {
+		return descricao;
+	}
+
 	public String getPlaca() {
 		return placa;
 	}
@@ -106,18 +117,6 @@ public class Carro implements Serializable, Alugavel{
 	
 	@Override
 	public String toString() {
-		return "Placa: " + getPlaca();
+		return getDescricao() + " - " + getPlaca();
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-

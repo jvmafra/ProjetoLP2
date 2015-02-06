@@ -33,8 +33,8 @@ public class AluguelCarroTest {
 	p3 = new Periodo(data6, data7);
 	p2 = new Periodo(data3, data4);
 	p = new Periodo(data5, data4);
-	c1= new Carro("asd1234" , true);
-	c2= new Carro("asd1204" , true);
+	c1= new Carro("Carro","asd1234" , true);
+	c2= new Carro("Carro","asd1204" , true);
 	
 	
 	}

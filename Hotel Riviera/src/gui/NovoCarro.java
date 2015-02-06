@@ -136,12 +136,16 @@ public class NovoCarro extends JFrame {
 			putValue(SHORT_DESCRIPTION, "Cadastrar veiculo");
 		}
 		public void actionPerformed(ActionEvent e) {
-			try {
-				Carro carro = new Carro(placa.getText(), IsLuxo.isSelected());
-				JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
-			} catch (PlacaInvalidaException e1) {
-				JOptionPane.showMessageDialog(null, e1.getMessage());
+			
+				try {
+					Carro carro = new Carro("carro", placa.getText(), IsLuxo.isSelected());
+					JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
+				}  catch (Exception e1) {
+					JOptionPane.showMessageDialog(null, e1.getMessage());
+				}
+				
 			}
+				
 		}
 	}
-}
+
