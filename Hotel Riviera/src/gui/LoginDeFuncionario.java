@@ -55,30 +55,36 @@ public class LoginDeFuncionario extends JPanel {
 	 * Create the JFrame.
 	 */
 	public LoginDeFuncionario() {
+		setBounds(0, 0, 800, 600);
 		setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(322, 197, 159, 131);
+		add(panel);
+		panel.setLayout(null);
 		JLabel login_1 = new JLabel("Login");
-		login_1.setBounds(81, 71, 29, 16);
-		add(login_1);
+		login_1.setBounds(15, 11, 29, 16);
+		panel.add(login_1);
 		login_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		
+		JLabel senha_1 = new JLabel("Senha");
+		senha_1.setBounds(10, 42, 34, 16);
+		panel.add(senha_1);
+		senha_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+		
+		senha = new JPasswordField();
+		senha.setBounds(64, 40, 86, 20);
+		panel.add(senha);
+		senha.setColumns(10);
+		
 		login = new JTextField();
-		login.setBounds(130, 69, 86, 20);
-		add(login);
+		login.setBounds(64, 11, 86, 20);
+		panel.add(login);
 		login.setColumns(10);
 		
-		JLabel senha_1 = new JLabel("Senha");
-		senha_1.setBounds(76, 102, 34, 16);
-		add(senha_1);
-		senha_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
-										
-		senha = new JPasswordField();
-		senha.setBounds(130, 100, 86, 20);
-		add(senha);
-		senha.setColumns(10);
-												
 		JButton botao_entrar = new JButton("Entrar");
-		botao_entrar.setBounds(89, 141, 86, 25);	
-		add(botao_entrar);
+		botao_entrar.setBounds(23, 83, 86, 25);
+		panel.add(botao_entrar);
 		botao_entrar.setAction(action);
 		botao_entrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14)); 
 

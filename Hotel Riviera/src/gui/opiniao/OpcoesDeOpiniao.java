@@ -1,5 +1,6 @@
 package gui.opiniao;
 
+import gui.PaginaInicialHotel;
 import gui.Sistema;
 
 import javax.swing.JPanel;
@@ -33,6 +34,15 @@ public class OpcoesDeOpiniao extends JPanel {
 		});
 		btnQualificaoDoHotel.setBounds(256, 171, 148, 51);
 		add(btnQualificaoDoHotel);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new PaginaInicialHotel());
+			}
+		});
+		btnVoltar.setBounds(72, 310, 89, 23);
+		add(btnVoltar);
 
 	}
 

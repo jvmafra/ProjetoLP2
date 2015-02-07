@@ -1,15 +1,22 @@
 package gui.opiniao;
 
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JSlider;
+import gui.Sistema;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JEditorPane;
-import javax.swing.JProgressBar;
-import javax.swing.JScrollPane;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JSpinner;
 
 public class CadastraOpiniao extends JPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Create the panel.
@@ -32,6 +39,16 @@ public class CadastraOpiniao extends JPanel {
 		JSpinner spinner = new JSpinner();
 		spinner.setBounds(190, 191, 57, 43);
 		add(spinner);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new OpcoesDeOpiniao());
+
+			}
+		});
+		btnVoltar.setBounds(10, 266, 89, 23);
+		add(btnVoltar);
 
 	}
 }

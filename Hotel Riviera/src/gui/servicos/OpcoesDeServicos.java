@@ -1,5 +1,6 @@
 package gui.servicos;
 
+import gui.PaginaInicialHotel;
 import gui.Sistema;
 
 import javax.swing.JPanel;
@@ -37,6 +38,15 @@ public class OpcoesDeServicos extends JPanel {
 		JButton btnAdicionaRefeio = new JButton("Adicionar Refei\u00E7\u00E3o");
 		btnAdicionaRefeio.setBounds(237, 161, 139, 32);
 		add(btnAdicionaRefeio);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new PaginaInicialHotel());
+			}
+		});
+		btnVoltar.setBounds(64, 241, 89, 23);
+		add(btnVoltar);
 
 	}
 }

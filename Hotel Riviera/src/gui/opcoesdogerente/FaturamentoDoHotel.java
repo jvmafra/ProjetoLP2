@@ -1,12 +1,19 @@
 package gui.opcoesdogerente;
 
+import gui.Sistema;
+
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JButton;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FaturamentoDoHotel extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
+	private JButton btnVoltar;
 
 	/**
 	 * Create the panel.
@@ -31,6 +38,15 @@ public class FaturamentoDoHotel extends JPanel {
 		JLabel lblFaturamentoTotal = new JLabel("Faturamento Total");
 		lblFaturamentoTotal.setBounds(38, 108, 124, 14);
 		add(lblFaturamentoTotal);
+		
+		btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new OpcoesPrivadas());
+			}
+		});
+		btnVoltar.setBounds(38, 266, 89, 23);
+		add(btnVoltar);
 
 	}
 }

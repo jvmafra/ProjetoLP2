@@ -74,10 +74,8 @@ public class Sistema extends JFrame {
 
 		if(novaTela == null)
 			System.out.println("Pode isso não");
-
 		janela.contentPane.removeAll();
 		janela.contentPane.add(novaTela);
-		//janela.repaint();
 		janela.revalidate();
 	}
 	

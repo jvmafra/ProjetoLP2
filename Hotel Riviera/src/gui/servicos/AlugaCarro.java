@@ -12,6 +12,9 @@ import javax.swing.JList;
 import classes.Carro.Carro;
 
 import javax.swing.JCheckBox;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class AlugaCarro extends JPanel {
@@ -44,7 +47,7 @@ public class AlugaCarro extends JPanel {
 		add(spinner_1);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(28, 76, 207, 168);
+		scrollPane.setBounds(39, 37, 207, 168);
 		add(scrollPane);
 		
 		JList<Carro> list = new JList<Carro>();
@@ -63,6 +66,15 @@ public class AlugaCarro extends JPanel {
 		JCheckBox chckbxTanqueCheio = new JCheckBox("Tanque cheio");
 		chckbxTanqueCheio.setBounds(417, 229, 97, 23);
 		add(chckbxTanqueCheio);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new OpcoesDeServicos());
+			}
+		});
+		btnVoltar.setBounds(39, 257, 89, 23);
+		add(btnVoltar);
 		
 
 	}

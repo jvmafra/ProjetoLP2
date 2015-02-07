@@ -1,5 +1,6 @@
 package gui;
 
+import gui.contratos.OpcoesDeContrato;
 import gui.hospede.OpcoesDoHospede;
 import gui.servicos.OpcoesDeServicos;
 
@@ -31,6 +32,7 @@ import javax.swing.JLabel;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.Rectangle;
 
 import javax.swing.JButton;
 
@@ -43,6 +45,12 @@ import java.awt.event.MouseMotionAdapter;
 import javax.swing.JTree;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
+import javax.swing.SpringLayout;
+
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormSpecs;
+import com.jgoodies.forms.layout.RowSpec;
 
 public class PaginaInicialHotel extends JPanel {
 	
@@ -66,61 +74,63 @@ public class PaginaInicialHotel extends JPanel {
 	
 	public PaginaInicialHotel() {
 		repaint();
-		setBounds(0, 0, 181, 647);
+		setBounds(0, 0, 800, 600);
 				
 		final JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 165, 640);		
+		panel.setBounds(0, 0,800,600);		
 		setLayout(null);
-		panel.setLayout(null);
 		add(panel);
 		
 		JButton btnServicos = new JButton("Servi\u00E7os");
+		btnServicos.setBounds(6, 59, 150, 50);
 		btnServicos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDeServicos());
 			}
 		});
+		panel.setLayout(null);
 		btnServicos.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnServicos.setBounds(0, 112, 165, 102);
 		panel.add(btnServicos);
 		
 		JButton btnHospede = new JButton("H\u00F3spede");
+		btnHospede.setBounds(6, 6, 150, 50);
+
 		btnHospede.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDoHospede());
 			}
 		});
 		btnHospede.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnHospede.setBounds(0, 0, 165, 102);
 		panel.add(btnHospede);
 		
 		JButton btnContratos = new JButton("Contratos");
+		btnContratos.setBounds(6, 112, 150, 50);
 		btnContratos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new OpcoesDeContrato());
 			}
 		});
 		btnContratos.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnContratos.setBounds(0, 225, 165, 102);
 		panel.add(btnContratos);
 		
 		JButton btnOpinies = new JButton("Opini\u00F5es");
+		btnOpinies.setBounds(6, 165, 150, 50);
 		btnOpinies.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnOpinies.setBounds(0, 328, 165, 102);
 		panel.add(btnOpinies);
 		
 		JButton btnReservaldo = new JButton("Reservado");
+		btnReservaldo.setBounds(6, 218, 150, 50);
 		btnReservaldo.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnReservaldo.setBounds(0, 431, 165, 102);
 		panel.add(btnReservaldo);
 		
 		JButton btnSair = new JButton("Sair");
+		btnSair.setBounds(6, 271, 150, 50);
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new LoginDeFuncionario());
 			}
 		});
 		btnSair.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnSair.setBounds(0, 538, 165, 102);
 		panel.add(btnSair);
 	}
 

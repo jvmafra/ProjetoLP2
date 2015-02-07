@@ -1,4 +1,7 @@
 package gui.opcoesdogerente;
+import excecoes.EntradaDeDadosException;
+import gui.Sistema;
+
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,7 +11,6 @@ import javax.swing.Action;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -17,7 +19,6 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
 import classes.Baba.Baba;
-import excecoes.EntradaDeDadosException;
 
 
 public class NovaBaba extends JPanel {
@@ -77,6 +78,11 @@ public class NovaBaba extends JPanel {
 		btnCadastrar.setAction(action);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new OpcoesPrivadas());
+			}
+		});
 		GroupLayout gl_CadastroBaba = new GroupLayout(CadastroBaba);
 		gl_CadastroBaba.setHorizontalGroup(
 			gl_CadastroBaba.createParallelGroup(Alignment.LEADING)
@@ -149,6 +155,7 @@ public class NovaBaba extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			try{
 				Baba baba = new Baba(Nome.getText(), Telefone.getText() );
+				Sistema.getHotel().adicionaBaba(baba);
 				JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
 			
 			}

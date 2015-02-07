@@ -1,8 +1,11 @@
 package gui.opcoesdogerente;
 
+import gui.Sistema;
+
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -10,7 +13,6 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -80,8 +82,17 @@ public class CadastroQuarto extends JPanel {
 		lblSelecioneOQuarto.setFont(new Font("Tw Cen MT", Font.PLAIN, 13));
 		
 		JButton voltar = new JButton("Voltar");
+		voltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new OpcoesPrivadas());
+			}
+		});
 		
 		JButton cadastrar = new JButton("Cadastrar");
+		cadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		cadastrar.setAction(action);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
@@ -120,6 +131,7 @@ public class CadastroQuarto extends JPanel {
 			putValue(SHORT_DESCRIPTION, "Cadastra o quarto");
 		}
 		public void actionPerformed(ActionEvent e) {
+			
 			// adiciona na lista de quartos do hotel
 		}
 	}

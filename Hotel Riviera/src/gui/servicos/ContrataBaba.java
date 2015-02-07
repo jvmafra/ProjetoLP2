@@ -10,6 +10,9 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 
 import classes.Baba.Baba;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 public class ContrataBaba extends JPanel {
 
 	/**
@@ -34,7 +37,7 @@ setLayout(null);
 		add(spinner_1);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(28, 76, 207, 168);
+		scrollPane.setBounds(66, 39, 207, 168);
 		add(scrollPane);
 		
 		JList<Baba> list = new JList<Baba>();
@@ -45,6 +48,15 @@ setLayout(null);
 		}
 		list.setModel(lista);
 		scrollPane.setViewportView(list);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new OpcoesDeServicos());
+			}
+		});
+		btnVoltar.setBounds(66, 256, 89, 23);
+		add(btnVoltar);
 		
 
 	}

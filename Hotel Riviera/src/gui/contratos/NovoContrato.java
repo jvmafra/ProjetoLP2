@@ -2,6 +2,7 @@ package gui.contratos;
 
 import gui.PaginaInicialHotel;
 import gui.Sistema;
+import gui.hospede.OpcoesDoHospede;
 import gui.hospede.SelecaoQuartos;
 
 import java.awt.Component;
@@ -264,7 +265,12 @@ public class NovoContrato extends JPanel {
 						list.setModel(listModel);
 						
 						JButton btnVoltar = new JButton("Voltar");
-						btnVoltar.setAction(action_1);
+						btnVoltar.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								Sistema.setTela(new OpcoesDoHospede());
+							}
+						});
+						//btnVoltar.setAction(action_1);
 						btnVoltar.setFont(new Font("Dialog", Font.PLAIN, 15));
 						btnVoltar.setBounds(361, 467, 94, 28);
 						margemGeral.add(btnVoltar);

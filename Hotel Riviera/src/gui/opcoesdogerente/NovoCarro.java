@@ -76,6 +76,11 @@ public class NovoCarro extends JPanel {
 		add(luxo);
 		
 		JButton voltar = new JButton("Voltar");
+		voltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new OpcoesPrivadas());
+			}
+		});
 		voltar.setFont(new Font("NanumGothic", Font.BOLD, 14));
 		voltar.setBounds(45, 169, 73, 27);
 		add(voltar);
