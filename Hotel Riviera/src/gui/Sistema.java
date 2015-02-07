@@ -77,7 +77,8 @@ public class Sistema extends JFrame {
 
 		janela.contentPane.removeAll();
 		janela.contentPane.add(novaTela);
-		janela.repaint();
+		//janela.repaint();
+		janela.revalidate();
 	}
 	
 	public static Hotel getHotel() {
