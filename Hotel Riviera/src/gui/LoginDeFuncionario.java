@@ -55,7 +55,6 @@ public class LoginDeFuncionario extends JPanel {
 	 * Create the JFrame.
 	 */
 	public LoginDeFuncionario() {
-		setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 206, 209), new Color(95, 158, 160), null, null), new MatteBorder(10, 10, 10, 10, (Color) new Color(176, 196, 222))));
 										setLayout(null);
 										
 										JLabel login_1 = new JLabel("Login");
