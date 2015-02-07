@@ -52,79 +52,64 @@ public class PaginaInicialHotel extends JPanel {
 	 */
 	
 	public PaginaInicialHotel() {
-		
-		setBounds(0, 0, 1000, 600);
-		setLayout(null);
+		repaint();
+		setBounds(0, 0, 181, 647);
 				
 		final JPanel panel = new JPanel();
-
-		panel.setBounds(0, 0, 165, 577);
-		add(panel);
+		panel.setBounds(0, 0, 165, 640);		
+		setLayout(null);
 		panel.setLayout(null);
-			
-		JMenu mnServios = new JMenu("Hospede");
-		mnServios.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				panel.setBounds(-100, 0, 165, 577);
-				JButton btnNewButton = new JButton("Novo Hospede");
-				btnNewButton.setFont(new Font("Arial Black", Font.PLAIN, 14));
-				btnNewButton.setBounds(101, 28, 402, 145);
-				add(btnNewButton);
-				
-				JButton btnAtualizarInformaes = new JButton("Atualizar Informa\u00E7\u00F5es");
-				btnAtualizarInformaes.setFont(new Font("Arial Black", Font.PLAIN, 14));
-				btnAtualizarInformaes.setBounds(101, 373, 402, 145);
-				add(btnAtualizarInformaes);
-				
-				JButton btnVisualizarInformaes = new JButton("Visualizar Informa\u00E7\u00F5es");
-				btnVisualizarInformaes.setFont(new Font("Arial Black", Font.PLAIN, 14));
-				btnVisualizarInformaes.setBounds(101, 198, 402, 145);
-				add(btnVisualizarInformaes);
-				repaint();
-				
-
+		add(panel);
+		
+		JButton btnServicos = new JButton("Servi\u00E7os");
+		btnServicos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new OpcoesDeServicos());
 			}
 		});
+		btnServicos.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnServicos.setBounds(0, 112, 165, 102);
+		panel.add(btnServicos);
 		
-		mnServios.setBounds(0, 0, 150, 95);
-		panel.add(mnServios);
-		mnServios.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		
-		JMenu mnServios_1 = new JMenu("Servi\u00E7os");
-		mnServios_1.setBounds(0, 95, 150, 95);
-		panel.add(mnServios_1);
-		mnServios_1.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		
-		JMenu mnContratos = new JMenu("Contratos");
-		mnContratos.setBounds(0, 189, 150, 95);
-		panel.add(mnContratos);
-		mnContratos.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				Sistema.setTela(new NovoContrato());
-				
+		JButton btnHospede = new JButton("H\u00F3spede");
+		btnHospede.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new OpcoesDoHospede());
 			}
 		});
-		mnContratos.setBackground(new Color(32, 178, 170));
-		mnContratos.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		btnHospede.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnHospede.setBounds(0, 0, 165, 102);
+		panel.add(btnHospede);
 		
-		JMenu mnOpinies = new JMenu("Opini\u00F5es");
-		mnOpinies.setBounds(0, 284, 150, 95);
-		panel.add(mnOpinies);
-		mnOpinies.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		JButton btnContratos = new JButton("Contratos");
+		btnContratos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnContratos.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnContratos.setBounds(0, 225, 165, 102);
+		panel.add(btnContratos);
 		
-		JMenu mnAcessoRestrito = new JMenu("Restrito");
-		mnAcessoRestrito.setBounds(0, 378, 150, 95);
-		panel.add(mnAcessoRestrito);
-		mnAcessoRestrito.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		JButton btnOpinies = new JButton("Opini\u00F5es");
+		btnOpinies.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnOpinies.setBounds(0, 328, 165, 102);
+		panel.add(btnOpinies);
 		
-		JMenu mnSair = new JMenu("Sair");
-		mnSair.setBounds(0, 477, 150, 100);
-		panel.add(mnSair);
-		mnSair.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		JButton btnReservaldo = new JButton("Reservado");
+		btnReservaldo.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnReservaldo.setBounds(0, 431, 165, 102);
+		panel.add(btnReservaldo);
+		
+		JButton btnSair = new JButton("Sair");
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new LoginDeFuncionario());
+			}
+		});
+		btnSair.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnSair.setBounds(0, 538, 165, 102);
+		panel.add(btnSair);
 	}
-	
 
 	private class SwingAction extends AbstractAction {
 		/**
@@ -148,9 +133,7 @@ public class PaginaInicialHotel extends JPanel {
 			putValue(SHORT_DESCRIPTION, "");
 		}
 		public void actionPerformed(ActionEvent e) {
-			repaint();
-			Sistema.setTela(new NovoContrato());
-			repaint();
+			
 		}
 	}
 	private class SwingAction_2 extends AbstractAction {

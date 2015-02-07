@@ -46,35 +46,36 @@ public class NovoCarro extends JPanel {
 	public NovoCarro() {
 		setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		setBounds(100, 100, 528, 333);
+		setLayout(null);
 		
 		JLabel lblDescircao = new JLabel("Descricao: ");
-		lblDescircao.setBounds(133, 92, 95, 15);
+		lblDescircao.setBounds(83, 65, 71, 19);
 		lblDescircao.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		add(lblDescircao);
 		
 		descricao = new JTextField();
-		descricao.setBounds(213, 90, 163, 19);
+		descricao.setBounds(159, 64, 86, 20);
 		add(descricao);
 		descricao.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Placa:");
 		lblNewLabel.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		lblNewLabel.setBounds(133, 132, 70, 15);
+		lblNewLabel.setBounds(114, 105, 39, 19);
 		add(lblNewLabel);
 		
 		placa = new JTextField();
-		placa.setBounds(213, 130, 114, 19);
+		placa.setBounds(158, 104, 86, 20);
 		add(placa);
 		placa.setColumns(10);
 		
 		luxo = new JCheckBox("Luxo");
 		luxo.setFont(new Font("NanumGothic", Font.BOLD, 14));
-		luxo.setBounds(338, 128, 129, 23);
+		luxo.setBounds(271, 84, 59, 27);
 		add(luxo);
 		
 		JButton voltar = new JButton("Voltar");
 		voltar.setFont(new Font("NanumGothic", Font.BOLD, 14));
-		voltar.setBounds(53, 252, 117, 25);
+		voltar.setBounds(45, 169, 73, 27);
 		add(voltar);
 		
 		JButton limpar = new JButton("Limpar");
@@ -86,7 +87,7 @@ public class NovoCarro extends JPanel {
 				descricao.setText("");
 			}
 		});
-		limpar.setBounds(201, 252, 117, 25);
+		limpar.setBounds(166, 169, 79, 27);
 		add(limpar);
 		
 		JButton concluir = new JButton("Concluir");
@@ -103,7 +104,7 @@ public class NovoCarro extends JPanel {
 			}
 		});
 		concluir.setFont(new Font("NanumGothic", Font.BOLD, 14));
-		concluir.setBounds(353, 252, 117, 25);
+		concluir.setBounds(292, 169, 91, 27);
 		add(concluir);
 	}
 	

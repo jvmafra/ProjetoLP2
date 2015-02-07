@@ -55,43 +55,32 @@ public class LoginDeFuncionario extends JPanel {
 	 * Create the JFrame.
 	 */
 	public LoginDeFuncionario() {
-										setLayout(null);
+		setLayout(null);
+		JLabel login_1 = new JLabel("Login");
+		login_1.setBounds(81, 71, 29, 16);
+		add(login_1);
+		login_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+		
+		login = new JTextField();
+		login.setBounds(130, 69, 86, 20);
+		add(login);
+		login.setColumns(10);
+		
+		JLabel senha_1 = new JLabel("Senha");
+		senha_1.setBounds(76, 102, 34, 16);
+		add(senha_1);
+		senha_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 										
-										JLabel login_1 = new JLabel("Login");
-										login_1.setBounds(81, 71, 29, 16);
-										add(login_1);
-										login_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
-										
-										login = new JTextField();
-										login.setBounds(130, 69, 86, 20);
-										add(login);
-										login.setColumns(10);
-										
-										JLabel senha_1 = new JLabel("Senha");
-										senha_1.setBounds(76, 102, 34, 16);
-										add(senha_1);
-										senha_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
-										
-										senha = new JPasswordField();
-										senha.setBounds(130, 100, 86, 20);
-										add(senha);
-										senha.setColumns(10);
+		senha = new JPasswordField();
+		senha.setBounds(130, 100, 86, 20);
+		add(senha);
+		senha.setColumns(10);
 												
-														JButton botao_entrar = new JButton("Entrar");
-														botao_entrar.setBounds(89, 141, 86, 25);
-														botao_entrar.addActionListener(new ActionListener() {
-															public void actionPerformed(ActionEvent e) {
-																							
-																if(acessoPermitido){
-																	
-																	
-															}
-															}
-														});
-														add(botao_entrar);
-														botao_entrar.setAction(action);
-														
-														botao_entrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14)); 
+		JButton botao_entrar = new JButton("Entrar");
+		botao_entrar.setBounds(89, 141, 86, 25);	
+		add(botao_entrar);
+		botao_entrar.setAction(action);
+		botao_entrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14)); 
 
 	}
 	private class SwingAction extends AbstractAction {
@@ -107,7 +96,7 @@ public class LoginDeFuncionario extends JPanel {
 			
 		}
 			else
-				 JOptionPane.showMessageDialog(null, "Acesso Negado");{
+				JOptionPane.showMessageDialog(null, "Acesso Negado");{
 				login.setText("");
 				senha.setText("");
 				 }

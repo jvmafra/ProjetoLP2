@@ -16,6 +16,9 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import java.awt.CardLayout;
+import java.awt.GridBagLayout;
+import java.awt.FlowLayout;
 
 public class Sistema extends JFrame {
 
@@ -53,12 +56,12 @@ public class Sistema extends JFrame {
 	private Sistema() {
 		setTitle("Hotel Riviera Campina");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1000, 600);
+		setBounds(0, 0, 800, 600);
 		//this.setExtendedState(MAXIMIZED_BOTH);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new GridLayout(1, 0, 0, 0));
+		contentPane.setLayout(new CardLayout(0, 0));
 	}
 	private static void iniciaSistema(){
 		janela = new Sistema();
@@ -70,11 +73,9 @@ public class Sistema extends JFrame {
 		if(janela == null) iniciaSistema();
 
 		if(novaTela == null)
-			throw new IllegalArgumentException();
+			System.out.println("Pode isso não");
 
 		janela.contentPane.removeAll();
-		if (!(novaTela instanceof LoginDeFuncionario)) 
-			janela.contentPane.add(new PaginaInicialHotel());
 		janela.contentPane.add(novaTela);
 		janela.repaint();
 	}

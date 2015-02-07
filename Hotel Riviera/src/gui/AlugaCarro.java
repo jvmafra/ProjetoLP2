@@ -1,0 +1,66 @@
+package gui;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerDateModel;
+import javax.swing.JScrollPane;
+import javax.swing.JList;
+
+import classes.Carro.Carro;
+import javax.swing.JCheckBox;
+
+
+public class AlugaCarro extends JPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Create the panel.
+	 * 
+	 * 
+	 * a tela de aluguel tem que selecionar 
+	 * um carro da lista de carros disponíveis 
+	 * selecionar os periodos e os checks se vai 
+	 * querer com seguro e tanque cheio
+	 */
+	public AlugaCarro() {
+		setLayout(null);
+		
+		JSpinner spinner = new JSpinner();
+		spinner.setBounds(417, 63, 159, 29);
+		spinner.setModel(new SpinnerDateModel());
+		add(spinner);
+		
+		JSpinner spinner_1 = new JSpinner();
+		spinner_1.setBounds(417, 125, 159, 29);
+		spinner_1.setModel(new SpinnerDateModel());
+		add(spinner_1);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(28, 76, 207, 168);
+		add(scrollPane);
+		
+		JList<Carro> list = new JList<Carro>();
+		
+		DefaultListModel<Carro> lista = new DefaultListModel<Carro>();
+		for (int i = 0; i < Sistema.getHotel().getCarros().size(); i++) {
+			lista.addElement(Sistema.getHotel().getCarros().get(i));
+		}
+		list.setModel(lista);
+		scrollPane.setViewportView(list);
+		
+		JCheckBox chckbxSeguro = new JCheckBox("Seguro");
+		chckbxSeguro.setBounds(417, 182, 97, 23);
+		add(chckbxSeguro);
+		
+		JCheckBox chckbxTanqueCheio = new JCheckBox("Tanque cheio");
+		chckbxTanqueCheio.setBounds(417, 229, 97, 23);
+		add(chckbxTanqueCheio);
+		
+
+	}
+}
