@@ -15,8 +15,12 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.awt.FlowLayout;
 
-public class LoginDeFuncionario extends JFrame {
+public class LoginDeFuncionario extends JPanel {
 	/**
 	 * 
 	 */
@@ -47,58 +51,70 @@ public class LoginDeFuncionario extends JFrame {
 	 * Create the JFrame.
 	 */
 	public LoginDeFuncionario() {
-		setTitle("Login - Funcion\u00E1rio");
-		setBounds(100, 100, 835, 590);
-		getContentPane().setLayout(null);
-		
-		JPanel panel = new JPanel();
-		panel.setBounds(206, 107, 470, 331);
-		getContentPane().add(panel);
-		panel.setLayout(null);
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new TitledBorder(null, "Login Funcionario", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_1.setBounds(63, 71, 301, 172);
-		panel.add(panel_1);
-		panel_1.setLayout(null);
-		
-		JButton botao_entrar = new JButton("Entrar");
-		botao_entrar.addActionListener(new ActionListener() {
-			// galera isso foi uma das coisas que nathaniel fez. Serve para mudar de frame.
-			public void actionPerformed(ActionEvent e) {
-				PaginaInicialHotel frame = new PaginaInicialHotel();
-				
-				if(acessoPermitido){
-					frame.setVisible(true);
-					setVisible(false);
-			}
-			}
-		});
-		botao_entrar.setBounds(104, 133, 75, 27);
-		panel_1.add(botao_entrar);
-		botao_entrar.setAction(action);
-		
-		botao_entrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14)); 
-		
-		JLabel senha_1 = new JLabel("Senha");
-		senha_1.setBounds(42, 85, 44, 17);
-		panel_1.add(senha_1);
-		senha_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
-		
-		senha = new JPasswordField();
-		senha.setBounds(104, 78, 114, 19);
-		panel_1.add(senha);
-		senha.setColumns(10);
-		
-		JLabel login_1 = new JLabel("Login");
-		login_1.setBounds(54, 37, 37, 17);
-		panel_1.add(login_1);
-		login_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
-		
-		login = new JTextField();
-		login.setBounds(104, 35, 114, 19);
-		panel_1.add(login);
-		login.setColumns(10);
+		GridBagLayout gridBagLayout = new GridBagLayout();
+		gridBagLayout.columnWidths = new int[]{125, 34, 36, 86, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{103, 20, 20, 25, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		setLayout(gridBagLayout);
+										
+										JLabel login_1 = new JLabel("Login");
+										GridBagConstraints gbc_login_1 = new GridBagConstraints();
+										gbc_login_1.anchor = GridBagConstraints.EAST;
+										gbc_login_1.insets = new Insets(0, 0, 5, 5);
+										gbc_login_1.gridx = 5;
+										gbc_login_1.gridy = 2;
+										add(login_1, gbc_login_1);
+										login_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+										
+										login = new JTextField();
+										GridBagConstraints gbc_login = new GridBagConstraints();
+										gbc_login.anchor = GridBagConstraints.NORTHWEST;
+										gbc_login.insets = new Insets(0, 0, 5, 5);
+										gbc_login.gridx = 7;
+										gbc_login.gridy = 2;
+										add(login, gbc_login);
+										login.setColumns(10);
+										
+										JLabel senha_1 = new JLabel("Senha");
+										GridBagConstraints gbc_senha_1 = new GridBagConstraints();
+										gbc_senha_1.anchor = GridBagConstraints.WEST;
+										gbc_senha_1.insets = new Insets(0, 0, 5, 5);
+										gbc_senha_1.gridx = 5;
+										gbc_senha_1.gridy = 4;
+										add(senha_1, gbc_senha_1);
+										senha_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+										
+										senha = new JPasswordField();
+										GridBagConstraints gbc_senha = new GridBagConstraints();
+										gbc_senha.anchor = GridBagConstraints.NORTHWEST;
+										gbc_senha.insets = new Insets(0, 0, 5, 5);
+										gbc_senha.gridx = 7;
+										gbc_senha.gridy = 4;
+										add(senha, gbc_senha);
+										senha.setColumns(10);
+												
+														JButton botao_entrar = new JButton("Entrar");
+														botao_entrar.addActionListener(new ActionListener() {
+															public void actionPerformed(ActionEvent e) {
+																							
+																if(acessoPermitido){
+																	Sistema.setTela(new PaginaInicialHotel());
+																	//frame.setVisible(true);
+																	//setVisible(false);
+															}
+															}
+														});
+														GridBagConstraints gbc_botao_entrar = new GridBagConstraints();
+														gbc_botao_entrar.insets = new Insets(0, 0, 5, 0);
+														gbc_botao_entrar.anchor = GridBagConstraints.NORTH;
+														gbc_botao_entrar.gridwidth = 3;
+														gbc_botao_entrar.gridx = 6;
+														gbc_botao_entrar.gridy = 6;
+														add(botao_entrar, gbc_botao_entrar);
+														botao_entrar.setAction(action);
+														
+														botao_entrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14)); 
 
 	}
 	private class SwingAction extends AbstractAction {
@@ -108,7 +124,7 @@ public class LoginDeFuncionario extends JFrame {
 		}
 		public void actionPerformed(ActionEvent e) {
 			if (login.getText().equals("admin") && senha.getText().equals("123456")){
-				JOptionPane.showMessageDialog(null, "Acesso Permitido");
+				//JOptionPane.showMessageDialog(null, "Acesso Permitido");
 				acessoPermitido = true;
 			
 		}

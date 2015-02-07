@@ -9,9 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 
-public class PaginaInicialHotel extends JFrame {
+public class PaginaInicialHotel extends JPanel {
 	/**
 	 * 
 	 */
@@ -34,10 +35,9 @@ public class PaginaInicialHotel extends JFrame {
 	
 	public PaginaInicialHotel() {
 	
-		setTitle("\u00C1rea do funcion\u00E1rio");
 		setBounds(100, 100, 835, 590);		
 		JMenuBar menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
+		//setJMenuBar(menuBar);
 		
 		JMenu novo = new JMenu("Novo");
 		menuBar.add(novo);
@@ -72,15 +72,17 @@ public class PaginaInicialHotel extends JFrame {
 		JMenu sair = new JMenu("Sair");
 		menuBar.add(sair);
 
+		add(menuBar);
 //		JFrame framePrincipal = new CadastroHospede();
 //		framePrincipal.setBounds(12, 12, 811, 517);
 //		setContentPane(framePrincipal);
 	}
 
-	private static void addPopup(Component component, final JPopupMenu popup) {
-	}
-	
 	private class SwingAction extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction() {
 			putValue(NAME, "SwingAction");
 			putValue(SHORT_DESCRIPTION, "");
@@ -89,17 +91,23 @@ public class PaginaInicialHotel extends JFrame {
 		}
 	}
 	private class SwingAction_1 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction_1() {
 			putValue(NAME, "Contrato");
 			putValue(SHORT_DESCRIPTION, "");
 		}
 		public void actionPerformed(ActionEvent e) {
-			NovoContrato cadastro = new NovoContrato();
-			cadastro.setVisible(true);
-			setVisible(false);
+			Sistema.setTela(new NovoContrato());
 		}
 	}
 	private class SwingAction_2 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction_2() {
 			putValue(NAME, "Serviços");
 			putValue(SHORT_DESCRIPTION, "");
@@ -108,6 +116,10 @@ public class PaginaInicialHotel extends JFrame {
 		}
 	}
 	private class SwingAction_3 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction_3() {
 			putValue(NAME, "Contratos Abertos");
 			putValue(SHORT_DESCRIPTION, "");
@@ -116,6 +128,10 @@ public class PaginaInicialHotel extends JFrame {
 		}
 	}
 	private class SwingAction_4 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction_4() {
 			putValue(NAME, "Contratos fechados");
 			putValue(SHORT_DESCRIPTION, "");

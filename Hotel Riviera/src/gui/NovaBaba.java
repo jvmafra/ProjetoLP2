@@ -20,7 +20,7 @@ import classes.Baba.Baba;
 import excecoes.EntradaDeDadosException;
 
 
-public class NovaBaba extends JFrame {
+public class NovaBaba extends JPanel {
 
 	/**
 	 * 
@@ -52,12 +52,9 @@ public class NovaBaba extends JFrame {
 	 * Create the frame.
 	 */
 	public NovaBaba() {
-		setTitle("Cadastro Bab\u00E1");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		CadastroBaba = new JPanel();
 		CadastroBaba.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(CadastroBaba);
 		
 		JLabel lblNome = new JLabel("Nome");
 		
@@ -126,6 +123,10 @@ public class NovaBaba extends JFrame {
 	}
 
 	private class SwingAction extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction() {
 			putValue(NAME, "Limpar");
 			putValue(SHORT_DESCRIPTION, "Some short description");
@@ -137,6 +138,10 @@ public class NovaBaba extends JFrame {
 		}
 	}
 	private class SwingAction_1 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction_1() {
 			putValue(NAME, "Cadastrar");
 			putValue(SHORT_DESCRIPTION, "Cadastrar baba");

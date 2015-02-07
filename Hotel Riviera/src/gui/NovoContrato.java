@@ -42,7 +42,7 @@ import classes.Quartos.Quarto;
 import javax.swing.UIManager;
 
 
-public class NovoContrato extends JFrame {
+public class NovoContrato extends JPanel {
 	/**
 	 * 
 	 */
@@ -80,17 +80,15 @@ public class NovoContrato extends JFrame {
 	 * Create the frame.
 	 */
 	public NovoContrato() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(NovoContrato.class.getResource("/icones/hotel22.png")));
-		setTitle("Cadastro");
-		
+				
 		setBounds(100, 100, 835, 590);
 		
 		MaskFormatter format = null;
-		getContentPane().setLayout(null);
+		setLayout(null);
 				
 				JPanel margemGeral = new JPanel();
 				margemGeral.setBounds(12, 12, 796, 523);
-				getContentPane().add(margemGeral);
+				add(margemGeral);
 				margemGeral.setLayout(null);
 				
 				JPanel DadosHospedes = new JPanel();
@@ -269,6 +267,7 @@ public class NovoContrato extends JFrame {
 								JButton concluir = new JButton("Concluir");
 								concluir.addActionListener(new ActionListener() {
 									public void actionPerformed(ActionEvent arg0) {
+										Sistema.setTela(new SelecaoQuartos());
 									}
 								});
 								concluir.setBounds(690, 467, 94, 28);
@@ -294,11 +293,15 @@ public class NovoContrato extends JFrame {
 						
 						
 						
-		getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{concluir, limpar, telefone_1, telefone, nome_1, cpf_1, rg_1, email_1, rg, email, nome, cpf, endereco_1, numCartao, endereco, lblCarto}));
+		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{concluir, limpar, telefone_1, telefone, nome_1, cpf_1, rg_1, email_1, rg, email, nome, cpf, endereco_1, numCartao, endereco, lblCarto}));
 
 	}
 
 	private class SwingAction extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction() {
 			putValue(NAME, "Concluir");
 			putValue(SHORT_DESCRIPTION, "Cadastro de hospede");
@@ -315,6 +318,10 @@ public class NovoContrato extends JFrame {
 		}
 	}
 	private class SwingAction_1 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction_1() {
 			putValue(NAME, "Voltar");
 			putValue(SHORT_DESCRIPTION, "");

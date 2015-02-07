@@ -1,16 +1,28 @@
 package gui;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.border.EmptyBorder;
 
 import classes.Arquivos;
 import classes.HotelOpiniaoServicosPeriodo.Hotel;
-// pagina sistema, nathaniel criou. Deve ter sido a janela que gustavin mito falou.
-public class Sistema {
 
-	private JFrame frame;
+public class Sistema extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private static Sistema janela;
 	private static Hotel hotel;
+	private JPanel contentPane;
+
 
 	/**
 	 * Launch the application.
@@ -19,31 +31,43 @@ public class Sistema {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Sistema window = new Sistema();
-					window.frame.setVisible(true);
+					criaHotel();
+					setTela(new LoginDeFuncionario());
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				criaHotel();
+				setTela(new LoginDeFuncionario());
+				
 			}
 		});
 	}
 
-	/**
-	 * Create the application.
-	 * @throws Exception 
-	 */
-	public Sistema() {
-		criaHotel();
-		initialize();
+
+	private Sistema() {
+		setTitle("Hotel Riviera Campina");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 846, 694);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
 	}
+	private static void iniciaSistema(){
+		janela = new Sistema();
+		janela.setVisible(true);
+		
+	}
+	
+	public static void setTela(JPanel novaTela) {
+		if(janela == null) iniciaSistema();
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new LoginDeFuncionario();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		if(novaTela == null)
+			throw new IllegalArgumentException();
 
+		janela.contentPane.removeAll();
+		janela.contentPane.add(novaTela);
+		janela.repaint();
 	}
 	
 	public static Hotel getHotel() {
@@ -65,7 +89,5 @@ public class Sistema {
 			}
 		}
 	}
-		
 
 }
-

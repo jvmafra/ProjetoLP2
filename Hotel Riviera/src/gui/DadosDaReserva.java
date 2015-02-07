@@ -26,7 +26,7 @@ import javax.swing.border.EmptyBorder;
 
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 
-public class DadosDaReserva extends JFrame {
+public class DadosDaReserva extends JPanel {
 
 	/**
 	 * 
@@ -39,33 +39,14 @@ public class DadosDaReserva extends JFrame {
 	private final Action action = new SwingAction();
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					DadosDaReserva frame = new DadosDaReserva();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public DadosDaReserva() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(DadosDaReserva.class.getResource("/icones/hotel22.png")));
 		setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
-		setTitle("Dados da reserva");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 494, 385);
 		botao_avancar = new JPanel();
 		botao_avancar.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(botao_avancar);
+		add(botao_avancar);
 		
 		numCartao = new JTextField();
 		numCartao.setColumns(10);

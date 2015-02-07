@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
+import classes.Quartos.Quarto;
 import classes.Quartos.QuartoExecutivoDuplo;
 import classes.Quartos.QuartoExecutivoSimples;
 import classes.Quartos.QuartoExecutivoTriplo;
@@ -25,14 +26,14 @@ import classes.Quartos.QuartoLuxoSimples;
 import classes.Quartos.QuartoLuxoTriplo;
 import classes.Quartos.QuartoPresidencial;
 
-public class CadastroQuarto extends JFrame {
+public class CadastroQuarto extends JPanel {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	JComboBox quartos;
+	JComboBox<Quarto> quartos;
 	private final Action action = new SwingAction();
 
 	/**
@@ -55,14 +56,11 @@ public class CadastroQuarto extends JFrame {
 	 * Create the frame.
 	 */
 	public CadastroQuarto() {
-		setTitle("Cadastrar Quarto");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
 		
-		quartos = new JComboBox();
+		quartos = new JComboBox<Quarto>();
 		quartos.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		quartos.setToolTipText("Quartos");
 		quartos.setMaximumRowCount(7);
