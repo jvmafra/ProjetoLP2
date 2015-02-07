@@ -19,6 +19,10 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.FlowLayout;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.BevelBorder;
+import java.awt.Color;
+import javax.swing.border.MatteBorder;
 
 public class LoginDeFuncionario extends JPanel {
 	/**
@@ -51,67 +55,41 @@ public class LoginDeFuncionario extends JPanel {
 	 * Create the JFrame.
 	 */
 	public LoginDeFuncionario() {
-		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{125, 34, 36, 86, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{103, 20, 20, 25, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		setLayout(gridBagLayout);
+		setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 206, 209), new Color(95, 158, 160), null, null), new MatteBorder(10, 10, 10, 10, (Color) new Color(176, 196, 222))));
+										setLayout(null);
 										
 										JLabel login_1 = new JLabel("Login");
-										GridBagConstraints gbc_login_1 = new GridBagConstraints();
-										gbc_login_1.anchor = GridBagConstraints.EAST;
-										gbc_login_1.insets = new Insets(0, 0, 5, 5);
-										gbc_login_1.gridx = 5;
-										gbc_login_1.gridy = 2;
-										add(login_1, gbc_login_1);
+										login_1.setBounds(340, 264, 29, 16);
+										add(login_1);
 										login_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 										
 										login = new JTextField();
-										GridBagConstraints gbc_login = new GridBagConstraints();
-										gbc_login.anchor = GridBagConstraints.NORTHWEST;
-										gbc_login.insets = new Insets(0, 0, 5, 5);
-										gbc_login.gridx = 7;
-										gbc_login.gridy = 2;
-										add(login, gbc_login);
+										login.setBounds(411, 262, 86, 20);
+										add(login);
 										login.setColumns(10);
 										
 										JLabel senha_1 = new JLabel("Senha");
-										GridBagConstraints gbc_senha_1 = new GridBagConstraints();
-										gbc_senha_1.anchor = GridBagConstraints.WEST;
-										gbc_senha_1.insets = new Insets(0, 0, 5, 5);
-										gbc_senha_1.gridx = 5;
-										gbc_senha_1.gridy = 4;
-										add(senha_1, gbc_senha_1);
+										senha_1.setBounds(340, 306, 34, 16);
+										add(senha_1);
 										senha_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 										
 										senha = new JPasswordField();
-										GridBagConstraints gbc_senha = new GridBagConstraints();
-										gbc_senha.anchor = GridBagConstraints.NORTHWEST;
-										gbc_senha.insets = new Insets(0, 0, 5, 5);
-										gbc_senha.gridx = 7;
-										gbc_senha.gridy = 4;
-										add(senha, gbc_senha);
+										senha.setBounds(411, 304, 86, 20);
+										add(senha);
 										senha.setColumns(10);
 												
 														JButton botao_entrar = new JButton("Entrar");
+														botao_entrar.setBounds(411, 349, 86, 25);
 														botao_entrar.addActionListener(new ActionListener() {
 															public void actionPerformed(ActionEvent e) {
 																							
 																if(acessoPermitido){
-																	Sistema.setTela(new PaginaInicialHotel());
-																	//frame.setVisible(true);
-																	//setVisible(false);
+																	
+																	
 															}
 															}
 														});
-														GridBagConstraints gbc_botao_entrar = new GridBagConstraints();
-														gbc_botao_entrar.insets = new Insets(0, 0, 5, 0);
-														gbc_botao_entrar.anchor = GridBagConstraints.NORTH;
-														gbc_botao_entrar.gridwidth = 3;
-														gbc_botao_entrar.gridx = 6;
-														gbc_botao_entrar.gridy = 6;
-														add(botao_entrar, gbc_botao_entrar);
+														add(botao_entrar);
 														botao_entrar.setAction(action);
 														
 														botao_entrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14)); 
@@ -126,6 +104,7 @@ public class LoginDeFuncionario extends JPanel {
 			if (login.getText().equals("admin") && senha.getText().equals("123456")){
 				//JOptionPane.showMessageDialog(null, "Acesso Permitido");
 				acessoPermitido = true;
+				Sistema.setTela(new PaginaInicialHotel());
 			
 		}
 			else

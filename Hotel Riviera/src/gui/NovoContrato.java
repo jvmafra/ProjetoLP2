@@ -267,7 +267,7 @@ public class NovoContrato extends JPanel {
 								JButton concluir = new JButton("Concluir");
 								concluir.addActionListener(new ActionListener() {
 									public void actionPerformed(ActionEvent arg0) {
-										Sistema.setTela(new SelecaoQuartos());
+										
 									}
 								});
 								concluir.setBounds(690, 467, 94, 28);
@@ -312,6 +312,8 @@ public class NovoContrato extends JPanel {
 						rg.getText().replace(".",""), "18", email.getText(), telefone.getText(), 
 						endereco.getText(), numCartao.getText().replace(".",""));
 				JOptionPane.showMessageDialog(null, "Hospede criado!");
+				Sistema.setTela(new SelecaoQuartos());
+				repaint();
 			} catch (Exception e1) {
 				JOptionPane.showMessageDialog(null, e1.getMessage());
 			}

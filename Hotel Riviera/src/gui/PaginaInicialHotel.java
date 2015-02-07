@@ -11,6 +11,11 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
+import java.awt.Font;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.GridLayout;
 
 public class PaginaInicialHotel extends JPanel {
 	/**
@@ -34,9 +39,10 @@ public class PaginaInicialHotel extends JPanel {
 	 */
 	
 	public PaginaInicialHotel() {
-	
-		setBounds(100, 100, 835, 590);		
+		setBounds(100, 100, 174, 577);
+		setLayout(null);
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(148, 11, 468, 34);
 		//setJMenuBar(menuBar);
 		
 		JMenu novo = new JMenu("Novo");
@@ -71,11 +77,47 @@ public class PaginaInicialHotel extends JPanel {
 		
 		JMenu sair = new JMenu("Sair");
 		menuBar.add(sair);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 160, 520);
+		
+		JMenu mnContratos = new JMenu("Contratos");
+		mnContratos.setBounds(0, 43, 125, 50);
+		mnContratos.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				Sistema.setTela(new NovoContrato());
+				
+			}
+		});
+		panel.setLayout(null);
+		mnContratos.setBackground(new Color(32, 178, 170));
+		mnContratos.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		panel.add(mnContratos);
+		
+		JMenu mnServios = new JMenu("Hospede");
+		mnServios.setBounds(0, 104, 125, 50);
+		mnServios.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		panel.add(mnServios);
+		
+		JMenu mnServios_1 = new JMenu("Servi\u00E7os");
+		mnServios_1.setBounds(0, 208, 125, 50);
+		mnServios_1.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		panel.add(mnServios_1);
+		
+		JMenu mnOpinies = new JMenu("Opini\u00F5es");
+		mnOpinies.setBounds(0, 312, 125, 50);
+		mnOpinies.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		panel.add(mnOpinies);
+		
+		JMenu mnAcessoRestrito = new JMenu("Restrito");
+		mnAcessoRestrito.setBounds(0, 416, 125, 50);
+		mnAcessoRestrito.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		panel.add(mnAcessoRestrito);
+		
+		add(panel);
+		//add(menuBar);
 
-		add(menuBar);
-//		JFrame framePrincipal = new CadastroHospede();
-//		framePrincipal.setBounds(12, 12, 811, 517);
-//		setContentPane(framePrincipal);
 	}
 
 	private class SwingAction extends AbstractAction {
@@ -100,7 +142,9 @@ public class PaginaInicialHotel extends JPanel {
 			putValue(SHORT_DESCRIPTION, "");
 		}
 		public void actionPerformed(ActionEvent e) {
+			repaint();
 			Sistema.setTela(new NovoContrato());
+			repaint();
 		}
 	}
 	private class SwingAction_2 extends AbstractAction {
@@ -140,6 +184,10 @@ public class PaginaInicialHotel extends JPanel {
 		}
 	}
 	private class SwingAction_5 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction_5() {
 			putValue(NAME, "Quartos Disponiveis");
 			putValue(SHORT_DESCRIPTION, "");
@@ -148,6 +196,10 @@ public class PaginaInicialHotel extends JPanel {
 		}
 	}
 	private class SwingAction_6 extends AbstractAction {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		public SwingAction_6() {
 			putValue(NAME, "Serviços Disponiveis");
 			putValue(SHORT_DESCRIPTION, "");

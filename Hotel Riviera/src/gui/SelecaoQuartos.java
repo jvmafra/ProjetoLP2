@@ -183,8 +183,6 @@ public class SelecaoQuartos extends JPanel {
 		JButton avancar = new JButton("Avan\u00E7ar");
 		avancar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new DadosDaReserva());
-				repaint();
 				
 			}
 		});

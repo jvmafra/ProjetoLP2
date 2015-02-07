@@ -4,9 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import classes.Arquivos;
@@ -36,6 +34,7 @@ public class Sistema extends JFrame {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				
 				criaHotel();
 				setTela(new LoginDeFuncionario());
 				
@@ -45,9 +44,10 @@ public class Sistema extends JFrame {
 
 
 	private Sistema() {
+		this.setExtendedState(MAXIMIZED_BOTH);
 		setTitle("Hotel Riviera Campina");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 846, 694);
+		setBounds(50, 10, 846, 694);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -66,6 +66,8 @@ public class Sistema extends JFrame {
 			throw new IllegalArgumentException();
 
 		janela.contentPane.removeAll();
+//		if (!(novaTela instanceof LoginDeFuncionario)) 
+//			janela.contentPane.add(new PaginaInicialHotel());
 		janela.contentPane.add(novaTela);
 		janela.repaint();
 	}
