@@ -17,8 +17,22 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.GridLayout;
 import net.miginfocom.swing.MigLayout;
+import java.awt.FlowLayout;
+import java.awt.BorderLayout;
+import javax.swing.JLabel;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import javax.swing.SwingConstants;
+import java.awt.event.MouseMotionAdapter;
+import javax.swing.JTree;
+import javax.swing.JSpinner;
+import javax.swing.JTable;
 
 public class PaginaInicialHotel extends JPanel {
+	
 	/**
 	 * 
 	 */
@@ -32,27 +46,59 @@ public class PaginaInicialHotel extends JPanel {
 	private final Action action_6 = new SwingAction_5();
 	private final Action action_7 = new SwingAction_6();
 
-
-
 	/**
 	 * Create the frame.
 	 * @param NovoContrato 
 	 */
 	
 	public PaginaInicialHotel() {
-		setBounds(100, 100, 568, 492);
-		setLayout(new MigLayout("", "[166px]", "[82px][82px][82px][82px][82px][82px]"));
 		
+		setBounds(0, 0, 1000, 600);
+		setLayout(null);
+				
+		final JPanel panel = new JPanel();
+
+		panel.setBounds(0, 0, 165, 577);
+		add(panel);
+		panel.setLayout(null);
+			
 		JMenu mnServios = new JMenu("Hospede");
-		add(mnServios, "cell 0 0,alignx left,growy");
+		mnServios.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panel.setBounds(-100, 0, 165, 577);
+				JButton btnNewButton = new JButton("Novo Hospede");
+				btnNewButton.setFont(new Font("Arial Black", Font.PLAIN, 14));
+				btnNewButton.setBounds(101, 28, 402, 145);
+				add(btnNewButton);
+				
+				JButton btnAtualizarInformaes = new JButton("Atualizar Informa\u00E7\u00F5es");
+				btnAtualizarInformaes.setFont(new Font("Arial Black", Font.PLAIN, 14));
+				btnAtualizarInformaes.setBounds(101, 373, 402, 145);
+				add(btnAtualizarInformaes);
+				
+				JButton btnVisualizarInformaes = new JButton("Visualizar Informa\u00E7\u00F5es");
+				btnVisualizarInformaes.setFont(new Font("Arial Black", Font.PLAIN, 14));
+				btnVisualizarInformaes.setBounds(101, 198, 402, 145);
+				add(btnVisualizarInformaes);
+				repaint();
+				
+
+			}
+		});
+		
+		mnServios.setBounds(0, 0, 150, 95);
+		panel.add(mnServios);
 		mnServios.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		
 		JMenu mnServios_1 = new JMenu("Servi\u00E7os");
-		add(mnServios_1, "cell 0 1,alignx left,growy");
+		mnServios_1.setBounds(0, 95, 150, 95);
+		panel.add(mnServios_1);
 		mnServios_1.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		
 		JMenu mnContratos = new JMenu("Contratos");
-		add(mnContratos, "cell 0 2,alignx left,growy");
+		mnContratos.setBounds(0, 189, 150, 95);
+		panel.add(mnContratos);
 		mnContratos.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -64,18 +110,21 @@ public class PaginaInicialHotel extends JPanel {
 		mnContratos.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		
 		JMenu mnOpinies = new JMenu("Opini\u00F5es");
-		add(mnOpinies, "cell 0 3,alignx left,growy");
+		mnOpinies.setBounds(0, 284, 150, 95);
+		panel.add(mnOpinies);
 		mnOpinies.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		
 		JMenu mnAcessoRestrito = new JMenu("Restrito");
-		add(mnAcessoRestrito, "cell 0 4,alignx left,growy");
+		mnAcessoRestrito.setBounds(0, 378, 150, 95);
+		panel.add(mnAcessoRestrito);
 		mnAcessoRestrito.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		
 		JMenu mnSair = new JMenu("Sair");
+		mnSair.setBounds(0, 477, 150, 100);
+		panel.add(mnSair);
 		mnSair.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		add(mnSair, "cell 0 5,alignx left,growy");
-
 	}
+	
 
 	private class SwingAction extends AbstractAction {
 		/**

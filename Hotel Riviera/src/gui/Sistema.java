@@ -73,8 +73,8 @@ public class Sistema extends JFrame {
 			throw new IllegalArgumentException();
 
 		janela.contentPane.removeAll();
-//		if (!(novaTela instanceof LoginDeFuncionario)) 
-//			janela.contentPane.add(new PaginaInicialHotel());
+		if (!(novaTela instanceof LoginDeFuncionario)) 
+			janela.contentPane.add(new PaginaInicialHotel());
 		janela.contentPane.add(novaTela);
 		janela.repaint();
 	}
