@@ -25,6 +25,7 @@ import javax.swing.SpinnerDateModel;
 import javax.swing.border.EmptyBorder;
 
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
+import java.awt.event.ActionListener;
 
 public class DadosDaReserva extends JPanel {
 
@@ -82,6 +83,10 @@ public class DadosDaReserva extends JPanel {
 		
 		
 		JButton btnAvanar = new JButton("Avan\u00E7ar");
+		btnAvanar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnAvanar.setAction(action);
 		GroupLayout gl_botao_avancar = new GroupLayout(botao_avancar);
 		gl_botao_avancar.setHorizontalGroup(
