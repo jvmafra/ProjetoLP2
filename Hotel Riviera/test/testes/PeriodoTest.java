@@ -15,6 +15,8 @@ public class PeriodoTest {
 	private Periodo p2;
 	Calendar data_inicial = new GregorianCalendar(2015, 1, 24);
 	Calendar data_final = new GregorianCalendar(2015, 2, 4);
+	Calendar data_inicial2 = new GregorianCalendar(2015, 1, 25, 19, 20);
+	Calendar data_final2 = new GregorianCalendar(2015, 1, 25, 20, 20);
 
 	@Before
 	public void setUp() throws Exception {
@@ -43,6 +45,14 @@ public class PeriodoTest {
 		} catch (Exception e) {
 			Assert.assertEquals(e.getMessage(), "Datas nulas");
 		}
+		
+		try {
+			p2 = new Periodo(data_final, data_inicial);
+			Assert.fail();
+		} catch (Exception e) {
+			Assert.assertEquals(e.getMessage(), "Selecione datas de entrada e saida validos");
+		}
+			
 			
 	}
 	
@@ -70,6 +80,9 @@ public class PeriodoTest {
 		
 		p2 = new Periodo(new GregorianCalendar(2015,3,30), new GregorianCalendar(2015,4,1));
 		Assert.assertEquals(1, p2.getNumeroDias());
+		
+		p2 = new Periodo(data_inicial2, data_final2);
+		Assert.assertEquals(1, p2.getTotalDeHoras());
 	}
 	
 	@Test
@@ -96,7 +109,7 @@ public class PeriodoTest {
 		Assert.assertTrue(p1.dataIsContida(data1));
 		
 		Calendar data2 = new GregorianCalendar(2015, 1, 24);
-		Assert.assertTrue(p1.dataIsContida(data2));				// 24/1 à 04/02
+		Assert.assertTrue(p1.dataIsContida(data2));				// 24/1 ï¿½ 04/02
 		
 		Calendar data3 = new GregorianCalendar(2015, 1, 25);
 		Assert.assertTrue(p1.dataIsContida(data3));
