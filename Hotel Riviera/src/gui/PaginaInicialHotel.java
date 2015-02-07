@@ -82,7 +82,6 @@ public class PaginaInicialHotel extends JPanel {
 		panel.setBounds(0, 0, 160, 520);
 		
 		JMenu mnContratos = new JMenu("Contratos");
-		mnContratos.setBounds(0, 43, 125, 50);
 		mnContratos.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -90,28 +89,24 @@ public class PaginaInicialHotel extends JPanel {
 				
 			}
 		});
-		panel.setLayout(null);
+		panel.setLayout(new GridLayout(0, 1, 0, 0));
 		mnContratos.setBackground(new Color(32, 178, 170));
 		mnContratos.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		panel.add(mnContratos);
 		
 		JMenu mnServios = new JMenu("Hospede");
-		mnServios.setBounds(0, 104, 125, 50);
 		mnServios.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		panel.add(mnServios);
 		
 		JMenu mnServios_1 = new JMenu("Servi\u00E7os");
-		mnServios_1.setBounds(0, 208, 125, 50);
 		mnServios_1.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		panel.add(mnServios_1);
 		
 		JMenu mnOpinies = new JMenu("Opini\u00F5es");
-		mnOpinies.setBounds(0, 312, 125, 50);
 		mnOpinies.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		panel.add(mnOpinies);
 		
 		JMenu mnAcessoRestrito = new JMenu("Restrito");
-		mnAcessoRestrito.setBounds(0, 416, 125, 50);
 		mnAcessoRestrito.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		panel.add(mnAcessoRestrito);
 		

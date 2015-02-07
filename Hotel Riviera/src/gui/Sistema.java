@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 
 import classes.Arquivos;
 import classes.HotelOpiniaoServicosPeriodo.Hotel;
+import javax.swing.BoxLayout;
+import java.awt.GridLayout;
 
 public class Sistema extends JFrame {
 
@@ -44,14 +46,14 @@ public class Sistema extends JFrame {
 
 
 	private Sistema() {
-		this.setExtendedState(MAXIMIZED_BOTH);
 		setTitle("Hotel Riviera Campina");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(50, 10, 846, 694);
+		this.setExtendedState(MAXIMIZED_BOTH);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(new GridLayout(1, 0, 0, 0));
 	}
 	private static void iniciaSistema(){
 		janela = new Sistema();

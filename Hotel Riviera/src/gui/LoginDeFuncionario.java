@@ -59,27 +59,27 @@ public class LoginDeFuncionario extends JPanel {
 										setLayout(null);
 										
 										JLabel login_1 = new JLabel("Login");
-										login_1.setBounds(340, 264, 29, 16);
+										login_1.setBounds(81, 71, 29, 16);
 										add(login_1);
 										login_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 										
 										login = new JTextField();
-										login.setBounds(411, 262, 86, 20);
+										login.setBounds(130, 69, 86, 20);
 										add(login);
 										login.setColumns(10);
 										
 										JLabel senha_1 = new JLabel("Senha");
-										senha_1.setBounds(340, 306, 34, 16);
+										senha_1.setBounds(76, 102, 34, 16);
 										add(senha_1);
 										senha_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 										
 										senha = new JPasswordField();
-										senha.setBounds(411, 304, 86, 20);
+										senha.setBounds(130, 100, 86, 20);
 										add(senha);
 										senha.setColumns(10);
 												
 														JButton botao_entrar = new JButton("Entrar");
-														botao_entrar.setBounds(411, 349, 86, 25);
+														botao_entrar.setBounds(89, 141, 86, 25);
 														botao_entrar.addActionListener(new ActionListener() {
 															public void actionPerformed(ActionEvent e) {
 																							
