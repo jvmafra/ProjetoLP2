@@ -9,6 +9,7 @@ import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import classes.HotelOpiniaoServicosPeriodo.Servico;
 import classes.Quartos.Quarto;
 import excecoes.ContratoFechadoException;
+import excecoes.PeriodoInvalidoException;
 
 /**
  * Manipula um contrato de um hotel associado a um hospede.
@@ -36,8 +37,18 @@ public class Contrato {
 	 * @param formaDePagamento
 	 * 			Recebe a forma de pagamento do hospede
 	 */
-	public Contrato (Quarto quarto, Hospede hospede, EstrategiaCobranca e, Periodo periodo) throws Exception{	
-		this.hospede = hospede;
+	public Contrato (Quarto quarto, Hospede hospede, EstrategiaCobranca e, Periodo periodo) throws Exception{
+		if (quarto == null)
+			throw new Exception("Quarto invalido");
+		if (hospede == null)
+			throw new Exception("Hospede invalido");
+		if (e == null)
+			throw new Exception("Estrategia invalida");
+		if (periodo == null){
+			throw new PeriodoInvalidoException("Periodo invalido");
+		}
+		
+		this.hospede = hospede;	
 		this.estrategia = e;
 		this.periodo = periodo;
 		this.quarto = quarto;
@@ -45,6 +56,10 @@ public class Contrato {
 		quarto.adicionaPeriodo(periodo);
 		servicos.add(quarto);
 		aberto = true;
+	}
+
+	public void setPeriodo(Periodo periodo) {
+		this.periodo = periodo;
 	}
 
 	/**
@@ -99,6 +114,19 @@ public class Contrato {
 	}
 	
 	/**
+	 * Remove um servico do contrato
+	 * @param servico
+	 * 			Um servico a ser removido
+	 */
+	public void removeServico(Servico servico) throws Exception{
+		if (!(servicos.contains(servico)))
+			throw new Exception("O servico nao existe");
+		
+		verificaContratoFechado();
+		servicos.remove(servico);
+	}
+	
+	/**
 	 * Verifica se o contrato esta aberto ou fechado
 	 * @return aberto
 	 * 			True se o contrato estiver aberto ou False caso contrario
@@ -111,7 +139,7 @@ public class Contrato {
 	 * Modifica o status do contrato. De fechado para aberto ou vice-versa
 	 */
 	public boolean fechaContrato(){
-		if (isAberto())
+		if (!(isAberto()))
 			return false;
 		else {
 			aberto = false;
@@ -172,14 +200,14 @@ public class Contrato {
 	 * Retorna o CPF do hospede
 	 */
 	public String getCPF() {
-		return hospede.getCpf();
+		return hospede.getCPF();
 	}
 	
 	/**
 	 * Retorna o RG do hospede
 	 */
 	public String getRG() {
-		return hospede.getRg();
+		return hospede.getRG();
 	}
 	
 	/**
@@ -201,7 +229,7 @@ public class Contrato {
 	 * @return Status
 	 * 			Retorna a string ABERTO ou FECHADO
 	 */
-	private String mostraStatus(){
+	public String mostraStatus(){
 		if (isAberto())
 			return "ABERTO";
 		else
@@ -243,7 +271,7 @@ public class Contrato {
 	/**
 	 * Verifica um contrato atualmente. Como sera usado apenas para rapida verificacao nao contem informacoes de pagamento (apenas em relacao ao quarto ,que e fixo)
 	 * @return String
-	 * 			Contem as informacoes do hospede, o periodo, o quarto e o statis
+	 * 			Contem o nome do hospede, o quarto alugado e o status do contrato
 	 */
 	@Override
 	public String toString(){	

@@ -9,6 +9,7 @@ import java.util.TreeMap;
 import classes.Baba.Baba;
 import classes.Carro.Carro;
 import classes.Pessoa.Contrato;
+import classes.Pessoa.Hospede;
 import classes.Quartos.Quarto;
 import classes.Quartos.QuartoExecutivoDuplo;
 import classes.Quartos.QuartoExecutivoSimples;
@@ -23,20 +24,15 @@ import classes.Quartos.QuartoPresidencial;
  * @author Joao Victor Barroso Mafra
  */
 public class Hotel implements Serializable{
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private List<Contrato> contratos = new ArrayList<>();
+	private List<Hospede> hospedes = new ArrayList<>();
 	private List<Opiniao> opinioes = new ArrayList<>();
 	private List<Quarto> quartos = new ArrayList<>();
 	private List<Baba> babas = new ArrayList<>();
 	private List<Carro> carros = new ArrayList<>();
 	private Map<String, String> funcionarios = new TreeMap<>();
-	
-	public Map<String, String> getFuncionarios() {
-		return funcionarios;
-	}
 
 	/**
 	 * Ao ser inicializado o hotel, sao geradas listas de quartos, carros e babas.
@@ -49,6 +45,14 @@ public class Hotel implements Serializable{
 		instanciaLuxosSimples();
 		instanciaLuxosDuplo();
 		instanciaLuxosTriplos();
+	}
+	
+	public List<Hospede> getHospedes() {
+		return hospedes;
+	}
+	
+	public Map<String, String> getFuncionarios() {
+		return funcionarios;
 	}
 	
 	/**
@@ -95,6 +99,15 @@ public class Hotel implements Serializable{
 		}
 		
 		return disponiveis;
+	}
+	
+	public Hospede pesquisaHospede(String nome_cpf){
+		for (Hospede hospede: hospedes){
+			if (hospede.getCPF().equals(nome_cpf) || hospede.getNome().equals(nome_cpf))
+				return hospede;
+		}
+		
+		return null;
 	}
 	
 	/**
@@ -180,6 +193,13 @@ public class Hotel implements Serializable{
 	 */
 	public void adicionaQuarto(Quarto q){
 		quartos.add(q);
+	}
+	
+	/**
+	 * Adiciona um hospede ao hotel
+	 */
+	public void adicionaHospede(Hospede h){
+		hospedes.add(h);
 	}
 	
 	/**

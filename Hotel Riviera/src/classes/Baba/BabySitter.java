@@ -102,7 +102,7 @@ public class BabySitter implements Servico {
 
 	@Override
 	public String toString() {
-		return getBaba().toString() + "/n" + "valor" + valor();
+		return "BABYSITTER" + "\nNome da baba: " + getBaba().getNome() + "\n" + periodo.toString() + "\n" + "Valor:" + valor();
 		
 		// Falta ver como sera a quest�o do periodo para imprimir. Se for
 		// usar a classe Periodo mesmo ja tem toString feito

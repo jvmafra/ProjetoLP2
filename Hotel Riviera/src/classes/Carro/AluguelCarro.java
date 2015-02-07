@@ -60,7 +60,7 @@ public class AluguelCarro implements Servico {
 	
 	@Override
 	public String toString() {
-		return "ALUGUEL DE CARRO: " + "\nPeriodo: " + getNumDias() + "\nValor: R$ " + valor();
+		return "ALUGUEL DE CARRO: " + "\n" + periodo.toString() + "\nValor: R$ " + valor();
 	}
 
 	@Override

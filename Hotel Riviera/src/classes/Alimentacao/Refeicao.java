@@ -41,7 +41,7 @@ public class Refeicao implements Servico{
 
 	@Override
 	public String toString() {
-		return "Data: " + getDataString() + "\nValor: R$ "  + valor();
+		return "RESTAURANTE: " + "\nData: " + getDataString() + "\nValor: R$ "  + valor();
 	}
 
 	@Override

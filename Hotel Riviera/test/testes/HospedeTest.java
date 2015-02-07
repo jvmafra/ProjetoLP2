@@ -227,8 +227,9 @@ public class HospedeTest {
 
 		@Test
 		public void testToString() {
-			Assert.assertEquals( "Nome: " + h1.getNome() + "\nCPF: " + h1.getCpf() + "\nRG: " + h1.getRg() + "\nE-mail: " + h1.getEmail()
-					+ "\nTelefone: " + h1.getTelefone() + "\nEndereco: " + h1.getEndereco() + "\nIdade: "+ h1.getIdade(), h1.toString() );
+			Assert.assertEquals( "Nome: " + h1.getNome() + "\nCPF: " + h1.getCPF() + "\nRG: " + h1.getRG() + "\nE-mail: " + h1.getEmail()
+					+ "\nTelefone: " + h1.getTelefone() + "\nEndereco: " + h1.getEndereco() + "\nIdade: "+ h1.getIdade(), h1.mostraInformacoes() );
+			Assert.assertEquals("Edval - 10530025485", h1.toString());
 		}
 		
 		@Test

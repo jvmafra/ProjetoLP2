@@ -138,7 +138,7 @@ public class Hospede implements Serializable{
 	 * retorna Cpf
 	 * @return Cpf
 	 */
-	public String getCpf() {
+	public String getCPF() {
 		return cpf;
 	}
 
@@ -146,7 +146,7 @@ public class Hospede implements Serializable{
  * Retorna o RG. 
  * @return RG.
  */
-	public String getRg() {
+	public String getRG() {
 		return rg;
 	}
 
@@ -173,11 +173,15 @@ public class Hospede implements Serializable{
 	public String getEndereco() {
 		return endereco;
 	}
+	
+	public String mostraInformacoes(){
+		return "Nome: " + getNome() + "\nCPF: " + getCPF() + "\nRG: " + getRG() + "\nE-mail: " + getEmail()
+				+ "\nTelefone: " + getTelefone() + "\nEndereco: " + getEndereco() + "\nIdade: "+ getIdade();
+	}
 
 	@Override
 	public String toString() {
-		return "Nome: " + getNome() + "\nCPF: " + getCpf() + "\nRG: " + getRg() + "\nE-mail: " + getEmail()
-				+ "\nTelefone: " + getTelefone() + "\nEndereco: " + getEndereco() + "\nIdade: "+ getIdade();
+		return getNome() + " - " + getCPF();
 	}
 
 	
