@@ -16,6 +16,7 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.GridLayout;
+import net.miginfocom.swing.MigLayout;
 
 public class PaginaInicialHotel extends JPanel {
 	/**
@@ -39,49 +40,19 @@ public class PaginaInicialHotel extends JPanel {
 	 */
 	
 	public PaginaInicialHotel() {
-		setBounds(100, 100, 174, 577);
-		setLayout(null);
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(148, 11, 468, 34);
-		//setJMenuBar(menuBar);
+		setBounds(100, 100, 568, 492);
+		setLayout(new MigLayout("", "[166px]", "[82px][82px][82px][82px][82px][82px]"));
 		
-		JMenu novo = new JMenu("Novo");
-		menuBar.add(novo);
+		JMenu mnServios = new JMenu("Hospede");
+		add(mnServios, "cell 0 0,alignx left,growy");
+		mnServios.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		
-		JMenuItem menuItem = novo.add(action_2);
-		
-		JMenuItem menuItem_1 = novo.add(action_3);
-		
-		JMenu contratos = new JMenu("Contratos");
-		menuBar.add(contratos);
-		
-		JMenuItem menuItem_2 = contratos.add(action_4);
-		
-		JMenuItem menuItem_3 = contratos.add(action_5);
-		
-		JMenu relatorios = new JMenu("Relat\u00F3rio");
-		menuBar.add(relatorios);
-		
-		JMenuItem menuItem_4 = relatorios.add(action_6);
-		
-		JMenuItem menuItem_5 = relatorios.add(action_7);
-		
-		JMenuItem mntmOpinies = new JMenuItem("Opini\u00F5es");
-		relatorios.add(mntmOpinies);
-		
-		JMenu faturamento = new JMenu("Faturamento");
-		menuBar.add(faturamento);
-		
-		JMenu sobre = new JMenu("Sobre");
-		menuBar.add(sobre);
-		
-		JMenu sair = new JMenu("Sair");
-		menuBar.add(sair);
-		
-		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 160, 520);
+		JMenu mnServios_1 = new JMenu("Servi\u00E7os");
+		add(mnServios_1, "cell 0 1,alignx left,growy");
+		mnServios_1.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
 		
 		JMenu mnContratos = new JMenu("Contratos");
+		add(mnContratos, "cell 0 2,alignx left,growy");
 		mnContratos.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -89,29 +60,20 @@ public class PaginaInicialHotel extends JPanel {
 				
 			}
 		});
-		panel.setLayout(new GridLayout(0, 1, 0, 0));
 		mnContratos.setBackground(new Color(32, 178, 170));
 		mnContratos.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		panel.add(mnContratos);
-		
-		JMenu mnServios = new JMenu("Hospede");
-		mnServios.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		panel.add(mnServios);
-		
-		JMenu mnServios_1 = new JMenu("Servi\u00E7os");
-		mnServios_1.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		panel.add(mnServios_1);
 		
 		JMenu mnOpinies = new JMenu("Opini\u00F5es");
+		add(mnOpinies, "cell 0 3,alignx left,growy");
 		mnOpinies.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		panel.add(mnOpinies);
 		
 		JMenu mnAcessoRestrito = new JMenu("Restrito");
+		add(mnAcessoRestrito, "cell 0 4,alignx left,growy");
 		mnAcessoRestrito.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
-		panel.add(mnAcessoRestrito);
 		
-		add(panel);
-		//add(menuBar);
+		JMenu mnSair = new JMenu("Sair");
+		mnSair.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		add(mnSair, "cell 0 5,alignx left,growy");
 
 	}
 

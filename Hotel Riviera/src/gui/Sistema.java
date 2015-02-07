@@ -11,6 +11,11 @@ import classes.Arquivos;
 import classes.HotelOpiniaoServicosPeriodo.Hotel;
 import javax.swing.BoxLayout;
 import java.awt.GridLayout;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 public class Sistema extends JFrame {
 
@@ -48,7 +53,7 @@ public class Sistema extends JFrame {
 	private Sistema() {
 		setTitle("Hotel Riviera Campina");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(50, 10, 846, 694);
+		setBounds(0, 0, 846, 694);
 		this.setExtendedState(MAXIMIZED_BOTH);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
