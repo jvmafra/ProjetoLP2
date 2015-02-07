@@ -18,6 +18,7 @@ public class OpcoesDeContrato extends JPanel {
 	 * Create the panel.
 	 */
 	public OpcoesDeContrato() {
+		setBounds(0, 0, 800, 600);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{34, 277, 0};
 		gridBagLayout.rowHeights = new int[]{57, 62, 35, 62, 34, 23, 0};

@@ -23,7 +23,7 @@ public class CadastraOpiniao extends JPanel {
 	 */
 	public CadastraOpiniao() {
 		setLayout(null);
-		
+		setBounds(0, 0, 800, 600);
 		JEditorPane editorPane = new JEditorPane();
 		editorPane.setBounds(190, 34, 224, 119);
 		add(editorPane);

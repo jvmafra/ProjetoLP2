@@ -24,7 +24,8 @@ public class ContrataBaba extends JPanel {
 	 * Create the panel.
 	 */
 	public ContrataBaba() {
-setLayout(null);
+		setLayout(null);
+		setBounds(0, 0, 800, 600);
 		
 		JSpinner spinner = new JSpinner();
 		spinner.setBounds(417, 63, 159, 29);

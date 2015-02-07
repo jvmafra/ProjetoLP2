@@ -23,7 +23,7 @@ public class QualificacaoDoHotel extends JPanel {
 	 */
 	public QualificacaoDoHotel() {
 		setLayout(null);
-		
+		setBounds(0, 0, 800, 600);
 		JLabel lblComentariosMaisRecentes = new JLabel("Comentarios mais recentes");
 		lblComentariosMaisRecentes.setBounds(49, 28, 135, 36);
 		add(lblComentariosMaisRecentes);

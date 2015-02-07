@@ -20,7 +20,7 @@ public class FaturamentoDoHotel extends JPanel {
 	 */
 	public FaturamentoDoHotel() {
 		setLayout(null);
-		
+		setBounds(0, 0, 800, 600);
 		textField = new JTextField();
 		textField.setBounds(172, 38, 111, 42);
 		add(textField);

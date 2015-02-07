@@ -12,10 +12,16 @@ import java.awt.event.ActionEvent;
 public class OpcoesDeOpiniao extends JPanel {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * Create the panel.
 	 */
 	public OpcoesDeOpiniao() {
 		setLayout(null);
+		setBounds(0, 0, 800, 600);
 		
 		JButton btnNovaOpinio = new JButton("Nova Opini\u00E3o");
 		btnNovaOpinio.addActionListener(new ActionListener() {

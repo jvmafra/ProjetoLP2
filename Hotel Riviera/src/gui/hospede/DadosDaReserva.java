@@ -44,7 +44,7 @@ public class DadosDaReserva extends JPanel {
 	 */
 	public DadosDaReserva() {
 		setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
-		setBounds(100, 100, 494, 385);
+		setBounds(0, 0, 800, 600);
 		botao_avancar = new JPanel();
 		botao_avancar.setBorder(new EmptyBorder(5, 5, 5, 5));
 		add(botao_avancar);

@@ -12,11 +12,16 @@ import java.awt.event.ActionEvent;
 public class OpcoesPrivadas extends JPanel {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * Create the panel.
 	 */
 	public OpcoesPrivadas() {
 		setLayout(null);
-		
+		setBounds(0, 0, 800, 600);
 		JButton btnFaturamentos = new JButton("Faturamentos");
 		btnFaturamentos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

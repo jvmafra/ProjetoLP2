@@ -27,27 +27,11 @@ public class NovoCarro extends JPanel {
 	private JCheckBox luxo;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					NovoCarro frame = new NovoCarro();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public NovoCarro() {
 		setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
-		setBounds(100, 100, 528, 333);
+		setBounds(0, 0, 800, 600);
 		setLayout(null);
 		
 		JLabel lblDescircao = new JLabel("Descricao: ");

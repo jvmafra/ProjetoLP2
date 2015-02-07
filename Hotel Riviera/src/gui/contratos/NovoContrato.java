@@ -87,7 +87,7 @@ public class NovoContrato extends JPanel {
 	 */
 	public NovoContrato() {
 				
-		setBounds(100, 100, 835, 590);
+		setBounds(0, 0, 800, 600);
 		
 		MaskFormatter format = null;
 		setLayout(null);

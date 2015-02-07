@@ -35,7 +35,7 @@ public class AlugaCarro extends JPanel {
 	 */
 	public AlugaCarro() {
 		setLayout(null);
-		
+		setBounds(0, 0, 800, 600);
 		JSpinner spinner = new JSpinner();
 		spinner.setBounds(417, 63, 159, 29);
 		spinner.setModel(new SpinnerDateModel());

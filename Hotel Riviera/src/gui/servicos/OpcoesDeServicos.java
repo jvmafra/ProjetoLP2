@@ -16,7 +16,7 @@ public class OpcoesDeServicos extends JPanel {
 	 */
 	public OpcoesDeServicos() {
 		setLayout(null);
-		
+		setBounds(0, 0, 800, 600);
 		JButton btnAlguelDeCarro = new JButton("Alugar Carro");
 		btnAlguelDeCarro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

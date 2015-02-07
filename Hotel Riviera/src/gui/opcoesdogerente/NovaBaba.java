@@ -34,26 +34,10 @@ public class NovaBaba extends JPanel {
 	private final Action action = new SwingAction_1();
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					NovaBaba frame = new NovaBaba();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public NovaBaba() {
-		setBounds(100, 100, 450, 300);
+		setBounds(0, 0, 800, 600);
 		CadastroBaba = new JPanel();
 		CadastroBaba.setBorder(new EmptyBorder(5, 5, 5, 5));
 		

@@ -21,7 +21,7 @@ public class ConsutaHospede extends JPanel {
 	 */
 	public ConsutaHospede() {
 		setLayout(null);
-		
+		setBounds(0, 0, 800, 600);
 		textField = new JTextField();
 		textField.setText("");
 		textField.setBounds(322, 79, 447, 30);
