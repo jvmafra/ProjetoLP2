@@ -1,4 +1,4 @@
-package gui;
+package gui.contratos;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;

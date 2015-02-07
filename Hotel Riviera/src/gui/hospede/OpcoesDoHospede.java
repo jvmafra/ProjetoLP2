@@ -1,6 +1,10 @@
-package gui;
+package gui.hospede;
+import gui.Sistema;
+import gui.contratos.NovoContrato;
+
 import javax.swing.JPanel;
 import javax.swing.JButton;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;

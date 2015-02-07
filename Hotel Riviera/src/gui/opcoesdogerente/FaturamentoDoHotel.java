@@ -1,4 +1,4 @@
-package gui;
+package gui.opcoesdogerente;
 
 import javax.swing.JPanel;
 import javax.swing.JTextField;

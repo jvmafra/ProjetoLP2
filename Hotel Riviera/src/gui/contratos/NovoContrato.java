@@ -1,4 +1,8 @@
-package gui;
+package gui.contratos;
+
+import gui.PaginaInicialHotel;
+import gui.Sistema;
+import gui.hospede.SelecaoQuartos;
 
 import java.awt.Component;
 import java.awt.EventQueue;
@@ -39,6 +43,7 @@ import classes.FormasCobranca.EstrategiaSimples;
 import classes.HotelOpiniaoServicosPeriodo.Hotel;
 import classes.Pessoa.Hospede;
 import classes.Quartos.Quarto;
+
 import javax.swing.UIManager;
 
 

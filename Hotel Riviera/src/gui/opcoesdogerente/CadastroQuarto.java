@@ -1,4 +1,4 @@
-package gui;
+package gui.opcoesdogerente;
 
 import java.awt.EventQueue;
 import java.awt.Font;

@@ -1,7 +1,10 @@
-package gui;
+package gui.opiniao;
+
+import gui.Sistema;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 

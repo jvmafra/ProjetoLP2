@@ -1,4 +1,4 @@
-package gui;
+package gui.hospede;
 
 import javax.swing.JPanel;
 import javax.swing.JTextField;

@@ -1,4 +1,4 @@
-package gui;
+package gui.hospede;
 
 import java.awt.EventQueue;
 import java.awt.Font;
