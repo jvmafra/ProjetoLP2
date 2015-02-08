@@ -15,13 +15,17 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.FlowLayout;
+
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
+
 import java.awt.Color;
+
 import javax.swing.border.MatteBorder;
 
 public class LoginDeFuncionario extends JPanel {
@@ -94,6 +98,7 @@ public class LoginDeFuncionario extends JPanel {
 			putValue(NAME, "Entrar");
 			putValue(SHORT_DESCRIPTION, "Login de funcionario");
 		}
+		
 		public void actionPerformed(ActionEvent e) {
 			if (login.getText().equals("admin") && senha.getText().equals("123456")){
 				//JOptionPane.showMessageDialog(null, "Acesso Permitido");

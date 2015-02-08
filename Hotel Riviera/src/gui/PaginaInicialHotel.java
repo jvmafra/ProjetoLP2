@@ -4,53 +4,14 @@ import gui.contratos.OpcoesDeContrato;
 import gui.hospede.OpcoesDoHospede;
 import gui.servicos.OpcoesDeServicos;
 
-import java.awt.Component;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
-
-import java.awt.Font;
-import java.awt.Color;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.GridLayout;
-
-import net.miginfocom.swing.MigLayout;
-
-import java.awt.FlowLayout;
-import java.awt.BorderLayout;
-
-import javax.swing.JLabel;
-
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import java.awt.Rectangle;
-
 import javax.swing.JButton;
-
-import java.awt.event.ActionListener;
-
-import javax.swing.SwingConstants;
-
-import java.awt.event.MouseMotionAdapter;
-
-import javax.swing.JTree;
-import javax.swing.JSpinner;
-import javax.swing.JTable;
-import javax.swing.SpringLayout;
-
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.FormSpecs;
-import com.jgoodies.forms.layout.RowSpec;
+import javax.swing.JPanel;
 
 public class PaginaInicialHotel extends JPanel {
 	
