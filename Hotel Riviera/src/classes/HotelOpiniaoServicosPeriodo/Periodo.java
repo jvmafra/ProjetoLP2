@@ -1,5 +1,6 @@
 package classes.HotelOpiniaoServicosPeriodo;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import excecoes.PeriodoInvalidoException;
@@ -11,7 +12,11 @@ import excecoes.PeriodoInvalidoException;
  */
 
 
-public class Periodo{
+public class Periodo implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Calendar data_inicial;
 	private Calendar data_final;
 	

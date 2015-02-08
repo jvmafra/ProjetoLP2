@@ -84,7 +84,7 @@ public class ConsutaHospede extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				listModel.clear();
 				String busca = textField.getText();
-				if (busca.length() <= 5){
+				if (busca.length() < 5){
 					System.out.println(Sistema.getHotel().getHospedes().size());
 					JOptionPane.showMessageDialog(null,
 							"Seja mais específico em sua busca");

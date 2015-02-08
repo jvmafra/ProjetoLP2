@@ -1,4 +1,5 @@
 package classes.HotelOpiniaoServicosPeriodo;
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -6,7 +7,11 @@ import java.util.GregorianCalendar;
  * Opinioes deixadas pelos hospedes sobre o funcionamento do hotel
  * @author Joao Victor Barroso Mafra
  */
-public class Opiniao {
+public class Opiniao implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String comentario;
 	private int nota;
 	private Calendar data;

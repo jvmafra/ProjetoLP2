@@ -66,7 +66,6 @@ public class OpcoesPrivadas extends JPanel {
 		btnCadastraQuarto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new CadastroQuarto());
-
 			}
 		});
 		btnCadastraQuarto.setBounds(117, 216, 174, 33);

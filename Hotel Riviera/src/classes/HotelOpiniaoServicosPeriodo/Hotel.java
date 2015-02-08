@@ -1,6 +1,7 @@
 package classes.HotelOpiniaoServicosPeriodo;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -81,6 +82,18 @@ public class Hotel implements Serializable{
 	 */
 	public List<Opiniao> getOpinioes() {
 		return opinioes;
+	}
+	
+	public String MediaDoHotel() {
+		double soma = 0;
+		if (opinioes.size() == 0)
+			return "0";
+		for (int i = 0; i < opinioes.size(); i++) {
+			soma += opinioes.get(i).getNota();
+		}
+		DecimalFormat df = new DecimalFormat("0.00");  
+		return df.format(soma / opinioes.size()); 
+		
 	}
 	
 	/**
@@ -203,6 +216,13 @@ public class Hotel implements Serializable{
 	}
 	
 	/**
+	 * Adiciona uma opiniao ao hotel
+	 */
+	public void adicionaOpiniao(Opiniao o){
+		opinioes.add(o);;
+	}
+	
+	/**
 	 * Remove uma nova baba no hotel
 	 */
 	public void removeBaba(Baba baba){
@@ -216,6 +236,8 @@ public class Hotel implements Serializable{
 		carros.remove(carro);
 	}
 	
+
+	
 	/**
 	 * Remove um novo quarto no hotel
 	 */
@@ -227,10 +249,10 @@ public class Hotel implements Serializable{
 	 * Imprime todas as opinioes a respeito do hotel (comentario, nota e data)
 	 */
 	public String imprimeOpinioes(){
-		String todas_opinioes = "OPINIOES DOS HOSPEDES: ";
-		for (int i = opinioes.size(); i <= 0; i--){
+		String todas_opinioes = "OPINIOES DOS HOSPEDES:";
+		for (int i = opinioes.size(); i <= 0 ; i--){
 			todas_opinioes += "\n\n" + opinioes.get(i).toString();
-		}	
+		}
 		return todas_opinioes;
 	}
 	

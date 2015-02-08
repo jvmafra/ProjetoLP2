@@ -38,6 +38,7 @@ public class NovaBaba extends JPanel {
 	 */
 	public NovaBaba() {
 		setBounds(0, 0, 800, 600);
+		setLayout(null);
 		CadastroBaba = new JPanel();
 		CadastroBaba.setBorder(new EmptyBorder(5, 5, 5, 5));
 		

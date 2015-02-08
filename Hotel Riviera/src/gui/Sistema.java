@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 
 import classes.Arquivos;
 import classes.HotelOpiniaoServicosPeriodo.Hotel;
+import classes.HotelOpiniaoServicosPeriodo.Opiniao;
 
 import javax.swing.BoxLayout;
 
@@ -55,7 +56,6 @@ public class Sistema extends JFrame {
 				
 				criaHotel();
 				setTela(new LoginDeFuncionario());
-				
 			}
 		});
 	}
