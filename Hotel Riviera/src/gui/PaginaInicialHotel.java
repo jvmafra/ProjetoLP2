@@ -2,6 +2,8 @@ package gui;
 
 import gui.contratos.OpcoesDeContrato;
 import gui.hospede.OpcoesDoHospede;
+import gui.opcoesdogerente.OpcoesPrivadas;
+import gui.opiniao.OpcoesDeOpiniao;
 import gui.servicos.OpcoesDeServicos;
 
 import java.awt.Font;
@@ -75,11 +77,21 @@ public class PaginaInicialHotel extends JPanel {
 		panel.add(btnContratos);
 		
 		JButton btnOpinies = new JButton("Opini\u00F5es");
+		btnOpinies.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Sistema.setTela(new OpcoesDeOpiniao());
+			}
+		});
 		btnOpinies.setBounds(6, 165, 150, 50);
 		btnOpinies.setFont(new Font("Tahoma", Font.BOLD, 18));
 		panel.add(btnOpinies);
 		
 		JButton btnReservaldo = new JButton("Reservado");
+		btnReservaldo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new OpcoesPrivadas());
+			}
+		});
 		btnReservaldo.setBounds(6, 218, 150, 50);
 		btnReservaldo.setFont(new Font("Tahoma", Font.BOLD, 18));
 		panel.add(btnReservaldo);

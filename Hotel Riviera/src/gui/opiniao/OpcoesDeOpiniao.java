@@ -8,6 +8,7 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class OpcoesDeOpiniao extends JPanel {
 
@@ -24,21 +25,23 @@ public class OpcoesDeOpiniao extends JPanel {
 		setBounds(0, 0, 800, 600);
 		
 		JButton btnNovaOpinio = new JButton("Nova Opini\u00E3o");
+		btnNovaOpinio.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		btnNovaOpinio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new CadastraOpiniao());
 			}
 		});
-		btnNovaOpinio.setBounds(257, 88, 147, 51);
+		btnNovaOpinio.setBounds(267, 89, 186, 51);
 		add(btnNovaOpinio);
 		
 		JButton btnQualificaoDoHotel = new JButton("Qualifica\u00E7\u00E3o do Hotel");
+		btnQualificaoDoHotel.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		btnQualificaoDoHotel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new QualificacaoDoHotel());
 			}
 		});
-		btnQualificaoDoHotel.setBounds(256, 171, 148, 51);
+		btnQualificaoDoHotel.setBounds(267, 172, 186, 51);
 		add(btnQualificaoDoHotel);
 		
 		JButton btnVoltar = new JButton("Voltar");
