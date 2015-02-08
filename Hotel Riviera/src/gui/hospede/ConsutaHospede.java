@@ -1,5 +1,6 @@
 package gui.hospede;
 
+import excecoes.EntradaDeDadosException;
 import gui.Sistema;
 
 import javax.swing.DefaultListModel;
@@ -29,6 +30,12 @@ public class ConsutaHospede extends JPanel {
 	 * Create the panel.
 	 */
 	public ConsutaHospede() {
+		try {
+			Hospede h1 = new Hospede("Edvalzinho","10530025485", "3224432", "18",  "e@hot.com", "8888888888", "ary", "4001635716004159");
+			Sistema.getHotel().adicionaHospede(h1);
+		} catch (EntradaDeDadosException e1) {
+			e1.printStackTrace();
+		}
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
 		textField = new JTextField();

@@ -6,13 +6,17 @@ import gui.opcoesdogerente.OpcoesPrivadas;
 import gui.opiniao.OpcoesDeOpiniao;
 import gui.servicos.OpcoesDeServicos;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class PaginaInicialHotel extends JPanel {
@@ -43,20 +47,11 @@ public class PaginaInicialHotel extends JPanel {
 		panel.setBounds(0, 0,800,600);		
 		setLayout(null);
 		add(panel);
-		
-		JButton btnServicos = new JButton("Servi\u00E7os");
-		btnServicos.setBounds(6, 59, 150, 50);
-		btnServicos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new OpcoesDeServicos());
-			}
-		});
 		panel.setLayout(null);
-		btnServicos.setFont(new Font("Tahoma", Font.BOLD, 18));
-		panel.add(btnServicos);
 		
 		JButton btnHospede = new JButton("H\u00F3spede");
-		btnHospede.setBounds(6, 6, 150, 50);
+		btnHospede.setIcon(null);
+		btnHospede.setBounds(12, 56, 150, 50);
 
 		btnHospede.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -67,7 +62,7 @@ public class PaginaInicialHotel extends JPanel {
 		panel.add(btnHospede);
 		
 		JButton btnContratos = new JButton("Contratos");
-		btnContratos.setBounds(6, 112, 150, 50);
+		btnContratos.setBounds(12, 136, 150, 50);
 		btnContratos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDeContrato());
@@ -82,7 +77,7 @@ public class PaginaInicialHotel extends JPanel {
 				Sistema.setTela(new OpcoesDeOpiniao());
 			}
 		});
-		btnOpinies.setBounds(6, 165, 150, 50);
+		btnOpinies.setBounds(12, 216, 150, 50);
 		btnOpinies.setFont(new Font("Tahoma", Font.BOLD, 18));
 		panel.add(btnOpinies);
 		
@@ -92,12 +87,12 @@ public class PaginaInicialHotel extends JPanel {
 				Sistema.setTela(new OpcoesPrivadas());
 			}
 		});
-		btnReservaldo.setBounds(6, 218, 150, 50);
+		btnReservaldo.setBounds(12, 302, 150, 50);
 		btnReservaldo.setFont(new Font("Tahoma", Font.BOLD, 18));
 		panel.add(btnReservaldo);
 		
 		JButton btnSair = new JButton("Sair");
-		btnSair.setBounds(6, 271, 150, 50);
+		btnSair.setBounds(12, 386, 150, 50);
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new LoginDeFuncionario());
@@ -105,6 +100,7 @@ public class PaginaInicialHotel extends JPanel {
 		});
 		btnSair.setFont(new Font("Tahoma", Font.BOLD, 18));
 		panel.add(btnSair);
+
 	}
 
 	private class SwingAction extends AbstractAction {

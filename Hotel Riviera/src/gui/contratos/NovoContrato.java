@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -41,7 +42,9 @@ import classes.FormasCobranca.EstrategiaCobranca;
 import classes.FormasCobranca.EstrategiaNatalReveillon;
 import classes.FormasCobranca.EstrategiaSaoJoao;
 import classes.FormasCobranca.EstrategiaSimples;
+import classes.HotelOpiniaoServicosPeriodo.Alugavel;
 import classes.HotelOpiniaoServicosPeriodo.Hotel;
+import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import classes.Pessoa.Hospede;
 import classes.Quartos.Quarto;
 
@@ -60,10 +63,9 @@ public class NovoContrato extends JPanel {
 	private JTextField endereco;
 	private final Action action = new SwingAction();
 	private JFormattedTextField numCartao;
+	JSpinner data_inicial;
+	JSpinner data_final;
 
-	private final Action action_1 = new SwingAction_1();
-
-	Hotel hotel = new Hotel();
 
 	/**
 	 * Launch the application.
@@ -219,60 +221,76 @@ public class NovoContrato extends JPanel {
 		list_1.setModel(lista);
 
 		JPanel quartosDisponiveis = new JPanel();
-		quartosDisponiveis.setBounds(12, 168, 299, 343);
+		quartosDisponiveis.setBounds(13, 196, 299, 343);
 		margemGeral.add(quartosDisponiveis);
 		quartosDisponiveis.setBorder(new TitledBorder(null,
 				"Quartos disponiveis.", TitledBorder.LEADING, TitledBorder.TOP,
 				null, null));
 		quartosDisponiveis.setLayout(null);
 
-		JSpinner Data_inicial = new JSpinner();
-		Data_inicial.setBounds(99, 32, 188, 20);
-		Data_inicial.setModel(new SpinnerDateModel(new Date(1423018800000L),
+		data_inicial = new JSpinner();
+		data_inicial.setBounds(99, 32, 188, 20);
+		data_inicial.setModel(new SpinnerDateModel(new Date(1423018800000L),
 				new Date(1423018800000L), null, Calendar.DAY_OF_YEAR));
-		quartosDisponiveis.add(Data_inicial);
+		quartosDisponiveis.add(data_inicial);
 
-		JSpinner Data_final = new JSpinner();
-		Data_final.setBounds(99, 64, 188, 20);
-		Data_final.setModel(new SpinnerDateModel(new Date(1423018800000L),
+		data_final = new JSpinner();
+		data_final.setBounds(99, 64, 188, 20);
+		data_final.setModel(new SpinnerDateModel(new Date(1423018800000L),
 				new Date(1423018800000L), null, Calendar.DAY_OF_YEAR));
-		quartosDisponiveis.add(Data_final);
+		quartosDisponiveis.add(data_final);
 
-		JLabel inicio = new JLabel("Inicio");
-		inicio.setBounds(12, 34, 70, 15);
-		quartosDisponiveis.add(inicio);
+		JLabel lblDataInicial = new JLabel("Inicio");
+		lblDataInicial.setBounds(12, 34, 70, 15);
+		quartosDisponiveis.add(lblDataInicial);
 
-		JLabel lblFinal = new JLabel("Final");
-		lblFinal.setBounds(12, 66, 70, 15);
-		quartosDisponiveis.add(lblFinal);
-
-		JButton btnPesquisar = new JButton("Pesquisar");
-		btnPesquisar.setBounds(109, 96, 117, 25);
-		quartosDisponiveis.add(btnPesquisar);
-
-		// Intancio o jList que contem os quartos
-		JList<Quarto> list = new JList<Quarto>();
-		list.setBounds(30, 134, 243, 100);
-		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
+		JLabel lblDataFinal = new JLabel("Final");
+		lblDataFinal.setBounds(12, 66, 70, 15);
+		quartosDisponiveis.add(lblDataFinal);
+		
 		// Instancia o scrollPane que contem o jList
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setSize(243, 197);
 		scrollPane.setLocation(30, 134);
-		scrollPane.setViewportView(list);
 		quartosDisponiveis.add(scrollPane);
+				
+		// Intancio o jList que contem os quartos
+		JList<Alugavel> list = new JList<Alugavel>();
+		scrollPane.setViewportView(list);
+		final DefaultListModel<Alugavel> listModel = new DefaultListModel<Alugavel>();
+		list.setBounds(30, 134, 243, 100);
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-		// Adiciona os quartos disponíveis no jList
-		DefaultListModel<Quarto> listModel = new DefaultListModel<Quarto>();
-		for (int i = 0; i < hotel.getQuartos().size(); i++) {
-			listModel.addElement(hotel.getQuartos().get(i));
-		}
+		JButton btnPesquisar = new JButton("Pesquisar");
+		btnPesquisar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Date data = (Date) data_inicial.getValue();
+				Date data2 = (Date) data_final.getValue();
+				Calendar inicio = Sistema.DateToCalendar(data);
+				Calendar fim = Sistema.DateToCalendar(data2);
+				try {
+					Periodo p = new Periodo(inicio, fim);
+					listModel.clear();
+					List<Alugavel> quartos_disponiveis = Sistema.getHotel().verificaAlugaveisDisponiveis(p, Sistema.getHotel().getQuartos());
+					for (int i = 0; i < quartos_disponiveis.size(); i++) {
+						listModel.addElement(quartos_disponiveis.get(i));		
+					}
+					
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, e2.getMessage());
+				}
+			}
+		});
+		
 		list.setModel(listModel);
+		quartosDisponiveis.add(list);
+		btnPesquisar.setBounds(109, 96, 117, 25);
+		quartosDisponiveis.add(btnPesquisar);
 
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new OpcoesDoHospede());
+				Sistema.setTela(new OpcoesDeContrato());
 			}
 		});
 		// btnVoltar.setAction(action_1);
@@ -340,21 +358,5 @@ public class NovoContrato extends JPanel {
 		}
 	}
 
-	private class SwingAction_1 extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
-		public SwingAction_1() {
-			putValue(NAME, "Voltar");
-			putValue(SHORT_DESCRIPTION, "");
-		}
-
-		public void actionPerformed(ActionEvent e) {
-			PaginaInicialHotel frame = new PaginaInicialHotel();
-			frame.setVisible(true);
-			setVisible(false);
-		}
-	}
+	
 }

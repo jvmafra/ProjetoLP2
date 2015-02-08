@@ -239,8 +239,8 @@ public class Contrato {
 	/**
 	 * Imprime todos os servicos especiais consumidos que constara na fatura final
 	 */
-	private String imprimeCadaServicoEspecial(){
-		String servicosEspeciais = "\n-";
+	public String imprimeCadaServicoEspecial(){
+		String servicosEspeciais = "SERVICOS ESPECIAIS: \n";
 		for (int i = 1; i < servicos.size(); i++) {
 			servicosEspeciais += "\n\n" + servicos.get(i).toString();
 		}

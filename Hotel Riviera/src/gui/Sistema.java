@@ -28,6 +28,9 @@ import java.awt.GridBagLayout;
 import java.awt.FlowLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Sistema extends JFrame {
 
@@ -93,7 +96,7 @@ public class Sistema extends JFrame {
 		if(janela == null) iniciaSistema();
 
 		if(novaTela == null)
-			System.out.println("Pode isso não");
+			System.out.println("Pode isso nï¿½o");
 		janela.contentPane.removeAll();
 		janela.contentPane.add(novaTela);
 		janela.revalidate();
@@ -117,6 +120,13 @@ public class Sistema extends JFrame {
 			System.out.println("Hotel nao criado");
 			}
 		}
+	}
+	
+	public static Calendar DateToCalendar(Date data){
+		Calendar cal = null;
+		cal= new GregorianCalendar();
+		cal.setTime(data);  
+		return cal;
 	}
 
 }

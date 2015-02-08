@@ -10,14 +10,18 @@ import javax.swing.JScrollPane;
 import javax.swing.JList;
 
 import classes.Carro.Carro;
+import classes.HotelOpiniaoServicosPeriodo.Alugavel;
+import classes.Pessoa.Contrato;
 
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 
 public class AlugaCarro extends JPanel {
+	private Contrato contrato;
 
 	/**
 	 * 
@@ -29,11 +33,11 @@ public class AlugaCarro extends JPanel {
 	 * 
 	 * 
 	 * a tela de aluguel tem que selecionar 
-	 * um carro da lista de carros disponíveis 
+	 * um carro da lista de carros disponiveis 
 	 * selecionar os periodos e os checks se vai 
 	 * querer com seguro e tanque cheio
 	 */
-	public AlugaCarro() {
+	public AlugaCarro(Contrato contrato) {
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
 		JSpinner spinner = new JSpinner();
@@ -50,9 +54,9 @@ public class AlugaCarro extends JPanel {
 		scrollPane.setBounds(39, 37, 207, 168);
 		add(scrollPane);
 		
-		JList<Carro> list = new JList<Carro>();
+		JList<Alugavel> list = new JList<Alugavel>();
 		
-		DefaultListModel<Carro> lista = new DefaultListModel<Carro>();
+		DefaultListModel<Alugavel> lista = new DefaultListModel<Alugavel>();
 		for (int i = 0; i < Sistema.getHotel().getCarros().size(); i++) {
 			lista.addElement(Sistema.getHotel().getCarros().get(i));
 		}
@@ -70,12 +74,16 @@ public class AlugaCarro extends JPanel {
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new OpcoesDeServicos());
+				Sistema.setTela(new OpcoesDeServicos(getContrato()));
 			}
 		});
 		btnVoltar.setBounds(39, 257, 89, 23);
 		add(btnVoltar);
 		
 
+	}
+	
+	public Contrato getContrato(){
+		return contrato;
 	}
 }
