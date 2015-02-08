@@ -2,6 +2,7 @@ package gui.servicos;
 
 import gui.PaginaInicialHotel;
 import gui.Sistema;
+import gui.opcoesdogerente.NovaRefeicao;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
@@ -36,8 +37,14 @@ public class OpcoesDeServicos extends JPanel {
 		add(btnContrataBab);
 		
 		JButton btnAdicionaRefeio = new JButton("Adicionar Refei\u00E7\u00E3o");
+		btnAdicionaRefeio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new NovaRefeicao());
+			}
+		});
 		btnAdicionaRefeio.setBounds(237, 161, 139, 32);
 		add(btnAdicionaRefeio);
+
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {

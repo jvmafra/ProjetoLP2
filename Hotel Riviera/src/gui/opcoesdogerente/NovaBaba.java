@@ -1,152 +1,97 @@
 package gui.opcoesdogerente;
-import excecoes.EntradaDeDadosException;
+
 import gui.Sistema;
 
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.border.EmptyBorder;
 
 import classes.Baba.Baba;
-
+import classes.Carro.Carro;
 
 public class NovaBaba extends JPanel {
-
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JPanel CadastroBaba;
-	private JTextField Nome;
-	private JTextField Telefone;
-	private final Action Limpando = new SwingAction();
-	private final Action action = new SwingAction_1();
+	private JTextField nome;
+	private JTextField telefone;
 
 	/**
 	 * Create the frame.
 	 */
 	public NovaBaba() {
+		setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		setBounds(0, 0, 800, 600);
 		setLayout(null);
-		CadastroBaba = new JPanel();
-		CadastroBaba.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
-		JLabel lblNome = new JLabel("Nome");
+		JLabel lblDescircao = new JLabel("Nome: ");
+		lblDescircao.setBounds(282, 191, 71, 19);
+		lblDescircao.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		add(lblDescircao);
 		
-		Nome = new JTextField();
-		Nome.setColumns(10);
+		nome = new JTextField();
+		nome.setBounds(336, 191, 151, 20);
+		add(nome);
+		nome.setColumns(10);
 		
-		JLabel lblTelefone = new JLabel("Telefone");
+		JLabel lblNewLabel = new JLabel("Telefone: ");
+		lblNewLabel.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		lblNewLabel.setBounds(261, 245, 76, 19);
+		add(lblNewLabel);
 		
-		Telefone = new JTextField();
-		Telefone.setColumns(10);
+		telefone = new JTextField();
+		telefone.setBounds(336, 245, 151, 20);
+		add(telefone);
+		telefone.setColumns(10);
 		
-		JButton Limpar = new JButton("Limpar");
-		Limpar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		Limpar.setAction(Limpando);
 		
-		JButton btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setAction(action);
-		
-		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.addActionListener(new ActionListener() {
+		JButton voltar = new JButton("Voltar");
+		voltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesPrivadas());
 			}
 		});
-		GroupLayout gl_CadastroBaba = new GroupLayout(CadastroBaba);
-		gl_CadastroBaba.setHorizontalGroup(
-			gl_CadastroBaba.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_CadastroBaba.createSequentialGroup()
-					.addGroup(gl_CadastroBaba.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_CadastroBaba.createSequentialGroup()
-							.addGap(98)
-							.addGroup(gl_CadastroBaba.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblTelefone)
-								.addComponent(lblNome)))
-						.addGroup(gl_CadastroBaba.createSequentialGroup()
-							.addGap(18)
-							.addComponent(btnVoltar, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE)))
-					.addGap(18)
-					.addGroup(gl_CadastroBaba.createParallelGroup(Alignment.LEADING)
-						.addComponent(Nome, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_CadastroBaba.createParallelGroup(Alignment.LEADING)
-							.addComponent(Telefone, 111, 111, 111)
-							.addGroup(gl_CadastroBaba.createSequentialGroup()
-								.addComponent(Limpar, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE)
-								.addGap(42)
-								.addComponent(btnCadastrar, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE))))
-					.addGap(28))
-		);
-		gl_CadastroBaba.setVerticalGroup(
-			gl_CadastroBaba.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_CadastroBaba.createSequentialGroup()
-					.addGap(80)
-					.addGroup(gl_CadastroBaba.createParallelGroup(Alignment.BASELINE)
-						.addComponent(Nome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNome))
-					.addGap(18)
-					.addGroup(gl_CadastroBaba.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblTelefone)
-						.addComponent(Telefone, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-					.addGroup(gl_CadastroBaba.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnVoltar)
-						.addComponent(Limpar)
-						.addComponent(btnCadastrar))
-					.addGap(24))
-		);
-		CadastroBaba.setLayout(gl_CadastroBaba);
-	}
-
-	private class SwingAction extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-		public SwingAction() {
-			putValue(NAME, "Limpar");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-		public void actionPerformed(ActionEvent e) {
-			Nome.setText("");
-			Telefone.setText("");
-			
-		}
-	}
-	private class SwingAction_1 extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-		public SwingAction_1() {
-			putValue(NAME, "Cadastrar");
-			putValue(SHORT_DESCRIPTION, "Cadastrar baba");
-		}
-		public void actionPerformed(ActionEvent e) {
-			try{
-				Baba baba = new Baba(Nome.getText(), Telefone.getText() );
-				Sistema.getHotel().adicionaBaba(baba);
-				JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
-			
+		voltar.setFont(new Font("NanumGothic", Font.PLAIN, 12));
+		voltar.setBounds(182, 319, 73, 27);
+		add(voltar);
+		
+		JButton limpar = new JButton("Limpar");
+		limpar.setFont(new Font("NanumGothic", Font.PLAIN, 12));
+		limpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				nome.setText("");
+				telefone.setText("");
 			}
-			catch (EntradaDeDadosException e2) {
-				JOptionPane.showMessageDialog(null, e2.getMessage());
+		});
+		limpar.setBounds(343, 319, 79, 27);
+		add(limpar);
+		
+		JButton concluir = new JButton("Concluir");
+		concluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					Baba baba = new Baba(nome.getText(), telefone.getText());
+					JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
+					Sistema.getHotel().adicionaBaba(baba);
+				}  catch (Exception e1) {
+					JOptionPane.showMessageDialog(null, e1.getMessage());
+				}
+				
 			}
-		}
-		}
+		});
+		concluir.setFont(new Font("NanumGothic", Font.PLAIN, 12));
+		concluir.setBounds(509, 319, 91, 27);
+		add(concluir);
 	}
+	
+}

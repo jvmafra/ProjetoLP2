@@ -35,28 +35,28 @@ public class NovoCarro extends JPanel {
 		setLayout(null);
 		
 		JLabel lblDescircao = new JLabel("Descricao: ");
-		lblDescircao.setBounds(83, 65, 71, 19);
+		lblDescircao.setBounds(274, 181, 71, 19);
 		lblDescircao.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		add(lblDescircao);
 		
 		descricao = new JTextField();
-		descricao.setBounds(159, 64, 86, 20);
+		descricao.setBounds(363, 181, 175, 20);
 		add(descricao);
 		descricao.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Placa:");
 		lblNewLabel.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		lblNewLabel.setBounds(114, 105, 39, 19);
+		lblNewLabel.setBounds(306, 224, 39, 19);
 		add(lblNewLabel);
 		
 		placa = new JTextField();
-		placa.setBounds(158, 104, 86, 20);
+		placa.setBounds(363, 224, 86, 20);
 		add(placa);
 		placa.setColumns(10);
 		
 		luxo = new JCheckBox("Luxo");
-		luxo.setFont(new Font("NanumGothic", Font.BOLD, 14));
-		luxo.setBounds(271, 84, 59, 27);
+		luxo.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		luxo.setBounds(479, 220, 59, 27);
 		add(luxo);
 		
 		JButton voltar = new JButton("Voltar");
@@ -65,12 +65,12 @@ public class NovoCarro extends JPanel {
 				Sistema.setTela(new OpcoesPrivadas());
 			}
 		});
-		voltar.setFont(new Font("NanumGothic", Font.BOLD, 14));
-		voltar.setBounds(45, 169, 73, 27);
+		voltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		voltar.setBounds(239, 351, 73, 27);
 		add(voltar);
 		
 		JButton limpar = new JButton("Limpar");
-		limpar.setFont(new Font("NanumGothic", Font.BOLD, 14));
+		limpar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		limpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				luxo.setSelected(false);
@@ -78,7 +78,7 @@ public class NovoCarro extends JPanel {
 				descricao.setText("");
 			}
 		});
-		limpar.setBounds(166, 169, 79, 27);
+		limpar.setBounds(379, 351, 79, 27);
 		add(limpar);
 		
 		JButton concluir = new JButton("Concluir");
@@ -94,8 +94,8 @@ public class NovoCarro extends JPanel {
 				
 			}
 		});
-		concluir.setFont(new Font("NanumGothic", Font.BOLD, 14));
-		concluir.setBounds(292, 169, 91, 27);
+		concluir.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		concluir.setBounds(512, 351, 91, 27);
 		add(concluir);
 	}
 	

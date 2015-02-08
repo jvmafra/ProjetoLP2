@@ -27,6 +27,7 @@ import javax.swing.border.BevelBorder;
 import java.awt.Color;
 
 import javax.swing.border.MatteBorder;
+import javax.swing.ImageIcon;
 
 public class LoginDeFuncionario extends JPanel {
 	/**
@@ -63,34 +64,38 @@ public class LoginDeFuncionario extends JPanel {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(322, 197, 159, 131);
+		panel.setBounds(257, 125, 278, 205);
 		add(panel);
 		panel.setLayout(null);
 		JLabel login_1 = new JLabel("Login");
-		login_1.setBounds(15, 11, 29, 16);
+		login_1.setBounds(48, 71, 51, 16);
 		panel.add(login_1);
 		login_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		
 		JLabel senha_1 = new JLabel("Senha");
-		senha_1.setBounds(10, 42, 34, 16);
+		senha_1.setBounds(43, 113, 44, 16);
 		panel.add(senha_1);
 		senha_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		
 		senha = new JPasswordField();
-		senha.setBounds(64, 40, 86, 20);
+		senha.setBounds(95, 112, 98, 20);
 		panel.add(senha);
 		senha.setColumns(10);
 		
 		login = new JTextField();
-		login.setBounds(64, 11, 86, 20);
+		login.setBounds(95, 70, 98, 20);
 		panel.add(login);
 		login.setColumns(10);
 		
 		JButton botao_entrar = new JButton("Entrar");
-		botao_entrar.setBounds(23, 83, 86, 25);
+		botao_entrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		botao_entrar.setBounds(95, 168, 86, 25);
 		panel.add(botao_entrar);
 		botao_entrar.setAction(action);
-		botao_entrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14)); 
+		botao_entrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 
 	}
 	private class SwingAction extends AbstractAction {

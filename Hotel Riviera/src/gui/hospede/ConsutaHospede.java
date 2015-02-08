@@ -87,7 +87,7 @@ public class ConsutaHospede extends JPanel {
 				if (busca.length() < 5){
 					System.out.println(Sistema.getHotel().getHospedes().size());
 					JOptionPane.showMessageDialog(null,
-							"Seja mais específico em sua busca");
+							"Seja mais especifico em sua busca");
 					}
 				else {
 					try {
