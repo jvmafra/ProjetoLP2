@@ -60,6 +60,13 @@ public class Opiniao implements Serializable{
 	}
 	
 	/**
+	 * Modifica a data da publicacao
+	 */
+	public void setData(Calendar data){
+		this.data = data;
+	}
+	
+	/**
 	 * Retorna a data completa em forma de String no formato XX/YY/ZZZZ
 	 */
 	public String getDataCompleta() {
@@ -90,7 +97,7 @@ public class Opiniao implements Serializable{
 	@Override
 	public String toString() {
 		return getComentario() + "\n" + getDataCompleta() 
-				+  " às " + getHora()
+				+  " as " + getHora()
 				+ "\nNota: " + getNota();
 
 	}
