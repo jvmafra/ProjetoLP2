@@ -24,8 +24,18 @@ public class BabySitter implements Servico {
 	private Baba baba;
 	private Periodo periodo;
 	
-	
-	public BabySitter(Baba baba, Periodo periodo)throws Exception{
+	/**
+	 * Construtor de BabySitter onde e recebido uma Baba e um Periodo
+	 * @param baba
+	 * 		Uma Baba
+	 * @param periodo
+	 * 		Um periodo	
+	 * @throws PeriodoInvalidoException 
+	 * 		Caso o periodo passado seja invalido ou a baba nao esteja disponivel em tal periodo
+	 * @throws BabaInvalidaException
+	 * 		Caso a baba passada seja null
+	 */
+	public BabySitter(Baba baba, Periodo periodo)throws BabaInvalidaException, PeriodoInvalidoException{
 		if ( baba == null ){
 			throw new BabaInvalidaException("Baba passada invalida");
 			
@@ -45,6 +55,7 @@ public class BabySitter implements Servico {
 		getBaba().adicionaPeriodo(periodo);
 	}
 
+	
 	@Override
 	public double valor() {
 		
@@ -70,32 +81,65 @@ public class BabySitter implements Servico {
 		
 	}
 
+	/**
+	 * Retorna a horario de inicio da baba
+	 * @return
+	 * 		horadeinicio
+	 */
 	public int getHorarioInicio() {
 		return horaDeInicio;
 	}
+	
+	/**
+	 * Retorna o horario de termino da baba
+	 * @return
+	 * 		horaDeTermino
+	 */
 	public int getHorarioTermino() {
 		return horaDeTermino;
 	}
+	
+	/**
+	 * Muda o Horario de termino da baba
+	 * @param horarioTermino
+	 * 		novo horario de termino
+	 */
 	public void setHorarioTermino(int horarioTermino) {
 		this.horaDeTermino = horarioTermino;
 	}
 
+	/**
+	 * Muda o Horario de inicio da baba
+	 * @param horarioInicio
+	 * 		novo horario de inicio
+	 */
 	public void setHorarioInicio(int horarioInicio) {
 		this.horaDeInicio = horarioInicio;
 	}
 
+	/**
+	 * Retorna a quantidade de horas que a baba vai trabalhar no periodo
+	 * @return
+	 *		 quantidade de horas que a baba vai trabalhar no periodo
+	 */
 	public int getHoras() {
 		return periodo.getTotalDeHoras();
 	}
 
-	public void setHoras(int horas) {
-		this.horas = horas;
-	}
-	
+	/** 
+	 * Retorna a baba
+	 * @return
+	 * 		baba
+	 */
 	public Baba getBaba(){
 		return baba;
 	}
 	
+	/**
+	 * Retorna perido de trabalho da baba
+	 * @return
+	 * 		periodo
+	 */
 	public Periodo getPeriodo() {
 		return periodo;
 	}
@@ -123,35 +167,6 @@ public class BabySitter implements Servico {
 			return false;
 		return true;
 	}
-//	public static void main(String[] args) throws Exception {
-//		Calendar data_inicial = new GregorianCalendar(2015, 1, 24, 20, 0 );
-//		Calendar data_final = new GregorianCalendar(2015, 1, 25, 6 ,0);
-//		
-//		Calendar data_inicial2 = new GregorianCalendar(2015, 1, 24, 8,0 );
-//		Calendar data_final2 = new GregorianCalendar(2015, 1, 24, 17, 0);
-//		
-//		Calendar data_inicial3 = new GregorianCalendar(2015, 1, 24, 0,0 );
-//		Calendar data_final3 = new GregorianCalendar(2015, 1, 25, 0, 0);
-//		 Periodo p;
-//		 Periodo p2;
-//		 Periodo p3;
-//		BabySitter baby;
-//		BabySitter baby2;
-//		BabySitter baby3;
-//		Baba bb = new Baba("Adiel Andrade", "96250807" );
-//		Baba bb3 = new Baba("Adiel Andrade", "96250807" );
-//		Baba bb2 = new Baba("Adiel Andrade", "96250807" );
-//		p = new Periodo(data_inicial, data_final);
-//		p2 = new Periodo(data_inicial2, data_final2);
-//		p3 = new Periodo(data_inicial3, data_final3);
-//		baby = new BabySitter(bb, p);
-//		baby2 =new BabySitter(bb2, p2);
-//		baby3 =new BabySitter(bb3, p3);	
-//		System.out.println(baby.valor());
-//		System.out.println(baby2.valor());
-//		System.out.println(baby3.valor());
-//	}
-	
-	
+
 }
 

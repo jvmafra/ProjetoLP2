@@ -1,4 +1,4 @@
-package testes;
+package classes.Carro;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -42,6 +42,21 @@ public class AluguelCarroTest {
 	public void testConstrutor() throws Exception {
 		
 		try{	
+			ac = new AluguelCarro (c1, true, true , null);
+			Assert.fail("Deveria lancar excecao");
+		} catch(Exception e) {
+			Assert.assertEquals("Datas nulas", e.getMessage());
+		
+		}
+		
+		try{	
+			ac2 = new AluguelCarro (null, true, true , p2);
+			Assert.fail("Deveria lancar excecao");
+		} catch(Exception e) {
+			Assert.assertEquals("O carro nao esta sendo encontrado", e.getMessage());
+		}
+		
+		try{	
 			ac = new AluguelCarro (c1, true, true , p2);
 			ac2 = new AluguelCarro (c1, true, true , p2);
 			Assert.fail("Deveria lancar excecao");
@@ -52,6 +67,8 @@ public class AluguelCarroTest {
 
 	@Test
 	public void testValor() throws Exception{
+		p2 = new Periodo(data3, data4);
+		p = new Periodo(data5, data4);
 		ac = new AluguelCarro (c1, true, true , p2);
 		Assert.assertEquals(ac.valor(), 450.0, 2);
 		ac2 = new AluguelCarro (c2, true, true , p);
@@ -62,7 +79,7 @@ public class AluguelCarroTest {
 	@Test
 	public void testToString() throws Exception{
 		ac = new AluguelCarro (c1, true, true , p2);
-		Assert.assertEquals(ac.toString(), "ALUGUEL DE CARRO: " + "\nPeriodo: " + ac.getNumDias() + "\nValor: R$ " +ac.valor());
+		Assert.assertEquals(ac.toString(), "ALUGUEL DE CARRO: " + "\nPeriodo: " + p2.toString() + "\nValor: R$ " +ac.valor());
 		
 	}
 	

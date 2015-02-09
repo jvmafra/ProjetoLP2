@@ -1,4 +1,4 @@
-package testes;
+package classes.Pessoa;
 
 import static org.junit.Assert.*;
 

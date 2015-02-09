@@ -13,9 +13,6 @@ import classes.HotelOpiniaoServicosPeriodo.Periodo;
  */
 public class QuartoExecutivoDuplo extends Quarto {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	public static final double VALOR_DA_DIARIA = 385.00;
 	public static final double VALOR_DA_DIARIA_COM_CAMA_EXTRA = 405.00;
@@ -24,6 +21,7 @@ public class QuartoExecutivoDuplo extends Quarto {
 	private List<Periodo> periodos = new ArrayList<>();
 	private Periodo periodoAtual;
 	
+
 	public Periodo getPeriodoAtual() {
 		return periodoAtual;
 	}

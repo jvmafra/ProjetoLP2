@@ -1,6 +1,6 @@
 // Adiel Andrade e Edval
 
-package testes;
+package classes.Pessoa;
 
 import org.junit.Assert;
 import org.junit.Before;

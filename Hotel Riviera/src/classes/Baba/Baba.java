@@ -25,6 +25,17 @@ public class Baba implements Serializable, Alugavel{
 	private String nome, telefone;
 	private List<Periodo> periodos;
 	
+	/**
+	 * Construtor da classe Baba Que recebe um nome e um telefone
+	 * @param nome
+	 * 		nome da baba
+	 * @param telefone
+	 * 		telefone da baba
+	 * @throws NomeInvalidoException
+	 * 		Caso o nome enviado seja null ou uma String vazia
+	 * @throws TelefoneInvalidoException
+	 * 		Caso o telefone enviado seja null ou uma String vazia ou invalido
+	 */
 	public Baba(String nome, String telefone) throws NomeInvalidoException, TelefoneInvalidoException{
 		if (nome == null || nome.equals(""))
 			throw new NomeInvalidoException("Nome invalido");
@@ -57,11 +68,21 @@ public class Baba implements Serializable, Alugavel{
 	}
 	
 	
-
+/**
+ * Retorna a String Telefone
+ * @return String Telefone
+ */
 	public String getTelefone() {
 		return telefone;
 	}
-
+	
+/**
+ * Muda o telefone
+ * @param telefone
+ * 		uma nova String telefone
+ * @throws TelefoneInvalidoException
+ * 		Caso o telefone esteja errado
+ */
 	public void setTelefone(String telefone) throws TelefoneInvalidoException {
 	if(verificaTelefone(telefone))
 		throw new TelefoneInvalidoException("Telefone invalido");
@@ -69,30 +90,56 @@ public class Baba implements Serializable, Alugavel{
 		this.telefone = telefone;
 	}
 	
-	public String getNumero(){
-		return telefone;
-	}
-
+/**
+ * Retorna o nome da baba
+ * @return	String nome
+ */
 	public String getNome() {
 		return nome;
 	}
 
+	/**
+	 * Muda o nome da Baba
+	 * @param nome
+	 * 		Novo nome da baba
+	 */
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
+	/**
+	 * retorna periodo
+	 */
 	public List<Periodo> getPeriodos() {
 		return periodos;
 	}
 	
+	/**
+	 * Remove o periodo da lista do periodo
+	 * @param p
+	 * 		Periodo A ser removido
+	 */
 	public void removePeriodo(Periodo p){
 		getPeriodos().remove(p);
 	}
 	
+	/**
+	 * Adiciona um novo periodo na lista de periodos
+	 * @param p
+	 * 	Periodo a ser adicionado
+	 */
 	public void adicionaPeriodo(Periodo p){
 		getPeriodos().add(p);
 	}
 	
+	/**
+	 * Verifica se a baba esta disponivel em algum determinado periodo
+	 * @param p
+	 * 		perido a ser verificado
+	 * @return
+	 * 		True: se a baba esta disponivel
+	 * 		False: Se a baba nao esta disponivel
+	 */
 	public boolean isDisponivel(Periodo p){
 		for (Periodo periodo: periodos){
 			if (p.periodoCoincide(periodo))
@@ -113,7 +160,7 @@ public class Baba implements Serializable, Alugavel{
 	
 	@Override
 	public String toString(){
-		return "Nome: " + getNome() + "/n" +"Numero: " + getNumero();
+		return "Nome: " + getNome() + "/n" +"Numero: " + getTelefone();
 	}
 	
 	

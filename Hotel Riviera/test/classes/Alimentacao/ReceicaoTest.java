@@ -1,4 +1,4 @@
-package testes;
+package classes.Alimentacao;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -20,6 +20,14 @@ public class ReceicaoTest {
 	
 	@Test
 	public void testConstrutor() {
+		
+
+			try{	
+				refeicao = new Refeicao(60.0, null);
+				Assert.fail("Deveria lancar excecao");
+			} catch(Exception e) {
+				Assert.assertEquals("Data nula", e.getMessage());
+			}
 		
 			try{	
 				refeicao = new Refeicao(60.0, data);
@@ -47,18 +55,15 @@ public class ReceicaoTest {
 	@Test
 	public void testGetDataString() throws Exception{
 		refeicao = new Refeicao(60.0, data3);
-		refeicao2 = new Refeicao(60.0, data4);
 		Assert.assertEquals(refeicao.getDataString(), "22/5/2015");
-		Assert.assertEquals(refeicao2.getDataString(), "4/1/2015");
+		
 			
 	}
 	
 	@Test
 	public void testToString() throws Exception{
 		refeicao = new Refeicao(60.0, data3);
-		refeicao2 = new Refeicao(60.0, data4);
-		Assert.assertEquals(refeicao.toString(), "Data: 22/5/2015\nValor: R$ 60.0" );
-		Assert.assertEquals(refeicao2.toString(), "Data: 4/1/2015\nValor: R$ 60.0" );
+		Assert.assertEquals(refeicao.toString(),"RESTAURANTE: \n" + "Data: 22/5/2015\nValor: R$ 60.0" );
 		
 	}
 	

@@ -11,6 +11,7 @@ package classes.Carro;
 
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import classes.HotelOpiniaoServicosPeriodo.Servico;
+import excecoes.CarroInvalidoException;
 import excecoes.PeriodoInvalidoException;
 
 public class AluguelCarro implements Servico {
@@ -20,7 +21,31 @@ public class AluguelCarro implements Servico {
 	private double valor;
 	private Carro carro;
 	
-	public AluguelCarro(Carro carro, boolean tanque, boolean seguro, Periodo p) throws Exception {
+	/**
+	 * Construtor da classe Aluguel de carro que rebebe um carrro, um boolean tanque, um boolean seguro e um periodo
+	 * @param carro
+	 * 		Um objeto carro 
+	 * @param tanque
+	 * 		boolean tanque
+	 * @param seguro
+	 * 		booelan seguro
+	 * @param p
+	 * 		um periodo o qual o carro esteja alugado
+	 * @throws PeriodoInvalidoException
+	 * 		Caso o casso nao esteja disponvel no periodo ou o periodo seja invalido
+	 * @throws CarroInvalidoException
+	 * 		caso seja recebido um carro null
+	 */
+	public AluguelCarro(Carro carro, boolean tanque, boolean seguro, Periodo p) throws PeriodoInvalidoException, CarroInvalidoException {
+		if (carro == null){
+			throw new CarroInvalidoException("O carro nao esta sendo encontrado");
+		}
+		
+		if ( p == null ){
+			throw new PeriodoInvalidoException("Datas nulas");
+			
+		}
+		
 		if (!(carro.isDisponivel(p)))
 			throw new PeriodoInvalidoException("O carro esta ocupado nesse periodo");
 		
@@ -32,22 +57,51 @@ public class AluguelCarro implements Servico {
 		getCarro().adicionaPeriodo(p);
 	}
 	
+	/**
+	 * Retorna perido de trabalho da baba
+	 * @return
+	 * 		periodo
+	 */
 	public Periodo getPeriodo() {
 		return periodo;
 	}
 	
+	/** 
+	 * Retorna um carro
+	 * @return
+	 * 		carro
+	 */
 	public Carro getCarro(){
 		return carro;
 	}
 	
+	
+	/**
+	 * Retorna o numero de dias que o carro esteja alugado
+	 * @return
+	 * 		 numero de dias que o carro esteja alugado
+	 */
 	public int getNumDias() {
 		return getPeriodo().getNumeroDias();
 	}
 
+	
+	/**
+	 * Retona um boolean Tanque
+	 * @return
+	 * 		True: Caso o tanque seja cheio
+	 * 		False: caso o tanque nao seja cheio
+	 */
 	public boolean isTanqueCheio() {
 		return tanqueCheio;
 	}
 
+	/**
+	 * Retona um boolean Seguro
+	 * @return
+	 * 		True: Caso a carro seja segurado
+	 * 		False: caso o carro nao seja segurado
+	 */
 	public boolean isSeguro() {
 		return seguro;
 	}
@@ -60,7 +114,7 @@ public class AluguelCarro implements Servico {
 	
 	@Override
 	public String toString() {
-		return "ALUGUEL DE CARRO: " + "\n" + periodo.toString() + "\nValor: R$ " + valor();
+		return "ALUGUEL DE CARRO: " + "\nPeriodo: " + periodo.toString() + "\nValor: R$ " + valor();
 	}
 
 	@Override
