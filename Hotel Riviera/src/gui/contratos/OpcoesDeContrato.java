@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.Font;
 
 public class OpcoesDeContrato extends JPanel {
 
@@ -19,40 +20,32 @@ public class OpcoesDeContrato extends JPanel {
 	 */
 	public OpcoesDeContrato() {
 		setBounds(0, 0, 800, 600);
-		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{34, 277, 0};
-		gridBagLayout.rowHeights = new int[]{57, 62, 35, 62, 34, 23, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		setLayout(gridBagLayout);
+		setLayout(null);
 		
-		JButton btnContratosEmAberto = new JButton("Contratos em Aberto");
-		GridBagConstraints gbc_btnContratosEmAberto = new GridBagConstraints();
-		gbc_btnContratosEmAberto.fill = GridBagConstraints.BOTH;
-		gbc_btnContratosEmAberto.insets = new Insets(0, 0, 5, 0);
-		gbc_btnContratosEmAberto.gridx = 1;
-		gbc_btnContratosEmAberto.gridy = 1;
-		add(btnContratosEmAberto, gbc_btnContratosEmAberto);
-		
-		JButton btnContratosFechados = new JButton("Contratos Fechados");
-		GridBagConstraints gbc_btnContratosFechados = new GridBagConstraints();
-		gbc_btnContratosFechados.fill = GridBagConstraints.BOTH;
-		gbc_btnContratosFechados.insets = new Insets(0, 0, 5, 0);
-		gbc_btnContratosFechados.gridx = 1;
-		gbc_btnContratosFechados.gridy = 3;
-		add(btnContratosFechados, gbc_btnContratosFechados);
+		JButton btnContratosEmAberto = new JButton("CONTRATOS EXISTENTES");
+		btnContratosEmAberto.setFont(new Font("NanumGothic", Font.BOLD, 14));
+		btnContratosEmAberto.setBounds(266, 275, 277, 57);
+		add(btnContratosEmAberto);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 15));
+		btnVoltar.setBounds(372, 456, 77, 25);
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new PaginaInicialHotel());
 			}
 		});
-		GridBagConstraints gbc_btnVoltar = new GridBagConstraints();
-		gbc_btnVoltar.anchor = GridBagConstraints.NORTHWEST;
-		gbc_btnVoltar.gridx = 1;
-		gbc_btnVoltar.gridy = 5;
-		add(btnVoltar, gbc_btnVoltar);
+		add(btnVoltar);
+		
+		JButton btnNovoContrato = new JButton("NOVO CONTRATO");
+		btnNovoContrato.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Sistema.setTela(new NovoContrato());
+			}
+		});
+		btnNovoContrato.setFont(new Font("NanumGothic", Font.BOLD, 15));
+		btnNovoContrato.setBounds(266, 157, 277, 65);
+		add(btnNovoContrato);
 
 	}
 }

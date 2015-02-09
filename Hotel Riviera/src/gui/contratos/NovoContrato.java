@@ -65,6 +65,7 @@ public class NovoContrato extends JPanel {
 	private JFormattedTextField numCartao;
 	JSpinner data_inicial;
 	JSpinner data_final;
+	JList<Alugavel> list;
 
 
 	/**
@@ -252,12 +253,11 @@ public class NovoContrato extends JPanel {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setSize(243, 197);
 		scrollPane.setLocation(30, 134);
-		quartosDisponiveis.add(scrollPane);
 				
 		// Intancio o jList que contem os quartos
-		JList<Alugavel> list = new JList<Alugavel>();
-		scrollPane.setViewportView(list);
+		list = new JList<Alugavel>();
 		final DefaultListModel<Alugavel> listModel = new DefaultListModel<Alugavel>();
+		quartosDisponiveis.add(scrollPane);
 		list.setBounds(30, 134, 243, 100);
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
@@ -270,13 +270,13 @@ public class NovoContrato extends JPanel {
 				Calendar fim = Sistema.DateToCalendar(data2);
 				try {
 					Periodo p = new Periodo(inicio, fim);
-					listModel.clear();
 					List<Alugavel> quartos_disponiveis = Sistema.getHotel().verificaAlugaveisDisponiveis(p, Sistema.getHotel().getQuartos());
 					for (int i = 0; i < quartos_disponiveis.size(); i++) {
 						listModel.addElement(quartos_disponiveis.get(i));		
 					}
 					
 				} catch (Exception e2) {
+					listModel.clear();
 					JOptionPane.showMessageDialog(null, e2.getMessage());
 				}
 			}
@@ -284,6 +284,7 @@ public class NovoContrato extends JPanel {
 		
 		list.setModel(listModel);
 		quartosDisponiveis.add(list);
+		scrollPane.setViewportView(list);
 		btnPesquisar.setBounds(109, 96, 117, 25);
 		quartosDisponiveis.add(btnPesquisar);
 
@@ -322,6 +323,8 @@ public class NovoContrato extends JPanel {
 				telefone.setText("");
 				email.setText("");
 				endereco.setText("");
+				list.clearSelection();
+				listModel.clear();
 			}
 		});
 

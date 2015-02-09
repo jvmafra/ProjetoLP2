@@ -103,12 +103,12 @@ public class Hotel implements Serializable{
 		List<Alugavel> disponiveis = new ArrayList<>();
 		for (Alugavel alugavel: lista){
 			boolean disponivel = true;
-			for (Periodo p1: alugavel.getPeriodos()){
-				if (p1.periodoCoincide(p))
+			for (int i = 0; i < alugavel.getPeriodos().size(); i++) {
+				if (p.periodoCoincide(alugavel.getPeriodos().get(i)))
 					disponivel = false;
+			}
 			if (disponivel == true)
 				disponiveis.add(alugavel);	
-			}
 		}
 		
 		return disponiveis;
