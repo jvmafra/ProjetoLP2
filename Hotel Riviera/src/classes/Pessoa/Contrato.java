@@ -1,5 +1,6 @@
 package classes.Pessoa;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -16,7 +17,7 @@ import excecoes.PeriodoInvalidoException;
  * @author Joao Victor Barroso Mafra
  */
 
-public class Contrato {
+public class Contrato implements Serializable{
 	private Hospede hospede;
 	private List<Servico> servicos = new ArrayList<Servico>();
 	private EstrategiaCobranca estrategia;

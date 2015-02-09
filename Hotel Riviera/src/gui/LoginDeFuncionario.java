@@ -60,11 +60,13 @@ public class LoginDeFuncionario extends JPanel {
 	 * Create the JFrame.
 	 */
 	public LoginDeFuncionario() {
+		setBackground(Color.WHITE);
 		setBounds(0, 0, 800, 600);
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(257, 125, 278, 205);
+		panel.setBackground(Color.WHITE);
+		panel.setBounds(250, 381, 278, 207);
 		add(panel);
 		panel.setLayout(null);
 		JLabel login_1 = new JLabel("Login");
@@ -96,6 +98,11 @@ public class LoginDeFuncionario extends JPanel {
 		panel.add(botao_entrar);
 		botao_entrar.setAction(action);
 		botao_entrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("/home/edvalmsg/Downloads/riviera.jpg"));
+		lblNewLabel.setBounds(80, 70, 558, 389);
+		add(lblNewLabel);
 
 	}
 	private class SwingAction extends AbstractAction {

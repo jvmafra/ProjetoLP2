@@ -1,7 +1,9 @@
 package classes.FormasCobranca;
 
+import java.io.Serializable;
 
-public class EstrategiaAltaTemporada implements EstrategiaCobranca {
+
+public class EstrategiaAltaTemporada implements EstrategiaCobranca, Serializable{
 	public static final double FATOR = 2;
 	
 	@Override

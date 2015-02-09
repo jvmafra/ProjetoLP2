@@ -44,6 +44,8 @@ public class PaginaInicialHotel extends JPanel {
 		setBounds(0, 0, 800, 600);
 				
 		final JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
+		panel.setForeground(Color.WHITE);
 		panel.setBounds(0, 0,800,600);		
 		setLayout(null);
 		add(panel);
@@ -100,6 +102,11 @@ public class PaginaInicialHotel extends JPanel {
 		});
 		btnSair.setFont(new Font("Tahoma", Font.BOLD, 18));
 		panel.add(btnSair);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("/home/edvalmsg/Downloads/riviera.jpg"));
+		lblNewLabel.setBounds(169, 53, 491, 416);
+		panel.add(lblNewLabel);
 
 	}
 

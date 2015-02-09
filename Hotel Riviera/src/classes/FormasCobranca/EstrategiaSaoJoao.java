@@ -1,7 +1,9 @@
 package classes.FormasCobranca;
 
+import java.io.Serializable;
 
-public class EstrategiaSaoJoao implements EstrategiaCobranca{
+
+public class EstrategiaSaoJoao implements EstrategiaCobranca, Serializable{
 	
 	public static final double FATOR = 1.1;
 	public static final double FATOR_ESPECIAL = 1.5;   // depende dos dias

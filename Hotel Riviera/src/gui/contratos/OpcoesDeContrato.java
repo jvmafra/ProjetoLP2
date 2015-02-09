@@ -23,6 +23,11 @@ public class OpcoesDeContrato extends JPanel {
 		setLayout(null);
 		
 		JButton btnContratosEmAberto = new JButton("CONTRATOS EXISTENTES");
+		btnContratosEmAberto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+					Sistema.setTela(new BuscaContrato());
+
+		}});
 		btnContratosEmAberto.setFont(new Font("NanumGothic", Font.BOLD, 14));
 		btnContratosEmAberto.setBounds(266, 275, 277, 57);
 		add(btnContratosEmAberto);
