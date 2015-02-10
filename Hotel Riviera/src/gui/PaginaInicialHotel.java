@@ -1,8 +1,8 @@
 package gui;
 
 import gui.contratos.OpcoesDeContrato;
+import gui.gerente.OpcoesPrivadas;
 import gui.hospede.OpcoesDoHospede;
-import gui.opcoesdogerente.OpcoesPrivadas;
 import gui.opiniao.OpcoesDeOpiniao;
 import gui.servicos.OpcoesDeServicos;
 

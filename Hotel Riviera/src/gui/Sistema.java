@@ -1,36 +1,19 @@
 package gui;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import classes.Arquivos;
-import classes.HotelOpiniaoServicosPeriodo.Hotel;
-import classes.HotelOpiniaoServicosPeriodo.Opiniao;
-
-import javax.swing.BoxLayout;
-
-import java.awt.GridLayout;
-
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-
 import java.awt.CardLayout;
-import java.awt.GridBagLayout;
-import java.awt.FlowLayout;
+import java.awt.EventQueue;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import classes.Arquivos;
+import classes.HotelOpiniaoServicosPeriodo.Hotel;
 
 public class Sistema extends JFrame {
 

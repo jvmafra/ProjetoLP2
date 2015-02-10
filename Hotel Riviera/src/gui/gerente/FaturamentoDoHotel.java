@@ -1,4 +1,4 @@
-package gui.opcoesdogerente;
+package gui.gerente;
 
 import gui.Sistema;
 

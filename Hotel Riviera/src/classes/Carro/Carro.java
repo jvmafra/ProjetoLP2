@@ -21,6 +21,10 @@ public class Carro implements Serializable, Alugavel{
 	
 	private static final long serialVersionUID = 1L;
 	private String descricao;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
 	private String placa;
 	private boolean luxo;
 	private List<Periodo> periodos;

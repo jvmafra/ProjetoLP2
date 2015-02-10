@@ -1,26 +1,21 @@
 package gui.contratos;
 
-import gui.PaginaInicialHotel;
 import gui.Sistema;
-import gui.hospede.OpcoesDoHospede;
 
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -30,6 +25,7 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SpinnerDateModel;
+import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.MaskFormatter;
 
@@ -41,13 +37,9 @@ import classes.FormasCobranca.EstrategiaCobranca;
 import classes.FormasCobranca.EstrategiaNatalReveillon;
 import classes.FormasCobranca.EstrategiaSaoJoao;
 import classes.FormasCobranca.EstrategiaSimples;
-import classes.HotelOpiniaoServicosPeriodo.Alugavel;
-import classes.HotelOpiniaoServicosPeriodo.Hotel;
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import classes.Pessoa.Hospede;
 import classes.Quartos.Quarto;
-
-import javax.swing.UIManager;
 
 public class NovoContrato extends JPanel {
 	/**

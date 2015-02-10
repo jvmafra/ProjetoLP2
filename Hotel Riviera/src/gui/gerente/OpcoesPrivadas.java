@@ -1,10 +1,14 @@
-package gui.opcoesdogerente;
+package gui.gerente;
 
+import excecoes.NomeInvalidoException;
+import excecoes.TelefoneInvalidoException;
 import gui.PaginaInicialHotel;
 import gui.Sistema;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
+
+import classes.Baba.Baba;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
