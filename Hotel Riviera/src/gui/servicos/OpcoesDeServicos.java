@@ -2,6 +2,7 @@ package gui.servicos;
 
 import gui.PaginaInicialHotel;
 import gui.Sistema;
+import gui.contratos.VisualizaContrato;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
@@ -52,7 +53,7 @@ public class OpcoesDeServicos extends JPanel {
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new PaginaInicialHotel());
+				Sistema.setTela(new VisualizaContrato(getContrato()));
 			}
 		});
 		btnVoltar.setBounds(64, 241, 89, 23);

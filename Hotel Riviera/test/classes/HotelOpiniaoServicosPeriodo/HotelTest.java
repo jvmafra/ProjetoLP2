@@ -17,6 +17,7 @@ import classes.FormasCobranca.EstrategiaSimples;
 import classes.Pessoa.Contrato;
 import classes.Pessoa.Hospede;
 import classes.Quartos.Quarto;
+import classes.Quartos.QuartoPresidencial;
 import excecoes.EntradaDeDadosException;
 
 public class HotelTest {
@@ -36,6 +37,7 @@ public class HotelTest {
 	
 	@Before
 	public void setUp() throws Exception {
+		q = new QuartoPresidencial(1);
 		hotel = new Hotel();
 		h1 = new Hospede("Edval","10530025485", "3224432", "18",  "e@hot.com", "8888888888", "ary", "4001635716004159");
 		h2 = new Hospede("Edval","10530025485", "3224434", "18",  "e@hot.com", "8888888888", "ary", "4001635716004159");
@@ -44,8 +46,8 @@ public class HotelTest {
 		c2 = new Carro("Civic", "VDP8024", true);
 		baba1 = new Baba("Maria", "88258485");
 		baba2 = new Baba("Josefa", "98798798");
-		ct1 = new Contrato(hotel.getQuartos().get(0), h1, e, p);
-		ct2 = new Contrato(hotel.getQuartos().get(1), h2, e, p);
+		ct1 = new Contrato(q, h1, e, p);
+		ct2 = new Contrato(q, h2, e, p);
 
 	}
 	

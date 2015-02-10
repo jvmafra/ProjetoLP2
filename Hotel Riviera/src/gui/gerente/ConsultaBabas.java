@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 
 import classes.Baba.Baba;
+import classes.HotelOpiniaoServicosPeriodo.Alugavel;
 import classes.Pessoa.Contrato;
 
 public class ConsultaBabas extends JPanel {
@@ -29,7 +30,7 @@ public class ConsultaBabas extends JPanel {
 		scrollPane.setBounds(67, 164, 246, 244);
 		add(scrollPane);
 		
-		JList<Baba> list = new JList<Baba>();
+		JList<Alugavel> list = new JList<Alugavel>();
 		scrollPane.setViewportView(list);
 		
 		textField = new JTextField();
@@ -41,7 +42,7 @@ public class ConsultaBabas extends JPanel {
 		lblNewLabel.setBounds(64, 96, 46, 14);
 		add(lblNewLabel);
 
-		DefaultListModel<Baba> listModel = new DefaultListModel<Baba>();
+		DefaultListModel<Alugavel> listModel = new DefaultListModel<Alugavel>();
 		for (int i = 0; i < Sistema.getHotel().getBabas().size(); i++) {
 			listModel.addElement(Sistema.getHotel().getBabas().get(i));
 		}

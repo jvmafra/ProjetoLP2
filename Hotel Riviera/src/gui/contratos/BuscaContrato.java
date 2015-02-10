@@ -41,7 +41,7 @@ public class BuscaContrato extends JPanel {
 	 * @throws Exception
 	 */
 	public BuscaContrato() {
-
+		setBounds(0,0, 800, 600);
 		setForeground(Color.WHITE);
 
 		// Adiciona os quartos disponíveis no jList
@@ -79,8 +79,7 @@ public class BuscaContrato extends JPanel {
 
 				Object obj = list.getSelectedValue();
 				if (obj == null)
-					JOptionPane
-							.showMessageDialog(null, "Selecione um contrato");
+					JOptionPane.showMessageDialog(null, "Selecione um contrato");
 
 				Contrato c = (Contrato) obj;
 				Sistema.getHotel().getContratos().remove(c);
@@ -93,6 +92,14 @@ public class BuscaContrato extends JPanel {
 		add(btnRemover);
 
 		JButton btnAbrir = new JButton("Abrir");
+		btnAbrir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Contrato contrato = list.getSelectedValue();
+				if (contrato == null)
+					JOptionPane.showMessageDialog(null, "Selecione um contrato");
+				Sistema.setTela(new VisualizaContrato(contrato));
+			}
+		});
 		btnAbrir.setActionCommand("Remover");
 		btnAbrir.setBounds(467, 408, 117, 25);
 		add(btnAbrir);

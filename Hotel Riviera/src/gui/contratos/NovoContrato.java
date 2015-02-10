@@ -1,6 +1,7 @@
 package gui.contratos;
 
 import excecoes.EntradaDeDadosException;
+import excecoes.PeriodoInvalidoException;
 import gui.Sistema;
 
 import java.awt.Component;
@@ -11,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -38,10 +40,12 @@ import classes.FormasCobranca.EstrategiaCobranca;
 import classes.FormasCobranca.EstrategiaNatalReveillon;
 import classes.FormasCobranca.EstrategiaSaoJoao;
 import classes.FormasCobranca.EstrategiaSimples;
+import classes.HotelOpiniaoServicosPeriodo.Alugavel;
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import classes.Pessoa.Contrato;
 import classes.Pessoa.Hospede;
 import classes.Quartos.Quarto;
+
 import java.awt.Color;
 
 public class NovoContrato extends JPanel {
@@ -52,21 +56,32 @@ public class NovoContrato extends JPanel {
 
 	JSpinner data_inicial;
 	JSpinner data_final;
-	JList<Quarto> list;
-	private final Action action = new SwingAction();
+	JList<Alugavel> list;
+	JList<Hospede> list_2;
+	DefaultListModel<Alugavel> listModel;
+
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					NovoContrato frame = new NovoContrato();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	/**
 	 * Create the frame.
 	 */
 	public NovoContrato() {
-		System.out.println(Sistema.getHotel());
-		try {
-			Sistema.getHotel().adicionaHospede(new Hospede("Edval","10530025485", "3224432", "18",  "e@hot.com", "8888888888", "ary", "4001635716004159"));
-		} catch (EntradaDeDadosException e6) {
-			// TODO Auto-generated catch block
-			e6.printStackTrace();
-		}
-		
+
 		MaskFormatter format = null;
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
@@ -99,33 +114,12 @@ public class NovoContrato extends JPanel {
 		DadosHospedes.add(scrollPane_2);
 		
 		
-		JList<Hospede> list_2 = new JList<Hospede>();
+		list_2 = new JList<Hospede>();
 		list_2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		list_2.setModel(listMode2);
 		
 				
 		scrollPane_2.setViewportView(list_2);
-		
-		
-		
-		try {
-			format = new MaskFormatter("###.###.###-##");
-			format.setPlaceholderCharacter('_');
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		try {
-			format = new MaskFormatter("#######");
-			format.setPlaceholderCharacter('_');
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		try {
-			format = new MaskFormatter("####.####.####.####");
-			format.setPlaceholderCharacter('_');
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
 
 		JPanel EstrategiasPagamento = new JPanel();
 		EstrategiasPagamento.setBackground(Color.WHITE);
@@ -170,14 +164,12 @@ public class NovoContrato extends JPanel {
 
 		data_inicial = new JSpinner();
 		data_inicial.setBounds(99, 32, 188, 20);
-		data_inicial.setModel(new SpinnerDateModel(new Date(1423018800000L),
-				new Date(1423018800000L), null, Calendar.DAY_OF_YEAR));
+		data_inicial.setModel(new SpinnerDateModel());
 		quartosDisponiveis.add(data_inicial);
 
 		data_final = new JSpinner();
 		data_final.setBounds(99, 64, 188, 20);
-		data_final.setModel(new SpinnerDateModel(new Date(1423018800000L),
-				new Date(1423018800000L), null, Calendar.DAY_OF_YEAR));
+		data_final.setModel(new SpinnerDateModel());
 		quartosDisponiveis.add(data_final);
 
 		JLabel lblDataInicial = new JLabel("Inicio");
@@ -194,8 +186,8 @@ public class NovoContrato extends JPanel {
 		scrollPane.setLocation(30, 134);
 				
 		// Intancio o jList que contem os quartos
-		list = new JList<Quarto>();
-		final DefaultListModel<Quarto> listModel = new DefaultListModel<Quarto>();
+		list = new JList<Alugavel>();
+		listModel = new DefaultListModel<Alugavel>();
 		quartosDisponiveis.add(scrollPane);
 		list.setBounds(30, 134, 243, 100);
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -210,16 +202,14 @@ public class NovoContrato extends JPanel {
 				try {
 					Periodo p = new Periodo(inicio, fim);
 					for (int i = 0; i < Sistema.getHotel().getQuartos().size(); i++) {
-						listModel.addElement(Sistema.getHotel().getQuartos().get(i));		
+						listModel.addElement(Sistema.getHotel().getQuartos().get(i));
 					}
-					
 				} catch (Exception e2) {
-					listModel.clear();
 					JOptionPane.showMessageDialog(null, e2.getMessage());
 				}
+				
 			}
 		});
-		
 		list.setModel(listModel);
 		scrollPane.setViewportView(list);
 		btnPesquisar.setBounds(109, 96, 117, 25);
@@ -237,21 +227,32 @@ public class NovoContrato extends JPanel {
 		margemGeral.add(btnVoltar);
 		
 		JButton btnNewButton = new JButton("Concluir");
-		btnNewButton.setAction(action);
-		btnNewButton.setBounds(573, 473, 89, 23);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Date data = (Date) data_inicial.getValue();
+				Date data2 = (Date) data_final.getValue();
+				Calendar inicio = Sistema.DateToCalendar(data);
+				Calendar fim = Sistema.DateToCalendar(data2);
+				try {
+					Periodo p = new Periodo(inicio, fim);
+					Alugavel obj = list.getSelectedValue();
+					Quarto quarto = (Quarto) obj;
+					Hospede h = list_2.getSelectedValue();
+					EstrategiaCobranca estrategia = new EstrategiaSimples();
+					Contrato contrato = new Contrato(quarto, h, estrategia, p);
+					Sistema.getHotel().check_in(contrato);
+					JOptionPane.showMessageDialog(null, "Contrato adicionado");
+					Sistema.setTela(new OpcoesDeContrato());
+				} catch (Exception e6) {
+					JOptionPane.showMessageDialog(null, e6.getMessage());
+				}
+			}
+		});
+		btnNewButton.setBounds(573, 473, 109, 23);
 		margemGeral.add(btnNewButton);
 
 		
 		
 	}	
-	private class SwingAction extends AbstractAction {
-		public SwingAction() {
-			putValue(NAME, "Concluir");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-		public void actionPerformed(ActionEvent e) {
-			JOptionPane.showMessageDialog(null, "Hospede criado!");
 
-		}
-	}
 }

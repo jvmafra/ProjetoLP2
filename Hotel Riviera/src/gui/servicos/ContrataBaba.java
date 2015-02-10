@@ -11,6 +11,7 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 
 import classes.Baba.Baba;
+import classes.Baba.BabySitter;
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import classes.Pessoa.Contrato;
 import classes.Pessoa.Hospede;
@@ -32,6 +33,7 @@ public class ContrataBaba extends JPanel {
 	private Contrato contrato;
 	JSpinner data_inicial;
 	JSpinner data_final;
+	JList<Alugavel> list;
 
 	/**
 	 * 
@@ -60,9 +62,9 @@ public class ContrataBaba extends JPanel {
 		scrollPane.setBounds(283, 247, 250, 196);
 		add(scrollPane);
 		
-		JList<Baba> list = new JList<Baba>();
+		list = new JList<Alugavel>();
 		scrollPane.setViewportView(list);
-		final DefaultListModel<Baba> listModel = new DefaultListModel<Baba>();
+		final DefaultListModel<Alugavel> listModel = new DefaultListModel<Alugavel>();
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
@@ -75,6 +77,24 @@ public class ContrataBaba extends JPanel {
 		add(btnVoltar);
 		
 		JButton btnConcluir = new JButton("Concluir");
+		btnConcluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Date data = (Date) data_inicial.getValue();
+				Date data2 = (Date) data_final.getValue();
+				Calendar inicio = Sistema.DateToCalendar(data);
+				Calendar fim = Sistema.DateToCalendar(data2);
+				try {
+					Periodo p = new Periodo(inicio, fim);
+					Alugavel obj = list.getSelectedValue();
+					Baba baba = (Baba) obj;
+					BabySitter baby = new BabySitter(baba, p);
+					getContrato().adicionaServico(baby);
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, e2.getMessage());
+				}
+				
+			}
+		});
 		btnConcluir.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnConcluir.setBounds(475, 486, 93, 25);
 		add(btnConcluir);
@@ -88,13 +108,13 @@ public class ContrataBaba extends JPanel {
 				Calendar fim = Sistema.DateToCalendar(data2);
 				try {
 					Periodo p = new Periodo(inicio, fim);
-					listModel.clear();
-					for (int i = 0; i < Sistema.getHotel().getBabas().size(); i++) {
-						if (Sistema.getHotel().getBabas().get(i).isDisponivel(p))
-							listModel.addElement(Sistema.getHotel().getBabas().get(i));		
+					List<Alugavel> babas_disponiveis = Sistema.getHotel().verificaAlugaveisDisponiveis(p, Sistema.getHotel().getBabas());
+					for (int i = 0; i < babas_disponiveis.size(); i++) {
+						listModel.addElement(babas_disponiveis.get(i));		
 					}
 					
 				} catch (Exception e2) {
+					listModel.clear();
 					JOptionPane.showMessageDialog(null, e2.getMessage());
 				}
 			}

@@ -3,14 +3,17 @@ package gui.servicos;
 import gui.Sistema;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
 
+import classes.Carro.AluguelCarro;
 import classes.Carro.Carro;
 import classes.HotelOpiniaoServicosPeriodo.Alugavel;
+import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import classes.Pessoa.Contrato;
 
 import javax.swing.JCheckBox;
@@ -18,10 +21,21 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import javax.swing.JLabel;
 
 
 public class AlugaCarro extends JPanel {
 	private Contrato contrato;
+	JSpinner data_inicial;
+	JSpinner data_final;
+	DefaultListModel<Alugavel> listModel;
+	JList<Alugavel> list;
+	JCheckBox seguro, tanque;
+	
 
 	/**
 	 * 
@@ -38,47 +52,96 @@ public class AlugaCarro extends JPanel {
 	 * querer com seguro e tanque cheio
 	 */
 	public AlugaCarro(Contrato contrato) {
-		setLayout(null);
 		setBounds(0, 0, 800, 600);
-		JSpinner spinner = new JSpinner();
-		spinner.setBounds(417, 63, 159, 29);
-		spinner.setModel(new SpinnerDateModel());
-		add(spinner);
+		setLayout(null);
+		data_inicial = new JSpinner();
+		data_inicial.setBounds(417, 63, 159, 29);
+		data_inicial.setModel(new SpinnerDateModel());
+		add(data_inicial);
 		
-		JSpinner spinner_1 = new JSpinner();
-		spinner_1.setBounds(417, 125, 159, 29);
-		spinner_1.setModel(new SpinnerDateModel());
-		add(spinner_1);
+		data_final = new JSpinner();
+		data_final.setBounds(417, 125, 159, 29);
+		data_final.setModel(new SpinnerDateModel());
+		add(data_final);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(39, 37, 207, 168);
 		add(scrollPane);
 		
-		JList<Carro> list = new JList<Carro>();
+		list = new JList<Alugavel>();
 		
-		DefaultListModel<Carro> lista = new DefaultListModel<Carro>();
-		for (int i = 0; i < Sistema.getHotel().getCarros().size(); i++) {
-			lista.addElement(Sistema.getHotel().getCarros().get(i));
-		}
-		list.setModel(lista);
+		listModel = new DefaultListModel<Alugavel>();
 		scrollPane.setViewportView(list);
 		
-		JCheckBox chckbxSeguro = new JCheckBox("Seguro");
-		chckbxSeguro.setBounds(417, 182, 97, 23);
-		add(chckbxSeguro);
+		seguro = new JCheckBox("Seguro");
+		seguro.setBounds(417, 182, 97, 23);
+		add(seguro);
 		
-		JCheckBox chckbxTanqueCheio = new JCheckBox("Tanque cheio");
-		chckbxTanqueCheio.setBounds(417, 229, 97, 23);
-		add(chckbxTanqueCheio);
+		tanque = new JCheckBox("Tanque cheio");
+		tanque.setBounds(417, 229, 138, 23);
+		add(tanque);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBounds(39, 257, 89, 23);
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDeServicos(getContrato()));
 			}
 		});
-		btnVoltar.setBounds(39, 257, 89, 23);
 		add(btnVoltar);
+		
+		JButton btnConcluir = new JButton("Concluir");
+		btnConcluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Date data = (Date) data_inicial.getValue();
+				Date data2 = (Date) data_final.getValue();
+				Calendar inicio = Sistema.DateToCalendar(data);
+				Calendar fim = Sistema.DateToCalendar(data2);
+				try {
+					Periodo p = new Periodo(inicio, fim);
+					Alugavel obj = list.getSelectedValue();
+					Carro carro = (Carro) obj;
+					AluguelCarro aluguel = new AluguelCarro(carro, tanque.isSelected(), seguro.isSelected(), p);
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
+				
+			}
+		});
+		btnConcluir.setBounds(572, 256, 117, 25);
+		add(btnConcluir);
+		
+		JLabel lblDataInicial = new JLabel("Data inicial");
+		lblDataInicial.setBounds(329, 70, 89, 15);
+		add(lblDataInicial);
+		
+		JLabel lblDataFina = new JLabel("Data final");
+		lblDataFina.setBounds(329, 132, 89, 15);
+		add(lblDataFina);
+		
+		JButton btnPesquisar = new JButton("Pesquisar");
+		btnPesquisar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Date data = (Date) data_inicial.getValue();
+				Date data2 = (Date) data_final.getValue();
+				Calendar inicio = Sistema.DateToCalendar(data);
+				Calendar fim = Sistema.DateToCalendar(data2);
+				try {
+					Periodo p = new Periodo(inicio, fim);
+					List<Alugavel> carros_disponiveis = Sistema.getHotel().verificaAlugaveisDisponiveis(p, Sistema.getHotel().getCarros());
+					for (int i = 0; i < carros_disponiveis.size(); i++) {
+						listModel.addElement(carros_disponiveis.get(i));		
+					}
+					
+				} catch (Exception e2) {
+					listModel.clear();
+					JOptionPane.showMessageDialog(null, e2.getMessage());
+				}
+			}
+		});
+		list.setModel(listModel);
+		btnPesquisar.setBounds(596, 99, 117, 25);
+		add(btnPesquisar);
 		
 
 	}
