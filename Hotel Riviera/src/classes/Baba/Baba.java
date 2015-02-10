@@ -68,6 +68,7 @@ public class Baba implements Serializable, Alugavel{
 	}
 	
 	
+	
 /**
  * Retorna a String Telefone
  * @return String Telefone
@@ -160,7 +161,7 @@ public class Baba implements Serializable, Alugavel{
 	
 	@Override
 	public String toString(){
-		return "Nome: " + getNome() + "/n" +"Numero: " + getTelefone();
+		return "Nome: " + getNome() + "\n" +"Numero: " + getTelefone();
 	}
 	
 	
