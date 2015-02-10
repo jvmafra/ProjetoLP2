@@ -59,11 +59,8 @@ public class ContrataBaba extends JPanel {
 		add(data_final);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(283, 247, 250, 196);
+		scrollPane.setBounds(256, 270, 250, 196);
 		add(scrollPane);
-		
-		list = new JList<Alugavel>();
-		scrollPane.setViewportView(list);
 		final DefaultListModel<Alugavel> listModel = new DefaultListModel<Alugavel>();
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -73,7 +70,7 @@ public class ContrataBaba extends JPanel {
 				Sistema.setTela(new OpcoesDeServicos(getContrato()));
 			}
 		});
-		btnVoltar.setBounds(256, 486, 88, 25);
+		btnVoltar.setBounds(221, 486, 88, 25);
 		add(btnVoltar);
 		
 		JButton btnConcluir = new JButton("Concluir");
@@ -96,7 +93,7 @@ public class ContrataBaba extends JPanel {
 			}
 		});
 		btnConcluir.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		btnConcluir.setBounds(475, 486, 93, 25);
+		btnConcluir.setBounds(462, 486, 93, 25);
 		add(btnConcluir);
 		
 		JButton btnBuscar = new JButton("Buscar");
@@ -119,10 +116,9 @@ public class ContrataBaba extends JPanel {
 				}
 			}
 		});
-		list.setModel(listModel);
 		
 		btnBuscar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		btnBuscar.setBounds(344, 210, 117, 25);
+		btnBuscar.setBounds(321, 214, 117, 25);
 		add(btnBuscar);
 		
 		JLabel lblDataInicial = new JLabel("Data inicial:");
@@ -134,6 +130,11 @@ public class ContrataBaba extends JPanel {
 		lblDataFinal.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		lblDataFinal.setBounds(243, 175, 74, 15);
 		add(lblDataFinal);
+		
+		list = new JList<Alugavel>();
+		list.setBounds(256, 270, 247, 193);
+		add(list);
+		list.setModel(listModel);
 		
 
 	}

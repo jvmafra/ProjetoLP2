@@ -22,6 +22,9 @@ public abstract class Quarto implements Servico, Serializable, Alugavel{
 	
 	private static final long serialVersionUID = 1L;
 	private int numeroDoQuarto;
+	private List<Periodo> periodos;
+	private Periodo periodoAtual;
+	boolean camaExtra;
 	
 	/**
 	 * 
@@ -34,7 +37,10 @@ public abstract class Quarto implements Servico, Serializable, Alugavel{
 	public Quarto(int numeroDoQuarto) throws Exception{
 		if (numeroDoQuarto <= 0)
 			throw new Exception("Numero do Quarto invalido");
+		
 		this.numeroDoQuarto = numeroDoQuarto;
+		periodos = new ArrayList<>();
+		camaExtra = false;
 	}
 	
 	/**
@@ -43,6 +49,44 @@ public abstract class Quarto implements Servico, Serializable, Alugavel{
 	 * 		O numero do quarto
 	 */
 	public int getNumeroDoQuarto(){ return numeroDoQuarto;	}
+	
+	/**
+	 * Modifica o numero do quarto
+	 * @throws Exception
+	 * 		O numero do quarto deve ser sempre inteiro positivo
+	 */
+	public void setNumeroDoQuarto(int numeroDoQuarto) throws Exception {
+		if (numeroDoQuarto <= 0)
+			throw new Exception("Numero do Quarto invalido");
+		
+		this.numeroDoQuarto = numeroDoQuarto;
+	}
+	
+	/**
+	 * Verifica se o quarto possui uma cama extra
+	 * @return
+	 * 		True, se o quarto possuir cama extra
+	 * 		False, se nao houver cama extra no quarto
+	 */
+	public boolean isCamaExtra() {
+		return camaExtra;
+	}
+
+	
+	/**
+	 * Muda a cama extra de um quarto
+	 * @return
+	 * 		True, caso a mudanca seja feita
+	 * 		False, caso o quarto nao permita a presenca de cama extra
+	 */
+	public boolean setCamaExtra(boolean camaExtra) {
+		if (permiteCamaExtra()){
+			this.camaExtra = camaExtra;
+			return true;
+		}
+		
+		return false;
+	}
 
 	/**
 	 * Verifica se o quarto comporta um dado numero de pessoas
@@ -60,34 +104,48 @@ public abstract class Quarto implements Servico, Serializable, Alugavel{
 	public abstract double valor();
 	
 	/**
-	 * Adiciona um objeto do tipo Periodo na lista de periodos do quarto
-	 * @param p Periodo a ser adicionado
-	 * @return true se a operacao foi realizada corretamente
-	 */
-	public abstract boolean adicionaPeriodo(Periodo p);
-	
-	/**
-	 * Remove um periodo do quarto apos sua devolucao
-	 */
-	public abstract boolean removePeriodo(Periodo p);
-	
-	/**
 	 * Verifica se determinado permite uma cama extra
 	 */
 	public abstract boolean permiteCamaExtra();
 	
 	/**
+	 * Adiciona um objeto do tipo Periodo na lista de periodos do quarto
+	 * @param p Periodo a ser adicionado
+	 * @return true se a operacao foi realizada corretamente
+	 */
+	public void adicionaPeriodo(Periodo p){
+		periodos.add(p);
+	}
+	
+	/**
+	 * Remove um objeto do tipo periodo da lista de periodos do quarto 
+	 * @param p Periodo a ser removido
+	 * @return trua se a operacao foi realizada
+	 */
+	public void removePeriodo(Periodo p){
+		periodos.remove(p);
+	}
+	
+	/**
 	 * Retorna a lista de periodos do quarto
 	 */
-	public abstract List<Periodo> getPeriodos();
+	public List<Periodo> getPeriodos(){
+		return periodos;
+	}
 
 	
-	/** Retorna o periodo do quarto alugado atualmente */
-	public abstract Periodo getPeriodoAtual();
-	
 	/** Modifica o periodo atual do quarto  */
-	public abstract void setPeriodoAtual(Periodo periodo);
+	public void setPeriodoAtual(Periodo periodo){
+		this.periodoAtual = periodo;
+	}
 	
+	/**
+	 * Retorna o periodo atual do quarto
+	 */
+	public Periodo getPeriodoAtual() {
+		return periodoAtual;
+	}
+
 	/**
 	 * Fornece uma representacao do quarto como String
 	 */

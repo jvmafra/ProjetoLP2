@@ -95,7 +95,7 @@ public class BabySitterTest {
 	@Test
 	public void testToString() throws Exception{
 		baby = new BabySitter(bb, p);
-		Assert.assertEquals(baby.toString(),bb.toString() + "/n"+ "valor" + baby.valor());
+		Assert.assertEquals("BABYSITTER\nNome da baba: Adiel Andrade\n24/2/2015 ate 25/2/2015\nValor:450.0", baby.toString());
 	}
 	
 	

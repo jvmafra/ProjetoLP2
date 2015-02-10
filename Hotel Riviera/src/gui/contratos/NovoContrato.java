@@ -3,6 +3,7 @@ package gui.contratos;
 import excecoes.EntradaDeDadosException;
 import excecoes.PeriodoInvalidoException;
 import gui.Sistema;
+import gui.hospede.NovoHospede;
 
 import java.awt.Component;
 import java.awt.EventQueue;
@@ -109,7 +110,7 @@ public class NovoContrato extends JPanel {
 		setLayout(null);
 
 		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(88, 29, 368, 83);
+		scrollPane_2.setBounds(88, 29, 368, 101);
 		//verificar
 		DadosHospedes.add(scrollPane_2);
 		
@@ -120,6 +121,16 @@ public class NovoContrato extends JPanel {
 		
 				
 		scrollPane_2.setViewportView(list_2);
+		
+		JButton btnNovoHospede = new JButton("NOVO HOSPEDE");
+		btnNovoHospede.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new NovoHospede());
+			}
+		});
+		btnNovoHospede.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnNovoHospede.setBounds(505, 62, 179, 25);
+		DadosHospedes.add(btnNovoHospede);
 
 		JPanel EstrategiasPagamento = new JPanel();
 		EstrategiasPagamento.setBackground(Color.WHITE);
@@ -163,20 +174,24 @@ public class NovoContrato extends JPanel {
 		quartosDisponiveis.setLayout(null);
 
 		data_inicial = new JSpinner();
+		data_inicial.setFont(new Font("NanumGothic", Font.PLAIN, 13));
 		data_inicial.setBounds(99, 32, 188, 20);
 		data_inicial.setModel(new SpinnerDateModel());
 		quartosDisponiveis.add(data_inicial);
 
 		data_final = new JSpinner();
+		data_final.setFont(new Font("NanumGothic", Font.PLAIN, 13));
 		data_final.setBounds(99, 64, 188, 20);
 		data_final.setModel(new SpinnerDateModel());
 		quartosDisponiveis.add(data_final);
 
 		JLabel lblDataInicial = new JLabel("Inicio");
+		lblDataInicial.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		lblDataInicial.setBounds(12, 34, 70, 15);
 		quartosDisponiveis.add(lblDataInicial);
 
 		JLabel lblDataFinal = new JLabel("Final");
+		lblDataFinal.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		lblDataFinal.setBounds(12, 66, 70, 15);
 		quartosDisponiveis.add(lblDataFinal);
 		
@@ -193,6 +208,7 @@ public class NovoContrato extends JPanel {
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
 		JButton btnPesquisar = new JButton("Pesquisar");
+		btnPesquisar.setFont(new Font("NanumGothic", Font.PLAIN, 13));
 		btnPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Date data = (Date) data_inicial.getValue();
@@ -254,5 +270,4 @@ public class NovoContrato extends JPanel {
 		
 		
 	}	
-
 }

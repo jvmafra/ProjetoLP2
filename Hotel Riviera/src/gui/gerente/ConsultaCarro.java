@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 
 import classes.Carro.Carro;
 import classes.HotelOpiniaoServicosPeriodo.Alugavel;
+import java.awt.Font;
 
 public class ConsultaCarro extends JPanel {
 
@@ -31,42 +32,44 @@ public class ConsultaCarro extends JPanel {
 	 * Create the panel.
 	 */
 	public ConsultaCarro() {
-
 		setLayout(null);
-		
+		setBounds(0,0,800,600);
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(142, 108, 246, 244);
+		scrollPane.setBounds(252, 144, 246, 244);
 		add(scrollPane);
 		
 		list = new JList<Alugavel>();
 		scrollPane.setViewportView(list);
+		list.setModel(listModel);
 		
 		textField = new JTextField();
-		textField.setBounds(75, 59, 216, 20);
+		textField.setBounds(252, 112, 216, 20);
 		add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Digite a placa do Carro:");
-		lblNewLabel.setBounds(29, 37, 170, 14);
+		lblNewLabel.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		lblNewLabel.setBounds(284, 87, 170, 14);
 		add(lblNewLabel);
 
 		listModel = new DefaultListModel<Alugavel>();
 		for (int i = 0; i < Sistema.getHotel().getCarros().size(); i++) {
 			listModel.addElement(Sistema.getHotel().getCarros().get(i));
 		}
-		list.setModel(listModel);
 		setLayout(null);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDeCarro());
 			}
 		});
-		btnVoltar.setBounds(130, 374, 117, 25);
+		btnVoltar.setBounds(235, 400, 117, 25);
 		add(btnVoltar);
 		
 		JButton btnEditarBab = new JButton("Editar Carro");
+		btnEditarBab.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnEditarBab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -77,10 +80,11 @@ public class ConsultaCarro extends JPanel {
 			}
 
 		});
-		btnEditarBab.setBounds(290, 374, 129, 25);
+		btnEditarBab.setBounds(427, 400, 129, 25);
 		add(btnEditarBab);
 		
 		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				listModel.clear();
@@ -97,7 +101,7 @@ public class ConsultaCarro extends JPanel {
 				}
 			}
 		});
-		btnBuscar.setBounds(330, 56, 117, 25);
+		btnBuscar.setBounds(480, 109, 117, 25);
 		add(btnBuscar);
 	}
 
