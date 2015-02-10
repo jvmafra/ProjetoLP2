@@ -68,6 +68,7 @@ public class Baba implements Serializable, Alugavel{
 	}
 	
 	
+	
 /**
  * Retorna a String Telefone
  * @return String Telefone
