@@ -69,17 +69,27 @@ public class EditaBaba extends JPanel {
 				}
 			}
 		});
-		btnSalvar.setBounds(321, 231, 89, 23);
+		btnSalvar.setBounds(375, 231, 89, 23);
 		add(btnSalvar);
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new OpcoesPrivadas());
+				Sistema.setTela(new ConsultaBabas());
 			}
 		});
-		btnVoltar.setBounds(190, 231, 89, 23);
+		btnVoltar.setBounds(72, 231, 89, 23);
 		add(btnVoltar);
+		
+		JButton btnRemovarBab = new JButton("Removar Babá");
+		btnRemovarBab.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.getHotel().removeBaba(baba);
+				Sistema.setTela(new ConsultaBabas());
+			}
+		});
+		btnRemovarBab.setBounds(195, 230, 150, 25);
+		add(btnRemovarBab);
 
 	}
 }

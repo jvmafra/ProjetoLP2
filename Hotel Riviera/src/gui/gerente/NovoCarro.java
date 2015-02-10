@@ -2,14 +2,12 @@ package gui.gerente;
 
 import gui.Sistema;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -62,7 +60,7 @@ public class NovoCarro extends JPanel {
 		JButton voltar = new JButton("Voltar");
 		voltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new OpcoesPrivadas());
+				Sistema.setTela(new OpcoesDeCarro());
 			}
 		});
 		voltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
@@ -88,6 +86,7 @@ public class NovoCarro extends JPanel {
 					Carro carro = new Carro(descricao.getText(), placa.getText(), luxo.isSelected());
 					JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
 					Sistema.getHotel().adicionaCarro(carro);
+					Sistema.setTela(new OpcoesDeCarro());
 				}  catch (Exception e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}

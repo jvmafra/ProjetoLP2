@@ -1,17 +1,13 @@
 package gui.gerente;
 
-import excecoes.NomeInvalidoException;
-import excecoes.TelefoneInvalidoException;
 import gui.PaginaInicialHotel;
 import gui.Sistema;
 
-import javax.swing.JPanel;
-import javax.swing.JButton;
-
-import classes.Baba.Baba;
-
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 public class OpcoesPrivadas extends JPanel {
 
@@ -48,19 +44,19 @@ public class OpcoesPrivadas extends JPanel {
 		btnVoltar.setBounds(40, 266, 89, 23);
 		add(btnVoltar);
 		
-		JButton btnCadastroCarro = new JButton("Cadastra Carro");
+		JButton btnCadastroCarro = new JButton("Carro");
 		btnCadastroCarro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new NovoCarro());
+				Sistema.setTela(new OpcoesDeCarro());
 			}
 		});
 		btnCadastroCarro.setBounds(117, 133, 174, 33);
 		add(btnCadastroCarro);
 		
-		JButton btnCadastraBab = new JButton("Cadastra Bab\u00E1");
+		JButton btnCadastraBab = new JButton("Bab\u00E1");
 		btnCadastraBab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new NovaBaba());
+				Sistema.setTela(new OpcoesDeBaba());
 			}
 		});
 		btnCadastraBab.setBounds(117, 177, 174, 33);

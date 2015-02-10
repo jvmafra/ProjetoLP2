@@ -1,27 +1,21 @@
 package gui.hospede;
 
-import excecoes.EntradaDeDadosException;
 import gui.Sistema;
 
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import javax.swing.JLabel;
-
-import java.awt.Font;
-
-import javax.swing.JButton;
 
 import classes.Pessoa.Hospede;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.swing.JScrollPane;
-import javax.swing.JList;
 
 public class ConsultaHospede extends JPanel {
 	/**
@@ -41,7 +35,7 @@ public class ConsultaHospede extends JPanel {
 		setBounds(0, 0, 800, 600);
 		textField = new JTextField();
 		textField.setText("");
-		textField.setBounds(325, 32, 447, 30);
+		textField.setBounds(176, 76, 447, 30);
 		add(textField);
 		textField.setColumns(10);
 
@@ -61,7 +55,7 @@ public class ConsultaHospede extends JPanel {
 		add(btnVoltar);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(302, 206, 335, 182);
+		scrollPane.setBounds(177, 210, 335, 261);
 		add(scrollPane);
 
 		list = new JList<Hospede>();
@@ -120,7 +114,7 @@ public class ConsultaHospede extends JPanel {
 		});
 		list.setModel(listModel);
 		btnBuscar.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
-		btnBuscar.setBounds(226, 97, 147, 41);
+		btnBuscar.setBounds(307, 128, 147, 41);
 		add(btnBuscar);
 
 		JLabel lblResultadosDaSua = new JLabel("Resultados da sua Busca:");
@@ -134,7 +128,7 @@ public class ConsultaHospede extends JPanel {
 				Sistema.setTela(new EditaHospede(list.getSelectedValue()));
 			}
 		});
-		btnEditar.setBounds(400, 447, 89, 23);
+		btnEditar.setBounds(573, 342, 112, 41);
 		add(btnEditar);
 
 	}

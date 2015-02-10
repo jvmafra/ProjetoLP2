@@ -58,7 +58,7 @@ public class NovaBaba extends JPanel {
 		JButton voltar = new JButton("Voltar");
 		voltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new OpcoesPrivadas());
+				Sistema.setTela(new OpcoesDeBaba());
 			}
 		});
 		voltar.setFont(new Font("NanumGothic", Font.PLAIN, 12));
@@ -83,6 +83,7 @@ public class NovaBaba extends JPanel {
 					Baba baba = new Baba(nome.getText(), telefone.getText());
 					JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
 					Sistema.getHotel().adicionaBaba(baba);
+					Sistema.setTela(new OpcoesDeBaba());
 				}  catch (Exception e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
