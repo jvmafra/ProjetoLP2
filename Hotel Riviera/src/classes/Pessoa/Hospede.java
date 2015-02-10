@@ -55,7 +55,7 @@ public class Hospede implements Serializable{
 		if(endereco == null || endereco.equals(""))
 			throw new EnderecoInvalidoException("Endereco invalido");
 		
-		if(telefone == null || telefone.equals("") ||  telefone.length() < 8 || telefone.length() > 12)
+		if(telefone == null || telefone.equals("") ||  telefone.length() < 8 || telefone.length() > 16)
 			throw new TelefoneInvalidoException("Telefone invalido");
 		
 		if (numCartao == null || numCartao.equals("") || !(validaCartaoDeCredito(numCartao))){
