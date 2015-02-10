@@ -144,20 +144,9 @@ public class EditaHospede extends JPanel {
 				Sistema.setTela(new ConsultaHospede());
 			}
 		});
-		btnSalvar.setFont(new Font("Dialog", Font.PLAIN, 14));
-		btnSalvar.setBounds(322, 513, 117, 25);
+		btnSalvar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnSalvar.setBounds(481, 513, 117, 25);
 		add(btnSalvar);
-		
-		JButton btnRemoverHspede = new JButton("Remover H\u00F3spede");
-		btnRemoverHspede.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Sistema.getHotel().removeHospede(hospede);
-				JOptionPane.showMessageDialog(null, "Hóspede removido");
-				Sistema.setTela(new ConsultaHospede());
-			}
-		});
-		btnRemoverHspede.setBounds(486, 516, 127, 23);
-		add(btnRemoverHspede);
 		
 		
 	}
@@ -171,8 +160,7 @@ public class EditaHospede extends JPanel {
 		try {
 			h.setTelefone(telefone.getText());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,	e.getMessage());
 		}
 		h.setNumCartao(numCartao.getText());
 	}

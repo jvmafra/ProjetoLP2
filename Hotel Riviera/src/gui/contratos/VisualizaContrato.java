@@ -12,13 +12,13 @@ import classes.Pessoa.Contrato;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
 
 public class VisualizaContrato extends JPanel {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField status;
 	private JTextField servicos;
 	private Contrato contrato;
 
@@ -29,15 +29,6 @@ public class VisualizaContrato extends JPanel {
 		this.contrato = contrato;
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
-		
-		status = new JTextField();
-		status.setText(getContrato().imprimeResumoAtual());
-		status.setEditable(false);
-		status.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		status.setBounds(22, 86, 248, 391);
-		add(status);
-		status.setColumns(10);
-		status.setText(getContrato().mostraStatus());
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
@@ -54,6 +45,7 @@ public class VisualizaContrato extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				getContrato().fechaContrato();
 				Sistema.setTela(new VisualizaContrato(getContrato()));
+				
 			}
 		});
 		btnFecharContrato.setFont(new Font("NanumGothic", Font.PLAIN, 14));
@@ -77,6 +69,12 @@ public class VisualizaContrato extends JPanel {
 		add(servicos);
 		servicos.setColumns(10);
 		servicos.setText(getContrato().imprimeCadaServicoEspecial());
+		
+		JLabel status = new JLabel("");
+		status.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		status.setBounds(50, 78, 234, 399);
+		status.setText(getContrato().imprimeResumoAtual());
+		add(status);
 
 	}
 	

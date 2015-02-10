@@ -40,18 +40,19 @@ public class ConsultaHospede extends JPanel {
 		textField.setColumns(10);
 
 		JLabel lblDigiteONome = new JLabel(
-				"Digite o Nome ou o CPF do H\u00F3spede:");
-		lblDigiteONome.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
-		lblDigiteONome.setBounds(42, 25, 280, 41);
+				"Digite o Nome ou o CPF do Hospede:");
+		lblDigiteONome.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		lblDigiteONome.setBounds(176, 29, 280, 41);
 		add(lblDigiteONome);
 
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDoHospede());
 			}
 		});
-		btnVoltar.setBounds(30, 566, 89, 23);
+		btnVoltar.setBounds(313, 527, 89, 23);
 		add(btnVoltar);
 
 		JScrollPane scrollPane = new JScrollPane();
@@ -62,7 +63,7 @@ public class ConsultaHospede extends JPanel {
 		scrollPane.setViewportView(list);
 		final DefaultListModel<Hospede> listModel = new DefaultListModel<Hospede>();
 
-		JButton btnBuscar = new JButton("Buscar");
+		JButton btnBuscar = new JButton("BUSCAR");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				listModel.clear();
@@ -93,27 +94,62 @@ public class ConsultaHospede extends JPanel {
 										.getHospedes().get(i));
 						}
 					}
+					
+					if (listModel.size() == 0){
+						JOptionPane.showMessageDialog(null,	"Nenhum resultado.");
+					}
 				}
 			}
 		});
 		list.setModel(listModel);
-		btnBuscar.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
-		btnBuscar.setBounds(307, 128, 147, 41);
+		btnBuscar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnBuscar.setBounds(313, 116, 130, 23);
 		add(btnBuscar);
 
-		JLabel lblResultadosDaSua = new JLabel("Resultados da sua Busca:");
-		lblResultadosDaSua.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
-		lblResultadosDaSua.setBounds(42, 169, 160, 30);
+		JLabel lblResultadosDaSua = new JLabel("Resultados da busca:");
+		lblResultadosDaSua.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		lblResultadosDaSua.setBounds(176, 166, 241, 30);
 		add(lblResultadosDaSua);
 		
 		JButton btnEditar = new JButton("Editar");
+		btnEditar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Sistema.setTela(new EditaHospede(list.getSelectedValue()));
+				if (list.getSelectedValue() != null)
+					Sistema.setTela(new EditaHospede(list.getSelectedValue()));
+				else
+					mostraTelaDeErro();
 			}
 		});
-		btnEditar.setBounds(573, 342, 112, 41);
+		btnEditar.setBounds(573, 333, 112, 41);
 		add(btnEditar);
+		
+		JButton btnNewButton = new JButton("Abrir");
+		btnNewButton.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnNewButton.setBounds(573, 267, 112, 41);
+		add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Remover");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (list.getSelectedValue() != null){
+					Sistema.getHotel().removeHospede(list.getSelectedValue());
+					Sistema.setTela(new ConsultaHospede());
+				}
+				else
+					mostraTelaDeErro();
+			}
+		});
+		btnNewButton_1.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnNewButton_1.setBounds(573, 395, 112, 41);
+		add(btnNewButton_1);
 
 	}
+	
+	private void mostraTelaDeErro() {
+		JOptionPane.showMessageDialog(null,	"Selecione um hospede antes");
+
+	}
+
+
 }

@@ -26,6 +26,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Font;
 
 public class BuscaContrato extends JPanel {
 
@@ -53,6 +54,7 @@ public class BuscaContrato extends JPanel {
 
 		// Intancio o jList que contem os quartos
 		list = new JList<Contrato>();
+		list.setFont(new Font("NanumGothic", Font.PLAIN, 13));
 		list.setBounds(143, 92, 216, 183);
 
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -65,6 +67,7 @@ public class BuscaContrato extends JPanel {
 		scrollPane.setViewportView(list);
 
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDeContrato());
@@ -74,16 +77,17 @@ public class BuscaContrato extends JPanel {
 		add(btnVoltar);
 
 		JButton btnRemover = new JButton("Remover");
+		btnRemover.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Object obj = list.getSelectedValue();
-				if (obj == null)
+				Contrato contrato = list.getSelectedValue();
+				if (contrato == null)
 					JOptionPane.showMessageDialog(null, "Selecione um contrato");
-
-				Contrato c = (Contrato) obj;
-				Sistema.getHotel().getContratos().remove(c);
-				Sistema.setTela(new BuscaContrato());
+				else{
+					Sistema.getHotel().getContratos().remove(contrato);
+					Sistema.setTela(new BuscaContrato());
+				}
 
 			}
 		});
@@ -92,12 +96,15 @@ public class BuscaContrato extends JPanel {
 		add(btnRemover);
 
 		JButton btnAbrir = new JButton("Abrir");
+		btnAbrir.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnAbrir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Contrato contrato = list.getSelectedValue();
 				if (contrato == null)
 					JOptionPane.showMessageDialog(null, "Selecione um contrato");
+				else{
 				Sistema.setTela(new VisualizaContrato(contrato));
+				}
 			}
 		});
 		btnAbrir.setActionCommand("Remover");
