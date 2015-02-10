@@ -62,25 +62,6 @@ public class ConsultaHospede extends JPanel {
 		scrollPane.setViewportView(list);
 		final DefaultListModel<Hospede> listModel = new DefaultListModel<Hospede>();
 
-		// Intancio o jList que contem os quartos
-		// JList<Quarto> list = new JList<Quarto>();
-		// list.setBounds(30, 134, 243, 100);
-		// list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		//
-		// // Instancia o scrollPane que contem o jList
-		// JScrollPane scrollPane = new JScrollPane();
-		// scrollPane.setSize(243, 197);
-		// scrollPane.setLocation(30, 134);
-		// scrollPane.setViewportView(list);
-		// quartosDisponiveis.add(scrollPane);
-		//
-		// // Adiciona os quartos disponíveis no jList
-		// DefaultListModel<Quarto> listModel = new DefaultListModel<Quarto>();
-		// for (int i = 0; i < hotel.getQuartos().size(); i++) {
-		// listModel.addElement(hotel.getQuartos().get(i));
-		// }
-		// list.setModel(listModel);
-
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

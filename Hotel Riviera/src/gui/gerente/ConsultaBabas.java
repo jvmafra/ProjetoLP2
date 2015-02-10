@@ -89,7 +89,7 @@ public class ConsultaBabas extends JPanel {
 					JOptionPane.showMessageDialog(null, "Digite o nome da Babá");
 				listModel.clear();
 				for (int i = 0; i < Sistema.getHotel().getBabas().size(); i++) {
-					if (Sistema.getHotel().getBabas().get(i).getNome().contains(busca))
+					if (((Baba) (Sistema.getHotel().getBabas().get(i))).getNome().contains(busca))
 						listModel.addElement(Sistema.getHotel().getBabas().get(i));
 				}
 			}

@@ -91,7 +91,7 @@ public class ConsultaCarro extends JPanel {
 					}
 				} else {
 					for (int i = 0; i < Sistema.getHotel().getCarros().size(); i++) {
-						if (Sistema.getHotel().getCarros().get(i).getPlaca().contains(busca))
+						if (((Carro) (Sistema.getHotel().getCarros().get(i))).getPlaca().contains(busca))
 							listModel.addElement(Sistema.getHotel().getCarros().get(i));
 					}
 				}
