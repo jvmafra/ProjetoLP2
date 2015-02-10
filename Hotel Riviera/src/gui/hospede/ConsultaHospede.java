@@ -67,7 +67,10 @@ public class ConsultaHospede extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				listModel.clear();
 				String busca = textField.getText();
-				if (busca.length() < 5){
+				if (busca.equals("")){
+					for (int i = 0; i < Sistema.getHotel().getHospedes().size(); i++)
+						listModel.addElement(Sistema.getHotel().getHospedes().get(i));
+				} else if (busca.length() < 4){
 					JOptionPane.showMessageDialog(null,
 							"Seja mais especifico em sua busca");
 					}

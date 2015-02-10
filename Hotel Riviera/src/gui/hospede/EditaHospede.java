@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import classes.Pessoa.Contrato;
@@ -146,6 +147,17 @@ public class EditaHospede extends JPanel {
 		btnSalvar.setFont(new Font("Dialog", Font.PLAIN, 14));
 		btnSalvar.setBounds(322, 513, 117, 25);
 		add(btnSalvar);
+		
+		JButton btnRemoverHspede = new JButton("Remover H\u00F3spede");
+		btnRemoverHspede.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Sistema.getHotel().removeHospede(hospede);
+				JOptionPane.showMessageDialog(null, "Hóspede removido");
+				Sistema.setTela(new ConsultaHospede());
+			}
+		});
+		btnRemoverHspede.setBounds(486, 516, 127, 23);
+		add(btnRemoverHspede);
 		
 		
 	}
