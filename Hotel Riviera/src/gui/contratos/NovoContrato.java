@@ -3,7 +3,6 @@ package gui.contratos;
 import gui.PaginaInicialHotel;
 import gui.Sistema;
 import gui.hospede.OpcoesDoHospede;
-import gui.hospede.SelecaoQuartos;
 
 import java.awt.Component;
 import java.awt.EventQueue;

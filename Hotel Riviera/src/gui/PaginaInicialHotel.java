@@ -102,11 +102,6 @@ public class PaginaInicialHotel extends JPanel {
 		});
 		btnSair.setFont(new Font("Tahoma", Font.BOLD, 18));
 		panel.add(btnSair);
-		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("/home/edvalmsg/Downloads/riviera.jpg"));
-		lblNewLabel.setBounds(169, 53, 491, 416);
-		panel.add(lblNewLabel);
 
 	}
 

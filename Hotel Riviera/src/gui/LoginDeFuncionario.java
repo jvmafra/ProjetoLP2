@@ -66,7 +66,7 @@ public class LoginDeFuncionario extends JPanel {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
-		panel.setBounds(250, 381, 278, 207);
+		panel.setBounds(251, 349, 278, 207);
 		add(panel);
 		panel.setLayout(null);
 		JLabel login_1 = new JLabel("Login");
@@ -100,8 +100,8 @@ public class LoginDeFuncionario extends JPanel {
 		botao_entrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("/home/edvalmsg/Downloads/riviera.jpg"));
-		lblNewLabel.setBounds(80, 70, 558, 389);
+		lblNewLabel.setIcon(new ImageIcon(LoginDeFuncionario.class.getResource("/icones/Logo Hotel.png")));
+		lblNewLabel.setBounds(77, 0, 528, 410);
 		add(lblNewLabel);
 
 	}

@@ -50,7 +50,7 @@ public class OpcoesDoHospede extends JPanel {
 		panel.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Sistema.setTela(new NovoContrato());
+				Sistema.setTela(new NovoHospede());
 			}
 		});
 		
