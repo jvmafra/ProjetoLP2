@@ -17,8 +17,8 @@ public class QuartoExecutivoDuplo extends Quarto {
 	public static final double VALOR_DA_DIARIA = 385.00;
 	public static final double VALOR_DA_DIARIA_COM_CAMA_EXTRA = 405.00;
 	public static final int CAPACIDADE = 2;
+	private List<Periodo> periodos;
 	private boolean camaExtra;
-	private List<Periodo> periodos = new ArrayList<>();
 	private Periodo periodoAtual;
 	
 

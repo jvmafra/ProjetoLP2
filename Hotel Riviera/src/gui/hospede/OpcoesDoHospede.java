@@ -61,7 +61,7 @@ public class OpcoesDoHospede extends JPanel {
 		
 		btnConsultaHspedes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new ConsutaHospede());
+				Sistema.setTela(new ConsultaHospede());
 			}
 		});
 		

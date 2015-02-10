@@ -2,6 +2,7 @@ package classes.Quartos;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import classes.HotelOpiniaoServicosPeriodo.Alugavel;
@@ -18,6 +19,7 @@ public abstract class Quarto implements Servico, Serializable, Alugavel{
 	/**
 	 * 
 	 */
+	
 	private static final long serialVersionUID = 1L;
 	private int numeroDoQuarto;
 	
@@ -58,7 +60,9 @@ public abstract class Quarto implements Servico, Serializable, Alugavel{
 	public abstract double valor();
 	
 	/**
-	 * Adiciona um novo periodo de aluguel ao quarto
+	 * Adiciona um objeto do tipo Periodo na lista de periodos do quarto
+	 * @param p Periodo a ser adicionado
+	 * @return true se a operacao foi realizada corretamente
 	 */
 	public abstract boolean adicionaPeriodo(Periodo p);
 	
@@ -76,6 +80,7 @@ public abstract class Quarto implements Servico, Serializable, Alugavel{
 	 * Retorna a lista de periodos do quarto
 	 */
 	public abstract List<Periodo> getPeriodos();
+
 	
 	/** Retorna o periodo do quarto alugado atualmente */
 	public abstract Periodo getPeriodoAtual();

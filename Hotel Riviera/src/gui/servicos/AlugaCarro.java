@@ -54,9 +54,9 @@ public class AlugaCarro extends JPanel {
 		scrollPane.setBounds(39, 37, 207, 168);
 		add(scrollPane);
 		
-		JList<Alugavel> list = new JList<Alugavel>();
+		JList<Carro> list = new JList<Carro>();
 		
-		DefaultListModel<Alugavel> lista = new DefaultListModel<Alugavel>();
+		DefaultListModel<Carro> lista = new DefaultListModel<Carro>();
 		for (int i = 0; i < Sistema.getHotel().getCarros().size(); i++) {
 			lista.addElement(Sistema.getHotel().getCarros().get(i));
 		}

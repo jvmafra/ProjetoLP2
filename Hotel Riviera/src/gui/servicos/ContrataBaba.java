@@ -20,6 +20,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -59,9 +60,9 @@ public class ContrataBaba extends JPanel {
 		scrollPane.setBounds(283, 247, 250, 196);
 		add(scrollPane);
 		
-		JList<Alugavel> list = new JList<Alugavel>();
+		JList<Baba> list = new JList<Baba>();
 		scrollPane.setViewportView(list);
-		final DefaultListModel<Alugavel> listModel = new DefaultListModel<Alugavel>();
+		final DefaultListModel<Baba> listModel = new DefaultListModel<Baba>();
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
@@ -88,9 +89,9 @@ public class ContrataBaba extends JPanel {
 				try {
 					Periodo p = new Periodo(inicio, fim);
 					listModel.clear();
-					List<Alugavel> babas_disponiveis = Sistema.getHotel().verificaAlugaveisDisponiveis(p, Sistema.getHotel().getBabas());
-					for (int i = 0; i < babas_disponiveis.size(); i++) {
-						listModel.addElement(babas_disponiveis.get(i));		
+					for (int i = 0; i < Sistema.getHotel().getBabas().size(); i++) {
+						if (Sistema.getHotel().getBabas().get(i).isDisponivel(p))
+							listModel.addElement(Sistema.getHotel().getBabas().get(i));		
 					}
 					
 				} catch (Exception e2) {

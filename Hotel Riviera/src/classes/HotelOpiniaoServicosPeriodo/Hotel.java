@@ -30,9 +30,9 @@ public class Hotel implements Serializable{
 	private List<Contrato> contratos = new ArrayList<>();
 	private List<Hospede> hospedes = new ArrayList<>();
 	private List<Opiniao> opinioes = new ArrayList<>();
-	private List<Alugavel> quartos = new ArrayList<>();
-	private List<Alugavel> babas = new ArrayList<>();
-	private List<Alugavel> carros = new ArrayList<>();
+	private List<Quarto> quartos = new ArrayList<>();
+	private List<Baba> babas = new ArrayList<>();
+	private List<Carro> carros = new ArrayList<>();
 	private Map<String, String> funcionarios = new TreeMap<>();
 
 	/**
@@ -230,10 +230,17 @@ public class Hotel implements Serializable{
 	}
 	
 	/**
-	 * Remove um novo carro no hotel
+	 * Remove um carro no hotel
 	 */
 	public void removeCarro(Carro carro){
 		carros.remove(carro);
+	}
+	
+	/**
+	 * Remove um hospede do hotel
+	 */
+	public void removeHospede(Hospede hospede){
+		hospedes.remove(hospede);
 	}
 	
 
@@ -353,15 +360,15 @@ public class Hotel implements Serializable{
 		}
 	}
 
-	public List<Alugavel> getQuartos() {
+	public List<Quarto> getQuartos() {
 		return quartos;
 	}
 
-	public List<Alugavel> getBabas() {
+	public List<Baba> getBabas() {
 		return babas;
 	}
 
-	public List<Alugavel> getCarros() {
+	public List<Carro> getCarros() {
 		return carros;
 	}
 	

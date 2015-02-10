@@ -23,13 +23,20 @@ import java.util.List;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
 
-public class ConsutaHospede extends JPanel {
+public class ConsultaHospede extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField textField;
+	private JList<Hospede> list = null;
 
 	/**
 	 * Create the panel.
 	 */
-	public ConsutaHospede() {
+	public ConsultaHospede() {
+
+		
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
 		textField = new JTextField();
@@ -57,7 +64,7 @@ public class ConsutaHospede extends JPanel {
 		scrollPane.setBounds(302, 206, 335, 182);
 		add(scrollPane);
 
-		JList<Hospede> list = new JList<Hospede>();
+		list = new JList<Hospede>();
 		scrollPane.setViewportView(list);
 		final DefaultListModel<Hospede> listModel = new DefaultListModel<Hospede>();
 
@@ -86,7 +93,6 @@ public class ConsutaHospede extends JPanel {
 				listModel.clear();
 				String busca = textField.getText();
 				if (busca.length() < 5){
-					System.out.println(Sistema.getHotel().getHospedes().size());
 					JOptionPane.showMessageDialog(null,
 							"Seja mais especifico em sua busca");
 					}
@@ -121,6 +127,15 @@ public class ConsutaHospede extends JPanel {
 		lblResultadosDaSua.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		lblResultadosDaSua.setBounds(42, 169, 160, 30);
 		add(lblResultadosDaSua);
+		
+		JButton btnEditar = new JButton("Editar");
+		btnEditar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Sistema.setTela(new EditaHospede(list.getSelectedValue()));
+			}
+		});
+		btnEditar.setBounds(400, 447, 89, 23);
+		add(btnEditar);
 
 	}
 }

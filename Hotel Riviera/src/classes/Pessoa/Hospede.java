@@ -71,14 +71,44 @@ public class Hospede implements Serializable{
 	this.idade = idade;
 	
 	}
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	public String getRg() {
+		return rg;
+	}
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+	public String getNumCartao() {
+		return numCartao;
+	}
+	public void setNumCartao(String numCartao) {
+		this.numCartao = numCartao;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public void setIdade(String idade) {
+		this.idade = idade;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
 	private boolean verificaIdade(String idade) {
-		int idade_int = Integer.parseInt(idade);
-		if(idade_int < 18 || idade_int > 120)
+		int idades = Integer.parseInt(idade);
+		if(idades<18 || idades> 120)
 			return false;
 		return true;
 	}
 	/**
-	 * Testa numero de cartao de credito
+	 * Testa numero de cart�o de cr�dito
 	 * @param numero
 	 * @return
 	 */
@@ -108,7 +138,8 @@ public class Hospede implements Serializable{
  * @throws Exception
  */
 	public void setTelefone(String telefone) throws Exception {
-		if(telefone == null || telefone.equals(""))
+		if(telefone == null || telefone.equals("")
+			||  telefone.length() < 8 || telefone.length() > 12)
 			throw new TelefoneInvalidoException("Telefone invalido");
 		this.telefone = telefone;
 	}

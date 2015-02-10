@@ -64,7 +64,7 @@ public class NovoContrato extends JPanel {
 	private JFormattedTextField numCartao;
 	JSpinner data_inicial;
 	JSpinner data_final;
-	JList<Alugavel> list;
+	JList<Quarto> list;
 
 
 	/**
@@ -254,8 +254,8 @@ public class NovoContrato extends JPanel {
 		scrollPane.setLocation(30, 134);
 				
 		// Intancio o jList que contem os quartos
-		list = new JList<Alugavel>();
-		final DefaultListModel<Alugavel> listModel = new DefaultListModel<Alugavel>();
+		list = new JList<Quarto>();
+		final DefaultListModel<Quarto> listModel = new DefaultListModel<Quarto>();
 		quartosDisponiveis.add(scrollPane);
 		list.setBounds(30, 134, 243, 100);
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -269,9 +269,8 @@ public class NovoContrato extends JPanel {
 				Calendar fim = Sistema.DateToCalendar(data2);
 				try {
 					Periodo p = new Periodo(inicio, fim);
-					List<Alugavel> quartos_disponiveis = Sistema.getHotel().verificaAlugaveisDisponiveis(p, Sistema.getHotel().getQuartos());
-					for (int i = 0; i < quartos_disponiveis.size(); i++) {
-						listModel.addElement(quartos_disponiveis.get(i));		
+					for (int i = 0; i < Sistema.getHotel().getQuartos().size(); i++) {
+						listModel.addElement(Sistema.getHotel().getQuartos().get(i));		
 					}
 					
 				} catch (Exception e2) {
