@@ -95,7 +95,7 @@ public class BabaTest {
 		@Test
 		public void testToString() throws PlacaInvalidaException, NomeInvalidoException, TelefoneInvalidoException{
 			b1= new Baba("Adiel" , "96854858");
-			Assert.assertEquals(b1.toString(), "Nome: " + b1.getNome() + "/n" +"Numero: " + b1.getTelefone());
+			Assert.assertEquals(b1.toString(), "Nome: " + b1.getNome() + "\n" +"Numero: " + b1.getTelefone());
 		}
 	
 
