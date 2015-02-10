@@ -33,12 +33,12 @@ public class Sistema extends JFrame {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
-					criaHotel();
-					setTela(new LoginDeFuncionario());
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+//				try {
+//					criaHotel();
+//					setTela(new LoginDeFuncionario());
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
 				
 				criaHotel();
 				setTela(new LoginDeFuncionario());
@@ -79,15 +79,16 @@ public class Sistema extends JFrame {
 		if(janela == null) iniciaSistema();
 
 		if(novaTela == null)
-			System.out.println("Pode isso n�o");
+			System.out.println("Pode isso nao");
 		janela.contentPane.removeAll();
 		janela.contentPane.add(novaTela);
 		janela.revalidate();
 	}
 	
 	public static Hotel getHotel() {
-		if (hotel == null)
+		if (hotel == null){
 			criaHotel();
+			}
 		return hotel;
 		
 	}
