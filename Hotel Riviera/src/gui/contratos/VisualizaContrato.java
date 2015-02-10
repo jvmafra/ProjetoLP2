@@ -6,12 +6,14 @@ import gui.servicos.OpcoesDeServicos;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JTextPane;
 
 import classes.Pessoa.Contrato;
 
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JLabel;
 
 public class VisualizaContrato extends JPanel {
@@ -19,7 +21,7 @@ public class VisualizaContrato extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField servicos;
+	private JTextPane servicos;
 	private Contrato contrato;
 
 	/**
@@ -62,15 +64,14 @@ public class VisualizaContrato extends JPanel {
 		btnNewButton.setBounds(613, 230, 162, 25);
 		add(btnNewButton);
 		
-		servicos = new JTextField();
+		servicos = new JTextPane();
 		servicos.setEditable(false);
 		servicos.setText(getContrato().imprimeCadaServicoEspecial());
 		servicos.setBounds(350, 86, 241, 391);
 		add(servicos);
-		servicos.setColumns(10);
 		servicos.setText(getContrato().imprimeCadaServicoEspecial());
 		
-		JLabel status = new JLabel("");
+		JTextPane status = new JTextPane();
 		status.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		status.setBounds(50, 78, 234, 399);
 		status.setText(getContrato().imprimeResumoAtual());

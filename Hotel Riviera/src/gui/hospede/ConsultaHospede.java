@@ -125,6 +125,11 @@ public class ConsultaHospede extends JPanel {
 		add(btnEditar);
 		
 		JButton btnNewButton = new JButton("Abrir");
+		btnNewButton.addActionListener(new ActionListener() {			if ()
+			public void actionPerformed(ActionEvent arg0) {
+
+			}
+		});
 		btnNewButton.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnNewButton.setBounds(573, 267, 112, 41);
 		add(btnNewButton);

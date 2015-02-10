@@ -258,7 +258,8 @@ public class Contrato implements Serializable{
 	 * Imprime um resumo atual do contrato
 	 */
 	public String imprimeResumoAtual(){
-		return hospede.mostraInformacoes() + "\n\nQuarto: " + servicos.get(0) + "\n\nPeriodo: " + getPeriodo().toString() + "\n\nSTATUS: " + mostraStatus();
+		return hospede.mostraInformacoes() + "\n\nQuarto: " + servicos.get(0) + 
+				"\n\nPeriodo: " + getPeriodo().toString() + "\n\nSTATUS: " + mostraStatus();
 	}
 	
 	/**
