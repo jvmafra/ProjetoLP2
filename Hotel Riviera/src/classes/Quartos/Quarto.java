@@ -68,6 +68,11 @@ public abstract class Quarto implements Servico, Serializable, Alugavel{
 	public abstract boolean removePeriodo(Periodo p);
 	
 	/**
+	 * Verifica se determinado permite uma cama extra
+	 */
+	public abstract boolean permiteCamaExtra();
+	
+	/**
 	 * Retorna a lista de periodos do quarto
 	 */
 	public abstract List<Periodo> getPeriodos();

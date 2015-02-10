@@ -137,4 +137,10 @@ public class QuartoLuxoSimples extends Quarto{
 		return periodos;
 	}
 
+
+	@Override
+	public boolean permiteCamaExtra() {
+		return true;
+	}
+
 }

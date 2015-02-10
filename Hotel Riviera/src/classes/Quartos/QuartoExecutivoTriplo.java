@@ -78,7 +78,7 @@ public class QuartoExecutivoTriplo extends Quarto{
 	/**
 	 * Remove um objeto do tipo periodo da lista de periodos do quarto 
 	 * @param p Periodo a ser removido
-	 * @return trua se a operacao foi realizada
+	 * @return true se a operacao foi realizada
 	 */
 	public boolean removePeriodo(Periodo p){
 		return periodos.remove(p);
@@ -113,5 +113,10 @@ public class QuartoExecutivoTriplo extends Quarto{
 	@Override
 	public List<Periodo> getPeriodos() {
 		return periodos;
+	}
+
+	@Override
+	public boolean permiteCamaExtra() {
+		return true;
 	}
 }

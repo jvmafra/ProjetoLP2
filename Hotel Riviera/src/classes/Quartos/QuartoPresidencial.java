@@ -113,4 +113,10 @@ public class QuartoPresidencial extends Quarto{
 	}
 
 
+	@Override
+	public boolean permiteCamaExtra() {
+		return false;
+	}
+
+
 }

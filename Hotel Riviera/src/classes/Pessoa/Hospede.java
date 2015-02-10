@@ -36,10 +36,7 @@ public class Hospede implements Serializable{
 	 * @param idade
 	 * @throws Exception
 	 */
-	public Hospede(String nome, String CPF, String RG,String idade , String email, String telefone, String endereco, String numCartao) throws EntradaDeDadosException{
-		if(!(verificaIdade(idade)))
-			throw new IdadeInvalidaException("Idade indisponivel para cadastro");
-		
+	public Hospede(String nome, String CPF, String RG,String idade , String email, String telefone, String endereco, String numCartao) throws EntradaDeDadosException{	
 		if(nome == null || nome.equals(""))
 			throw new NomeInvalidoException("Nome invalido");
 		
@@ -48,6 +45,9 @@ public class Hospede implements Serializable{
 		
 		if(RG == null || RG.equals("") || RG.length() != 7 || validoRg(RG))
 			throw new RgInvalidoException("RG invalido");
+		
+		if(idade == null || idade.equals(""))
+			throw new IdadeInvalidaException("Idade invalida");
 		
 		if(email == null || email.equals("") || verificaEmail(email) == false)
 			throw new EmailInvalidoExcepcion("E-mail invalido");
@@ -72,13 +72,13 @@ public class Hospede implements Serializable{
 	
 	}
 	private boolean verificaIdade(String idade) {
-		int idades = Integer.parseInt(idade);
-		if(idades<18 || idades> 120)
+		int idade_int = Integer.parseInt(idade);
+		if(idade_int < 18 || idade_int > 120)
 			return false;
 		return true;
 	}
 	/**
-	 * Testa numero de cart�o de cr�dito
+	 * Testa numero de cartao de credito
 	 * @param numero
 	 * @return
 	 */

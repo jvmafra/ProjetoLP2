@@ -127,6 +127,10 @@ public class QuartoExecutivoSimples extends Quarto{
 	public List<Periodo> getPeriodos() {
 		return periodos;
 	}
+	@Override
+	public boolean permiteCamaExtra() {
+		return true;
+	}
 	
 	
 }

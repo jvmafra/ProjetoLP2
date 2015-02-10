@@ -18,6 +18,10 @@ import excecoes.PeriodoInvalidoException;
  */
 
 public class Contrato implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Hospede hospede;
 	private List<Servico> servicos = new ArrayList<Servico>();
 	private EstrategiaCobranca estrategia;
@@ -250,6 +254,13 @@ public class Contrato implements Serializable{
 	}
 	
 	/**
+	 * Imprime um resumo atual do contrato
+	 */
+	public String imprimeResumoAtual(){
+		return hospede.mostraInformacoes() + "\n\nQuarto: " + servicos.get(0) + "\n\nPeriodo: " + getPeriodo().toString() + "\n\nSTATUS: " + mostraStatus();
+	}
+	
+	/**
 	 * Imprime a fatura final com todas as caracteristicas da hospedagem
 	 * @return String
 	 * 			Contem as informacoes do hospede, o quarto, todos servicos usados e seu valor total, alem do valor final da estadia, a forma de pagamento e o status atual do contrato
@@ -276,7 +287,7 @@ public class Contrato implements Serializable{
 	 */
 	@Override
 	public String toString(){	
-		return hospede.getNome() + " - " + servicos.get(0).toString() + " - " + mostraStatus();
+		return getNome() + " - " + servicos.get(0).toString() + " - " + mostraStatus();
 	}
 
 	/**
