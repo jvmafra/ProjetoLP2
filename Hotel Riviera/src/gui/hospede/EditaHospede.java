@@ -40,13 +40,13 @@ public class EditaHospede extends JPanel {
 		
 		nome = new JTextField();
 		nome.setBounds(322, 79, 177, 28);
-		nome.setText(h.getNome());
+		nome.setText(hospede.getNome());
 		add(nome);
 		nome.setColumns(10);
 		
 		cpf = new JTextField();
 		cpf.setBounds(322, 135, 177, 28);
-		cpf.setText(h.getCPF());
+		cpf.setText(hospede.getCPF());
 		add(cpf);
 		cpf.setColumns(10);
 		
@@ -67,7 +67,7 @@ public class EditaHospede extends JPanel {
 		
 		rg = new JTextField();
 		rg.setBounds(322, 190, 177, 28);
-		rg.setText(h.getRG());
+		rg.setText(hospede.getRG());
 		add(rg);
 		rg.setColumns(10);
 		
@@ -78,7 +78,7 @@ public class EditaHospede extends JPanel {
 		
 		idade = new JTextField();
 		idade.setBounds(322, 242, 177, 28);
-		idade.setText(h.getIdade());
+		idade.setText(hospede.getIdade());
 		add(idade);
 		idade.setColumns(10);
 		
@@ -89,7 +89,7 @@ public class EditaHospede extends JPanel {
 		
 		email = new JTextField();
 		email.setBounds(322, 300, 177, 28);
-		email.setText(h.getEmail());
+		email.setText(hospede.getEmail());
 		add(email);
 		email.setColumns(10);
 		
@@ -100,7 +100,7 @@ public class EditaHospede extends JPanel {
 		
 		endereco = new JTextField();
 		endereco.setBounds(322, 353, 177, 28);
-		endereco.setText(h.getEndereco());
+		endereco.setText(hospede.getEndereco());
 		add(endereco);
 		endereco.setColumns(10);
 		
@@ -111,7 +111,7 @@ public class EditaHospede extends JPanel {
 		
 		telefone = new JTextField();
 		telefone.setBounds(322, 403, 177, 28);
-		telefone.setText(h.getTelefone());
+		telefone.setText(hospede.getTelefone());
 		add(telefone);
 		telefone.setColumns(10);
 		
@@ -122,7 +122,7 @@ public class EditaHospede extends JPanel {
 		
 		numCartao = new JTextField();
 		numCartao.setBounds(322, 451, 177, 28);
-		numCartao.setText(h.getNumeroCartao());
+		numCartao.setText(hospede.getNumeroCartao());
 		add(numCartao);
 		numCartao.setColumns(10);
 		

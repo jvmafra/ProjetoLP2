@@ -55,28 +55,18 @@ public class NovoContrato extends JPanel {
 	JList<Quarto> list;
 	private final Action action = new SwingAction();
 
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					NovoContrato frame = new NovoContrato();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	/**
 	 * Create the frame.
 	 */
 	public NovoContrato() {
-
+		System.out.println(Sistema.getHotel());
+		try {
+			Sistema.getHotel().adicionaHospede(new Hospede("Edval","10530025485", "3224432", "18",  "e@hot.com", "8888888888", "ary", "4001635716004159"));
+		} catch (EntradaDeDadosException e6) {
+			// TODO Auto-generated catch block
+			e6.printStackTrace();
+		}
+		
 		MaskFormatter format = null;
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
