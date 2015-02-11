@@ -72,7 +72,7 @@ public class OpcoesDoHospede extends JPanel {
 				Sistema.setTela(new PaginaInicialHotel());
 			}
 		});
-		btnVoltar.setBounds(53, 533, 95, 25);
+		btnVoltar.setBounds(53, 498, 95, 25);
 		panel.add(btnVoltar);
 
 	}

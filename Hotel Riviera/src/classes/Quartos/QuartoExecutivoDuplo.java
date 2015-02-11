@@ -17,18 +17,7 @@ public class QuartoExecutivoDuplo extends Quarto {
 	public static final double VALOR_DA_DIARIA = 385.00;
 	public static final double VALOR_DA_DIARIA_COM_CAMA_EXTRA = 405.00;
 	public static final int CAPACIDADE = 2;
-	private List<Periodo> periodos;
-	private boolean camaExtra;
-	private Periodo periodoAtual;
-	
 
-	public Periodo getPeriodoAtual() {
-		return periodoAtual;
-	}
-
-	public void setPeriodoAtual(Periodo periodoAtual) {
-		this.periodoAtual = periodoAtual;
-	}
 
 	/**
 	 * Cria o quarto Executivo Duplo
@@ -41,11 +30,6 @@ public class QuartoExecutivoDuplo extends Quarto {
 	 */
 	public QuartoExecutivoDuplo(int numeroDoQuarto) throws Exception{
 		super(numeroDoQuarto);	
-		this.camaExtra = false;
-	}
-	
-	public void setCamaExtra(boolean camaExtra) {
-		this.camaExtra = camaExtra;
 	}
 
 	/**
@@ -58,47 +42,27 @@ public class QuartoExecutivoDuplo extends Quarto {
 	 */
 	@Override
 	public boolean isCapacidadeValida(int capacidade) {
-		if (capacidade > CAPACIDADE)
+		if (capacidade > CAPACIDADE + 1) // permite cama extra
 			return false;
 		return true;
 	}
-
 	
-	/**
-	 * Verifica se o quarto possui uma cama extra
-	 * @return
-	 * 		True, se o quarto possuir cama extra
-	 * 		False, se nao houver cama extra no quarto
-	 */
-	public boolean isCamaExtra() { return camaExtra; }
+
+
+	@Override
+	public boolean permiteCamaExtra() {
+		return true;
+	}
+
 	
 	/**
 	 * Retorna o valor da diaria do quarto
 	 */
 	@Override
 	public double valor() {
-		if (camaExtra) 
+		if (isCamaExtra())
 			return VALOR_DA_DIARIA_COM_CAMA_EXTRA * getPeriodoAtual().getNumeroDias();
 		return VALOR_DA_DIARIA * getPeriodoAtual().getNumeroDias();
-	}
-	
-	/**
-	 * Adiciona um objeto do tipo Periodo na lista de periodos do quarto
-	 * @param p Periodo a ser adicionado
-	 * @return true se a operacao foi realizada corretamente
-	 */
-	public boolean adicionaPeriodo(Periodo p) {
-		return periodos.add(p);
-		
-	}
-	/**
-	 * Remove um objeto do tipo periodo da lista de periodos do quarto 
-	 * @param p Periodo a ser removido
-	 * @return trua se a operacao foi realizada
-	 */
-	public boolean removePeriodo(Periodo p){
-		return periodos.remove(p);
-				
 	}
 	
 	
@@ -128,14 +92,5 @@ public class QuartoExecutivoDuplo extends Quarto {
 		return super.equals(obj);
 	}
 
-	@Override
-	public List<Periodo> getPeriodos() {
-		return periodos;
-	}
-
-	@Override
-	public boolean permiteCamaExtra() {
-		return true;
-	}
 
 }

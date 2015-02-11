@@ -3,17 +3,19 @@ package gui.contratos;
 import gui.PaginaInicialHotel;
 import gui.Sistema;
 
-import javax.swing.JPanel;
-import javax.swing.JButton;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 public class OpcoesDeContrato extends JPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Create the panel.
@@ -25,7 +27,7 @@ public class OpcoesDeContrato extends JPanel {
 		JButton btnContratosEmAberto = new JButton("CONTRATOS EXISTENTES");
 		btnContratosEmAberto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-					Sistema.setTela(new BuscaContrato());
+				Sistema.setTela(new BuscaContrato());
 
 		}});
 		btnContratosEmAberto.setFont(new Font("NanumGothic", Font.BOLD, 14));

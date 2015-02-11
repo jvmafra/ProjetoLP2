@@ -23,14 +23,12 @@ public class ConsultaHospede extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField textField;
-	private JList<Hospede> list = null;
+	private JList<Hospede> list;
 
 	/**
 	 * Create the panel.
 	 */
 	public ConsultaHospede() {
-
-		
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
 		textField = new JTextField();
@@ -68,10 +66,7 @@ public class ConsultaHospede extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				listModel.clear();
 				String busca = textField.getText();
-				if (busca.equals("")){
-					for (int i = 0; i < Sistema.getHotel().getHospedes().size(); i++)
-						listModel.addElement(Sistema.getHotel().getHospedes().get(i));
-				} else if (busca.length() < 4){
+				if (busca.length() < 4){
 					JOptionPane.showMessageDialog(null,
 							"Seja mais especifico em sua busca");
 					}
@@ -93,10 +88,6 @@ public class ConsultaHospede extends JPanel {
 								listModel.addElement(Sistema.getHotel()
 										.getHospedes().get(i));
 						}
-					}
-					
-					if (listModel.size() == 0){
-						JOptionPane.showMessageDialog(null,	"Nenhum resultado.");
 					}
 				}
 			}
@@ -125,9 +116,9 @@ public class ConsultaHospede extends JPanel {
 		add(btnEditar);
 		
 		JButton btnNewButton = new JButton("Abrir");
-		btnNewButton.addActionListener(new ActionListener() {			if ()
+		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
+				Sistema.setTela(new ExibeHospede(list.getSelectedValue()));
 			}
 		});
 		btnNewButton.setFont(new Font("NanumGothic", Font.PLAIN, 14));

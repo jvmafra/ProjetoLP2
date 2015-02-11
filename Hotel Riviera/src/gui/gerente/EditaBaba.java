@@ -58,6 +58,7 @@ public class EditaBaba extends JPanel {
 		telefone.setColumns(10);
 		
 		JButton btnSalvar = new JButton("Salvar");
+		btnSalvar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				baba.setNome(nome.getText());
@@ -73,6 +74,7 @@ public class EditaBaba extends JPanel {
 		add(btnSalvar);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new ConsultaBabas());
@@ -81,7 +83,8 @@ public class EditaBaba extends JPanel {
 		btnVoltar.setBounds(72, 231, 89, 23);
 		add(btnVoltar);
 		
-		JButton btnRemovarBab = new JButton("Removar Babá");
+		JButton btnRemovarBab = new JButton("Remover Baba");
+		btnRemovarBab.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnRemovarBab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.getHotel().removeBaba(baba);

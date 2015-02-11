@@ -1,12 +1,13 @@
 package classes.Alimentacao;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import classes.HotelOpiniaoServicosPeriodo.Servico;
 import excecoes.PeriodoInvalidoException;
 import excecoes.ValorInvalidoException;
 
-public class Refeicao implements Servico{
+public class Refeicao implements Servico, Serializable{
 	private double valor;
 	private Calendar data;
 	

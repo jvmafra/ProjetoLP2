@@ -17,21 +17,20 @@ public class QuartoPresidencial extends Quarto{
 	private static final long serialVersionUID = 1L;
 	public static final double VALOR_DA_DIARIA = 1200.00;
 	public static final int CAPACIDADE = 4;
-	private List<Periodo> periodos = new ArrayList<>();
-	private Periodo periodoAtual;
 	
 	/**
 	 * Cria o quarto Presidencial
 	 * @param numeroDoQuarto
 	 * 		O numero relativo ao quarto
+	 * @param camaExtra
+	 * 		Boolean indicando a existencia (ou nao) de cama extra no quarto
 	 * @throws Exception
 	 * 		O numero do quarto deve ser sempre inteiro positivo
 	 */
 	public QuartoPresidencial(int numeroDoQuarto) throws Exception{
-		super(numeroDoQuarto);
+		super(numeroDoQuarto);	
 	}
-	
-	
+
 	/**
 	 * Verifica se o quarto comporta um dado numero de pessoas
 	 * @param numeroDePessoas
@@ -40,12 +39,21 @@ public class QuartoPresidencial extends Quarto{
 	 * 		false, se a capacidade maxima do quarto for excedida
 	 * 		true, se o quarto suportar o numero de pessoas desejado
 	 */
-	public boolean isCapacidadeValida(int capacidade){
+	@Override
+	public boolean isCapacidadeValida(int capacidade) {
 		if (capacidade > CAPACIDADE)
 			return false;
 		return true;
 	}
+	
 
+
+	@Override
+	public boolean permiteCamaExtra() {
+		return false;
+	}
+
+	
 	/**
 	 * Retorna o valor da diaria do quarto
 	 */
@@ -54,40 +62,14 @@ public class QuartoPresidencial extends Quarto{
 		return VALOR_DA_DIARIA * getPeriodoAtual().getNumeroDias();
 	}
 	
-	public Periodo getPeriodoAtual() {
-		return periodoAtual;
-	}
-
-
-	public void setPeriodoAtual(Periodo periodoAtual) {
-		this.periodoAtual = periodoAtual;
-	}
-
-
-	/**
-	 * Adiciona um objeto do tipo Periodo na lista de periodos do quarto
-	 * @param p Periodo a ser adicionado
-	 * @return true se a operacao foi realizada corretamente
-	 */
-	public boolean adicionaPeriodo(Periodo p) {
-		return periodos.add(p);
-		
-	}
-	/**
-	 * Remove um objeto do tipo periodo da lista de periodos do quarto 
-	 * @param p Periodo a ser removido
-	 * @return trua se a operacao foi realizada
-	 */
-	public boolean removePeriodo(Periodo p){
-		return periodos.remove(p);
-	}
 	
 	/**
 	 * Fornece uma representacao do quarto Presidencial como String
 	 */
 	@Override
 	public String toString() {
-		return super.toString() + " - Presidencial";
+		return  super.toString() + " - Presidencial";  
+				
 	}
 	
 	/**
@@ -105,17 +87,6 @@ public class QuartoPresidencial extends Quarto{
 		if (!(obj instanceof QuartoPresidencial))
 			return false;
 		return super.equals(obj);
-	}
-	
-	@Override
-	public List<Periodo> getPeriodos() {
-		return periodos;
-	}
-
-
-	@Override
-	public boolean permiteCamaExtra() {
-		return false;
 	}
 
 

@@ -9,6 +9,7 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class FaturamentoDoHotel extends JPanel {
 	private JTextField textField;
@@ -22,30 +23,33 @@ public class FaturamentoDoHotel extends JPanel {
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
 		textField = new JTextField();
-		textField.setBounds(172, 38, 111, 42);
+		textField.setBounds(347, 132, 111, 42);
 		add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblFaturamentoMensal = new JLabel("Faturamento Mensal");
-		lblFaturamentoMensal.setBounds(38, 52, 124, 14);
+		lblFaturamentoMensal.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		lblFaturamentoMensal.setBounds(186, 145, 143, 14);
 		add(lblFaturamentoMensal);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(172, 94, 111, 42);
+		textField_1.setBounds(347, 205, 111, 42);
 		add(textField_1);
 		textField_1.setColumns(10);
 		
 		JLabel lblFaturamentoTotal = new JLabel("Faturamento Total");
-		lblFaturamentoTotal.setBounds(38, 108, 124, 14);
+		lblFaturamentoTotal.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		lblFaturamentoTotal.setBounds(205, 218, 124, 14);
 		add(lblFaturamentoTotal);
 		
 		btnVoltar = new JButton("Voltar");
+		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesPrivadas());
 			}
 		});
-		btnVoltar.setBounds(38, 266, 89, 23);
+		btnVoltar.setBounds(369, 292, 89, 23);
 		add(btnVoltar);
 
 	}

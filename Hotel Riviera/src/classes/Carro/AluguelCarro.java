@@ -15,6 +15,7 @@ import excecoes.CarroInvalidoException;
 import excecoes.PeriodoInvalidoException;
 
 public class AluguelCarro implements Servico {
+	private static final long serialVersionUID = 1L;
 	private Periodo periodo;
 	private boolean tanqueCheio;
 	private boolean seguro;

@@ -6,7 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import classes.FormasCobranca.EstrategiaCobranca;
-import classes.HotelOpiniaoServicosPeriodo.Alugavel;
 import classes.HotelOpiniaoServicosPeriodo.Periodo;
 import classes.HotelOpiniaoServicosPeriodo.Servico;
 import classes.Quartos.Quarto;

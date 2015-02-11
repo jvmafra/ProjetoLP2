@@ -1,6 +1,7 @@
 package gui.servicos;
 
 import gui.Sistema;
+import gui.contratos.VisualizaContrato;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -26,9 +27,11 @@ import java.util.Date;
 import java.util.List;
 
 import javax.swing.JLabel;
+import java.awt.Font;
 
 
 public class AlugaCarro extends JPanel {
+	private static final long serialVersionUID = 1L;
 	private Contrato contrato;
 	JSpinner data_inicial;
 	JSpinner data_final;
@@ -40,7 +43,6 @@ public class AlugaCarro extends JPanel {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Create the panel.
@@ -52,6 +54,7 @@ public class AlugaCarro extends JPanel {
 	 * querer com seguro e tanque cheio
 	 */
 	public AlugaCarro(Contrato contrato) {
+		this.contrato = contrato;
 		setBounds(0, 0, 800, 600);
 		setLayout(null);
 		data_inicial = new JSpinner();
@@ -65,7 +68,7 @@ public class AlugaCarro extends JPanel {
 		add(data_final);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(39, 37, 207, 168);
+		scrollPane.setBounds(38, 37, 233, 281);
 		add(scrollPane);
 		
 		list = new JList<Alugavel>();
@@ -74,23 +77,27 @@ public class AlugaCarro extends JPanel {
 		scrollPane.setViewportView(list);
 		
 		seguro = new JCheckBox("Seguro");
+		seguro.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		seguro.setBounds(417, 182, 97, 23);
 		add(seguro);
 		
 		tanque = new JCheckBox("Tanque cheio");
+		tanque.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		tanque.setBounds(417, 229, 138, 23);
 		add(tanque);
 		
 		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setBounds(39, 257, 89, 23);
+		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnVoltar.setBounds(101, 330, 89, 23);
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new OpcoesDeServicos(getContrato()));
+				Sistema.setTela(new VisualizaContrato(getContrato()));
 			}
 		});
 		add(btnVoltar);
 		
 		JButton btnConcluir = new JButton("Concluir");
+		btnConcluir.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnConcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Date data = (Date) data_inicial.getValue();
@@ -102,13 +109,15 @@ public class AlugaCarro extends JPanel {
 					Alugavel obj = list.getSelectedValue();
 					Carro carro = (Carro) obj;
 					AluguelCarro aluguel = new AluguelCarro(carro, tanque.isSelected(), seguro.isSelected(), p);
+					getContrato().adicionaServico(aluguel);
+					JOptionPane.showMessageDialog(null, "Carro alugado!");
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				}
 				
 			}
 		});
-		btnConcluir.setBounds(572, 256, 117, 25);
+		btnConcluir.setBounds(437, 309, 117, 25);
 		add(btnConcluir);
 		
 		JLabel lblDataInicial = new JLabel("Data inicial");
@@ -120,8 +129,10 @@ public class AlugaCarro extends JPanel {
 		add(lblDataFina);
 		
 		JButton btnPesquisar = new JButton("Pesquisar");
+		btnPesquisar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				listModel.clear();
 				Date data = (Date) data_inicial.getValue();
 				Date data2 = (Date) data_final.getValue();
 				Calendar inicio = Sistema.DateToCalendar(data);

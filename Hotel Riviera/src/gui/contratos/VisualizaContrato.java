@@ -3,18 +3,15 @@ package gui.contratos;
 import gui.Sistema;
 import gui.servicos.OpcoesDeServicos;
 
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
+import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
 import classes.Pessoa.Contrato;
-
-import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-import javax.swing.JLabel;
 
 public class VisualizaContrato extends JPanel {
 	/**
@@ -60,6 +57,7 @@ public class VisualizaContrato extends JPanel {
 				Sistema.setTela(new OpcoesDeServicos(getContrato()));
 			}
 		});
+		
 		btnNewButton.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnNewButton.setBounds(613, 230, 162, 25);
 		add(btnNewButton);
