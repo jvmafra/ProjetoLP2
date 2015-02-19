@@ -57,7 +57,7 @@ public class Massagem implements Servico {
 	
 	@Override
 	public String toString() {
-		return "MASSAGEM: " + getNome() + "\nPeriodo: " + getPeriodo().toString() + "\nValor: R$ " + valor();
+		return  "MASSAGEM: " + getNome() + "\nPeriodo: " + getPeriodo().toString() + "\nValor: R$ " + valor();
 	}
 
 

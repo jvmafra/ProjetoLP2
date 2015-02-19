@@ -7,7 +7,7 @@ public enum TipoDeMassagens {
 	private double valor;
 	private String nome;
 	
-	private TipoDeMassagens(String nome , double valor){
+	private TipoDeMassagens(String nome ,  double valor){
 		this.valor = valor;
 		this.nome =nome;
 	}
