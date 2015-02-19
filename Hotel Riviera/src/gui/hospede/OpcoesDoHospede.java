@@ -29,6 +29,7 @@ public class OpcoesDoHospede extends JPanel {
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
 		panel.setBounds(0, 0, 800, 600);;
 		add(panel);
 		panel.setLayout(null);

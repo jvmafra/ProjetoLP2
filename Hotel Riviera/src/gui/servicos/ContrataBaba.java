@@ -29,6 +29,8 @@ import nucleo.classes.pessoa.Contrato;
 import nucleo.classes.pessoa.Hospede;
 import nucleo.classes.servicos.Baba;
 import nucleo.classes.servicos.BabySitter;
+import java.awt.Color;
+import javax.swing.ImageIcon;
 public class ContrataBaba extends JPanel {
 	private Contrato contrato;
 	JSpinner data_inicial;
@@ -44,36 +46,42 @@ public class ContrataBaba extends JPanel {
 	 * Create the panel.
 	 */
 	public ContrataBaba(Contrato contrato) {
+		setBackground(Color.WHITE);
 		this.contrato = contrato;
-		setLayout(null);
 		setBounds(0, 0, 800, 600);
+		setLayout(null);
 		
 		data_inicial = new JSpinner();
-		data_inicial.setBounds(321, 128, 159, 29);
+		data_inicial.setBounds(321, 176, 159, 29);
 		data_inicial.setModel(new SpinnerDateModel());
 		add(data_inicial);
 		
 		data_final = new JSpinner();
-		data_final.setBounds(321, 168, 159, 29);
+		data_final.setBounds(321, 217, 159, 29);
 		data_final.setModel(new SpinnerDateModel());
 		add(data_final);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(256, 270, 250, 196);
+		scrollPane.setBounds(277, 322, 250, 196);
 		add(scrollPane);
+		
+		list = new JList<Alugavel>();
+		scrollPane.setViewportView(list);
+		list.setBackground(Color.WHITE);
 		final DefaultListModel<Alugavel> listModel = new DefaultListModel<Alugavel>();
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBounds(287, 530, 88, 25);
 		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDeServicos(getContrato()));
 			}
 		});
-		btnVoltar.setBounds(221, 486, 88, 25);
 		add(btnVoltar);
 		
 		JButton btnConcluir = new JButton("Concluir");
+		btnConcluir.setBounds(434, 530, 93, 25);
 		btnConcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Date data = (Date) data_inicial.getValue();
@@ -99,10 +107,10 @@ public class ContrataBaba extends JPanel {
 			}
 		});
 		btnConcluir.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		btnConcluir.setBounds(462, 486, 93, 25);
 		add(btnConcluir);
 		
 		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setBounds(321, 258, 117, 25);
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Date data = (Date) data_inicial.getValue();
@@ -124,23 +132,27 @@ public class ContrataBaba extends JPanel {
 		});
 		
 		btnBuscar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		btnBuscar.setBounds(321, 214, 117, 25);
 		add(btnBuscar);
 		
 		JLabel lblDataInicial = new JLabel("Data inicial:");
+		lblDataInicial.setBounds(233, 183, 84, 15);
 		lblDataInicial.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		lblDataInicial.setBounds(233, 135, 84, 15);
 		add(lblDataInicial);
 		
 		JLabel lblDataFinal = new JLabel("Data final:");
+		lblDataFinal.setBounds(243, 224, 74, 15);
 		lblDataFinal.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		lblDataFinal.setBounds(243, 175, 74, 15);
 		add(lblDataFinal);
 		
-		list = new JList<Alugavel>();
-		list.setBounds(256, 270, 247, 193);
-		add(list);
-		list.setModel(listModel);
+		JLabel lblBabsDisponveis = new JLabel("Babás disponíveis");
+		lblBabsDisponveis.setBounds(277, 295, 134, 15);
+		lblBabsDisponveis.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		add(lblBabsDisponveis);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(311, 12, 194, 140);
+		lblNewLabel.setIcon(new ImageIcon("/home/edvalmsg/Downloads/bebe.jpg"));
+		add(lblNewLabel);
 		
 
 	}

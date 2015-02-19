@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import nucleo.classes.servicos.Carro;
+import java.awt.Color;
 
 public class NovoCarro extends JPanel {
 	/**
@@ -28,6 +29,7 @@ public class NovoCarro extends JPanel {
 	 * Create the frame.
 	 */
 	public NovoCarro() {
+		setBackground(Color.WHITE);
 		setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		setBounds(0, 0, 800, 600);
 		setLayout(null);

@@ -12,6 +12,7 @@ import nucleo.classes.pessoa.Contrato;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Color;
 
 public class OpcoesDeServicos extends JPanel {
 	private Contrato contrato;
@@ -20,6 +21,7 @@ public class OpcoesDeServicos extends JPanel {
 	 * Create the panel.
 	 */
 	public OpcoesDeServicos(Contrato contrato) {
+		setBackground(Color.WHITE);
 		this.contrato = contrato;
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
@@ -61,7 +63,7 @@ public class OpcoesDeServicos extends JPanel {
 				Sistema.setTela(new VisualizaContrato(getContrato()));
 			}
 		});
-		btnVoltar.setBounds(336, 449, 89, 23);
+		btnVoltar.setBounds(329, 449, 89, 23);
 		add(btnVoltar);
 
 	}

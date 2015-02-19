@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Color;
 
 public class OpcoesDeBaba extends JPanel {
 
@@ -20,6 +21,7 @@ public class OpcoesDeBaba extends JPanel {
 	 * Create the panel.
 	 */
 	public OpcoesDeBaba() {
+		setBackground(Color.WHITE);
 		setLayout(null);
 		setBounds(0,0,800,600);
 		JButton btnEditaBab = new JButton("EDITA BABA");

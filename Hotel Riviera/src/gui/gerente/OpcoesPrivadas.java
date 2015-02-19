@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import java.awt.Font;
+import java.awt.Color;
 
 public class OpcoesPrivadas extends JPanel {
 
@@ -21,6 +22,7 @@ public class OpcoesPrivadas extends JPanel {
 	 * Create the panel.
 	 */
 	public OpcoesPrivadas() {
+		setBackground(Color.WHITE);
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
 		JButton btnFaturamentos = new JButton("FATURAMENTOS");

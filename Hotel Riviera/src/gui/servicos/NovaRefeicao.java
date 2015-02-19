@@ -24,6 +24,7 @@ import nucleo.classes.pessoa.Contrato;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class NovaRefeicao extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -35,6 +36,7 @@ public class NovaRefeicao extends JPanel {
 	 * Create the panel.
 	 */
 	public NovaRefeicao(Contrato contrato) {
+		setBackground(Color.WHITE);
 		this.contrato = contrato;
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
@@ -106,8 +108,8 @@ public class NovaRefeicao extends JPanel {
 		add(btnVoltar);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(NovaRefeicao.class.getResource("/icones/restaurant7.png")));
-		lblNewLabel.setBounds(351, 47, 177, 164);
+		lblNewLabel.setIcon(new ImageIcon(NovaRefeicao.class.getResource("/nucleo/icones/restaurant7.png")));
+		lblNewLabel.setBounds(360, 54, 70, 90);
 		add(lblNewLabel);
 
 	}
