@@ -192,6 +192,7 @@ public class Hospede implements Serializable{
 	public String getNumeroCartao(){
 		return numCartao;
 	}
+	
 	public void setNumeroCartao(String num){
 		numCartao = num;
 	}
@@ -274,7 +275,7 @@ public class Hospede implements Serializable{
 	 * @return
 	 */
 	
-	public boolean verificaEmail(String email){
+	private boolean verificaEmail(String email){
 		Pattern p = Pattern
 				.compile("^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$");
 

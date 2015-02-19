@@ -6,46 +6,82 @@ import java.util.GregorianCalendar;
 import nucleo.classes.hotel.Periodo;
 import nucleo.classes.hotel.Servico;
 import nucleo.excecoes.PeriodoInvalidoException;
+import nucleo.excecoes.TipoDeMassagensInvalidaException;
 import nucleo.excecoes.TipoDeMassagensInvalidoException;
 import nucleo.excecoes.ValorInvalidoException;
 
 public class Massagem implements Servico {
 	private Periodo periodo;
 	private double valor;
+	private String nome;
 	
-	
-	public Massagem(double v, Periodo data) throws ValorInvalidoException, PeriodoInvalidoException, TipoDeMassagensInvalidoException  {
-		
-	if (data == null){
-		throw new PeriodoInvalidoException("Data nula");
-	}
-	if (data.getData_inicial().HOUR_OF_DAY < 6 || data.getData_final().HOUR_OF_DAY > 22){
-		throw new PeriodoInvalidoException("A massagens nao funciona nesse horario");
+	public Massagem(TipoDeMassagens tipo, Periodo periodo) throws ValorInvalidoException, PeriodoInvalidoException, TipoDeMassagensInvalidoException, TipoDeMassagensInvalidaException  {
+	if (tipo == null){
+		throw new TipoDeMassagensInvalidaException("Tipo de massagem invalida");
 	}
 	
-	if (data.getTotalDeHoras()> 3){
-		throw new PeriodoInvalidoException("Quantidades de horas invalida");
+	if (!(isPeriodoValido(periodo))){
+		throw new PeriodoInvalidoException("periodo invalido");
 	}
-	this.valor = v;
-	this.periodo = data;
+	this.valor = tipo.getValor();
+	this.periodo = periodo;
+	this.nome = tipo.getNome();
 	}
 	
+	
+	public String getNome(){
+		return nome;
+	}
 	
 	@Override
 	public double valor() {	
 		return valor * periodo.getTotalDeHoras();
 	}
 	
+	public int totalDeHoras(){
+		return  periodo.getTotalDeHoras();
+	}
+
+
+	public Periodo getPeriodo() {
+		return periodo;
+	}
+
+
+	public void setPeriodo(Periodo periodo) throws PeriodoInvalidoException {
+		if (!(isPeriodoValido(periodo))){
+			throw new PeriodoInvalidoException("periodo invalido");
+		}
+		this.periodo = periodo;
+	}
 	
-	public static void main(String[] args) throws Exception {
+	@Override
+	public String toString() {
+		return "MASSAGEM: " + getNome() + "\nPeriodo: " + getPeriodo().toString() + "\nValor: R$ " + valor();
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Massagem)){
+			return false;
+		}
+		Massagem outro = (Massagem) obj;
+		return getNome().equals(outro.getNome()) && valor() == outro.valor();
+	}
+	
+	private boolean isPeriodoValido(Periodo periodo){
+		if (periodo == null){
+			return false;
+		}
+		if (periodo.getData_inicial().get(Calendar.HOUR_OF_DAY) < 6 || periodo.getData_final().get(Calendar.HOUR_OF_DAY) > 22){
+			return false;
+		}
 		
-		Calendar data_inicial2 = new GregorianCalendar(2015, 1, 24, 8,0 );
-		Calendar data_final2 = new GregorianCalendar(2015, 1, 24, 11, 0);
-		
-		Periodo p2 = new Periodo(data_inicial2, data_final2);
-		Massagem m = new Massagem( TipoDeMassagens.REIKI.getValor(), p2 );
-		
-		System.out.println(m.valor());
+		if (periodo.getTotalDeHoras()> 3){
+			return false;
+		}
+		return true;
 	}
 
 }
