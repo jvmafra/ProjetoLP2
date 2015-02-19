@@ -100,7 +100,7 @@ public class LoginDeFuncionario extends JPanel {
 		botao_entrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(LoginDeFuncionario.class.getResource("/icones/Logo Hotel.png")));
+		lblNewLabel.setIcon(new ImageIcon(LoginDeFuncionario.class.getResource("/nucleo/icones/Logo Hotel.png")));
 		lblNewLabel.setBounds(77, 0, 528, 410);
 		add(lblNewLabel);
 

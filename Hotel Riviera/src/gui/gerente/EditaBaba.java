@@ -3,14 +3,13 @@ package gui.gerente;
 import java.awt.Font;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
-import classes.Baba.Baba;
-
 import javax.swing.JButton;
 
-import excecoes.TelefoneInvalidoException;
+import nucleo.classes.servicos.Baba;
+import nucleo.excecoes.TelefoneInvalidoException;
 import gui.Sistema;
 
 import java.awt.event.ActionListener;
@@ -64,9 +63,10 @@ public class EditaBaba extends JPanel {
 				baba.setNome(nome.getText());
 				try {
 					baba.setTelefone(telefone.getText());
+					JOptionPane.showMessageDialog(null,"Salvo com sucesso");
+					Sistema.setTela(new ConsultaBabas());
 				} catch (TelefoneInvalidoException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					JOptionPane.showMessageDialog(null,e.getMessage());
 				}
 			}
 		});

@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import classes.Carro.Carro;
+import nucleo.classes.servicos.Carro;
 
 public class NovoCarro extends JPanel {
 	/**
@@ -99,4 +99,3 @@ public class NovoCarro extends JPanel {
 	}
 	
 }
-

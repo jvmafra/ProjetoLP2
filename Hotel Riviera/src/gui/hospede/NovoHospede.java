@@ -1,7 +1,8 @@
 package gui.hospede;
 
-import excecoes.EntradaDeDadosException;
+import nucleo.excecoes.EntradaDeDadosException;
 import gui.Sistema;
+import gui.contratos.NovoContrato;
 
 import java.awt.Font;
 import java.text.ParseException;
@@ -15,7 +16,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.text.MaskFormatter;
 import javax.swing.JButton;
 
-import classes.Pessoa.Hospede;
+import nucleo.classes.pessoa.Hospede;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -30,8 +31,10 @@ public class NovoHospede extends JPanel {
 	private JTextField endereco;
 	private JTextField telefone;
 	private JTextField numCartao;
+	private boolean vemDoContrato;
 	
-	public NovoHospede() {
+	public NovoHospede(boolean vemDoContrato) {
+		this.vemDoContrato = vemDoContrato;
 		setBackground(Color.WHITE);
 		MaskFormatter format = null;
 		MaskFormatter format_1 = null;
@@ -166,7 +169,11 @@ public class NovoHospede extends JPanel {
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new OpcoesDoHospede());
+				if (vemDoContrato())
+					Sistema.setTela(new NovoContrato());
+				else
+					Sistema.setTela(new OpcoesDoHospede());
+				
 			}
 		});
 		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
@@ -194,7 +201,10 @@ public class NovoHospede extends JPanel {
 									.getText().replace(".", ""));
 					Sistema.getHotel().adicionaHospede(hospede);
 					JOptionPane.showMessageDialog(null, "Hospede criado!");
-					Sistema.setTela(new OpcoesDoHospede());
+					if (vemDoContrato())
+						Sistema.setTela(new NovoContrato());
+					else
+						Sistema.setTela(new OpcoesDoHospede());
 				} catch (EntradaDeDadosException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
@@ -215,5 +225,9 @@ public class NovoHospede extends JPanel {
 		numCartao.setText("");
 		idade.setText("");
 		endereco.setText("");
+	}
+	
+	private boolean vemDoContrato(){
+		return vemDoContrato;
 	}
 }

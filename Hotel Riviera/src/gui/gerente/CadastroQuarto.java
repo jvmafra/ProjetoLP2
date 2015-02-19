@@ -8,23 +8,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
-import classes.Carro.Carro;
-import classes.Quartos.Quarto;
-import classes.Quartos.QuartoExecutivoDuplo;
-import classes.Quartos.QuartoExecutivoSimples;
-import classes.Quartos.QuartoExecutivoTriplo;
-import classes.Quartos.QuartoLuxoDuplo;
-import classes.Quartos.QuartoLuxoSimples;
-import classes.Quartos.QuartoLuxoTriplo;
-import classes.Quartos.QuartoPresidencial;
+import nucleo.classes.quartos.Quarto;
+import nucleo.classes.quartos.QuartoExecutivoDuplo;
+import nucleo.classes.quartos.QuartoExecutivoSimples;
+import nucleo.classes.quartos.QuartoExecutivoTriplo;
+import nucleo.classes.quartos.QuartoLuxoDuplo;
+import nucleo.classes.quartos.QuartoLuxoSimples;
+import nucleo.classes.quartos.QuartoLuxoTriplo;
+import nucleo.classes.quartos.QuartoPresidencial;
 
 public class CadastroQuarto extends JPanel {
 	/**
@@ -109,6 +105,5 @@ public class CadastroQuarto extends JPanel {
 		return Sistema.getHotel().getQuartos().size() + 1;
 	}
 }
-
 
 

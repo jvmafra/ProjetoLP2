@@ -9,13 +9,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
-
-import classes.Baba.Baba;
-import classes.Baba.BabySitter;
-import classes.HotelOpiniaoServicosPeriodo.Periodo;
-import classes.Pessoa.Contrato;
-import classes.Pessoa.Hospede;
-
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
@@ -26,9 +19,16 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import classes.HotelOpiniaoServicosPeriodo.*;
+import classes.hotel.*;
 
 import javax.swing.JLabel;
+
+import nucleo.classes.hotel.Alugavel;
+import nucleo.classes.hotel.Periodo;
+import nucleo.classes.pessoa.Contrato;
+import nucleo.classes.pessoa.Hospede;
+import nucleo.classes.servicos.Baba;
+import nucleo.classes.servicos.BabySitter;
 public class ContrataBaba extends JPanel {
 	private Contrato contrato;
 	JSpinner data_inicial;
@@ -80,15 +80,21 @@ public class ContrataBaba extends JPanel {
 				Date data2 = (Date) data_final.getValue();
 				Calendar inicio = Sistema.DateToCalendar(data);
 				Calendar fim = Sistema.DateToCalendar(data2);
-				try {
-					Periodo p = new Periodo(inicio, fim);
-					Alugavel obj = list.getSelectedValue();
-					Baba baba = (Baba) obj;
-					BabySitter baby = new BabySitter(baba, p);
-					getContrato().adicionaServico(baby);
-				} catch (Exception e2) {
-					JOptionPane.showMessageDialog(null, e2.getMessage());
+				if (getContrato().getPeriodo().dataIsContida(inicio) && (getContrato().getPeriodo().dataIsContida(fim))){
+					try {
+						Periodo p = new Periodo(inicio, fim);
+						Alugavel obj = list.getSelectedValue();
+						Baba baba = (Baba) obj;
+						BabySitter baby = new BabySitter(baba, p);
+						getContrato().adicionaServico(baby);
+					} catch (Exception e2) {
+						JOptionPane.showMessageDialog(null, e2.getMessage());
+					}
 				}
+				else{
+					JOptionPane.showMessageDialog(null, "O hospede nao esta no hotel nesse periodo");
+				}
+				
 				
 			}
 		});

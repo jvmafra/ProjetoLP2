@@ -1,25 +1,14 @@
 package gui.hospede;
 import gui.PaginaInicialHotel;
 import gui.Sistema;
-import gui.contratos.NovoContrato;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
 
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.FormSpecs;
-import com.jgoodies.forms.layout.RowSpec;
-
-import java.awt.GridLayout;
-
-import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
@@ -50,7 +39,7 @@ public class OpcoesDoHospede extends JPanel {
 		panel.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Sistema.setTela(new NovoHospede());
+				Sistema.setTela(new NovoHospede(false));
 			}
 		});
 		
@@ -72,7 +61,7 @@ public class OpcoesDoHospede extends JPanel {
 				Sistema.setTela(new PaginaInicialHotel());
 			}
 		});
-		btnVoltar.setBounds(53, 498, 95, 25);
+		btnVoltar.setBounds(53, 533, 95, 25);
 		panel.add(btnVoltar);
 
 	}

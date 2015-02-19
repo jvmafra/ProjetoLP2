@@ -11,11 +11,10 @@ import javax.swing.SpinnerDateModel;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
 
-import classes.Carro.AluguelCarro;
-import classes.Carro.Carro;
-import classes.HotelOpiniaoServicosPeriodo.Alugavel;
-import classes.HotelOpiniaoServicosPeriodo.Periodo;
-import classes.Pessoa.Contrato;
+import nucleo.classes.servicos.*;
+import nucleo.classes.hotel.*;
+import nucleo.classes.pessoa.*;
+
 
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
@@ -27,6 +26,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.swing.JLabel;
+
 import java.awt.Font;
 
 
@@ -104,15 +104,20 @@ public class AlugaCarro extends JPanel {
 				Date data2 = (Date) data_final.getValue();
 				Calendar inicio = Sistema.DateToCalendar(data);
 				Calendar fim = Sistema.DateToCalendar(data2);
-				try {
-					Periodo p = new Periodo(inicio, fim);
-					Alugavel obj = list.getSelectedValue();
-					Carro carro = (Carro) obj;
-					AluguelCarro aluguel = new AluguelCarro(carro, tanque.isSelected(), seguro.isSelected(), p);
-					getContrato().adicionaServico(aluguel);
-					JOptionPane.showMessageDialog(null, "Carro alugado!");
-				} catch (Exception e) {
-					JOptionPane.showMessageDialog(null, e.getMessage());
+				if (getContrato().getPeriodo().dataIsContida(inicio) && (getContrato().getPeriodo().dataIsContida(fim))){
+					try {	
+						Periodo p = new Periodo(inicio, fim);
+						Alugavel obj = list.getSelectedValue();
+						Carro carro = (Carro) obj;
+						AluguelCarro aluguel = new AluguelCarro(carro, tanque.isSelected(), seguro.isSelected(), p);
+						getContrato().adicionaServico(aluguel);
+						JOptionPane.showMessageDialog(null, "Carro alugado!");
+					} catch (Exception e) {
+						JOptionPane.showMessageDialog(null, e.getMessage());
+					}
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "O hospede nao esta no hotel nesse periodo");
 				}
 				
 			}

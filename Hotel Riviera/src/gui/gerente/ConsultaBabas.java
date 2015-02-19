@@ -1,22 +1,26 @@
 package gui.gerente;
 
+import nucleo.excecoes.NomeInvalidoException;
+import nucleo.excecoes.TelefoneInvalidoException;
 import gui.Sistema;
 
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JList;
 import javax.swing.JTextField;
+import javax.swing.JLabel;
 
-import classes.Baba.Baba;
-import classes.HotelOpiniaoServicosPeriodo.Alugavel;
+import nucleo.classes.servicos.Baba;
+import nucleo.classes.hotel.*;
+import nucleo.classes.pessoa.Contrato;
+
+import javax.swing.JButton;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class ConsultaBabas extends JPanel {
 	/**
@@ -24,8 +28,8 @@ public class ConsultaBabas extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField textField;
-	private JList<Alugavel> list;
-	private DefaultListModel<Alugavel> listModel;
+	private JList<Alugavel> list = new JList<Alugavel>();
+	private DefaultListModel<Alugavel> listModel = new DefaultListModel<Alugavel>();
 
 	/**
 	 * Create the panel.
@@ -37,7 +41,6 @@ public class ConsultaBabas extends JPanel {
 		scrollPane.setBounds(232, 171, 246, 244);
 		add(scrollPane);
 		
-		list = new JList<Alugavel>();
 		scrollPane.setViewportView(list);
 		list.setModel(listModel);
 		
@@ -50,14 +53,14 @@ public class ConsultaBabas extends JPanel {
 		lblNewLabel.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		lblNewLabel.setBounds(232, 97, 170, 14);
 		add(lblNewLabel);
-
-		listModel = new DefaultListModel<Alugavel>();
-		for (int i = 0; i < Sistema.getHotel().getBabas().size(); i++) {
-			listModel.addElement(Sistema.getHotel().getBabas().get(i));
+		
+		for (Alugavel baba: Sistema.getHotel().getBabas()) {
+			listModel.addElement(baba);
 		}
 		setLayout(null);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDeBaba());
@@ -66,13 +69,14 @@ public class ConsultaBabas extends JPanel {
 		btnVoltar.setBounds(203, 445, 117, 25);
 		add(btnVoltar);
 		
-		JButton btnEditarBab = new JButton("Editar Bab�");
+		JButton btnEditarBab = new JButton("Editar");
+		btnEditarBab.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnEditarBab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					Sistema.setTela(new EditaBaba((Baba) list.getSelectedValue()));
 				} catch (Exception e2) {
-					JOptionPane.showMessageDialog(null, "Selecione uma Bab� primeiro");
+					JOptionPane.showMessageDialog(null, "Selecione uma Baba primeiro");
 				}
 			}
 		});

@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-import classes.Pessoa.Hospede;
+import nucleo.classes.pessoa.Hospede;
 
 public class ConsultaHospede extends JPanel {
 	/**
@@ -79,6 +79,7 @@ public class ConsultaHospede extends JPanel {
 									.getCPF().contains(busca))
 								listModel.addElement(Sistema.getHotel()
 										.getHospedes().get(i));
+						
 						}
 					} catch (Exception e) {
 						for (int i = 0; i < Sistema.getHotel().getHospedes()
@@ -89,6 +90,7 @@ public class ConsultaHospede extends JPanel {
 										.getHospedes().get(i));
 						}
 					}
+					
 				}
 			}
 		});
@@ -117,8 +119,11 @@ public class ConsultaHospede extends JPanel {
 		
 		JButton btnNewButton = new JButton("Abrir");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Sistema.setTela(new ExibeHospede(list.getSelectedValue()));
+			public void actionPerformed(ActionEvent e) {
+				if (list.getSelectedValue() == null)
+					mostraTelaDeErro();
+				else
+					Sistema.setTela(new ExibeHospede(list.getSelectedValue()));
 			}
 		});
 		btnNewButton.setFont(new Font("NanumGothic", Font.PLAIN, 14));

@@ -25,17 +25,17 @@ import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.MaskFormatter;
 
-import classes.FormasCobranca.EstrategiaAltaTemporada;
-import classes.FormasCobranca.EstrategiaBaixaTemporada;
-import classes.FormasCobranca.EstrategiaCobranca;
-import classes.FormasCobranca.EstrategiaNatalReveillon;
-import classes.FormasCobranca.EstrategiaSaoJoao;
-import classes.FormasCobranca.EstrategiaSimples;
-import classes.HotelOpiniaoServicosPeriodo.Alugavel;
-import classes.HotelOpiniaoServicosPeriodo.Periodo;
-import classes.Pessoa.Contrato;
-import classes.Pessoa.Hospede;
-import classes.Quartos.Quarto;
+import nucleo.classes.formas_cobranca.EstrategiaAltaTemporada;
+import nucleo.classes.formas_cobranca.EstrategiaBaixaTemporada;
+import nucleo.classes.formas_cobranca.EstrategiaCobranca;
+import nucleo.classes.formas_cobranca.EstrategiaNatalReveillon;
+import nucleo.classes.formas_cobranca.EstrategiaSaoJoao;
+import nucleo.classes.formas_cobranca.EstrategiaSimples;
+import nucleo.classes.hotel.Alugavel;
+import nucleo.classes.hotel.Periodo;
+import nucleo.classes.pessoa.Contrato;
+import nucleo.classes.pessoa.Hospede;
+import nucleo.classes.quartos.Quarto;
 
 public class NovoContrato extends JPanel {
 	/**
@@ -85,7 +85,7 @@ public class NovoContrato extends JPanel {
 		DadosHospedes.setBackground(Color.WHITE);
 		DadosHospedes.setBounds(13, 14, 771, 142);
 		margemGeral.add(DadosHospedes);
-		DadosHospedes.setBorder(new TitledBorder(null, "Numeros de hospede.",
+		DadosHospedes.setBorder(new TitledBorder(null, "Hospedes do hotel",
 				TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		DadosHospedes.setLayout(null);
 		
@@ -113,7 +113,7 @@ public class NovoContrato extends JPanel {
 		JButton btnNovoHospede = new JButton("NOVO HOSPEDE");
 		btnNovoHospede.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new NovoHospede());
+				Sistema.setTela(new NovoHospede(true));
 			}
 		});
 		btnNovoHospede.setFont(new Font("NanumGothic", Font.PLAIN, 14));

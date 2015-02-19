@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
-import classes.HotelOpiniaoServicosPeriodo.Opiniao;
+import nucleo.classes.hotel.*;
 
 public class CadastraOpiniao extends JPanel {
 

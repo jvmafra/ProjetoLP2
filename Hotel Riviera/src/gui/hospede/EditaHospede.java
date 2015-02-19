@@ -10,11 +10,11 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
-import classes.Pessoa.Contrato;
-import classes.Pessoa.Hospede;
+import nucleo.classes.pessoa.Hospede;
 
 import javax.swing.JTextField;
+
+import java.awt.Color;
 
 public class EditaHospede extends JPanel {
 	/**
@@ -34,6 +34,7 @@ public class EditaHospede extends JPanel {
 	 * Create the panel.
 	 */
 	public EditaHospede(Hospede h) {
+		setBackground(Color.WHITE);
 
 		this.hospede = h;
 		setBounds(0, 0, 800, 600);
@@ -163,5 +164,9 @@ public class EditaHospede extends JPanel {
 			JOptionPane.showMessageDialog(null,	e.getMessage());
 		}
 		h.setNumCartao(numCartao.getText());
+	}
+	
+	private Hospede getHospede(){
+		return hospede;
 	}
 }

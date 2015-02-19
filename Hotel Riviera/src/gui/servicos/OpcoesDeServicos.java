@@ -1,22 +1,19 @@
 package gui.servicos;
 
+import gui.PaginaInicialHotel;
 import gui.Sistema;
 import gui.contratos.VisualizaContrato;
 
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JButton;
 
-import classes.Pessoa.Contrato;
+import nucleo.classes.pessoa.Contrato;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class OpcoesDeServicos extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private Contrato contrato;
 
 	/**

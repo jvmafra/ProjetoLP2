@@ -14,8 +14,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-import classes.Carro.Carro;
-import classes.HotelOpiniaoServicosPeriodo.Alugavel;
+import nucleo.classes.hotel.Alugavel;
+import nucleo.classes.servicos.Carro;
+
 import java.awt.Font;
 
 public class ConsultaCarro extends JPanel {
@@ -25,8 +26,8 @@ public class ConsultaCarro extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField textField;
-	private JList<Alugavel> list;
-	private DefaultListModel<Alugavel> listModel;
+	private JList<Alugavel> list = new JList<Alugavel>();
+	private DefaultListModel<Alugavel> listModel = new DefaultListModel<Alugavel>();
 
 	/**
 	 * Create the panel.
@@ -38,7 +39,6 @@ public class ConsultaCarro extends JPanel {
 		scrollPane.setBounds(252, 144, 246, 244);
 		add(scrollPane);
 		
-		list = new JList<Alugavel>();
 		scrollPane.setViewportView(list);
 		list.setModel(listModel);
 		
@@ -52,7 +52,6 @@ public class ConsultaCarro extends JPanel {
 		lblNewLabel.setBounds(284, 87, 170, 14);
 		add(lblNewLabel);
 
-		listModel = new DefaultListModel<Alugavel>();
 		for (int i = 0; i < Sistema.getHotel().getCarros().size(); i++) {
 			listModel.addElement(Sistema.getHotel().getCarros().get(i));
 		}
@@ -104,13 +103,6 @@ public class ConsultaCarro extends JPanel {
 		btnBuscar.setBounds(480, 109, 117, 25);
 		add(btnBuscar);
 	}
-
-	
-	
-	
-	
-	
-	
 	
 	
 	

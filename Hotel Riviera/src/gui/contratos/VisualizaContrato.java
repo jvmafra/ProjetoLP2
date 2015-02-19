@@ -3,6 +3,7 @@ package gui.contratos;
 import gui.Sistema;
 import gui.servicos.OpcoesDeServicos;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
-import classes.Pessoa.Contrato;
+import nucleo.classes.pessoa.Contrato;
 
 public class VisualizaContrato extends JPanel {
 	/**
@@ -25,6 +26,7 @@ public class VisualizaContrato extends JPanel {
 	 * Create the panel.
 	 */
 	public VisualizaContrato(Contrato contrato) {
+		setBackground(Color.WHITE);
 		this.contrato = contrato;
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
@@ -63,6 +65,7 @@ public class VisualizaContrato extends JPanel {
 		add(btnNewButton);
 		
 		servicos = new JTextPane();
+		servicos.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		servicos.setEditable(false);
 		servicos.setText(getContrato().imprimeCadaServicoEspecial());
 		servicos.setBounds(350, 86, 241, 391);

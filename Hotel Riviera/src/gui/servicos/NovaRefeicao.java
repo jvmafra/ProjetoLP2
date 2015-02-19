@@ -19,13 +19,14 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 
-import classes.Alimentacao.Refeicao;
-import classes.Pessoa.Contrato;
+import nucleo.classes.servicos.Refeicao;
+import nucleo.classes.pessoa.Contrato;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class NovaRefeicao extends JPanel {
+	private static final long serialVersionUID = 1L;
 	private JTextField valor;
 	private JSpinner data_refeicao;
 	private Contrato contrato;
@@ -64,11 +65,18 @@ public class NovaRefeicao extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				Date data = (Date) data_refeicao.getValue();
 				Calendar data_original = Sistema.DateToCalendar(data);
-				try {
-					Refeicao refeicao = new Refeicao(Double.parseDouble(valor.getText()), data_original);
-					getContrato().adicionaServico(refeicao);
-				} catch (Exception e2) {
-					JOptionPane.showMessageDialog(null, e2.getMessage());
+				if (!(getContrato().getPeriodo().dataIsContida(data_original))){
+					
+					try {
+						Refeicao refeicao = new Refeicao(Double.parseDouble(valor.getText()), data_original);
+						getContrato().adicionaServico(refeicao);
+						JOptionPane.showMessageDialog(null, "Servico adicionado");
+					} catch (Exception e2) {
+						JOptionPane.showMessageDialog(null, e2.getMessage());
+					}
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "O hospede nao esta no hotel nessa data");
 				}
 			}
 		});

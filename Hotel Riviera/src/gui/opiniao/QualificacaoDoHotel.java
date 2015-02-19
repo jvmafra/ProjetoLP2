@@ -8,7 +8,7 @@ import javax.swing.JEditorPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-import classes.HotelOpiniaoServicosPeriodo.Opiniao;
+import nucleo.classes.servicos.*;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

@@ -12,8 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import classes.Arquivos;
-import classes.HotelOpiniaoServicosPeriodo.Hotel;
+import nucleo.classes.arquivo.Arquivos;
+import nucleo.classes.hotel.Hotel;
 
 public class Sistema extends JFrame {
 
