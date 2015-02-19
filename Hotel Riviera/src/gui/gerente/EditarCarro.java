@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import nucleo.classes.servicos.*;
+import java.awt.Color;
 
 public class EditarCarro extends JPanel {
 	/**
@@ -28,6 +29,7 @@ public class EditarCarro extends JPanel {
 	 * Create the panel.
 	 */
 	public EditarCarro(Carro c) {
+		setBackground(Color.WHITE);
 		this.carro = c;
 
 		setBounds(0, 0, 552, 376);
@@ -56,6 +58,7 @@ public class EditarCarro extends JPanel {
 		placa.setColumns(10);
 		
 		luxo = new JCheckBox("Luxo");
+		luxo.setBackground(Color.WHITE);
 		luxo.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		luxo.setBounds(235, 176, 59, 27);
 		luxo.setSelected(carro.isLuxo());

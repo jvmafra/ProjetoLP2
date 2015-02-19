@@ -21,6 +21,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Color;
 
 public class ConsultaBabas extends JPanel {
 	/**
@@ -35,6 +36,7 @@ public class ConsultaBabas extends JPanel {
 	 * Create the panel.
 	 */
 	public ConsultaBabas() {
+		setBackground(Color.WHITE);
 		setLayout(null);
 		setBounds(0,0,800,600);
 		JScrollPane scrollPane = new JScrollPane();

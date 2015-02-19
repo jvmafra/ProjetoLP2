@@ -41,6 +41,7 @@ public class BuscaContrato extends JPanel {
 	 * @throws Exception
 	 */
 	public BuscaContrato() {
+		setBackground(Color.WHITE);
 		setBounds(0,0, 800, 600);
 		setForeground(Color.WHITE);
 

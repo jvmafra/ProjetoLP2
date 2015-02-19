@@ -18,6 +18,7 @@ import nucleo.classes.hotel.Alugavel;
 import nucleo.classes.servicos.Carro;
 
 import java.awt.Font;
+import java.awt.Color;
 
 public class ConsultaCarro extends JPanel {
 
@@ -33,6 +34,7 @@ public class ConsultaCarro extends JPanel {
 	 * Create the panel.
 	 */
 	public ConsultaCarro() {
+		setBackground(Color.WHITE);
 		setLayout(null);
 		setBounds(0,0,800,600);
 		JScrollPane scrollPane = new JScrollPane();

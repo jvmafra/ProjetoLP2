@@ -21,6 +21,7 @@ import nucleo.classes.quartos.QuartoLuxoDuplo;
 import nucleo.classes.quartos.QuartoLuxoSimples;
 import nucleo.classes.quartos.QuartoLuxoTriplo;
 import nucleo.classes.quartos.QuartoPresidencial;
+import java.awt.Color;
 
 public class CadastroQuarto extends JPanel {
 	/**
@@ -34,9 +35,9 @@ public class CadastroQuarto extends JPanel {
 	 * @throws Exception 
 	 */
 	public CadastroQuarto() {
+		setBackground(Color.WHITE);
 		setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		setBounds(0, 0, 800, 600);
-		setLayout(null);
 		
 		
 		try {
@@ -48,17 +49,19 @@ public class CadastroQuarto extends JPanel {
 
 		
 		JButton voltar = new JButton("Voltar");
+		voltar.setBounds(292, 284, 73, 27);
 		voltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		voltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesPrivadas());
 			}
 		});
-		voltar.setBounds(292, 284, 73, 27);
+		setLayout(null);
 		add(voltar);
 		
 		
 		JButton concluir = new JButton("Concluir");
+		concluir.setBounds(440, 284, 91, 27);
 		concluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -73,12 +76,12 @@ public class CadastroQuarto extends JPanel {
 			}
 		});
 		concluir.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		concluir.setBounds(440, 284, 91, 27);
 		add(concluir);
 		
 		quartos = new JComboBox<Quarto>();
+		quartos.setBounds(292, 185, 239, 24);
+		quartos.setBackground(Color.WHITE);
 		quartos.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		quartos.setBounds(313, 171, 197, 24);
 		add(quartos);
 		
 		try {
@@ -96,8 +99,8 @@ public class CadastroQuarto extends JPanel {
 		
 		
 		JLabel selecionaQuarto = new JLabel("Selecione o quarto");
+		selecionaQuarto.setBounds(329, 158, 158, 15);
 		selecionaQuarto.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		selecionaQuarto.setBounds(313, 144, 158, 15);
 		add(selecionaQuarto);
 	}
 	

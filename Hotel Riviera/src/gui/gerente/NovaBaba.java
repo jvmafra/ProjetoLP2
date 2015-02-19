@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import nucleo.classes.servicos.*;
+import java.awt.Color;
 
 
 public class NovaBaba extends JPanel {
@@ -28,6 +29,7 @@ public class NovaBaba extends JPanel {
 	 * Create the frame.
 	 */
 	public NovaBaba() {
+		setBackground(Color.WHITE);
 		setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		setBounds(0, 0, 800, 600);
 		setLayout(null);

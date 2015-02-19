@@ -12,6 +12,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Font;
+import java.awt.Color;
 
 public class OpcoesDeContrato extends JPanel {
 
@@ -19,6 +20,7 @@ public class OpcoesDeContrato extends JPanel {
 	 * Create the panel.
 	 */
 	public OpcoesDeContrato() {
+		setBackground(Color.WHITE);
 		setBounds(0, 0, 800, 600);
 		setLayout(null);
 		

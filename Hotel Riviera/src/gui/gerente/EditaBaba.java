@@ -14,6 +14,7 @@ import gui.Sistema;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class EditaBaba extends JPanel {
 	private Baba baba;
@@ -29,6 +30,7 @@ public class EditaBaba extends JPanel {
 	 * Create the panel.
 	 */
 	public EditaBaba(Baba b) {
+		setBackground(Color.WHITE);
 		this.baba = b;
 		
 		setBounds(0, 0, 552, 376);

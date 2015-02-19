@@ -16,6 +16,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import nucleo.classes.pessoa.Hospede;
+import java.awt.Color;
 
 public class ConsultaHospede extends JPanel {
 	/**
@@ -29,6 +30,7 @@ public class ConsultaHospede extends JPanel {
 	 * Create the panel.
 	 */
 	public ConsultaHospede() {
+		setBackground(Color.WHITE);
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
 		textField = new JTextField();

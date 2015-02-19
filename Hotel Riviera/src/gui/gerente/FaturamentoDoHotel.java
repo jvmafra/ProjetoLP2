@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Color;
 
 public class FaturamentoDoHotel extends JPanel {
 	private JTextField textField;
@@ -20,10 +21,11 @@ public class FaturamentoDoHotel extends JPanel {
 	 * Create the panel.
 	 */
 	public FaturamentoDoHotel() {
+		setBackground(Color.WHITE);
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
 		textField = new JTextField();
-		textField.setBounds(347, 132, 111, 42);
+		textField.setBounds(347, 132, 179, 42);
 		add(textField);
 		textField.setColumns(10);
 		
@@ -33,7 +35,7 @@ public class FaturamentoDoHotel extends JPanel {
 		add(lblFaturamentoMensal);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(347, 205, 111, 42);
+		textField_1.setBounds(347, 205, 179, 42);
 		add(textField_1);
 		textField_1.setColumns(10);
 		
