@@ -25,12 +25,7 @@ import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.MaskFormatter;
 
-import nucleo.classes.formas_cobranca.EstrategiaAltaTemporada;
-import nucleo.classes.formas_cobranca.EstrategiaBaixaTemporada;
-import nucleo.classes.formas_cobranca.EstrategiaCobranca;
-import nucleo.classes.formas_cobranca.EstrategiaNatalReveillon;
-import nucleo.classes.formas_cobranca.EstrategiaSaoJoao;
-import nucleo.classes.formas_cobranca.EstrategiaSimples;
+import nucleo.classes.formas_cobranca.Estrategia;
 import nucleo.classes.hotel.Alugavel;
 import nucleo.classes.hotel.Periodo;
 import nucleo.classes.pessoa.Contrato;
@@ -133,24 +128,6 @@ public class NovoContrato extends JPanel {
 		scrollPane_1.setBounds(29, 23, 259, 126);
 		EstrategiasPagamento.add(scrollPane_1);
 
-		DefaultListModel<EstrategiaCobranca> lista = new DefaultListModel<EstrategiaCobranca>();
-		EstrategiaCobranca e1 = new EstrategiaAltaTemporada();
-		EstrategiaCobranca e2 = new EstrategiaSimples();
-		EstrategiaCobranca e3 = new EstrategiaSaoJoao(true);
-		EstrategiaCobranca e4 = new EstrategiaBaixaTemporada();
-		EstrategiaCobranca e5 = new EstrategiaNatalReveillon();
-		lista.addElement(e1);
-		lista.addElement(e5);
-		lista.addElement(e4);
-		lista.addElement(e3);
-		lista.addElement(e2);
-
-		JList<EstrategiaCobranca> list_1 = new JList<EstrategiaCobranca>();
-		EstrategiasPagamento.add(list_1);
-		list_1.setBounds(29, 24, 257, 62);
-		list_1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-		list_1.setModel(lista);
 
 		JPanel quartosDisponiveis = new JPanel();
 		quartosDisponiveis.setBackground(Color.WHITE);
@@ -242,7 +219,7 @@ public class NovoContrato extends JPanel {
 					Alugavel obj = list.getSelectedValue();
 					Quarto quarto = (Quarto) obj;
 					Hospede h = list_2.getSelectedValue();
-					EstrategiaCobranca estrategia = new EstrategiaSimples();
+					Estrategia estrategia = Sistema.getHotel().getEstrategias().get(4);
 					Contrato contrato = new Contrato(quarto, h, estrategia, p);
 					Sistema.getHotel().check_in(contrato);
 					JOptionPane.showMessageDialog(null, "Contrato adicionado");

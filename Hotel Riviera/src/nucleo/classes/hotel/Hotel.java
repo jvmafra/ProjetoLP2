@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import nucleo.classes.formas_cobranca.Estrategia;
 import nucleo.classes.pessoa.Contrato;
 import nucleo.classes.pessoa.Hospede;
 import nucleo.classes.quartos.Quarto;
@@ -33,6 +34,7 @@ public class Hotel implements Serializable{
 	private List<Alugavel> quartos = new ArrayList<>();
 	private List<Alugavel> babas = new ArrayList<>();
 	private List<Alugavel> carros = new ArrayList<>();
+	private List<Estrategia> estrategias = new ArrayList<>();
 	private Map<String, String> funcionarios = new TreeMap<>();
 
 	/**
@@ -46,6 +48,7 @@ public class Hotel implements Serializable{
 		instanciaLuxosSimples();
 		instanciaLuxosDuplo();
 		instanciaLuxosTriplos();
+		instanciaEstrategias();
 	}
 	
 	public List<Hospede> getHospedes() {
@@ -185,7 +188,12 @@ public class Hotel implements Serializable{
 		funcionarios.put(login, senha);
 	}
 	
-	
+	/**
+	 * Cadastra uma nova estrategia de cobranca ao hotel
+	 */
+	public void adicionaEstrategia(Estrategia e){
+		estrategias.add(e);
+	}
 	
 	/**
 	 * Cadastra uma nova baba no hotel
@@ -358,6 +366,36 @@ public class Hotel implements Serializable{
 			}
 			
 		}
+	}
+	
+	private void instanciaEstrategias(){
+		try {
+			Estrategia alta_temporada = new Estrategia("Alta Temporada", 2.0);
+			adicionaEstrategia(alta_temporada);
+			
+			Estrategia baixa_temporada = new Estrategia("Baixa Temporada", 0.8);
+			adicionaEstrategia(baixa_temporada);
+			
+			Estrategia natal_reveillon = new Estrategia("Natal/Reveillon", 1.2);
+			adicionaEstrategia(natal_reveillon);
+			
+			Estrategia sao_joao = new Estrategia("Sao Joao", 1.1);
+			adicionaEstrategia(sao_joao);
+			
+			Estrategia sao_joao_especial = new Estrategia("Sao Joao Especial", 1.5);
+			adicionaEstrategia(sao_joao_especial);
+			
+			Estrategia simples = new Estrategia("Simples", 1.0);
+			adicionaEstrategia(simples);
+			
+		} catch (Exception e) {
+		}
+	}
+	
+	
+
+	public List<Estrategia> getEstrategias() {
+		return estrategias;
 	}
 
 	public List<Alugavel> getQuartos() {

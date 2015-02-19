@@ -12,9 +12,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
 import javax.swing.JButton;
-
-import nucleo.classes.formas_cobranca.EstrategiaCobranca;
-import nucleo.classes.formas_cobranca.EstrategiaSaoJoao;
 import nucleo.classes.hotel.Periodo;
 import nucleo.classes.pessoa.Contrato;
 import nucleo.classes.pessoa.Hospede;

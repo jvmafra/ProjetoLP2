@@ -5,10 +5,7 @@ import static org.junit.Assert.*;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import nucleo.classes.formas_cobranca.EstrategiaAltaTemporada;
-import nucleo.classes.formas_cobranca.EstrategiaCobranca;
-import nucleo.classes.formas_cobranca.EstrategiaNatalReveillon;
-import nucleo.classes.formas_cobranca.EstrategiaSaoJoao;
+import nucleo.classes.formas_cobranca.Estrategia;
 import nucleo.classes.hotel.Alugavel;
 import nucleo.classes.hotel.Periodo;
 import nucleo.classes.hotel.Servico;
@@ -28,7 +25,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ContratoTest {
-	private EstrategiaCobranca e;
+	private Estrategia e;
 	private Quarto quarto;
 	Calendar data1 = new GregorianCalendar(2015, 5, 22);
 	Calendar data2 = new GregorianCalendar(2015, 5, 26);
@@ -41,7 +38,7 @@ public class ContratoTest {
 		h = new Hospede("Edval","10530025485", "3224432", "18",  "e@hot.com", "8888888888", "ary", "4001635716004159");
 		periodo = new Periodo(data1, data2);
 		quarto = new QuartoPresidencial(1);
-		e = new EstrategiaSaoJoao(true);
+		e = new Estrategia("Sao Joao Especial", 1.5);
 		contrato = new Contrato(quarto, h, e, periodo);
 	}
 
@@ -117,15 +114,15 @@ public class ContratoTest {
 	}
 	
 	@Test
-	public void testaValorFaturaComEstrategias(){
+	public void testaValorFaturaComEstrategias() throws Exception{
 		Assert.assertEquals(4800.0, contrato.calculaValorServicos(), 0.001);
 		Assert.assertEquals(7200.0, contrato.calculaValorTotal(), 0.001);
 		
-		EstrategiaCobranca e = new EstrategiaNatalReveillon();
+		Estrategia e = new Estrategia("Natal/Reveillon", 1.2);
 		contrato.setE(e);
 		Assert.assertEquals(5760.0, contrato.calculaValorTotal(), 0.001);
 		
-		EstrategiaCobranca e2 = new EstrategiaAltaTemporada();
+		Estrategia e2 = new Estrategia("Alta Temporada", 2);
 		contrato.setE(e2);
 		Assert.assertEquals(9600.0, contrato.calculaValorTotal(), 0.001);
 	}

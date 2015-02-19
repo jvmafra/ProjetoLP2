@@ -6,8 +6,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import junit.framework.Assert;
-import nucleo.classes.formas_cobranca.EstrategiaCobranca;
-import nucleo.classes.formas_cobranca.EstrategiaSimples;
+import nucleo.classes.formas_cobranca.Estrategia;
 import nucleo.classes.hotel.Hotel;
 import nucleo.classes.hotel.Periodo;
 import nucleo.classes.pessoa.Contrato;
@@ -33,11 +32,11 @@ public class HotelTest {
 	Contrato ct2;
 	Calendar data_1 = new GregorianCalendar(2015, 6, 25);
 	Calendar data_2 = new GregorianCalendar(2015, 6, 27);
-	EstrategiaCobranca e = new EstrategiaSimples();
 	Hotel hotel;
 	
 	@Before
 	public void setUp() throws Exception {
+		Estrategia e = new Estrategia("Simples", 1.0);
 		q = new QuartoPresidencial(1);
 		hotel = new Hotel();
 		h1 = new Hospede("Edval","10530025485", "3224432", "18",  "e@hot.com", "8888888888", "ary", "4001635716004159");
@@ -80,6 +79,14 @@ public class HotelTest {
 		
 		hotel.cadastraFuncionario("login", "senha");
 		Assert.assertTrue(hotel.getFuncionarios().size() == 1);
+		
+		Estrategia e = new Estrategia("Copa do Mundo", 3.0);
+		hotel.adicionaEstrategia(e);
+		Assert.assertTrue(hotel.getEstrategias().size() == 7);
+		
+		Estrategia e2 = new Estrategia("Olimpiadas", 3.2);
+		hotel.adicionaEstrategia(e);
+		Assert.assertTrue(hotel.getEstrategias().size() == 8);
 		
 	}
 	

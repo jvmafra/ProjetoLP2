@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import nucleo.classes.formas_cobranca.EstrategiaCobranca;
+import nucleo.classes.formas_cobranca.Estrategia;
 import nucleo.classes.hotel.Periodo;
 import nucleo.classes.hotel.Servico;
 import nucleo.classes.quartos.Quarto;
@@ -24,7 +24,7 @@ public class Contrato implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Hospede hospede;
 	private List<Servico> servicos = new ArrayList<Servico>();
-	private EstrategiaCobranca estrategia;
+	private Estrategia estrategia;
 	private Periodo periodo;
 	private boolean aberto;
 	private Quarto quarto;
@@ -42,7 +42,7 @@ public class Contrato implements Serializable{
 	 * @param formaDePagamento
 	 * 			Recebe a forma de pagamento do hospede
 	 */
-	public Contrato (Quarto quarto, Hospede hospede, EstrategiaCobranca e, Periodo periodo) throws Exception{
+	public Contrato (Quarto quarto, Hospede hospede, Estrategia e, Periodo periodo) throws Exception{
 		if (quarto == null)
 			throw new Exception("Quarto invalido");
 		if (hospede == null)
@@ -70,7 +70,7 @@ public class Contrato implements Serializable{
 	/**
 	 * Retorna a estrategia atual de cobranca
 	 */
-	public EstrategiaCobranca getEstrategia() {
+	public Estrategia getEstrategia() {
 		return estrategia;
 	}
 	
@@ -79,7 +79,7 @@ public class Contrato implements Serializable{
 	 * @param e
 	 * 			A nova estrategia
 	 */
-	public void setE(EstrategiaCobranca e) {
+	public void setE(Estrategia e) {
 		this.estrategia = e;
 	}
 	
