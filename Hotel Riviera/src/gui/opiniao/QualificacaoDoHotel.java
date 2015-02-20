@@ -7,54 +7,68 @@ import javax.swing.JLabel;
 import javax.swing.JEditorPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JTextPane;
 
 import nucleo.classes.servicos.*;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.Color;
+
+import javax.swing.UIManager;
 
 public class QualificacaoDoHotel extends JPanel {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField textField;
+	private JTextField media_hotel;
+	private JTextPane status;
 
 	/**
 	 * Create the panel.
 	 */
 	public QualificacaoDoHotel() {
+		setBackground(Color.WHITE);
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
-		JLabel lblComentariosMaisRecentes = new JLabel("Comentarios mais recentes");
-		lblComentariosMaisRecentes.setBounds(49, 28, 135, 36);
+		JLabel lblComentariosMaisRecentes = new JLabel("MAIS RECENTES");
+		lblComentariosMaisRecentes.setFont(new Font("NanumGothic", Font.BOLD, 14));
+		lblComentariosMaisRecentes.setBounds(344, 0, 135, 36);
 		add(lblComentariosMaisRecentes);
 		
-		JEditorPane editorPane = new JEditorPane();
-		editorPane.setBounds(128, 72, 233, 254);
-		editorPane.setText(Sistema.getHotel().imprimeOpinioes());
-		add(editorPane);
-		
-		JLabel lblMdiaDoHotel = new JLabel("M\u00E9dia do Hotel");
-		lblMdiaDoHotel.setBounds(414, 34, 86, 25);
+		JLabel lblMdiaDoHotel = new JLabel("MEDIA DE ACEITACAO: ");
+		lblMdiaDoHotel.setFont(new Font("NanumGothic", Font.BOLD, 14));
+		lblMdiaDoHotel.setBounds(251, 405, 184, 25);
 		add(lblMdiaDoHotel);
 		
-		textField = new JTextField();
-		textField.setBounds(424, 72, 86, 20);
-		textField.setText(String.valueOf(Sistema.getHotel().MediaDoHotel()));
-		add(textField);
-		textField.setColumns(10);
+		media_hotel = new JTextField();
+		media_hotel.setBounds(422, 408, 86, 20);
+		media_hotel.setText(String.valueOf(Sistema.getHotel().MediaDoHotel()));
+		add(media_hotel);
+		media_hotel.setColumns(10);
+		media_hotel.setText(Sistema.getHotel().MediaDoHotel());
 		
-		JButton btnVoltar = new JButton("Voltar");
+		status = new JTextPane();
+		status.setEditable(false);
+		status.setBackground(UIManager.getColor("PopupMenu.background"));
+		status.setFont(new Font("NanumGothic", Font.BOLD, 13));
+		status.setBounds(207, 37, 405, 355);
+		status.setText(Sistema.getHotel().imprimeOpinioes());
+		add(status);
+		
+		JButton btnVoltar = new JButton("VOLTAR");
+		btnVoltar.setFont(new Font("NanumGothic", Font.BOLD, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDeOpiniao());
 
 			}
 		});
-		btnVoltar.setBounds(44, 337, 89, 23);
+		btnVoltar.setBounds(346, 526, 89, 23);
 		add(btnVoltar);
+		
 
 	}
-
 }

@@ -41,7 +41,7 @@ public class Sistema extends JFrame {
 //				}
 				
 				criaHotel();
-				setTela(new LoginDeFuncionario());
+				setTela(new LoginDeFuncionario(false));
 			}
 		});
 	}

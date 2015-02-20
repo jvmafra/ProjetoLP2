@@ -9,6 +9,7 @@ import java.util.TreeMap;
 
 import nucleo.classes.formas_cobranca.Estrategia;
 import nucleo.classes.pessoa.Contrato;
+import nucleo.classes.pessoa.Funcionario;
 import nucleo.classes.pessoa.Hospede;
 import nucleo.classes.quartos.Quarto;
 import nucleo.classes.quartos.QuartoExecutivoDuplo;
@@ -35,7 +36,7 @@ public class Hotel implements Serializable{
 	private List<Alugavel> babas = new ArrayList<>();
 	private List<Alugavel> carros = new ArrayList<>();
 	private List<Estrategia> estrategias = new ArrayList<>();
-	private Map<String, String> funcionarios = new TreeMap<>();
+	private List<Funcionario> funcionarios = new ArrayList<>();
 
 	/**
 	 * Ao ser inicializado o hotel, sao geradas listas de quartos, carros e babas.
@@ -49,13 +50,15 @@ public class Hotel implements Serializable{
 		instanciaLuxosDuplo();
 		instanciaLuxosTriplos();
 		instanciaEstrategias();
+		criaGerente();
+		
 	}
 	
 	public List<Hospede> getHospedes() {
 		return hospedes;
 	}
 	
-	public Map<String, String> getFuncionarios() {
+	public List<Funcionario> getFuncionarios() {
 		return funcionarios;
 	}
 	
@@ -170,22 +173,25 @@ public class Hotel implements Serializable{
 	 * @return True ou False
 	 * 			Dependendo se aquele funcionario ja esta cadastrado ou nao
 	 */
-	public boolean verificaLogin(String login, String senha){
-		if(funcionarios.containsKey(login) && funcionarios.get(login).equals(senha))
-			return true;
+	public boolean verificaLogin(String login, String senha, boolean verificaGerente){
+		for (Funcionario f: funcionarios){
+			if (f.getLogin().equals(login) && f.getSenha().equals(senha)){
+				if (!(verificaGerente))
+					return true;
+				else
+					if (f.isPermissaoGerente())
+						return true;
+			}
+		}
+			
 		return false;
 	}
 	
 	/**
-	 * Cadastra um novo funcionario que agora tera acesso ao sistema do hotel
+	 * Cadastra um novo funcionario ao hotel
 	 */
-	public void cadastraFuncionario(String login, String senha) throws Exception{
-		if (login == null || login.equals(""))
-			throw new Exception("Digite um login");
-		if (senha == null || senha.equals(""))
-			throw new Exception("Digite uma senha");
-		
-		funcionarios.put(login, senha);
+	public void adicionaFuncionario(Funcionario f){
+		funcionarios.add(f);
 	}
 	
 	/**
@@ -390,6 +396,16 @@ public class Hotel implements Serializable{
 			
 		} catch (Exception e) {
 		}
+	}
+	
+	private void criaGerente(){
+		Funcionario gerente;
+		try {
+			gerente = new Funcionario("Gerente", "admin", "123456", true);
+			adicionaFuncionario(gerente);
+		} catch (Exception e) {
+		}
+
 	}
 	
 	

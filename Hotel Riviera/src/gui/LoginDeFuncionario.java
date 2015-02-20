@@ -1,5 +1,7 @@
 package gui;
 
+import gui.gerente.OpcoesPrivadas;
+
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -36,30 +38,11 @@ public class LoginDeFuncionario extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JTextField login;
 	private JPasswordField senha;
-	private final Action action = new SwingAction();
-	private boolean acessoPermitido = false;
+	private boolean analisaGerente;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LoginDeFuncionario JFrame = new LoginDeFuncionario();
-					JFrame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-		
-	}
-
-	/**
-	 * Create the JFrame.
-	 */
-	public LoginDeFuncionario() {
+	
+	public LoginDeFuncionario(boolean analisaGerente) {
+		this.analisaGerente = analisaGerente;
 		setBackground(Color.WHITE);
 		setBounds(0, 0, 800, 600);
 		setLayout(null);
@@ -92,38 +75,43 @@ public class LoginDeFuncionario extends JPanel {
 		JButton botao_entrar = new JButton("Entrar");
 		botao_entrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (Sistema.getHotel().verificaLogin(login.getText(), senha.getText(), isAnalisaGerente()))
+					if (isAnalisaGerente())
+						Sistema.setTela(new OpcoesPrivadas());
+					else
+						Sistema.setTela(new PaginaInicialHotel());
+				else
+					JOptionPane.showMessageDialog(null, "Acesso Negado");{
+					login.setText("");
+					senha.setText("");
+					 }
 			}
 		});
-		botao_entrar.setBounds(95, 168, 86, 25);
+		botao_entrar.setBounds(95, 160, 86, 25);
 		panel.add(botao_entrar);
-		botao_entrar.setAction(action);
 		botao_entrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(LoginDeFuncionario.class.getResource("/nucleo/icones/Logo Hotel.png")));
-		lblNewLabel.setBounds(77, 0, 528, 410);
+		lblNewLabel.setBounds(73, 0, 528, 410);
 		add(lblNewLabel);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBounds(56, 515, 86, 25);
+		if (isAnalisaGerente())
+			add(btnVoltar);
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new PaginaInicialHotel());
+			}
+		});
+		btnVoltar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+		
 
 	}
-	private class SwingAction extends AbstractAction {
-		public SwingAction() {
-			putValue(NAME, "Entrar");
-			putValue(SHORT_DESCRIPTION, "Login de funcionario");
-		}
-		
-		public void actionPerformed(ActionEvent e) {
-			if (login.getText().equals("admin") && senha.getText().equals("123456")){
-				//JOptionPane.showMessageDialog(null, "Acesso Permitido");
-				acessoPermitido = true;
-				Sistema.setTela(new PaginaInicialHotel());
-			
-		}
-			else
-				JOptionPane.showMessageDialog(null, "Acesso Negado");{
-				login.setText("");
-				senha.setText("");
-				 }
-		}
-		
+
+	
+	private boolean isAnalisaGerente(){
+		return analisaGerente;
 	}
 }

@@ -10,6 +10,7 @@ import nucleo.classes.formas_cobranca.Estrategia;
 import nucleo.classes.hotel.Hotel;
 import nucleo.classes.hotel.Periodo;
 import nucleo.classes.pessoa.Contrato;
+import nucleo.classes.pessoa.Funcionario;
 import nucleo.classes.pessoa.Hospede;
 import nucleo.classes.quartos.Quarto;
 import nucleo.classes.quartos.QuartoPresidencial;
@@ -33,6 +34,7 @@ public class HotelTest {
 	Calendar data_1 = new GregorianCalendar(2015, 6, 25);
 	Calendar data_2 = new GregorianCalendar(2015, 6, 27);
 	Hotel hotel;
+	Funcionario f;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -48,6 +50,7 @@ public class HotelTest {
 		baba2 = new Baba("Josefa", "98798798");
 		ct1 = new Contrato(q, h1, e, p);
 		ct2 = new Contrato(q, h2, e, p);
+		f = new Funcionario("Joao", "admin", "123456", false);
 
 	}
 	
@@ -77,8 +80,8 @@ public class HotelTest {
 		hotel.adicionaHospede(h1);
 		Assert.assertTrue(hotel.getHospedes().size() == 1);
 		
-		hotel.cadastraFuncionario("login", "senha");
-		Assert.assertTrue(hotel.getFuncionarios().size() == 1);
+		hotel.adicionaFuncionario(f);;
+		Assert.assertTrue(hotel.getFuncionarios().size() == 2);
 		
 		Estrategia e = new Estrategia("Copa do Mundo", 3.0);
 		hotel.adicionaEstrategia(e);
@@ -96,9 +99,9 @@ public class HotelTest {
 		Assert.assertEquals(hotel.pesquisaContrato("Edval").size(), 1);
 		hotel.check_out(ct1);
 		
-		hotel.cadastraFuncionario("login", "senha");
-		Assert.assertTrue(hotel.verificaLogin("login", "senha") == true);
-		Assert.assertTrue(hotel.verificaLogin("login", "senh") == false);
+		Assert.assertTrue(hotel.verificaLogin("admin", "123456", false) == true);
+		Assert.assertTrue(hotel.verificaLogin("admin", "123456", true) == true);
+		Assert.assertTrue(hotel.verificaLogin("admin", "12345", false) == false);
 		
 	}
 	

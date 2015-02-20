@@ -86,7 +86,7 @@ public class PaginaInicialHotel extends JPanel {
 		JButton btnReservaldo = new JButton("Reservado");
 		btnReservaldo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new OpcoesPrivadas());
+				Sistema.setTela(new LoginDeFuncionario(true));
 			}
 		});
 		btnReservaldo.setBounds(12, 302, 150, 50);
@@ -97,7 +97,7 @@ public class PaginaInicialHotel extends JPanel {
 		btnSair.setBounds(12, 386, 150, 50);
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new LoginDeFuncionario());
+				Sistema.setTela(new LoginDeFuncionario(false));
 			}
 		});
 		btnSair.setFont(new Font("Tahoma", Font.BOLD, 18));

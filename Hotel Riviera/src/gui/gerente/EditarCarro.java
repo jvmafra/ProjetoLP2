@@ -32,7 +32,7 @@ public class EditarCarro extends JPanel {
 		setBackground(Color.WHITE);
 		this.carro = c;
 
-		setBounds(0, 0, 552, 376);
+		setBounds(0, 0, 800, 600);
 		setLayout(null);
 		
 		descricao = new JTextField();

@@ -1,11 +1,17 @@
 package nucleo.classes.formas_cobranca;
 
+import java.io.Serializable;
+
 import nucleo.classes.hotel.Periodo;
 import nucleo.excecoes.NomeInvalidoException;
 import nucleo.excecoes.PeriodoInvalidoException;
 import nucleo.excecoes.ValorInvalidoException;
 
-public class Estrategia {
+public class Estrategia implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String nome;
 	private double fator;
 	
@@ -14,8 +20,7 @@ public class Estrategia {
 			throw new NomeInvalidoException("Digite um nome");
 		if (fator <= 0)
 			throw new ValorInvalidoException("Digite um fator valido");
-		
-		
+
 		this.nome = nome;
 		this.fator = fator;
 		
