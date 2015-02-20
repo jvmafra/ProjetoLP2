@@ -72,6 +72,7 @@ public class NovaRefeicao extends JPanel {
 					try {
 						Refeicao refeicao = new Refeicao(Double.parseDouble(valor.getText()), data_original);
 						getContrato().adicionaServico(refeicao);
+						Sistema.getHotel().incrementaRefeicoes();
 						JOptionPane.showMessageDialog(null, "Servico adicionado");
 					} catch (Exception e2) {
 						JOptionPane.showMessageDialog(null, e2.getMessage());

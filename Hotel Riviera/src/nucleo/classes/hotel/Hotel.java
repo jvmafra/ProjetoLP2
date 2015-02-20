@@ -29,6 +29,7 @@ import nucleo.classes.servicos.Carro;
 public class Hotel implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
+	
 	private List<Contrato> contratos = new ArrayList<>();
 	private List<Hospede> hospedes = new ArrayList<>();
 	private List<Opiniao> opinioes = new ArrayList<>();
@@ -37,6 +38,8 @@ public class Hotel implements Serializable{
 	private List<Alugavel> carros = new ArrayList<>();
 	private List<Estrategia> estrategias = new ArrayList<>();
 	private List<Funcionario> funcionarios = new ArrayList<>();
+	private int alugueisCarro, babySitter, refeicoes, massagens = 0;
+
 
 	/**
 	 * Ao ser inicializado o hotel, sao geradas listas de quartos, carros e babas.
@@ -89,6 +92,63 @@ public class Hotel implements Serializable{
 	public List<Opiniao> getOpinioes() {
 		return opinioes;
 	}
+	
+	/**
+	 * Retorna a quantidade de AlugueisDeCarro ja contratados
+	 */
+	public int getAlugueisCarro() {
+		return alugueisCarro;
+	}
+	
+	/**
+	 * Retorna a quantidade de BabySitter ja contratadas
+	 */
+	public int getBabySitter() {
+		return babySitter;
+	}
+	
+	/**
+	 * Retorna a quantidade de Refeicoes ja solicitadas
+	 */
+	public int getRefeicoes() {
+		return refeicoes;
+	}
+	
+	/**
+	 * Retorna a quantidade de massagens ja solicitadas
+	 */
+	public int getMassagens() {
+		return massagens;
+	}
+	
+	/**
+	 * Incrementa a quantidade de servicos AluguelDeCarro ja contratados
+	 */
+	public void incrementaAlugueisCarro(){
+		alugueisCarro ++;
+	}
+	
+	/**
+	 * Incrementa a quantidade de servicos BabySitter ja contratados
+	 */
+	public void incrementaBabySitter(){
+		babySitter ++;
+	}
+	
+	/**
+	 * Incrementa a quantidade de servicos Refeicao ja contratados
+	 */
+	public void incrementaRefeicoes(){
+		refeicoes ++;
+	}
+	
+	/**
+	 * Incrementa a quantidade de servicos Massagem ja contratados
+	 */
+	public void incrementaMassagens(){
+		massagens ++;
+	}
+	
 	
 	public String MediaDoHotel() {
 		double soma = 0;

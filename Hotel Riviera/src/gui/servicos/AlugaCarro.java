@@ -117,6 +117,7 @@ public class AlugaCarro extends JPanel {
 						Carro carro = (Carro) obj;
 						AluguelCarro aluguel = new AluguelCarro(carro, tanque.isSelected(), seguro.isSelected(), p);
 						getContrato().adicionaServico(aluguel);
+						Sistema.getHotel().incrementaAlugueisCarro();
 						JOptionPane.showMessageDialog(null, "Carro alugado!");
 					} catch (Exception e) {
 						JOptionPane.showMessageDialog(null, e.getMessage());

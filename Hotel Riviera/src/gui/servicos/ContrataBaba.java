@@ -95,6 +95,8 @@ public class ContrataBaba extends JPanel {
 						Baba baba = (Baba) obj;
 						BabySitter baby = new BabySitter(baba, p);
 						getContrato().adicionaServico(baby);
+						Sistema.getHotel().incrementaBabySitter();
+						JOptionPane.showMessageDialog(null, "Baba contratada!");
 					} catch (Exception e2) {
 						JOptionPane.showMessageDialog(null, e2.getMessage());
 					}

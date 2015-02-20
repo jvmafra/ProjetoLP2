@@ -71,6 +71,7 @@ public class ContratoTest {
 		} catch (Exception e) {
 			Assert.assertEquals("Periodo invalido", e.getMessage());
 		}
+		
 			
 	}
 	

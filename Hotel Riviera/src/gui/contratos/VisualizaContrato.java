@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
@@ -53,10 +54,13 @@ public class VisualizaContrato extends JPanel {
 		btnFecharContrato.setBounds(613, 319, 162, 25);
 		add(btnFecharContrato);
 		
-		JButton btnNewButton = new JButton("Adicionar Serviço");
+		JButton btnNewButton = new JButton("Adicionar Servico");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new OpcoesDeServicos(getContrato()));
+				if (getContrato().isAberto())
+					Sistema.setTela(new OpcoesDeServicos(getContrato()));
+				else
+					JOptionPane.showMessageDialog(null, "O contrato ja foi fechado!");
 			}
 		});
 		

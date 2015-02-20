@@ -2,6 +2,8 @@ package nucleo.classes.pessoa;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 
@@ -28,7 +30,7 @@ public class Contrato implements Serializable{
 	private Periodo periodo;
 	private boolean aberto;
 	private Quarto quarto;
-	
+
 	/**
 	 * Construtor que recebe as informacoes necessarias para criacao de um contrato
 	 * @param servicos
@@ -99,12 +101,34 @@ public class Contrato implements Serializable{
 		return periodo;
 	}
 	
+	
 	/**
 	 * Retorna o numero de dias em que o hospede ficara hospedado
 	 * @return Numero de dias
 	 */
 	public int numDias() {
 		return periodo.getNumeroDias();
+	}
+	
+	/**
+	 * Calcula o valor da multa a ser pago pelo cliente em caso de atraso
+	 * @return multa
+	 * 			Um double que representa a multa a ser paga
+	 */
+	public double calculaMulta() {
+		Calendar hoje = new GregorianCalendar();
+		if (hoje.after(periodo.getData_final())){
+			Periodo atraso = null;
+			try {
+				atraso = new Periodo(periodo.getData_final(), hoje);	
+			} catch (Exception e) {
+			}
+			
+			return 200 * atraso.getNumeroDias();
+			
+		}
+		else
+			return 0;
 	}
 	
 	
@@ -114,7 +138,6 @@ public class Contrato implements Serializable{
 	 * 			Um novo servico a ser adicionado
 	 */
 	public void adicionaServico(Servico servico) throws Exception{
-		verificaContratoFechado();
 		servicos.add(servico);
 	}
 	
@@ -127,7 +150,6 @@ public class Contrato implements Serializable{
 		if (!(servicos.contains(servico)))
 			throw new Exception("O servico nao existe");
 		
-		verificaContratoFechado();
 		servicos.remove(servico);
 	}
 	
@@ -177,7 +199,7 @@ public class Contrato implements Serializable{
 	 * Calcula o valor de todos os servicos usando a estrategia de cobranca, que depende do periodo
 	 */
 	public double calculaValorTotal(){
-		return calculaValorServicos() * getEstrategia().getFator();
+		return (calculaValorServicos() * getEstrategia().getFator()) - calculaMulta();
 	}
 	
 	/**
@@ -258,7 +280,8 @@ public class Contrato implements Serializable{
 	 */
 	public String imprimeResumoAtual(){
 		return hospede.mostraInformacoes() + "\n\nQuarto: " + servicos.get(0) + 
-				"\n\nPeriodo: " + getPeriodo().toString() + "\n\nSTATUS: " + mostraStatus();
+				"\n\nPeriodo: " + getPeriodo().toString() + "\n\nSTATUS: " + mostraStatus() +
+				"\n\nMulta: R$" + calculaMulta();
 	}
 	
 	/**
@@ -273,11 +296,6 @@ public class Contrato implements Serializable{
 				+ "\n\n\nValor total dos servicos: " + calculaValorServicos() 
 				+ "\nValor total da estadia: " + calculaValorTotal()
 				+ "\n\nStatus do contrato: " + mostraStatus();
-	}
-	
-	private void verificaContratoFechado() throws ContratoFechadoException {
-		if (!(isAberto()))
-			throw new ContratoFechadoException("O contrato ja foi fechado");
 	}
 	
 	
