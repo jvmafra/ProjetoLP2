@@ -45,6 +45,7 @@ public class NovoContrato extends JPanel {
 	JList<Alugavel> list;
 	JList<Hospede> list_2;
 	DefaultListModel<Alugavel> listModel;
+	JComboBox<Estrategia> estrategias;
 
 
 	/**
@@ -122,14 +123,21 @@ public class NovoContrato extends JPanel {
 
 		JPanel EstrategiasPagamento = new JPanel();
 		EstrategiasPagamento.setBackground(new Color(51, 102, 153));
-		EstrategiasPagamento.setBounds(423, 351, 311, 160);
+		EstrategiasPagamento.setBounds(422, 196, 304, 89);
 		margemGeral.add(EstrategiasPagamento);
 		EstrategiasPagamento.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Estrategia de Cobranca", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 255, 255)));
 		EstrategiasPagamento.setLayout(null);
 		
-		JComboBox estrategias = new JComboBox();
-		estrategias.setBounds(30, 28, 257, 26);
+		estrategias = new JComboBox<Estrategia>();
+		estrategias.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+		estrategias.setForeground(new Color(51, 102, 153));
+		estrategias.setBackground(Color.WHITE);
+		estrategias.setBounds(25, 31, 257, 26);
+		for (Estrategia estrategia: Sistema.getHotel().getEstrategias()){
+			estrategias.addItem(estrategia);
+		}
 		EstrategiasPagamento.add(estrategias);
+		
 
 
 		JPanel quartosDisponiveis = new JPanel();
@@ -211,7 +219,7 @@ public class NovoContrato extends JPanel {
 		});
 		// btnVoltar.setAction(action_1);
 		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnVoltar.setBounds(443, 542, 94, 25);
+		btnVoltar.setBounds(422, 503, 94, 25);
 		margemGeral.add(btnVoltar);
 		
 		JButton btnNewButton = new JButton("Concluir");
@@ -228,7 +236,7 @@ public class NovoContrato extends JPanel {
 					Alugavel obj = list.getSelectedValue();
 					Quarto quarto = (Quarto) obj;
 					Hospede h = list_2.getSelectedValue();
-					Estrategia estrategia = Sistema.getHotel().getEstrategias().get(4);
+					Estrategia estrategia = (Estrategia) estrategias.getSelectedItem();
 					Contrato contrato = new Contrato(quarto, h, estrategia, p);
 					Sistema.getHotel().check_in(contrato);
 					JOptionPane.showMessageDialog(null, "Contrato adicionado");
@@ -238,18 +246,18 @@ public class NovoContrato extends JPanel {
 				}
 			}
 		});
-		btnNewButton.setBounds(591, 542, 109, 25);
+		btnNewButton.setBounds(617, 503, 109, 25);
 		margemGeral.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(NovoContrato.class.getResource("/nucleo/icones/hotel4.png")));
-		lblNewLabel.setBounds(499, 177, 144, 104);
+		lblNewLabel.setBounds(512, 314, 144, 104);
 		margemGeral.add(lblNewLabel);
 		
 		JLabel lblNovoContrato = new JLabel("NOVO CONTRATO");
 		lblNovoContrato.setForeground(new Color(255, 255, 255));
 		lblNovoContrato.setFont(new Font("Rockwell Condensed", Font.BOLD, 30));
-		lblNovoContrato.setBounds(472, 279, 216, 61);
+		lblNovoContrato.setBounds(473, 418, 216, 61);
 		margemGeral.add(lblNovoContrato);
 
 		

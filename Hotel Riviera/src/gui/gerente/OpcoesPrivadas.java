@@ -57,7 +57,7 @@ public class OpcoesPrivadas extends JPanel {
 				Sistema.setTela(new PaginaInicialHotel());
 			}
 		});
-		btnVoltar.setBounds(358, 533, 89, 23);
+		btnVoltar.setBounds(358, 549, 89, 23);
 		add(btnVoltar);
 		
 		JButton btnCadastroCarro = new JButton("CARRO");
@@ -68,7 +68,7 @@ public class OpcoesPrivadas extends JPanel {
 				Sistema.setTela(new OpcoesDeCarro());
 			}
 		});
-		btnCadastroCarro.setBounds(309, 329, 184, 33);
+		btnCadastroCarro.setBounds(309, 371, 184, 33);
 		add(btnCadastroCarro);
 		
 		JButton btnCadastraBab = new JButton("BABA");
@@ -79,7 +79,7 @@ public class OpcoesPrivadas extends JPanel {
 				Sistema.setTela(new OpcoesDeBaba());
 			}
 		});
-		btnCadastraBab.setBounds(309, 392, 184, 33);
+		btnCadastraBab.setBounds(309, 424, 184, 33);
 		add(btnCadastraBab);
 		
 		JButton btnCadastraQuarto = new JButton("CADASTRA QUARTO");
@@ -90,7 +90,7 @@ public class OpcoesPrivadas extends JPanel {
 				Sistema.setTela(new CadastroQuarto());
 			}
 		});
-		btnCadastraQuarto.setBounds(309, 456, 184, 33);
+		btnCadastraQuarto.setBounds(309, 476, 184, 33);
 		add(btnCadastraQuarto);
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -105,5 +105,4 @@ public class OpcoesPrivadas extends JPanel {
 		add(lblreaReservada);
 
 	}
-
 }
