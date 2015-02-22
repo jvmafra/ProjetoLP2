@@ -2,6 +2,7 @@ package gui.opiniao;
 
 import gui.PaginaInicialHotel;
 import gui.Sistema;
+import gui.gerente.OpcoesEstatisticas;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -52,7 +53,7 @@ public class OpcoesDeOpiniao extends JPanel {
 		btnVoltar.setFont(new Font("NanumGothic", Font.BOLD, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new PaginaInicialHotel());
+				Sistema.setTela(new OpcoesEstatisticas());
 			}
 		});
 		btnVoltar.setBounds(349, 431, 89, 23);

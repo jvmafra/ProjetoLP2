@@ -20,23 +20,25 @@ public class OpcoesDeContrato extends JPanel {
 	 * Create the panel.
 	 */
 	public OpcoesDeContrato() {
-		setBackground(Color.WHITE);
+		setBackground(new Color(51, 102, 153));
 		setBounds(0, 0, 800, 600);
 		setLayout(null);
 		
 		JButton btnContratosEmAberto = new JButton("CONTRATOS EXISTENTES");
+		btnContratosEmAberto.setForeground(new Color(51, 102, 153));
 		btnContratosEmAberto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Sistema.setTela(new BuscaContrato());
 
 		}});
-		btnContratosEmAberto.setFont(new Font("NanumGothic", Font.BOLD, 14));
+		btnContratosEmAberto.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnContratosEmAberto.setBounds(266, 275, 277, 57);
 		add(btnContratosEmAberto);
 		
 		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 15));
-		btnVoltar.setBounds(372, 456, 77, 25);
+		btnVoltar.setForeground(new Color(51, 102, 153));
+		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnVoltar.setBounds(364, 436, 77, 25);
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new PaginaInicialHotel());
@@ -45,12 +47,13 @@ public class OpcoesDeContrato extends JPanel {
 		add(btnVoltar);
 		
 		JButton btnNovoContrato = new JButton("NOVO CONTRATO");
+		btnNovoContrato.setForeground(new Color(51, 102, 153));
 		btnNovoContrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Sistema.setTela(new NovoContrato());
 			}
 		});
-		btnNovoContrato.setFont(new Font("NanumGothic", Font.BOLD, 15));
+		btnNovoContrato.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNovoContrato.setBounds(266, 157, 277, 65);
 		add(btnNovoContrato);
 

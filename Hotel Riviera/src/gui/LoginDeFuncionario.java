@@ -49,11 +49,11 @@ public class LoginDeFuncionario extends JPanel {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
-		panel.setBounds(251, 349, 278, 207);
+		panel.setBounds(243, 307, 278, 207);
 		add(panel);
 		panel.setLayout(null);
 		JLabel login_1 = new JLabel("Login");
-		login_1.setBounds(48, 71, 51, 16);
+		login_1.setBounds(43, 72, 51, 16);
 		panel.add(login_1);
 		login_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		
@@ -72,8 +72,9 @@ public class LoginDeFuncionario extends JPanel {
 		panel.add(login);
 		login.setColumns(10);
 		
-		JButton botao_entrar = new JButton("Entrar");
-		botao_entrar.addActionListener(new ActionListener() {
+		JButton btnEntrar = new JButton("Entrar");
+		btnEntrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (Sistema.getHotel().verificaLogin(login.getText(), senha.getText(), isAnalisaGerente()))
 					if (isAnalisaGerente())
@@ -87,17 +88,16 @@ public class LoginDeFuncionario extends JPanel {
 					 }
 			}
 		});
-		botao_entrar.setBounds(95, 160, 86, 25);
-		panel.add(botao_entrar);
-		botao_entrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
+		btnEntrar.setBounds(95, 154, 86, 25);
+		panel.add(btnEntrar);
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(LoginDeFuncionario.class.getResource("/nucleo/icones/Logo Hotel.png")));
-		lblNewLabel.setBounds(73, 0, 528, 410);
+		lblNewLabel.setBounds(72, 11, 528, 362);
 		add(lblNewLabel);
 		
 		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setBounds(56, 515, 86, 25);
+		btnVoltar.setBounds(338, 515, 86, 25);
 		if (isAnalisaGerente())
 			add(btnVoltar);
 		btnVoltar.addActionListener(new ActionListener() {

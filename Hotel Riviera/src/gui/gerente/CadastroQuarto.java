@@ -22,6 +22,7 @@ import nucleo.classes.quartos.QuartoLuxoSimples;
 import nucleo.classes.quartos.QuartoLuxoTriplo;
 import nucleo.classes.quartos.QuartoPresidencial;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class CadastroQuarto extends JPanel {
 	/**
@@ -35,7 +36,7 @@ public class CadastroQuarto extends JPanel {
 	 * @throws Exception 
 	 */
 	public CadastroQuarto() {
-		setBackground(Color.WHITE);
+		setBackground(new Color(51, 102, 153));
 		setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		setBounds(0, 0, 800, 600);
 		
@@ -49,8 +50,9 @@ public class CadastroQuarto extends JPanel {
 
 		
 		JButton voltar = new JButton("Voltar");
-		voltar.setBounds(292, 284, 73, 27);
-		voltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		voltar.setForeground(new Color(51, 102, 153));
+		voltar.setBounds(292, 356, 73, 27);
+		voltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		voltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesPrivadas());
@@ -61,7 +63,8 @@ public class CadastroQuarto extends JPanel {
 		
 		
 		JButton concluir = new JButton("Concluir");
-		concluir.setBounds(440, 284, 91, 27);
+		concluir.setForeground(new Color(51, 102, 153));
+		concluir.setBounds(453, 356, 91, 27);
 		concluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -75,11 +78,11 @@ public class CadastroQuarto extends JPanel {
 				
 			}
 		});
-		concluir.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		concluir.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		add(concluir);
 		
 		quartos = new JComboBox<Quarto>();
-		quartos.setBounds(292, 185, 239, 24);
+		quartos.setBounds(292, 277, 239, 24);
 		quartos.setBackground(Color.WHITE);
 		quartos.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		add(quartos);
@@ -99,9 +102,21 @@ public class CadastroQuarto extends JPanel {
 		
 		
 		JLabel selecionaQuarto = new JLabel("Selecione o quarto");
-		selecionaQuarto.setBounds(329, 158, 158, 15);
-		selecionaQuarto.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		selecionaQuarto.setForeground(new Color(255, 255, 255));
+		selecionaQuarto.setBounds(348, 251, 158, 15);
+		selecionaQuarto.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		add(selecionaQuarto);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(CadastroQuarto.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel.setBounds(337, 26, 169, 105);
+		add(lblNewLabel);
+		
+		JLabel lblCadastraNovoQuarto = new JLabel("CADASTRA NOVO QUARTO");
+		lblCadastraNovoQuarto.setFont(new Font("Rockwell Condensed", Font.BOLD, 30));
+		lblCadastraNovoQuarto.setForeground(new Color(255, 255, 255));
+		lblCadastraNovoQuarto.setBounds(248, 128, 324, 55);
+		add(lblCadastraNovoQuarto);
 	}
 	
 	private int calculaProximoNumero(){

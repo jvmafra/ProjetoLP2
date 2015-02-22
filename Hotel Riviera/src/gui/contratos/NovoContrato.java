@@ -31,6 +31,8 @@ import nucleo.classes.hotel.Periodo;
 import nucleo.classes.pessoa.Contrato;
 import nucleo.classes.pessoa.Hospede;
 import nucleo.classes.quartos.Quarto;
+import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 
 public class NovoContrato extends JPanel {
 	/**
@@ -71,17 +73,17 @@ public class NovoContrato extends JPanel {
 		setBounds(0, 0, 800, 600);
 
 		JPanel margemGeral = new JPanel();
-		margemGeral.setBackground(Color.WHITE);
+		margemGeral.setBackground(new Color(51, 102, 153));
 		margemGeral.setBounds(0, 0, 800, 600);
 		add(margemGeral);
 		margemGeral.setLayout(null);
 
 		JPanel DadosHospedes = new JPanel();
-		DadosHospedes.setBackground(Color.WHITE);
-		DadosHospedes.setBounds(13, 14, 771, 142);
+		DadosHospedes.setForeground(new Color(255, 255, 255));
+		DadosHospedes.setBackground(new Color(51, 102, 153));
+		DadosHospedes.setBounds(10, 11, 771, 142);
 		margemGeral.add(DadosHospedes);
-		DadosHospedes.setBorder(new TitledBorder(null, "Hospedes do hotel",
-				TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		DadosHospedes.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Hospedes do hotel", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 255, 255)));
 		DadosHospedes.setLayout(null);
 		
 		
@@ -93,12 +95,14 @@ public class NovoContrato extends JPanel {
 		setLayout(null);
 
 		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(88, 29, 368, 101);
+		scrollPane_2.setBounds(35, 29, 437, 101);
 		//verificar
 		DadosHospedes.add(scrollPane_2);
 		
 		
 		list_2 = new JList<Hospede>();
+		list_2.setBackground(new Color(51, 102, 153));
+		list_2.setForeground(new Color(255, 255, 255));
 		list_2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		list_2.setModel(listMode2);
 		
@@ -106,36 +110,33 @@ public class NovoContrato extends JPanel {
 		scrollPane_2.setViewportView(list_2);
 		
 		JButton btnNovoHospede = new JButton("NOVO HOSPEDE");
+		btnNovoHospede.setForeground(new Color(51, 102, 153));
 		btnNovoHospede.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new NovoHospede(true));
 			}
 		});
-		btnNovoHospede.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnNovoHospede.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNovoHospede.setBounds(505, 62, 179, 25);
 		DadosHospedes.add(btnNovoHospede);
 
 		JPanel EstrategiasPagamento = new JPanel();
-		EstrategiasPagamento.setBackground(Color.WHITE);
-		EstrategiasPagamento.setBounds(409, 228, 311, 160);
+		EstrategiasPagamento.setBackground(new Color(51, 102, 153));
+		EstrategiasPagamento.setBounds(423, 351, 311, 160);
 		margemGeral.add(EstrategiasPagamento);
-		EstrategiasPagamento.setBorder(new TitledBorder(UIManager
-				.getBorder("TitledBorder.border"), "Estrategia de Cobranca",
-				TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		EstrategiasPagamento.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Estrategia de Cobranca", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 255, 255)));
 		EstrategiasPagamento.setLayout(null);
-
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(29, 23, 259, 126);
-		EstrategiasPagamento.add(scrollPane_1);
+		
+		JComboBox estrategias = new JComboBox();
+		estrategias.setBounds(30, 28, 257, 26);
+		EstrategiasPagamento.add(estrategias);
 
 
 		JPanel quartosDisponiveis = new JPanel();
-		quartosDisponiveis.setBackground(Color.WHITE);
+		quartosDisponiveis.setBackground(new Color(51, 102, 153));
 		quartosDisponiveis.setBounds(13, 196, 299, 343);
 		margemGeral.add(quartosDisponiveis);
-		quartosDisponiveis.setBorder(new TitledBorder(null,
-				"Quartos disponiveis.", TitledBorder.LEADING, TitledBorder.TOP,
-				null, null));
+		quartosDisponiveis.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Quartos disponiveis.", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 255, 255)));
 		quartosDisponiveis.setLayout(null);
 
 		data_inicial = new JSpinner();
@@ -151,13 +152,15 @@ public class NovoContrato extends JPanel {
 		quartosDisponiveis.add(data_final);
 
 		JLabel lblDataInicial = new JLabel("Inicio");
-		lblDataInicial.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		lblDataInicial.setBounds(12, 34, 70, 15);
+		lblDataInicial.setForeground(new Color(255, 255, 255));
+		lblDataInicial.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblDataInicial.setBounds(39, 34, 70, 15);
 		quartosDisponiveis.add(lblDataInicial);
 
 		JLabel lblDataFinal = new JLabel("Final");
-		lblDataFinal.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		lblDataFinal.setBounds(12, 66, 70, 15);
+		lblDataFinal.setForeground(new Color(255, 255, 255));
+		lblDataFinal.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblDataFinal.setBounds(39, 66, 70, 15);
 		quartosDisponiveis.add(lblDataFinal);
 		
 		// Instancia o scrollPane que contem o jList
@@ -167,13 +170,16 @@ public class NovoContrato extends JPanel {
 				
 		// Intancio o jList que contem os quartos
 		list = new JList<Alugavel>();
+		list.setForeground(new Color(255, 255, 255));
+		list.setBackground(new Color(51, 102, 153));
 		listModel = new DefaultListModel<Alugavel>();
 		quartosDisponiveis.add(scrollPane);
 		list.setBounds(30, 134, 243, 100);
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-		JButton btnPesquisar = new JButton("Pesquisar");
-		btnPesquisar.setFont(new Font("NanumGothic", Font.PLAIN, 13));
+		JButton btnPesquisar = new JButton("PESQUISAR");
+		btnPesquisar.setForeground(new Color(51, 102, 153));
+		btnPesquisar.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Date data = (Date) data_inicial.getValue();
@@ -193,21 +199,24 @@ public class NovoContrato extends JPanel {
 		});
 		list.setModel(listModel);
 		scrollPane.setViewportView(list);
-		btnPesquisar.setBounds(109, 96, 117, 25);
+		btnPesquisar.setBounds(109, 96, 129, 25);
 		quartosDisponiveis.add(btnPesquisar);
 
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setForeground(new Color(51, 102, 153));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDeContrato());
 			}
 		});
 		// btnVoltar.setAction(action_1);
-		btnVoltar.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
-		btnVoltar.setBounds(375, 471, 94, 25);
+		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnVoltar.setBounds(443, 542, 94, 25);
 		margemGeral.add(btnVoltar);
 		
 		JButton btnNewButton = new JButton("Concluir");
+		btnNewButton.setForeground(new Color(51, 102, 153));
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Date data = (Date) data_inicial.getValue();
@@ -229,8 +238,19 @@ public class NovoContrato extends JPanel {
 				}
 			}
 		});
-		btnNewButton.setBounds(573, 473, 109, 23);
+		btnNewButton.setBounds(591, 542, 109, 25);
 		margemGeral.add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(NovoContrato.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel.setBounds(499, 177, 144, 104);
+		margemGeral.add(lblNewLabel);
+		
+		JLabel lblNovoContrato = new JLabel("NOVO CONTRATO");
+		lblNovoContrato.setForeground(new Color(255, 255, 255));
+		lblNovoContrato.setFont(new Font("Rockwell Condensed", Font.BOLD, 30));
+		lblNovoContrato.setBounds(472, 279, 216, 61);
+		margemGeral.add(lblNovoContrato);
 
 		
 		

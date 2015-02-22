@@ -30,7 +30,7 @@ public class ConsultaHospede extends JPanel {
 	 * Create the panel.
 	 */
 	public ConsultaHospede() {
-		setBackground(Color.WHITE);
+		setBackground(new Color(51, 102, 153));
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
 		textField = new JTextField();
@@ -40,13 +40,15 @@ public class ConsultaHospede extends JPanel {
 		textField.setColumns(10);
 
 		JLabel lblDigiteONome = new JLabel(
-				"Digite o Nome ou o CPF do Hospede:");
+				"Digite o nome ou o CPF do hospede:");
+		lblDigiteONome.setForeground(new Color(255, 255, 255));
 		lblDigiteONome.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		lblDigiteONome.setBounds(176, 29, 280, 41);
+		lblDigiteONome.setBounds(176, 37, 280, 41);
 		add(lblDigiteONome);
 
 		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnVoltar.setForeground(new Color(51, 102, 153));
+		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDoHospede());
@@ -60,10 +62,13 @@ public class ConsultaHospede extends JPanel {
 		add(scrollPane);
 
 		list = new JList<Hospede>();
+		list.setBackground(new Color(51, 102, 153));
+		list.setForeground(new Color(255, 255, 255));
 		scrollPane.setViewportView(list);
 		final DefaultListModel<Hospede> listModel = new DefaultListModel<Hospede>();
 
 		JButton btnBuscar = new JButton("BUSCAR");
+		btnBuscar.setForeground(new Color(51, 102, 153));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				listModel.clear();
@@ -97,16 +102,18 @@ public class ConsultaHospede extends JPanel {
 			}
 		});
 		list.setModel(listModel);
-		btnBuscar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		btnBuscar.setBounds(313, 116, 130, 23);
+		btnBuscar.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnBuscar.setBounds(326, 117, 130, 23);
 		add(btnBuscar);
 
 		JLabel lblResultadosDaSua = new JLabel("Resultados da busca:");
+		lblResultadosDaSua.setForeground(new Color(255, 255, 255));
 		lblResultadosDaSua.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		lblResultadosDaSua.setBounds(176, 166, 241, 30);
+		lblResultadosDaSua.setBounds(176, 169, 241, 30);
 		add(lblResultadosDaSua);
 		
 		JButton btnEditar = new JButton("Editar");
+		btnEditar.setForeground(new Color(51, 102, 153));
 		btnEditar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -120,6 +127,7 @@ public class ConsultaHospede extends JPanel {
 		add(btnEditar);
 		
 		JButton btnNewButton = new JButton("Abrir");
+		btnNewButton.setForeground(new Color(51, 102, 153));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (list.getSelectedValue() == null)
@@ -133,6 +141,7 @@ public class ConsultaHospede extends JPanel {
 		add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Remover");
+		btnNewButton_1.setForeground(new Color(51, 102, 153));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (list.getSelectedValue() != null){

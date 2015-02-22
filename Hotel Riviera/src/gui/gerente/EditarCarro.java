@@ -76,7 +76,7 @@ public class EditarCarro extends JPanel {
 					JOptionPane.showMessageDialog(null, "Carro editado com sucesso");
 					Sistema.setTela(new ConsultaCarro());
 				} catch (Exception e) {
-					JOptionPane.showMessageDialog(null, "Parâmetros de edição iválidos");
+					JOptionPane.showMessageDialog(null, "Parametros de edicao invalidos");
 				}
 			}
 		});

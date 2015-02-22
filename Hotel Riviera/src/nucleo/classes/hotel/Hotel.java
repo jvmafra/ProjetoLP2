@@ -4,9 +4,6 @@ import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-
 import nucleo.classes.formas_cobranca.Estrategia;
 import nucleo.classes.pessoa.Contrato;
 import nucleo.classes.pessoa.Funcionario;
@@ -331,8 +328,8 @@ public class Hotel implements Serializable{
 	 */
 	public String imprimeOpinioes(){
 		String todas_opinioes = "OPINIOES DOS HOSPEDES:";
-		for (int i = opinioes.size(); i <= 0 ; i--){
-			todas_opinioes += "\n\n" + opinioes.get(i).toString();
+		for (Opiniao opiniao: opinioes){
+			todas_opinioes += "\n\n" + opiniao.toString();
 		}
 		return todas_opinioes;
 	}
@@ -461,7 +458,7 @@ public class Hotel implements Serializable{
 	private void criaGerente(){
 		Funcionario gerente;
 		try {
-			gerente = new Funcionario("Gerente", "admin", "123456", true);
+			gerente = new Funcionario("admin", "123456", true);
 			adicionaFuncionario(gerente);
 		} catch (Exception e) {
 		}

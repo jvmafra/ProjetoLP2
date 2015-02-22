@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
 import nucleo.classes.pessoa.Contrato;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class VisualizaContrato extends JPanel {
 	/**
@@ -27,22 +29,24 @@ public class VisualizaContrato extends JPanel {
 	 * Create the panel.
 	 */
 	public VisualizaContrato(Contrato contrato) {
-		setBackground(Color.WHITE);
+		setBackground(new Color(51, 102, 153));
 		this.contrato = contrato;
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
 		
-		JButton btnVoltar = new JButton("Voltar");
+		JButton btnVoltar = new JButton("VOLTAR");
+		btnVoltar.setForeground(new Color(51, 102, 153));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new BuscaContrato());
 			}
 		});
-		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		btnVoltar.setBounds(68, 532, 117, 25);
+		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnVoltar.setBounds(89, 519, 117, 25);
 		add(btnVoltar);
 		
-		JButton btnFecharContrato = new JButton("Fechar Contrato");
+		JButton btnFecharContrato = new JButton("FECHAR CONTRATO");
+		btnFecharContrato.setForeground(new Color(51, 102, 153));
 		btnFecharContrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getContrato().fechaContrato();
@@ -50,11 +54,34 @@ public class VisualizaContrato extends JPanel {
 				
 			}
 		});
-		btnFecharContrato.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		btnFecharContrato.setBounds(613, 319, 162, 25);
+		btnFecharContrato.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnFecharContrato.setBounds(514, 519, 188, 25);
 		add(btnFecharContrato);
 		
-		JButton btnNewButton = new JButton("Adicionar Servico");
+		servicos = new JTextPane();
+		servicos.setBackground(new Color(51, 102, 153));
+		servicos.setForeground(new Color(255, 255, 255));
+		servicos.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		servicos.setEditable(false);
+		servicos.setText(getContrato().imprimeCadaServicoEspecial());
+		servicos.setBounds(488, 126, 302, 412);
+		add(servicos);
+		servicos.setText(getContrato().imprimeCadaServicoEspecial());
+		
+		JTextPane status = new JTextPane();
+		status.setBackground(new Color(51, 102, 153));
+		status.setForeground(new Color(255, 255, 255));
+		status.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		status.setBounds(57, 146, 291, 362);
+		status.setText(getContrato().imprimeResumoAtual());
+		add(status);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(VisualizaContrato.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel.setBounds(326, 11, 161, 105);
+		add(lblNewLabel);
+		
+		JButton btnNewButton = new JButton("NOVO SERVICO");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (getContrato().isAberto())
@@ -63,24 +90,10 @@ public class VisualizaContrato extends JPanel {
 					JOptionPane.showMessageDialog(null, "O contrato ja foi fechado!");
 			}
 		});
-		
-		btnNewButton.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		btnNewButton.setBounds(613, 230, 162, 25);
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnNewButton.setForeground(new Color(51, 102, 153));
+		btnNewButton.setBounds(282, 518, 161, 26);
 		add(btnNewButton);
-		
-		servicos = new JTextPane();
-		servicos.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		servicos.setEditable(false);
-		servicos.setText(getContrato().imprimeCadaServicoEspecial());
-		servicos.setBounds(350, 86, 241, 391);
-		add(servicos);
-		servicos.setText(getContrato().imprimeCadaServicoEspecial());
-		
-		JTextPane status = new JTextPane();
-		status.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		status.setBounds(50, 78, 234, 399);
-		status.setText(getContrato().imprimeResumoAtual());
-		add(status);
 
 	}
 	

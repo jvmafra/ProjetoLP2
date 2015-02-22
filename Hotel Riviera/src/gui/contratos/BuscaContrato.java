@@ -23,6 +23,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class BuscaContrato extends JPanel {
 
@@ -38,7 +40,7 @@ public class BuscaContrato extends JPanel {
 	 * @throws Exception
 	 */
 	public BuscaContrato() {
-		setBackground(Color.WHITE);
+		setBackground(new Color(51, 102, 153));
 		setBounds(0,0, 800, 600);
 		setForeground(Color.WHITE);
 
@@ -49,32 +51,35 @@ public class BuscaContrato extends JPanel {
 		}
 		setLayout(null);
 
-		// Intancio o jList que contem os quartos
-		list = new JList<Contrato>();
-		list.setFont(new Font("NanumGothic", Font.PLAIN, 13));
-		list.setBounds(143, 92, 216, 183);
-
-		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		list.setModel(listModel);
-
 		// Instancia o scrollPane que contem o jList
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(239, 44, 282, 315);
+		scrollPane.setBounds(168, 43, 457, 315);
 		add(scrollPane);
-		scrollPane.setViewportView(list);
+		
+				// Intancio o jList que contem os quartos
+				list = new JList<Contrato>();
+				list.setForeground(new Color(255, 255, 255));
+				list.setBackground(new Color(51, 102, 153));
+				scrollPane.setViewportView(list);
+				list.setFont(new Font("Tahoma", Font.PLAIN, 13));
+				
+						list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+						list.setModel(listModel);
 
 		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnVoltar.setForeground(new Color(51, 102, 153));
+		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDeContrato());
 			}
 		});
-		btnVoltar.setBounds(196, 408, 117, 25);
+		btnVoltar.setBounds(168, 391, 117, 25);
 		add(btnVoltar);
 
 		JButton btnRemover = new JButton("Remover");
-		btnRemover.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnRemover.setForeground(new Color(51, 102, 153));
+		btnRemover.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -89,11 +94,12 @@ public class BuscaContrato extends JPanel {
 			}
 		});
 		btnRemover.setActionCommand("Remover");
-		btnRemover.setBounds(330, 408, 117, 25);
+		btnRemover.setBounds(328, 391, 117, 25);
 		add(btnRemover);
 
 		JButton btnAbrir = new JButton("Abrir");
-		btnAbrir.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnAbrir.setForeground(new Color(51, 102, 153));
+		btnAbrir.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAbrir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Contrato contrato = list.getSelectedValue();
@@ -105,7 +111,12 @@ public class BuscaContrato extends JPanel {
 			}
 		});
 		btnAbrir.setActionCommand("Remover");
-		btnAbrir.setBounds(467, 408, 117, 25);
+		btnAbrir.setBounds(491, 391, 117, 25);
 		add(btnAbrir);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(BuscaContrato.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel.setBounds(299, 449, 134, 85);
+		add(lblNewLabel);
 	}
 }

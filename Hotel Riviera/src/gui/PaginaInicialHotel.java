@@ -21,173 +21,83 @@ import javax.swing.JPanel;
 
 public class PaginaInicialHotel extends JPanel {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	private final Action action = new SwingAction();
-	private final Action action_1 = new SwingAction();
-	private final Action action_2 = new SwingAction_1();
-	private final Action action_3 = new SwingAction_2();
-	private final Action action_4 = new SwingAction_3();
-	private final Action action_5 = new SwingAction_4();
-	private final Action action_6 = new SwingAction_5();
-	private final Action action_7 = new SwingAction_6();
 
-	/**
-	 * Create the frame.
-	 * @param NovoContrato 
-	 */
-	
+
 	public PaginaInicialHotel() {
 		repaint();
 		setBounds(0, 0, 800, 600);
 				
 		final JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
+		panel.setBackground(new Color(51, 102, 153));
 		panel.setForeground(Color.WHITE);
-		panel.setBounds(0, 0,800,600);		
+		panel.setBounds(0, 11,800,600);		
 		setLayout(null);
 		add(panel);
 		panel.setLayout(null);
 		
-		JButton btnHospede = new JButton("H\u00F3spede");
+		JButton btnHospede = new JButton("H\u00D3SPEDE");
+		btnHospede.setForeground(new Color(51, 102, 153));
 		btnHospede.setIcon(null);
-		btnHospede.setBounds(12, 56, 150, 50);
+		btnHospede.setBounds(317, 146, 150, 50);
 
 		btnHospede.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDoHospede());
 			}
 		});
-		btnHospede.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnHospede.setFont(new Font("Tahoma", Font.BOLD, 15));
 		panel.add(btnHospede);
 		
-		JButton btnContratos = new JButton("Contratos");
-		btnContratos.setBounds(12, 136, 150, 50);
+		JButton btnContratos = new JButton("CONTRATOS");
+		btnContratos.setForeground(new Color(51, 102, 153));
+		btnContratos.setBounds(317, 224, 150, 50);
 		btnContratos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDeContrato());
 			}
 		});
-		btnContratos.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnContratos.setFont(new Font("Tahoma", Font.BOLD, 15));
 		panel.add(btnContratos);
 		
-		JButton btnOpinies = new JButton("Opini\u00F5es");
+		JButton btnOpinies = new JButton("SOBRE");
+		btnOpinies.setForeground(new Color(51, 102, 153));
 		btnOpinies.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Sistema.setTela(new OpcoesDeOpiniao());
 			}
 		});
-		btnOpinies.setBounds(12, 216, 150, 50);
-		btnOpinies.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnOpinies.setBounds(317, 380, 150, 50);
+		btnOpinies.setFont(new Font("Tahoma", Font.BOLD, 15));
 		panel.add(btnOpinies);
 		
-		JButton btnReservaldo = new JButton("Reservado");
+		JButton btnReservaldo = new JButton("RESERVADO");
+		btnReservaldo.setForeground(new Color(51, 102, 153));
 		btnReservaldo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new LoginDeFuncionario(true));
 			}
 		});
-		btnReservaldo.setBounds(12, 302, 150, 50);
-		btnReservaldo.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnReservaldo.setBounds(317, 301, 150, 50);
+		btnReservaldo.setFont(new Font("Tahoma", Font.BOLD, 15));
 		panel.add(btnReservaldo);
 		
-		JButton btnSair = new JButton("Sair");
-		btnSair.setBounds(12, 386, 150, 50);
+		JButton btnSair = new JButton("SAIR");
+		btnSair.setForeground(new Color(51, 102, 153));
+		btnSair.setBounds(317, 459, 150, 50);
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new LoginDeFuncionario(false));
 			}
 		});
-		btnSair.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnSair.setFont(new Font("Tahoma", Font.BOLD, 15));
 		panel.add(btnSair);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(PaginaInicialHotel.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel.setBounds(317, 30, 158, 94);
+		panel.add(lblNewLabel);
 
 	}
 
-	private class SwingAction extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-		public SwingAction() {
-			putValue(NAME, "SwingAction");
-			putValue(SHORT_DESCRIPTION, "");
-		}
-		public void actionPerformed(ActionEvent e) {
-		}
-	}
-	private class SwingAction_1 extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-		public SwingAction_1() {
-			putValue(NAME, "Contrato");
-			putValue(SHORT_DESCRIPTION, "");
-		}
-		public void actionPerformed(ActionEvent e) {
-			
-		}
-	}
-	private class SwingAction_2 extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-		public SwingAction_2() {
-			putValue(NAME, "Serviços");
-			putValue(SHORT_DESCRIPTION, "");
-		}
-		public void actionPerformed(ActionEvent e) {
-		}
-	}
-	private class SwingAction_3 extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-		public SwingAction_3() {
-			putValue(NAME, "Contratos Abertos");
-			putValue(SHORT_DESCRIPTION, "");
-		}
-		public void actionPerformed(ActionEvent e) {
-		}
-	}
-	private class SwingAction_4 extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-		public SwingAction_4() {
-			putValue(NAME, "Contratos fechados");
-			putValue(SHORT_DESCRIPTION, "");
-		}
-		public void actionPerformed(ActionEvent e) {
-		}
-	}
-	private class SwingAction_5 extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-		public SwingAction_5() {
-			putValue(NAME, "Quartos Disponiveis");
-			putValue(SHORT_DESCRIPTION, "");
-		}
-		public void actionPerformed(ActionEvent e) {
-		}
-	}
-	private class SwingAction_6 extends AbstractAction {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-		public SwingAction_6() {
-			putValue(NAME, "Serviços Disponiveis");
-			putValue(SHORT_DESCRIPTION, "");
-		}
-		public void actionPerformed(ActionEvent e) {
-		}
-	}
+
 }	

@@ -15,7 +15,7 @@ public class Funcionario implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String nome, login, senha;
+	private String login, senha;
 	private boolean permissaoGerente;
 	
 	/**
@@ -27,10 +27,7 @@ public class Funcionario implements Serializable{
 	 * @param senha
 	 * 			senha para entrar no sistema		
 	 */
-	public Funcionario(String nome, String login, String senha, boolean permissaoGerente) throws Exception{
-		if (nome == null || nome.equals(""))
-			throw new NomeInvalidoException("Nome invalido");
-		
+	public Funcionario(String login, String senha, boolean permissaoGerente) throws Exception{
 		if (login == null || login.equals(""))
 			throw new NomeInvalidoException("login invalido");
 		
@@ -41,23 +38,8 @@ public class Funcionario implements Serializable{
 			throw new Exception("Senha muito curta");
 		
 		this.login = login;
-		this.nome = nome;
 		this.senha = senha;
 		this.permissaoGerente = permissaoGerente;
-	}
-	
-	/**
-	 * Retorna o nome do funcionario do hotel
-	 */
-	public String getNome() {
-		return nome;
-	}
-	
-	/**
-	 * Modifica o nome do funcionario do hotel
-	 */
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 	
 	/**
@@ -106,7 +88,7 @@ public class Funcionario implements Serializable{
 	 * Retorna a string representando o funcionario
 	 */
 	public String toString(){
-		return getNome() + " - " + funcao();
+		return getLogin() + " - " + funcao();
 	}
 	
 	/**
@@ -118,7 +100,7 @@ public class Funcionario implements Serializable{
 		
 		Funcionario f = (Funcionario) obj;
 		
-		return getNome().equals(f.getNome()) && isPermissaoGerente() == f.isPermissaoGerente();
+		return getLogin().equals(f.getLogin()) && isPermissaoGerente() == f.isPermissaoGerente();
 	}
 
 }
