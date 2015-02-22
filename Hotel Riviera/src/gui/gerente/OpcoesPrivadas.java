@@ -1,5 +1,6 @@
 package gui.gerente;
 
+import gui.LoginDeFuncionario;
 import gui.PaginaInicialHotel;
 import gui.Sistema;
 
@@ -8,8 +9,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
 import java.awt.Font;
 import java.awt.Color;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
@@ -35,7 +38,7 @@ public class OpcoesPrivadas extends JPanel {
 				Sistema.setTela(new OpcoesEstatisticas());
 			}
 		});
-		btnFaturamentos.setBounds(309, 204, 184, 33);
+		btnFaturamentos.setBounds(306, 210, 197, 33);
 		add(btnFaturamentos);
 		
 		JButton btnCadastraFuncionrio = new JButton("FUNCIONARIO");
@@ -46,7 +49,7 @@ public class OpcoesPrivadas extends JPanel {
 			}
 		});
 		btnCadastraFuncionrio.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnCadastraFuncionrio.setBounds(309, 265, 184, 33);
+		btnCadastraFuncionrio.setBounds(306, 263, 197, 33);
 		add(btnCadastraFuncionrio);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -54,7 +57,7 @@ public class OpcoesPrivadas extends JPanel {
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new PaginaInicialHotel());
+				Sistema.setTela(new LoginDeFuncionario(true));
 			}
 		});
 		btnVoltar.setBounds(358, 549, 89, 23);
@@ -68,7 +71,7 @@ public class OpcoesPrivadas extends JPanel {
 				Sistema.setTela(new OpcoesDeCarro());
 			}
 		});
-		btnCadastroCarro.setBounds(309, 371, 184, 33);
+		btnCadastroCarro.setBounds(306, 373, 197, 33);
 		add(btnCadastroCarro);
 		
 		JButton btnCadastraBab = new JButton("BABA");
@@ -79,7 +82,7 @@ public class OpcoesPrivadas extends JPanel {
 				Sistema.setTela(new OpcoesDeBaba());
 			}
 		});
-		btnCadastraBab.setBounds(309, 424, 184, 33);
+		btnCadastraBab.setBounds(306, 429, 195, 33);
 		add(btnCadastraBab);
 		
 		JButton btnCadastraQuarto = new JButton("CADASTRA QUARTO");
@@ -90,7 +93,7 @@ public class OpcoesPrivadas extends JPanel {
 				Sistema.setTela(new CadastroQuarto());
 			}
 		});
-		btnCadastraQuarto.setBounds(309, 476, 184, 33);
+		btnCadastraQuarto.setBounds(306, 482, 195, 33);
 		add(btnCadastraQuarto);
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -99,10 +102,16 @@ public class OpcoesPrivadas extends JPanel {
 		add(lblNewLabel);
 		
 		JLabel lblreaReservada = new JLabel("\u00C1REA RESERVADA");
-		lblreaReservada.setFont(new Font("Rockwell Condensed", Font.BOLD, 30));
+		lblreaReservada.setFont(new Font("Bitstream Charter", Font.BOLD, 26));
 		lblreaReservada.setForeground(new Color(255, 255, 255));
-		lblreaReservada.setBounds(296, 120, 262, 55);
+		lblreaReservada.setBounds(296, 133, 262, 55);
 		add(lblreaReservada);
+		
+		JButton btnNewButton = new JButton("ESTRATEGIAS");
+		btnNewButton.setForeground(new Color(51, 102, 153));
+		btnNewButton.setFont(new Font("Dialog", Font.BOLD, 14));
+		btnNewButton.setBounds(306, 319, 197, 33);
+		add(btnNewButton);
 
 	}
 }

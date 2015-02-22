@@ -31,7 +31,7 @@ public class PaginaInicialHotel extends JPanel {
 		final JPanel panel = new JPanel();
 		panel.setBackground(new Color(51, 102, 153));
 		panel.setForeground(Color.WHITE);
-		panel.setBounds(0, 11,800,600);		
+		panel.setBounds(0, 12,800,600);		
 		setLayout(null);
 		add(panel);
 		panel.setLayout(null);

@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 
 import nucleo.classes.servicos.Carro;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class NovoCarro extends JPanel {
 	/**
@@ -29,47 +30,54 @@ public class NovoCarro extends JPanel {
 	 * Create the frame.
 	 */
 	public NovoCarro() {
-		setBackground(Color.WHITE);
+		setBackground(new Color(51, 102, 153));
 		setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		setBounds(0, 0, 800, 600);
 		setLayout(null);
 		
 		JLabel lblDescircao = new JLabel("Descricao: ");
-		lblDescircao.setBounds(274, 181, 71, 19);
+		lblDescircao.setForeground(new Color(255, 255, 255));
+		lblDescircao.setBackground(new Color(255, 255, 255));
+		lblDescircao.setBounds(264, 215, 71, 19);
 		lblDescircao.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		add(lblDescircao);
 		
 		descricao = new JTextField();
-		descricao.setBounds(363, 181, 175, 20);
+		descricao.setBounds(353, 215, 175, 20);
 		add(descricao);
 		descricao.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Placa:");
+		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		lblNewLabel.setBounds(306, 224, 39, 19);
+		lblNewLabel.setBounds(295, 246, 39, 19);
 		add(lblNewLabel);
 		
 		placa = new JTextField();
-		placa.setBounds(363, 224, 86, 20);
+		placa.setBounds(353, 246, 86, 19);
 		add(placa);
 		placa.setColumns(10);
 		
 		luxo = new JCheckBox("Luxo");
+		luxo.setForeground(new Color(255, 255, 255));
+		luxo.setBackground(new Color(51, 102, 153));
 		luxo.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		luxo.setBounds(479, 220, 59, 27);
+		luxo.setBounds(475, 242, 59, 27);
 		add(luxo);
 		
 		JButton voltar = new JButton("Voltar");
+		voltar.setForeground(new Color(51, 102, 153));
 		voltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDeCarro());
 			}
 		});
 		voltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		voltar.setBounds(239, 351, 73, 27);
+		voltar.setBounds(231, 351, 73, 27);
 		add(voltar);
 		
 		JButton limpar = new JButton("Limpar");
+		limpar.setForeground(new Color(51, 102, 153));
 		limpar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		limpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -78,10 +86,11 @@ public class NovoCarro extends JPanel {
 				descricao.setText("");
 			}
 		});
-		limpar.setBounds(379, 351, 79, 27);
+		limpar.setBounds(370, 351, 79, 27);
 		add(limpar);
 		
 		JButton concluir = new JButton("Concluir");
+		concluir.setForeground(new Color(51, 102, 153));
 		concluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -98,6 +107,11 @@ public class NovoCarro extends JPanel {
 		concluir.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		concluir.setBounds(512, 351, 91, 27);
 		add(concluir);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(NovoCarro.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel_1.setBounds(341, 12, 166, 90);
+		add(lblNewLabel_1);
 	}
 	
 }

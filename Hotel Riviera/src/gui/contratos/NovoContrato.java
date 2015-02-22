@@ -224,7 +224,7 @@ public class NovoContrato extends JPanel {
 		
 		JButton btnNewButton = new JButton("Concluir");
 		btnNewButton.setForeground(new Color(51, 102, 153));
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnNewButton.setFont(new Font("Dialog", Font.PLAIN, 14));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Date data = (Date) data_inicial.getValue();

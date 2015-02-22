@@ -82,6 +82,7 @@ public class CadastroQuarto extends JPanel {
 		add(concluir);
 		
 		quartos = new JComboBox<Quarto>();
+		quartos.setForeground(new Color(51, 102, 153));
 		quartos.setBounds(292, 277, 239, 24);
 		quartos.setBackground(Color.WHITE);
 		quartos.setFont(new Font("NanumGothic", Font.PLAIN, 14));
@@ -113,9 +114,9 @@ public class CadastroQuarto extends JPanel {
 		add(lblNewLabel);
 		
 		JLabel lblCadastraNovoQuarto = new JLabel("CADASTRA NOVO QUARTO");
-		lblCadastraNovoQuarto.setFont(new Font("Rockwell Condensed", Font.BOLD, 30));
+		lblCadastraNovoQuarto.setFont(new Font("Bitstream Charter", Font.BOLD, 26));
 		lblCadastraNovoQuarto.setForeground(new Color(255, 255, 255));
-		lblCadastraNovoQuarto.setBounds(248, 128, 324, 55);
+		lblCadastraNovoQuarto.setBounds(248, 128, 365, 55);
 		add(lblCadastraNovoQuarto);
 	}
 	

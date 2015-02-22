@@ -48,7 +48,7 @@ public class FaturamentoDoHotel extends JPanel {
 		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new OpcoesPrivadas());
+				Sistema.setTela(new OpcoesEstatisticas());
 			}
 		});
 		btnVoltar.setBounds(369, 292, 89, 23);

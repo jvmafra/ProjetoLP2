@@ -39,6 +39,7 @@ public class LoginDeFuncionario extends JPanel {
 	private JTextField login;
 	private JPasswordField senha;
 	private boolean analisaGerente;
+	private JLabel areaReservada;
 
 	
 	public LoginDeFuncionario(boolean analisaGerente) {
@@ -47,32 +48,23 @@ public class LoginDeFuncionario extends JPanel {
 		setBounds(0, 0, 800, 600);
 		setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
-		panel.setBounds(243, 307, 278, 207);
-		add(panel);
-		panel.setLayout(null);
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(103, 0, 528, 387);
+		lblNewLabel.setIcon(new ImageIcon(LoginDeFuncionario.class.getResource("/nucleo/icones/Logo Hotel.png")));
+		add(lblNewLabel);
 		JLabel login_1 = new JLabel("Login");
-		login_1.setBounds(43, 72, 51, 16);
-		panel.add(login_1);
+		login_1.setBounds(317, 355, 51, 16);
+		add(login_1);
 		login_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		
 		JLabel senha_1 = new JLabel("Senha");
-		senha_1.setBounds(43, 113, 44, 16);
-		panel.add(senha_1);
+		senha_1.setBounds(310, 387, 44, 16);
+		add(senha_1);
 		senha_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		
-		senha = new JPasswordField();
-		senha.setBounds(95, 112, 98, 20);
-		panel.add(senha);
-		senha.setColumns(10);
-		
-		login = new JTextField();
-		login.setBounds(95, 70, 98, 20);
-		panel.add(login);
-		login.setColumns(10);
-		
 		JButton btnEntrar = new JButton("Entrar");
+		btnEntrar.setBounds(363, 418, 86, 25);
+		add(btnEntrar);
 		btnEntrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -88,18 +80,23 @@ public class LoginDeFuncionario extends JPanel {
 					 }
 			}
 		});
-		btnEntrar.setBounds(95, 154, 86, 25);
-		panel.add(btnEntrar);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(LoginDeFuncionario.class.getResource("/nucleo/icones/Logo Hotel.png")));
-		lblNewLabel.setBounds(72, 11, 528, 362);
-		add(lblNewLabel);
+		senha = new JPasswordField();
+		senha.setBounds(363, 386, 98, 20);
+		add(senha);
+		senha.setColumns(10);
+		
+		login = new JTextField();
+		login.setBounds(363, 354, 98, 20);
+		add(login);
+		login.setColumns(10);
 		
 		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setBounds(338, 515, 86, 25);
-		if (isAnalisaGerente())
-			add(btnVoltar);
+		btnVoltar.setBounds(363, 455, 86, 25);
+		if (isAnalisaGerente()){
+			alteraTela(lblNewLabel, login_1, senha_1, btnEntrar, btnVoltar);
+			
+		}
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new PaginaInicialHotel());
@@ -108,6 +105,24 @@ public class LoginDeFuncionario extends JPanel {
 		btnVoltar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		
 
+	}
+
+
+	private void alteraTela(JLabel lblNewLabel, JLabel login_1, JLabel senha_1,
+			JButton btnEntrar, JButton btnVoltar) {
+		add(btnVoltar);
+		setBackground(new Color(51, 102, 153));
+		lblNewLabel.setIcon(new ImageIcon(LoginDeFuncionario.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel.setBounds(331, 150, 184, 98);
+		senha_1.setForeground(Color.WHITE);
+		login_1.setForeground(Color.WHITE);
+		btnEntrar.setForeground(new Color(51, 102, 153));
+		btnVoltar.setForeground(new Color(51, 102, 153));
+		areaReservada = new JLabel("ÁREA RESERVADA");
+		areaReservada.setFont(new Font("Bitstream Charter", Font.BOLD, 26));
+		areaReservada.setForeground(new Color(255, 255, 255));
+		areaReservada.setBounds(296, 280, 262, 55);
+		add(areaReservada);
 	}
 
 	
