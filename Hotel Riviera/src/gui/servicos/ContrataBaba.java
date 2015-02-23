@@ -46,18 +46,20 @@ public class ContrataBaba extends JPanel {
 	 * Create the panel.
 	 */
 	public ContrataBaba(Contrato contrato) {
-		setBackground(Color.WHITE);
+		setBackground(new Color(51, 102, 153));
 		this.contrato = contrato;
 		setBounds(0, 0, 800, 600);
 		setLayout(null);
 		
 		data_inicial = new JSpinner();
-		data_inicial.setBounds(321, 176, 159, 29);
+		data_inicial.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		data_inicial.setBounds(368, 177, 159, 29);
 		data_inicial.setModel(new SpinnerDateModel());
 		add(data_inicial);
 		
 		data_final = new JSpinner();
-		data_final.setBounds(321, 217, 159, 29);
+		data_final.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		data_final.setBounds(368, 218, 159, 29);
 		data_final.setModel(new SpinnerDateModel());
 		add(data_final);
 		
@@ -71,8 +73,9 @@ public class ContrataBaba extends JPanel {
 		final DefaultListModel<Alugavel> listModel = new DefaultListModel<Alugavel>();
 		
 		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setBounds(287, 530, 88, 25);
-		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnVoltar.setForeground(new Color(51, 102, 153));
+		btnVoltar.setBounds(277, 530, 88, 25);
+		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDeServicos(getContrato()));
@@ -81,6 +84,7 @@ public class ContrataBaba extends JPanel {
 		add(btnVoltar);
 		
 		JButton btnConcluir = new JButton("Concluir");
+		btnConcluir.setForeground(new Color(51, 102, 153));
 		btnConcluir.setBounds(434, 530, 93, 25);
 		btnConcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -108,11 +112,12 @@ public class ContrataBaba extends JPanel {
 				
 			}
 		});
-		btnConcluir.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnConcluir.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		add(btnConcluir);
 		
 		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.setBounds(321, 258, 117, 25);
+		btnBuscar.setForeground(new Color(51, 102, 153));
+		btnBuscar.setBounds(410, 258, 117, 25);
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Date data = (Date) data_inicial.getValue();
@@ -133,28 +138,36 @@ public class ContrataBaba extends JPanel {
 			}
 		});
 		
-		btnBuscar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(btnBuscar);
 		
 		JLabel lblDataInicial = new JLabel("Data inicial:");
-		lblDataInicial.setBounds(233, 183, 84, 15);
-		lblDataInicial.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		lblDataInicial.setForeground(new Color(255, 255, 255));
+		lblDataInicial.setBounds(274, 183, 84, 15);
+		lblDataInicial.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		add(lblDataInicial);
 		
 		JLabel lblDataFinal = new JLabel("Data final:");
-		lblDataFinal.setBounds(243, 224, 74, 15);
-		lblDataFinal.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		lblDataFinal.setForeground(new Color(255, 255, 255));
+		lblDataFinal.setBounds(284, 224, 74, 15);
+		lblDataFinal.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		add(lblDataFinal);
 		
-		JLabel lblBabsDisponveis = new JLabel("Babás disponíveis");
-		lblBabsDisponveis.setBounds(277, 295, 134, 15);
-		lblBabsDisponveis.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		JLabel lblBabsDisponveis = new JLabel("Babas disponiveis");
+		lblBabsDisponveis.setForeground(new Color(255, 255, 255));
+		lblBabsDisponveis.setBounds(278, 296, 134, 15);
+		lblBabsDisponveis.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(lblBabsDisponveis);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(311, 12, 194, 140);
+		lblNewLabel.setBounds(311, 11, 194, 140);
 		lblNewLabel.setIcon(new ImageIcon("/home/edvalmsg/Downloads/bebe.jpg"));
 		add(lblNewLabel);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(ContrataBaba.class.getResource("/nucleo/icones/hotel4.png")));
+		label.setBounds(321, 23, 184, 129);
+		add(label);
 		
 
 	}

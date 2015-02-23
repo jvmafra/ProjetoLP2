@@ -109,7 +109,7 @@ public class OpcoesPrivadas extends JPanel {
 		
 		JButton btnNewButton = new JButton("ESTRATEGIAS");
 		btnNewButton.setForeground(new Color(51, 102, 153));
-		btnNewButton.setFont(new Font("Dialog", Font.BOLD, 14));
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNewButton.setBounds(306, 319, 197, 33);
 		add(btnNewButton);
 

@@ -118,7 +118,7 @@ public class LoginDeFuncionario extends JPanel {
 		login_1.setForeground(Color.WHITE);
 		btnEntrar.setForeground(new Color(51, 102, 153));
 		btnVoltar.setForeground(new Color(51, 102, 153));
-		areaReservada = new JLabel("ÁREA RESERVADA");
+		areaReservada = new JLabel("AREA RESERVADA");
 		areaReservada.setFont(new Font("Bitstream Charter", Font.BOLD, 26));
 		areaReservada.setForeground(new Color(255, 255, 255));
 		areaReservada.setBounds(296, 280, 262, 55);

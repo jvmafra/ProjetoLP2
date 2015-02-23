@@ -19,6 +19,7 @@ import nucleo.classes.servicos.Carro;
 
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class ConsultaCarro extends JPanel {
 
@@ -34,24 +35,26 @@ public class ConsultaCarro extends JPanel {
 	 * Create the panel.
 	 */
 	public ConsultaCarro() {
-		setBackground(Color.WHITE);
+		setBackground(new Color(51, 102, 153));
 		setLayout(null);
 		setBounds(0,0,800,600);
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(252, 144, 246, 244);
+		scrollPane.setBounds(252, 220, 246, 244);
 		add(scrollPane);
-		
 		scrollPane.setViewportView(list);
+		list.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		list.setForeground(new Color(51, 102, 153));
 		list.setModel(listModel);
 		
 		textField = new JTextField();
-		textField.setBounds(252, 112, 216, 20);
+		textField.setBounds(252, 177, 216, 20);
 		add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Digite a placa do Carro:");
-		lblNewLabel.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		lblNewLabel.setBounds(284, 87, 170, 14);
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel.setBounds(252, 155, 170, 20);
 		add(lblNewLabel);
 
 		for (int i = 0; i < Sistema.getHotel().getCarros().size(); i++) {
@@ -60,16 +63,18 @@ public class ConsultaCarro extends JPanel {
 		setLayout(null);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setForeground(new Color(51, 102, 153));
 		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDeCarro());
 			}
 		});
-		btnVoltar.setBounds(235, 400, 117, 25);
+		btnVoltar.setBounds(235, 495, 117, 25);
 		add(btnVoltar);
 		
 		JButton btnEditarBab = new JButton("Editar Carro");
+		btnEditarBab.setForeground(new Color(51, 102, 153));
 		btnEditarBab.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnEditarBab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -81,11 +86,12 @@ public class ConsultaCarro extends JPanel {
 			}
 
 		});
-		btnEditarBab.setBounds(427, 400, 129, 25);
+		btnEditarBab.setBounds(425, 495, 129, 25);
 		add(btnEditarBab);
 		
 		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnBuscar.setForeground(new Color(51, 102, 153));
+		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				listModel.clear();
@@ -102,8 +108,13 @@ public class ConsultaCarro extends JPanel {
 				}
 			}
 		});
-		btnBuscar.setBounds(480, 109, 117, 25);
+		btnBuscar.setBounds(479, 173, 117, 25);
 		add(btnBuscar);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(ConsultaCarro.class.getResource("/nucleo/icones/hotel4.png")));
+		label.setBounds(307, 23, 191, 107);
+		add(label);
 	}
 	
 	

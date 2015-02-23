@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 
 import nucleo.classes.servicos.*;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class EditarCarro extends JPanel {
 	/**
@@ -29,43 +30,48 @@ public class EditarCarro extends JPanel {
 	 * Create the panel.
 	 */
 	public EditarCarro(Carro c) {
-		setBackground(Color.WHITE);
+		setBackground(new Color(51, 102, 153));
 		this.carro = c;
 
 		setBounds(0, 0, 800, 600);
 		setLayout(null);
 		
 		descricao = new JTextField();
-		descricao.setBounds(233, 62, 177, 28);
+		descricao.setBounds(332, 186, 177, 28);
 		descricao.setText(carro.getDescricao());
 		add(descricao);
 		descricao.setColumns(10);
 		
-		JLabel descricao_1 = new JLabel("descricao:");
-		descricao_1.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		descricao_1.setBounds(145, 68, 70, 15);
+		JLabel descricao_1 = new JLabel("Descricao:");
+		descricao_1.setForeground(new Color(255, 255, 255));
+		descricao_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		descricao_1.setBounds(252, 191, 70, 15);
 		add(descricao_1);
 
-		JLabel placa_1 = new JLabel("placa:");
+		JLabel placa_1 = new JLabel("Placa:");
+		placa_1.setForeground(new Color(255, 255, 255));
 		placa_1.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		placa_1.setBounds(145, 134, 70, 15);
+		placa_1.setBounds(278, 246, 70, 15);
 		add(placa_1);
 		
 		placa = new JTextField();
-		placa.setBounds(233, 128, 177, 28);
+		placa.setBounds(332, 241, 177, 28);
 		placa.setText(carro.getPlaca());
 		add(placa);
 		placa.setColumns(10);
 		
 		luxo = new JCheckBox("Luxo");
-		luxo.setBackground(Color.WHITE);
-		luxo.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		luxo.setBounds(235, 176, 59, 27);
+		luxo.setForeground(new Color(255, 255, 255));
+		luxo.setBackground(new Color(51, 102, 153));
+		luxo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		luxo.setBounds(450, 286, 59, 27);
 		luxo.setSelected(carro.isLuxo());
 		add(luxo);
 		
 		
 		JButton btnSalvar = new JButton("Salvar");
+		btnSalvar.setForeground(new Color(51, 102, 153));
+		btnSalvar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -80,27 +86,36 @@ public class EditarCarro extends JPanel {
 				}
 			}
 		});
-		btnSalvar.setBounds(393, 231, 89, 23);
+		btnSalvar.setBounds(538, 374, 89, 23);
 		add(btnSalvar);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setForeground(new Color(51, 102, 153));
+		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new ConsultaCarro());
 			}
 		});
-		btnVoltar.setBounds(92, 231, 89, 23);
+		btnVoltar.setBounds(193, 374, 89, 23);
 		add(btnVoltar);
 		
 		JButton btnRemoveCarro = new JButton("Remove Carro");
+		btnRemoveCarro.setForeground(new Color(51, 102, 153));
+		btnRemoveCarro.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnRemoveCarro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.getHotel().removeCarro(carro);
 				Sistema.setTela(new ConsultaCarro());
 			}
 		});
-		btnRemoveCarro.setBounds(224, 230, 138, 25);
+		btnRemoveCarro.setBounds(343, 373, 138, 25);
 		add(btnRemoveCarro);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(EditarCarro.class.getResource("/nucleo/icones/hotel4.png")));
+		label.setBounds(322, 30, 143, 97);
+		add(label);
 	}
 
 }

@@ -327,7 +327,7 @@ public class Hotel implements Serializable{
 	 * Imprime todas as opinioes a respeito do hotel (comentario, nota e data)
 	 */
 	public String imprimeOpinioes(){
-		String todas_opinioes = "OPINIOES DOS HOSPEDES:";
+		String todas_opinioes = "-";
 		for (Opiniao opiniao: opinioes){
 			todas_opinioes += "\n\n" + opiniao.toString();
 		}

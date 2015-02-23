@@ -56,54 +56,62 @@ public class AlugaCarro extends JPanel {
 	 * querer com seguro e tanque cheio
 	 */
 	public AlugaCarro(Contrato contrato) {
-		setBackground(Color.WHITE);
+		setBackground(new Color(51, 102, 153));
 		this.contrato = contrato;
 		setBounds(0, 0, 800, 600);
 		setLayout(null);
 		data_inicial = new JSpinner();
-		data_inicial.setBounds(412, 182, 159, 29);
+		data_inicial.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		data_inicial.setBounds(338, 177, 159, 29);
 		data_inicial.setModel(new SpinnerDateModel());
 		add(data_inicial);
 		
 		data_final = new JSpinner();
-		data_final.setBounds(412, 229, 159, 29);
+		data_final.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		data_final.setBounds(338, 223, 159, 29);
 		data_final.setModel(new SpinnerDateModel());
 		add(data_final);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(36, 128, 235, 309);
+		scrollPane.setBounds(263, 290, 231, 224);
 		add(scrollPane);
 		
 		list = new JList<Alugavel>();
+		list.setForeground(new Color(51, 102, 153));
+		list.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		
 		listModel = new DefaultListModel<Alugavel>();
 		scrollPane.setViewportView(list);
 		
 		seguro = new JCheckBox("Seguro");
-		seguro.setBackground(Color.WHITE);
-		seguro.setBounds(411, 266, 97, 23);
-		seguro.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		seguro.setForeground(new Color(255, 255, 255));
+		seguro.setBackground(new Color(51, 102, 153));
+		seguro.setBounds(525, 424, 97, 23);
+		seguro.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		add(seguro);
 		
 		tanque = new JCheckBox("Tanque cheio");
-		tanque.setBackground(Color.WHITE);
-		tanque.setBounds(411, 293, 138, 23);
-		tanque.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		tanque.setForeground(new Color(255, 255, 255));
+		tanque.setBackground(new Color(51, 102, 153));
+		tanque.setBounds(525, 460, 138, 23);
+		tanque.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		add(tanque);
 		
 		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setBounds(377, 341, 117, 25);
-		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnVoltar.setForeground(new Color(51, 102, 153));
+		btnVoltar.setBounds(220, 525, 117, 25);
+		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new VisualizaContrato(getContrato()));
+				Sistema.setTela(new OpcoesDeServicos(getContrato()));
 			}
 		});
 		add(btnVoltar);
 		
 		JButton btnConcluir = new JButton("Concluir");
-		btnConcluir.setBounds(545, 341, 117, 25);
-		btnConcluir.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnConcluir.setForeground(new Color(51, 102, 153));
+		btnConcluir.setBounds(435, 525, 117, 25);
+		btnConcluir.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnConcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Date data = (Date) data_inicial.getValue();
@@ -132,16 +140,21 @@ public class AlugaCarro extends JPanel {
 		add(btnConcluir);
 		
 		JLabel lblDataInicial = new JLabel("Data inicial");
-		lblDataInicial.setBounds(324, 189, 89, 15);
+		lblDataInicial.setForeground(new Color(255, 255, 255));
+		lblDataInicial.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblDataInicial.setBounds(263, 183, 89, 15);
 		add(lblDataInicial);
 		
 		JLabel lblDataFina = new JLabel("Data final");
-		lblDataFina.setBounds(324, 236, 89, 15);
+		lblDataFina.setForeground(new Color(255, 255, 255));
+		lblDataFina.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblDataFina.setBounds(263, 229, 89, 15);
 		add(lblDataFina);
 		
 		JButton btnPesquisar = new JButton("Pesquisar");
-		btnPesquisar.setBounds(625, 204, 117, 25);
-		btnPesquisar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnPesquisar.setForeground(new Color(51, 102, 153));
+		btnPesquisar.setBounds(507, 207, 107, 23);
+		btnPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				listModel.clear();
@@ -165,14 +178,15 @@ public class AlugaCarro extends JPanel {
 		list.setModel(listModel);
 		add(btnPesquisar);
 		
-		JLabel lblCarrosDisponveis = new JLabel("Carros disponíveis");
-		lblCarrosDisponveis.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		lblCarrosDisponveis.setBounds(36, 101, 138, 15);
+		JLabel lblCarrosDisponveis = new JLabel("Carros disponiveis");
+		lblCarrosDisponveis.setForeground(new Color(255, 255, 255));
+		lblCarrosDisponveis.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblCarrosDisponveis.setBounds(263, 274, 138, 15);
 		add(lblCarrosDisponveis);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("/home/edvalmsg/Downloads/images.png"));
-		lblNewLabel.setBounds(297, 12, 229, 116);
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(AlugaCarro.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel.setBounds(319, 11, 229, 116);
 		add(lblNewLabel);
 		
 

@@ -16,6 +16,7 @@ import javax.swing.JTextPane;
 import nucleo.classes.pessoa.Contrato;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.JScrollPane;
 
 public class VisualizaContrato extends JPanel {
 	/**
@@ -58,16 +59,6 @@ public class VisualizaContrato extends JPanel {
 		btnFecharContrato.setBounds(514, 519, 188, 25);
 		add(btnFecharContrato);
 		
-		servicos = new JTextPane();
-		servicos.setBackground(new Color(51, 102, 153));
-		servicos.setForeground(new Color(255, 255, 255));
-		servicos.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		servicos.setEditable(false);
-		servicos.setText(getContrato().imprimeCadaServicoEspecial());
-		servicos.setBounds(488, 126, 302, 412);
-		add(servicos);
-		servicos.setText(getContrato().imprimeCadaServicoEspecial());
-		
 		JTextPane status = new JTextPane();
 		status.setBackground(new Color(51, 102, 153));
 		status.setForeground(new Color(255, 255, 255));
@@ -94,6 +85,19 @@ public class VisualizaContrato extends JPanel {
 		btnNewButton.setForeground(new Color(51, 102, 153));
 		btnNewButton.setBounds(282, 518, 161, 26);
 		add(btnNewButton);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(450, 126, 302, 382);
+		add(scrollPane);
+		
+		servicos = new JTextPane();
+		scrollPane.setViewportView(servicos);
+		servicos.setBackground(new Color(51, 102, 153));
+		servicos.setForeground(new Color(255, 255, 255));
+		servicos.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		servicos.setEditable(false);
+		servicos.setText(getContrato().imprimeCadaServicoEspecial());
+		servicos.setText(getContrato().imprimeCadaServicoEspecial());
 
 	}
 	

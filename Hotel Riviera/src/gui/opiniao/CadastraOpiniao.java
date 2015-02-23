@@ -17,6 +17,7 @@ import nucleo.classes.hotel.*;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.UIManager;
+import javax.swing.ImageIcon;
 
 public class CadastraOpiniao extends JPanel {
 
@@ -29,45 +30,51 @@ public class CadastraOpiniao extends JPanel {
 	 * Create the panel.
 	 */
 	public CadastraOpiniao() {
-		setBackground(Color.WHITE);
+		setBackground(new Color(51, 102, 153));
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
 		final JEditorPane editorPane = new JEditorPane();
-		editorPane.setFont(new Font("NanumGothic", Font.PLAIN, 13));
-		editorPane.setBackground(UIManager.getColor("ProgressBar.foreground"));
-		editorPane.setBounds(255, 121, 388, 119);
+		editorPane.setForeground(new Color(51, 102, 153));
+		editorPane.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		editorPane.setBackground(new Color(255, 255, 255));
+		editorPane.setBounds(291, 199, 303, 105);
 		add(editorPane);
 		
 		JLabel lblContenos = new JLabel("OPINIAO:");
-		lblContenos.setFont(new Font("NanumGothic", Font.BOLD, 14));
-		lblContenos.setBounds(168, 147, 83, 93);
+		lblContenos.setForeground(new Color(255, 255, 255));
+		lblContenos.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblContenos.setBounds(198, 211, 83, 93);
 		add(lblContenos);
 		
 		JLabel lblDSuaNota = new JLabel("NOTA:");
-		lblDSuaNota.setFont(new Font("NanumGothic", Font.BOLD, 14));
-		lblDSuaNota.setBounds(181, 313, 83, 26);
+		lblDSuaNota.setForeground(new Color(255, 255, 255));
+		lblDSuaNota.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblDSuaNota.setBounds(214, 374, 83, 26);
 		add(lblDSuaNota);
 		
 		JSpinner spinner = new JSpinner();
-		spinner.setBounds(260, 305, 37, 43);
+		spinner.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		spinner.setBounds(291, 367, 37, 43);
 		final SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 10, 1);
 		spinner.setModel(model);
 		add(spinner);
 		
 		
 		JButton btnVoltar = new JButton("VOLTAR");
-		btnVoltar.setFont(new Font("NanumGothic", Font.BOLD, 14));
+		btnVoltar.setForeground(new Color(51, 102, 153));
+		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDeOpiniao());
 
 			}
 		});
-		btnVoltar.setBounds(260, 419, 109, 26);
+		btnVoltar.setBounds(255, 491, 109, 26);
 		add(btnVoltar);
 		
 		JButton btnSalvar = new JButton("SALVAR");
-		btnSalvar.setFont(new Font("NanumGothic", Font.BOLD, 14));
+		btnSalvar.setForeground(new Color(51, 102, 153));
+		btnSalvar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -82,8 +89,13 @@ public class CadastraOpiniao extends JPanel {
 				}
 			}
 		});
-		btnSalvar.setBounds(455, 419, 127, 26);
+		btnSalvar.setBounds(467, 491, 127, 26);
 		add(btnSalvar);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(CadastraOpiniao.class.getResource("/nucleo/icones/hotel4.png")));
+		label.setBounds(350, 51, 196, 119);
+		add(label);
 
 	}
 }

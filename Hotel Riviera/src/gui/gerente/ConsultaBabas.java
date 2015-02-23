@@ -22,6 +22,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class ConsultaBabas extends JPanel {
 	/**
@@ -36,24 +37,27 @@ public class ConsultaBabas extends JPanel {
 	 * Create the panel.
 	 */
 	public ConsultaBabas() {
-		setBackground(Color.WHITE);
+		setBackground(new Color(51, 102, 153));
 		setLayout(null);
 		setBounds(0,0,800,600);
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(232, 171, 246, 244);
+		scrollPane.setBounds(285, 220, 246, 244);
 		add(scrollPane);
+		list.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		list.setForeground(new Color(51, 102, 153));
 		
 		scrollPane.setViewportView(list);
 		list.setModel(listModel);
 		
 		textField = new JTextField();
-		textField.setBounds(232, 123, 216, 20);
+		textField.setBounds(285, 178, 216, 20);
 		add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Digite o nome da Baba:");
-		lblNewLabel.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		lblNewLabel.setBounds(232, 97, 170, 14);
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblNewLabel.setBounds(285, 152, 170, 25);
 		add(lblNewLabel);
 		
 		for (Alugavel baba: Sistema.getHotel().getBabas()) {
@@ -62,17 +66,19 @@ public class ConsultaBabas extends JPanel {
 		setLayout(null);
 		
 		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnVoltar.setForeground(new Color(51, 102, 153));
+		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDeBaba());
 			}
 		});
-		btnVoltar.setBounds(203, 445, 117, 25);
+		btnVoltar.setBounds(236, 509, 117, 25);
 		add(btnVoltar);
 		
 		JButton btnEditarBab = new JButton("Editar");
-		btnEditarBab.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnEditarBab.setForeground(new Color(51, 102, 153));
+		btnEditarBab.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnEditarBab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -82,11 +88,12 @@ public class ConsultaBabas extends JPanel {
 				}
 			}
 		});
-		btnEditarBab.setBounds(391, 445, 117, 25);
+		btnEditarBab.setBounds(450, 509, 117, 25);
 		add(btnEditarBab);
 		
 		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
+		btnBuscar.setForeground(new Color(51, 102, 153));
+		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String busca = textField.getText();
@@ -99,8 +106,13 @@ public class ConsultaBabas extends JPanel {
 				}
 			}
 		});
-		btnBuscar.setBounds(471, 120, 117, 25);
+		btnBuscar.setBounds(520, 174, 117, 25);
 		add(btnBuscar);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(ConsultaBabas.class.getResource("/nucleo/icones/hotel4.png")));
+		label.setBounds(338, 25, 229, 105);
+		add(label);
 	}
 
 }
