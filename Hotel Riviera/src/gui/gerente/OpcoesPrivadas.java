@@ -108,6 +108,11 @@ public class OpcoesPrivadas extends JPanel {
 		add(lblreaReservada);
 		
 		JButton btnNewButton = new JButton("ESTRATEGIAS");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Sistema.setTela(new OpcoesDeEstrategia());
+			}
+		});
 		btnNewButton.setForeground(new Color(51, 102, 153));
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNewButton.setBounds(306, 319, 197, 33);

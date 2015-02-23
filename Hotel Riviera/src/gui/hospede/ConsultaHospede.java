@@ -62,11 +62,15 @@ public class ConsultaHospede extends JPanel {
 		add(scrollPane);
 
 		list = new JList<Hospede>();
+		list.setFont(new Font("Dialog", Font.PLAIN, 13));
 		list.setBackground(new Color(51, 102, 153));
 		list.setForeground(new Color(255, 255, 255));
 		scrollPane.setViewportView(list);
 		final DefaultListModel<Hospede> listModel = new DefaultListModel<Hospede>();
 
+		for (int i = 0; i < Sistema.getHotel().getHospedes().size(); i++) {
+			listModel.addElement(Sistema.getHotel().getHospedes().get(i));
+			}
 		JButton btnBuscar = new JButton("BUSCAR");
 		btnBuscar.setForeground(new Color(51, 102, 153));
 		btnBuscar.addActionListener(new ActionListener() {

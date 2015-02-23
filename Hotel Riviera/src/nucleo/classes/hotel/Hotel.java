@@ -318,6 +318,14 @@ public class Hotel implements Serializable{
 		quartos.remove(q);
 	}
 	
+
+	/**
+	 * Remove uma estrategia de cobranca do hotel
+	 */
+	public void removeEstrategia(Estrategia e){
+		estrategias.remove(e);
+	}
+	
 	/**
 	 * Imprime todas as opinioes a respeito do hotel (comentario, nota e data)
 	 */

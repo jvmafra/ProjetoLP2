@@ -10,6 +10,7 @@ import java.util.GregorianCalendar;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import nucleo.classes.arquivo.Arquivos;
@@ -33,12 +34,7 @@ public class Sistema extends JFrame {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-//				try {
-//					criaHotel();
-//					setTela(new LoginDeFuncionario());
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
+				
 				
 				criaHotel();
 				setTela(new LoginDeFuncionario(false));
