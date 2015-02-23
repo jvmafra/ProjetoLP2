@@ -35,6 +35,7 @@ import nucleo.classes.quartos.Quarto;
 
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
+import javax.swing.JCheckBox;
 
 public class NovoContrato extends JPanel {
 	/**
@@ -104,6 +105,7 @@ public class NovoContrato extends JPanel {
 		
 		
 		list_2 = new JList<Hospede>();
+		list_2.setFont(new Font("Dialog", Font.PLAIN, 13));
 		list_2.setBackground(new Color(51, 102, 153));
 		list_2.setForeground(new Color(255, 255, 255));
 		list_2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -144,7 +146,7 @@ public class NovoContrato extends JPanel {
 
 		JPanel quartosDisponiveis = new JPanel();
 		quartosDisponiveis.setBackground(new Color(51, 102, 153));
-		quartosDisponiveis.setBounds(13, 196, 299, 343);
+		quartosDisponiveis.setBounds(13, 196, 299, 372);
 		margemGeral.add(quartosDisponiveis);
 		quartosDisponiveis.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Quartos disponiveis.", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 255, 255)));
 		quartosDisponiveis.setLayout(null);
@@ -213,6 +215,24 @@ public class NovoContrato extends JPanel {
 		scrollPane.setViewportView(list);
 		btnPesquisar.setBounds(109, 96, 129, 25);
 		quartosDisponiveis.add(btnPesquisar);
+		
+		JCheckBox chckbxCamaExtra = new JCheckBox("Cama extra");
+		chckbxCamaExtra.setFont(new Font("Dialog", Font.PLAIN, 13));
+		chckbxCamaExtra.setForeground(new Color(255, 255, 255));
+		chckbxCamaExtra.setBackground(new Color(51, 102, 153));
+		chckbxCamaExtra.setBounds(144, 339, 143, 23);
+		quartosDisponiveis.add(chckbxCamaExtra);
+		Quarto q = (Quarto) list.getSelectedValue();
+		if (q != null) {
+			if (q.permiteCamaExtra())
+				chckbxCamaExtra.setVisible(true);
+			else
+				chckbxCamaExtra.setVisible(false);
+				
+		}
+		else
+			chckbxCamaExtra.setVisible(false);
+		
 
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setForeground(new Color(51, 102, 153));
