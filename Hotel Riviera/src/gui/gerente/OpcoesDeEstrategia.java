@@ -91,6 +91,7 @@ public class OpcoesDeEstrategia extends JPanel {
 		add(scrollPane);
 
 		list = new JList<Estrategia>();
+		list.setFont(new Font("Dialog", Font.PLAIN, 13));
 		list.setBackground(new Color(51, 102, 153));
 		list.setForeground(new Color(255, 255, 255));
 		scrollPane.setViewportView(list);

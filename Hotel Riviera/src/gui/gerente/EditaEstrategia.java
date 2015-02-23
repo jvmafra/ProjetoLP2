@@ -34,37 +34,36 @@ public class EditaEstrategia extends JPanel {
 		setBounds(0, 0, 800, 600);
 		setBackground(new Color(51, 102, 153));
 		this.estrategia = e;
-
-		setBounds(0, 0, 552, 376);
+		
 		setLayout(null);
 
 		nome = new JTextField();
-		nome.setBounds(233, 146, 177, 28);
+		nome.setBounds(331, 233, 177, 28);
 		nome.setText(estrategia.getNome());
 		add(nome);
 		nome.setColumns(10);
 
 		JLabel nome_1 = new JLabel("Nome:");
 		nome_1.setForeground(new Color(255, 255, 255));
-		nome_1.setBounds(162, 151, 70, 15);
+		nome_1.setBounds(260, 238, 70, 15);
 		nome_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		add(nome_1);
 
 		JLabel fator_1 = new JLabel("Fator:");
 		fator_1.setForeground(new Color(255, 255, 255));
-		fator_1.setBounds(151, 204, 70, 15);
+		fator_1.setBounds(260, 292, 53, 15);
 		fator_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		add(fator_1);
 
 		fator = new JTextField();
-		fator.setBounds(233, 199, 177, 28);
+		fator.setBounds(331, 286, 177, 28);
 		fator.setText(String.valueOf(estrategia.getFator()));
 		add(fator);
 		fator.setColumns(10);
 
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.setForeground(new Color(51, 102, 153));
-		btnSalvar.setBounds(388, 299, 89, 23);
+		btnSalvar.setBounds(486, 386, 89, 23);
 		btnSalvar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -82,7 +81,7 @@ public class EditaEstrategia extends JPanel {
 
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setForeground(new Color(51, 102, 153));
-		btnVoltar.setBounds(82, 299, 89, 23);
+		btnVoltar.setBounds(180, 386, 89, 23);
 		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -94,7 +93,7 @@ public class EditaEstrategia extends JPanel {
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(EditaEstrategia.class
 				.getResource("/nucleo/icones/hotel4.png")));
-		label.setBounds(217, 11, 185, 100);
+		label.setBounds(321, 40, 138, 100);
 		add(label);
 
 	}
