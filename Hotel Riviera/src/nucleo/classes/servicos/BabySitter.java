@@ -1,5 +1,6 @@
 package nucleo.classes.servicos;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import nucleo.classes.hotel.Periodo;
@@ -15,7 +16,8 @@ import nucleo.excecoes.PeriodoInvalidoException;
  * @author Joao Victor Barroso Mafra e Adiel Andrade e Hugo Gabriel
  */
 
-public class BabySitter implements Servico {
+public class BabySitter implements Servico, Serializable {
+	
 	private static final int VALOR_HORA_NORMAL = 25;
 	private static final int VALOR_HORA_DOBRADA = 50;
 	private int horaDeInicio;

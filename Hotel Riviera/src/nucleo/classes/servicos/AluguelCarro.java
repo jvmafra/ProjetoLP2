@@ -9,12 +9,15 @@ package nucleo.classes.servicos;
  * @author Joao Victor Barroso Mafra e Adiel Andrade
  */
 
+import java.io.Serializable;
+
 import nucleo.classes.hotel.Periodo;
 import nucleo.classes.hotel.Servico;
 import nucleo.excecoes.CarroInvalidoException;
 import nucleo.excecoes.PeriodoInvalidoException;
 
-public class AluguelCarro implements Servico {
+public class AluguelCarro implements Servico, Serializable {
+	
 	private static final long serialVersionUID = 1L;
 	private Periodo periodo;
 	private boolean tanqueCheio;
