@@ -19,8 +19,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import classes.hotel.*;
-
 import javax.swing.JLabel;
 
 import nucleo.classes.hotel.Alugavel;

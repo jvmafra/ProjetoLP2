@@ -7,7 +7,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import nucleo.classes.hotel.Hotel;
-import classes.hotel.*;
 
 public class Arquivos {
 	private final static String DIR = "Documentos do Hotel";

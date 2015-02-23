@@ -8,6 +8,10 @@ import nucleo.excecoes.PeriodoInvalidoException;
 import nucleo.excecoes.ValorInvalidoException;
 
 public class Refeicao implements Servico, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private double valor;
 	private Calendar data;
 	

@@ -165,13 +165,8 @@ public class Hotel implements Serializable{
 	public List<Alugavel> verificaAlugaveisDisponiveis(Periodo p, List<Alugavel> lista){
 		List<Alugavel> disponiveis = new ArrayList<>();
 		for (Alugavel alugavel: lista){
-			boolean disponivel = true;
-			for (int i = 0; i < alugavel.getPeriodos().size(); i++) {
-				if (p.periodoCoincide(alugavel.getPeriodos().get(i)))
-					disponivel = false;
-			}
-			if (disponivel == true)
-				disponiveis.add(alugavel);	
+			if (alugavel.isDisponivel(p))
+				disponiveis.add(alugavel);
 		}
 		
 		return disponiveis;

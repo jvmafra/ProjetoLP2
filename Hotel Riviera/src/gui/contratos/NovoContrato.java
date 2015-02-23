@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -31,6 +32,7 @@ import nucleo.classes.hotel.Periodo;
 import nucleo.classes.pessoa.Contrato;
 import nucleo.classes.pessoa.Hospede;
 import nucleo.classes.quartos.Quarto;
+
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 
@@ -178,6 +180,7 @@ public class NovoContrato extends JPanel {
 				
 		// Intancio o jList que contem os quartos
 		list = new JList<Alugavel>();
+		list.setFont(new Font("Dialog", Font.PLAIN, 12));
 		list.setForeground(new Color(255, 255, 255));
 		list.setBackground(new Color(51, 102, 153));
 		listModel = new DefaultListModel<Alugavel>();
@@ -196,8 +199,9 @@ public class NovoContrato extends JPanel {
 				Calendar fim = Sistema.DateToCalendar(data2);
 				try {
 					Periodo p = new Periodo(inicio, fim);
-					for (int i = 0; i < Sistema.getHotel().getQuartos().size(); i++) {
-						listModel.addElement(Sistema.getHotel().getQuartos().get(i));
+					List<Alugavel> quartos_disponiveis = Sistema.getHotel().verificaAlugaveisDisponiveis(p, Sistema.getHotel().getQuartos());
+					for (int i = 0; i < quartos_disponiveis.size(); i++) {
+						listModel.addElement(quartos_disponiveis.get(i));
 					}
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, e2.getMessage());
@@ -249,16 +253,10 @@ public class NovoContrato extends JPanel {
 		btnNewButton.setBounds(617, 503, 109, 25);
 		margemGeral.add(btnNewButton);
 		
-		JLabel lblNewLabel = new JLabel("New label");
+		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(NovoContrato.class.getResource("/nucleo/icones/hotel4.png")));
-		lblNewLabel.setBounds(512, 314, 144, 104);
+		lblNewLabel.setBounds(505, 317, 175, 142);
 		margemGeral.add(lblNewLabel);
-		
-		JLabel lblNovoContrato = new JLabel("NOVO CONTRATO");
-		lblNovoContrato.setForeground(new Color(255, 255, 255));
-		lblNovoContrato.setFont(new Font("Rockwell Condensed", Font.BOLD, 30));
-		lblNovoContrato.setBounds(473, 418, 216, 61);
-		margemGeral.add(lblNovoContrato);
 
 		
 		

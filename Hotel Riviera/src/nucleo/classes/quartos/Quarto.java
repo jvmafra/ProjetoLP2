@@ -145,6 +145,17 @@ public abstract class Quarto implements Servico, Serializable, Alugavel{
 	public Periodo getPeriodoAtual() {
 		return periodoAtual;
 	}
+	
+	/**
+	 * Verifica se o quarto esta disponivel em certo periodo
+	 */
+	public boolean isDisponivel(Periodo p) {
+		for (Periodo periodo: periodos){
+			if (p.periodoCoincide(periodo))
+				return false;
+		}
+		return true;
+	}
 
 	/**
 	 * Fornece uma representacao do quarto como String

@@ -27,11 +27,12 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
 
 import java.awt.Color;
+import java.io.Serializable;
 
 import javax.swing.border.MatteBorder;
 import javax.swing.ImageIcon;
 
-public class LoginDeFuncionario extends JPanel {
+public class LoginDeFuncionario extends JPanel implements Serializable {
 	/**
 	 * 
 	 */
