@@ -58,6 +58,7 @@ public class LoginDeFuncionario extends JPanel implements Serializable {
 		add(login_1);
 		login_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		
+		
 		JLabel senha_1 = new JLabel("Senha");
 		senha_1.setBounds(310, 387, 44, 16);
 		add(senha_1);
