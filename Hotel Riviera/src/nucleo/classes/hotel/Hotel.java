@@ -53,6 +53,23 @@ public class Hotel implements Serializable{
 		criaGerente();
 		
 	}
+	public double faturamentoTotal(){
+		double total = 0;
+		for (int i = 0; i < getContratosFechados().size(); i++) {
+			total += getContratosFechados().get(i).calculaValorTotal();
+		}
+		return total;
+	}
+	
+	
+	public double getFaturamentoMensal(int mes){
+		double total = 0;
+		for (int i = 0; i < getContratosFechados().size(); i++) {
+			if (getContratosFechados().get(i).getPeriodo().getData_final().MONTH == mes)
+					total += getContratosFechados().get(i).calculaValorTotal();
+		}
+		return total;	
+	}
 	
 	public List<Hospede> getHospedes() {
 		return hospedes;
