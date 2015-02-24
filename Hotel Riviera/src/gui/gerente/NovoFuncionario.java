@@ -92,6 +92,7 @@ public class NovoFuncionario extends JPanel {
 					Funcionario funcionario = new Funcionario(nome.getText(), login.getText(), senha.getText(), permissaoGerente.isSelected());
 					Sistema.getHotel().adicionaFuncionario(funcionario);
 					JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
+					Sistema.setTela(new OpcoesFuncionario());
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
@@ -105,7 +106,7 @@ public class NovoFuncionario extends JPanel {
 		label.setBounds(317, 12, 161, 105);
 		add(label);
 		
-		JLabel lblNewLabel = new JLabel("NOVO FUNCIONÁRIO");
+		JLabel lblNewLabel = new JLabel("NOVO FUNCIONÃ�RIO");
 		lblNewLabel.setFont(new Font("Bitstream Charter", Font.BOLD, 26));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBounds(270, 131, 278, 40);

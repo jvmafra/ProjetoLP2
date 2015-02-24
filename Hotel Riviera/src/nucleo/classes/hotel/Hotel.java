@@ -3,7 +3,9 @@ package nucleo.classes.hotel;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.List;
+
 import nucleo.classes.formas_cobranca.Estrategia;
 import nucleo.classes.pessoa.Contrato;
 import nucleo.classes.pessoa.Funcionario;
@@ -65,7 +67,7 @@ public class Hotel implements Serializable{
 	public double getFaturamentoMensal(int mes){
 		double total = 0;
 		for (int i = 0; i < getContratosFechados().size(); i++) {
-			if (getContratosFechados().get(i).getPeriodo().getData_final().MONTH == mes)
+			if (getContratosFechados().get(i).getPeriodo().getData_final().get(GregorianCalendar.MONTH) == mes)
 					total += getContratosFechados().get(i).calculaValorTotal();
 		}
 		return total;	
