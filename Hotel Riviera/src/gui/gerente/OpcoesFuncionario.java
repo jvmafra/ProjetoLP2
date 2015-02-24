@@ -35,6 +35,10 @@ public class OpcoesFuncionario extends JPanel {
 		add(btnNovoFuncionario);
 		
 		JButton btnEditaFuncionario = new JButton("EDITA FUNCIONARIO");
+		btnEditaFuncionario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnEditaFuncionario.setForeground(new Color(51, 102, 153));
 		btnEditaFuncionario.setFont(new Font("Dialog", Font.BOLD, 15));
 		btnEditaFuncionario.setBounds(304, 314, 231, 56);

@@ -35,7 +35,12 @@ public class Sistema extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				
-				
+//				try {
+//					 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+//					
+//				} catch (Exception e) {
+//					// TODO: handle exception
+//				}
 				criaHotel();
 				setTela(new LoginDeFuncionario(false));
 			}

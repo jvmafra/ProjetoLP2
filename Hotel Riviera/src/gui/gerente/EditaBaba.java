@@ -86,7 +86,7 @@ public class EditaBaba extends JPanel {
 		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new ConsultaBabas());
+				Sistema.setTela(new OpcoesDeBaba());
 			}
 		});
 		add(btnVoltar);

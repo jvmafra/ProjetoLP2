@@ -109,8 +109,7 @@ public class ConsultaBabas extends JPanel {
 		btnBuscar.setBounds(520, 174, 117, 25);
 		add(btnBuscar);
 		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(ConsultaBabas.class.getResource("/nucleo/icones/hotel4.png")));
+		JLabel label = new JLabel(new ImageIcon(ConsultaBabas.class.getResource("/nucleo/icones/hotel4.png")));
 		label.setBounds(338, 25, 229, 105);
 		add(label);
 	}

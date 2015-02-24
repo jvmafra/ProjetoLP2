@@ -86,7 +86,7 @@ public class EditarCarro extends JPanel {
 				}
 			}
 		});
-		btnSalvar.setBounds(538, 374, 89, 23);
+		btnSalvar.setBounds(433, 374, 89, 23);
 		add(btnSalvar);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -97,20 +97,8 @@ public class EditarCarro extends JPanel {
 				Sistema.setTela(new ConsultaCarro());
 			}
 		});
-		btnVoltar.setBounds(193, 374, 89, 23);
+		btnVoltar.setBounds(259, 374, 89, 23);
 		add(btnVoltar);
-		
-		JButton btnRemoveCarro = new JButton("Remove Carro");
-		btnRemoveCarro.setForeground(new Color(51, 102, 153));
-		btnRemoveCarro.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnRemoveCarro.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Sistema.getHotel().removeCarro(carro);
-				Sistema.setTela(new ConsultaCarro());
-			}
-		});
-		btnRemoveCarro.setBounds(343, 373, 138, 25);
-		add(btnRemoveCarro);
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(EditarCarro.class.getResource("/nucleo/icones/hotel4.png")));

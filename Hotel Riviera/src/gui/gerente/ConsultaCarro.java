@@ -38,6 +38,7 @@ public class ConsultaCarro extends JPanel {
 		setBackground(new Color(51, 102, 153));
 		setLayout(null);
 		setBounds(0,0,800,600);
+		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(252, 220, 246, 244);
 		add(scrollPane);

@@ -66,9 +66,7 @@ public class OpcoesDeEstrategia extends JPanel {
 					JOptionPane.showMessageDialog(null,	"Selecione uma estratégia antes");
 				else{
 					Sistema.getHotel().removeEstrategia(list.getSelectedValue());
-					//repaint();
-					revalidate();
-				}
+					Sistema.setTela(new OpcoesDeEstrategia());				}
 			}
 		});
 		btnRemoveEstrategia.setForeground(new Color(51, 102, 153));
