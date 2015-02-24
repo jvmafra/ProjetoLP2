@@ -37,10 +37,7 @@ public class Sistema extends JFrame {
 				
 //				try {
 //					 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-//					
-//				} catch (Exception e) {
-//					// TODO: handle exception
-//				}
+//				} catch (Exception e) {}
 				criaHotel();
 				setTela(new LoginDeFuncionario(false));
 			}
@@ -69,6 +66,7 @@ public class Sistema extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
+		setResizable(false);
 	}
 	private static void iniciaSistema(){
 		janela = new Sistema();

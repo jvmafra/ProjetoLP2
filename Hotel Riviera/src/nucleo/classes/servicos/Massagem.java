@@ -1,5 +1,6 @@
 package nucleo.classes.servicos;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -10,7 +11,11 @@ import nucleo.excecoes.TipoDeMassagensInvalidaException;
 import nucleo.excecoes.TipoDeMassagensInvalidoException;
 import nucleo.excecoes.ValorInvalidoException;
 
-public class Massagem implements Servico {
+public class Massagem implements Servico, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Periodo periodo;
 	private double valor;
 	private String nome;

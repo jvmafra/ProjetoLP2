@@ -100,8 +100,7 @@ public class OpcoesDeEstrategia extends JPanel {
 			}
 		list.setModel(listModel);
 		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(OpcoesDeEstrategia.class.getResource("/nucleo/icones/hotel4.png")));
+		JLabel label = new JLabel(new ImageIcon(OpcoesDeEstrategia.class.getResource("/nucleo/icones/hotel4.png")));
 		label.setBounds(338, 12, 221, 120);
 		add(label);
 

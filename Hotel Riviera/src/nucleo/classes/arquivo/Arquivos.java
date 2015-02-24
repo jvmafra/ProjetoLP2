@@ -18,33 +18,36 @@ public class Arquivos {
 			e.printStackTrace();
 		}
 	}
-	
-	public static void salvaHotel(Hotel hotel) throws Exception{
+
+	public static void salvaHotel(Hotel hotel) throws Exception {
 		File file = new File(DIR + "//Hotel", "Hotel");
-		if (file.exists()){
-			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
+		if (file.exists()) {
+			ObjectOutputStream out = new ObjectOutputStream(
+					new FileOutputStream(file));
 			out.writeObject(hotel);
 			out.close();
 		} else {
-		file.createNewFile();
-		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
-		out.writeObject(hotel);
-		out.close();
+			file.createNewFile();
+			ObjectOutputStream out = new ObjectOutputStream(
+					new FileOutputStream(file));
+			out.writeObject(hotel);
+			out.close();
 		}
 	}
-	
-	public static Hotel carregaHotel(){
+
+	public static Hotel carregaHotel() {
 		try {
-			ObjectInputStream in = new ObjectInputStream(new FileInputStream(new File(DIR + "//Hotel", "Hotel")));
+			ObjectInputStream in = new ObjectInputStream(new FileInputStream(
+					new File(DIR + "//Hotel", "Hotel")));
 			Object obj = in.readObject();
 			in.close();
 			return (Hotel) obj;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;		
+		return null;
 	}
-	
+
 	public static boolean extisteHotel() {
 		File file = new File(DIR + "//Hotel", "Hotel");
 		return file.exists();

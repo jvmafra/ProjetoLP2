@@ -15,7 +15,7 @@ public class Funcionario implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String login, senha;
+	private String login, senha, nome;
 	private boolean permissaoGerente;
 	
 	/**
@@ -27,7 +27,10 @@ public class Funcionario implements Serializable{
 	 * @param senha
 	 * 			senha para entrar no sistema		
 	 */
-	public Funcionario(String login, String senha, boolean permissaoGerente) throws Exception{
+	public Funcionario(String nome, String login, String senha, boolean permissaoGerente) throws Exception{
+		if (nome == null || nome.equals(""))
+			throw new NomeInvalidoException("nome invalido");
+		
 		if (login == null || login.equals(""))
 			throw new NomeInvalidoException("login invalido");
 		
@@ -36,12 +39,28 @@ public class Funcionario implements Serializable{
 		
 		if (senha.length() < 6)
 			throw new Exception("Senha muito curta");
-		
+		this.nome = nome;
 		this.login = login;
 		this.senha = senha;
 		this.permissaoGerente = permissaoGerente;
 	}
 	
+	/**
+	 * Retorna o nome do funcionario
+	 * @return
+	 */
+	public String getNome() {
+		return nome;
+	}
+	/**
+	 * Modifica o nome do funcionario
+	 * @throws NomeInvalidoException 
+	 */
+	public void setNome(String nome) throws NomeInvalidoException {
+		if (nome == null || nome.equals(""))
+			throw new NomeInvalidoException("nome invalido");
+		this.nome = nome;
+	}
 	/**
 	 * Retorna o login do funcionario
 	 */
@@ -88,7 +107,7 @@ public class Funcionario implements Serializable{
 	 * Retorna a string representando o funcionario
 	 */
 	public String toString(){
-		return getLogin() + " - " + funcao();
+		return getNome() + " - " + getLogin() + " - " + funcao();
 	}
 	
 	/**
@@ -100,7 +119,7 @@ public class Funcionario implements Serializable{
 		
 		Funcionario f = (Funcionario) obj;
 		
-		return getLogin().equals(f.getLogin()) && isPermissaoGerente() == f.isPermissaoGerente();
+		return getNome().equals(f.getNome()) && getLogin().equals(f.getLogin()) && isPermissaoGerente() == f.isPermissaoGerente();
 	}
 
 }

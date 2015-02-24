@@ -461,7 +461,7 @@ public class Hotel implements Serializable{
 	private void criaGerente(){
 		Funcionario gerente;
 		try {
-			gerente = new Funcionario("admin", "123456", true);
+			gerente = new Funcionario("Funcionario Administrador", "admin", "123456", true);
 			adicionaFuncionario(gerente);
 		} catch (Exception e) {
 		}

@@ -26,6 +26,7 @@ public class NovoFuncionario extends JPanel {
 	private JTextField login;
 	private JPasswordField senha;
 	private JCheckBox permissaoGerente;
+	private JTextField nome;
 
 	public NovoFuncionario() {
 		setBackground(new Color(51, 102, 153));
@@ -36,29 +37,29 @@ public class NovoFuncionario extends JPanel {
 		lblLogin.setForeground(new Color(255, 255, 255));
 		lblLogin.setBackground(new Color(255, 255, 255));
 		lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblLogin.setBounds(292, 226, 46, 26);
+		lblLogin.setBounds(298, 276, 46, 26);
 		add(lblLogin);
 		
 		JLabel lblSenha = new JLabel("Senha:");
 		lblSenha.setForeground(new Color(255, 255, 255));
 		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblSenha.setBounds(292, 274, 65, 14);
+		lblSenha.setBounds(298, 326, 65, 14);
 		add(lblSenha);
 		
 		login = new JTextField();
-		login.setBounds(359, 230, 111, 20);
+		login.setBounds(365, 276, 111, 20);
 		add(login);
 		login.setColumns(10);
 		
 		senha = new JPasswordField();
-		senha.setBounds(359, 272, 111, 19);
+		senha.setBounds(365, 326, 111, 19);
 		add(senha);
 		
 		permissaoGerente = new JCheckBox("Permissao de Gerente");
 		permissaoGerente.setForeground(new Color(255, 255, 255));
 		permissaoGerente.setBackground(new Color(51, 102, 153));
 		permissaoGerente.setFont(new Font("Dialog", Font.PLAIN, 13));
-		permissaoGerente.setBounds(304, 314, 190, 23);
+		permissaoGerente.setBounds(298, 383, 190, 23);
 		add(permissaoGerente);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -68,7 +69,7 @@ public class NovoFuncionario extends JPanel {
 				Sistema.setTela(new OpcoesFuncionario());
 			}
 		});
-		btnVoltar.setBounds(210, 391, 100, 23);
+		btnVoltar.setBounds(205, 459, 100, 23);
 		add(btnVoltar);
 		
 		JButton btnLimpar = new JButton("Limpar");
@@ -80,7 +81,7 @@ public class NovoFuncionario extends JPanel {
 				permissaoGerente.setSelected(false);
 			}
 		});
-		btnLimpar.setBounds(359, 391, 100, 23);
+		btnLimpar.setBounds(354, 459, 100, 23);
 		add(btnLimpar);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
@@ -88,7 +89,7 @@ public class NovoFuncionario extends JPanel {
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Funcionario funcionario = new Funcionario(login.getText(), senha.getText(), permissaoGerente.isSelected());
+					Funcionario funcionario = new Funcionario(nome.getText(), login.getText(), senha.getText(), permissaoGerente.isSelected());
 					Sistema.getHotel().adicionaFuncionario(funcionario);
 					JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
 				} catch (Exception e1) {
@@ -96,7 +97,7 @@ public class NovoFuncionario extends JPanel {
 				}
 			}
 		});
-		btnCadastrar.setBounds(501, 391, 111, 23);
+		btnCadastrar.setBounds(496, 459, 111, 23);
 		add(btnCadastrar);
 		
 		JLabel label = new JLabel("");
@@ -109,5 +110,17 @@ public class NovoFuncionario extends JPanel {
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBounds(270, 131, 278, 40);
 		add(lblNewLabel);
+		
+		nome = new JTextField();
+		nome.setColumns(10);
+		nome.setBounds(365, 226, 111, 20);
+		add(nome);
+		
+		JLabel lblNome = new JLabel("Nome:");
+		lblNome.setForeground(Color.WHITE);
+		lblNome.setFont(new Font("Dialog", Font.PLAIN, 14));
+		lblNome.setBackground(Color.WHITE);
+		lblNome.setBounds(298, 226, 46, 26);
+		add(lblNome);
 	}
 }
