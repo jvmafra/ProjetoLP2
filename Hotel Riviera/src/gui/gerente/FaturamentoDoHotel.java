@@ -113,17 +113,11 @@ public class FaturamentoDoHotel extends JPanel {
 
 		CategoryDataset dataset = criaInformacoes();
 
-		// com base no conjunto de dados que criamos o gráfico
 		JFreeChart chart = criaGrafico(dataset, "Faturamento Anual");
 
-		// vamos colocar o gráfico em um painel
 		ChartPanel chartPanel = new ChartPanel(chart);
 
-		// default tamanho
 		chartPanel.setPreferredSize(new java.awt.Dimension(705, 310));
-
-		// adiciona a nossa aplicação
-		// add(chartPanel);
 
 		panel.add(chartPanel);
 
@@ -150,7 +144,7 @@ public class FaturamentoDoHotel extends JPanel {
 	private void preencheLista(JComboBox<String> listModel) {
 		listModel.addItem("Janeiro");
 		listModel.addItem("Fevereiro");
-		listModel.addItem("Março");
+		listModel.addItem("Marco");
 		listModel.addItem("Abril");
 		listModel.addItem("Maio");
 		listModel.addItem("Junho");

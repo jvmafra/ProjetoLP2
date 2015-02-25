@@ -34,6 +34,11 @@ public class OpcoesEstatisticas extends JPanel {
 		add(btnFaturamento);
 		
 		JButton btnServicos = new JButton("SERVICOS PREFERIDOS");
+		btnServicos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Sistema.setTela(new ServicosPreferidos());
+			}
+		});
 		btnServicos.setForeground(new Color(51, 102, 153));
 		btnServicos.setFont(new Font("Dialog", Font.BOLD, 15));
 		btnServicos.setBounds(285, 235, 233, 37);
