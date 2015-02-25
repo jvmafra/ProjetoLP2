@@ -26,7 +26,7 @@ public class Massagem implements Servico, Serializable {
 	}
 	
 	if (!(isPeriodoValido(periodo))){
-		throw new PeriodoInvalidoException("periodo invalido");
+		throw new PeriodoInvalidoException("Periodo de massagem invalido");
 	}
 	this.valor = tipo.getValor();
 	this.periodo = periodo;
@@ -62,7 +62,7 @@ public class Massagem implements Servico, Serializable {
 	
 	@Override
 	public String toString() {
-		return  "MASSAGEM: " + getNome() + "\nPeriodo: " + getPeriodo().toString() + "\nValor: R$ " + valor();
+		return  "MASSAGEM: " + getNome() + "\nDuracao: " + getPeriodo().getTotalDeHoras() + " hora(s)" + "\nValor: R$ " + valor();
 	}
 
 
@@ -91,7 +91,6 @@ public class Massagem implements Servico, Serializable {
 
 }
 	
-
 
 
 

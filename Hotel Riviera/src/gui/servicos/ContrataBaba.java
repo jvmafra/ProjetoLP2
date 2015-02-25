@@ -1,6 +1,7 @@
 package gui.servicos;
 
 import gui.Sistema;
+import gui.contratos.VisualizaContrato;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
@@ -27,7 +28,9 @@ import nucleo.classes.pessoa.Contrato;
 import nucleo.classes.pessoa.Hospede;
 import nucleo.classes.servicos.Baba;
 import nucleo.classes.servicos.BabySitter;
+
 import java.awt.Color;
+
 import javax.swing.ImageIcon;
 public class ContrataBaba extends JPanel {
 	private Contrato contrato;
@@ -99,6 +102,7 @@ public class ContrataBaba extends JPanel {
 						getContrato().adicionaServico(baby);
 						Sistema.getHotel().incrementaBabySitter();
 						JOptionPane.showMessageDialog(null, "Baba contratada!");
+						Sistema.setTela(new VisualizaContrato(getContrato()));
 					} catch (Exception e2) {
 						JOptionPane.showMessageDialog(null, e2.getMessage());
 					}

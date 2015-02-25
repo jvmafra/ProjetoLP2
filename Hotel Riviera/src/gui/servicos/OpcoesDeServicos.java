@@ -39,7 +39,7 @@ public class OpcoesDeServicos extends JPanel {
 				Sistema.setTela(new AlugaCarro(getContrato()));
 			}
 		});
-		btnAlguelDeCarro.setBounds(303, 163, 176, 53);
+		btnAlguelDeCarro.setBounds(309, 161, 187, 53);
 		add(btnAlguelDeCarro);
 		
 		JButton btnContrataBab = new JButton("CONTRATAR BABA");
@@ -50,7 +50,7 @@ public class OpcoesDeServicos extends JPanel {
 				Sistema.setTela(new ContrataBaba(getContrato()));
 			}
 		});
-		btnContrataBab.setBounds(303, 245, 176, 53);
+		btnContrataBab.setBounds(309, 245, 187, 53);
 		add(btnContrataBab);
 		
 		JButton btnAdicionaRefeio = new JButton("NOVA REFEICAO");
@@ -61,7 +61,7 @@ public class OpcoesDeServicos extends JPanel {
 				Sistema.setTela(new NovaRefeicao(getContrato()));
 			}
 		});
-		btnAdicionaRefeio.setBounds(307, 333, 172, 53);
+		btnAdicionaRefeio.setBounds(309, 332, 187, 53);
 		add(btnAdicionaRefeio);
 
 		
@@ -77,9 +77,14 @@ public class OpcoesDeServicos extends JPanel {
 		add(btnVoltar);
 		
 		JButton btnNewButton = new JButton("MASSAGEM");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new NovaMassagem(getContrato()));
+			}
+		});
 		btnNewButton.setForeground(new Color(51, 102, 153));
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnNewButton.setBounds(307, 418, 172, 53);
+		btnNewButton.setBounds(309, 419, 189, 53);
 		add(btnNewButton);
 		
 		JLabel label = new JLabel("");

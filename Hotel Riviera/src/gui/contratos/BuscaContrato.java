@@ -1,30 +1,23 @@
 package gui.contratos;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
 import gui.Sistema;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JList;
 import javax.swing.ListSelectionModel;
-import javax.swing.JButton;
-import nucleo.classes.hotel.Periodo;
-import nucleo.classes.pessoa.Contrato;
-import nucleo.classes.pessoa.Hospede;
-import nucleo.classes.quartos.Quarto;
-import nucleo.classes.quartos.QuartoPresidencial;
-import nucleo.excecoes.EntradaDeDadosException;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Color;
-import java.awt.Font;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
+import nucleo.classes.pessoa.Contrato;
 
 public class BuscaContrato extends JPanel {
 

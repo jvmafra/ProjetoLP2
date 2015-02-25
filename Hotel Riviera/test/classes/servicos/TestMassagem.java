@@ -58,28 +58,28 @@ public class TestMassagem {
 			m1 = new Massagem(TipoDeMassagens.CLASSICA , p3);
 			Assert.fail("Deveria lancar excecao");
 		} catch(Exception e) {
-		Assert.assertEquals("periodo invalido", e.getMessage());
+		Assert.assertEquals("Periodo de massagem invalido", e.getMessage());
 		}
 		
 		try{
 			m1 = new Massagem(TipoDeMassagens.CLASSICA , p);
 			Assert.fail("Deveria lancar excecao");
 		} catch(Exception e) {
-		Assert.assertEquals("periodo invalido", e.getMessage());
+		Assert.assertEquals("Periodo de massagem invalido", e.getMessage());
 		}
 		
 		try{
 			m1 = new Massagem(TipoDeMassagens.CLASSICA , p4);
 			Assert.fail("Deveria lancar excecao");
 		} catch(Exception e) {
-		Assert.assertEquals("periodo invalido", e.getMessage());
+		Assert.assertEquals("Periodo de massagem invalido", e.getMessage());
 		}
 		
 		try{
 			m1 = new Massagem(TipoDeMassagens.CLASSICA , null);
 			Assert.fail("Deveria lancar excecao");
 		} catch(Exception e) {
-		Assert.assertEquals("periodo invalido", e.getMessage());
+		Assert.assertEquals("Periodo de massagem invalido", e.getMessage());
 		}
 			
 	}
@@ -106,7 +106,7 @@ public class TestMassagem {
 	@Test
 	public void testToString() throws ValorInvalidoException, PeriodoInvalidoException, TipoDeMassagensInvalidoException, TipoDeMassagensInvalidaException{
 		m1 = new Massagem(TipoDeMassagens.CLASSICA , p2);
-		Assert.assertEquals(m1.toString(), "MASSAGEM: " + m1.getNome() + "\nPeriodo: " + m1.getPeriodo().toString() + "\nValor: R$ " + m1.valor());
+		Assert.assertEquals(m1.toString(), "MASSAGEM: " + m1.getNome() + "\nDuracao: 3 hora(s)" + "\nValor: R$ " + m1.valor());
 	}
 	
 	

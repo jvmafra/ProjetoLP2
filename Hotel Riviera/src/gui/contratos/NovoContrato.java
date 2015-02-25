@@ -13,7 +13,10 @@ import java.util.Date;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -24,7 +27,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.SpinnerDateModel;
 import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
-import javax.swing.text.MaskFormatter;
 
 import nucleo.classes.formas_cobranca.Estrategia;
 import nucleo.classes.hotel.Alugavel;
@@ -32,10 +34,6 @@ import nucleo.classes.hotel.Periodo;
 import nucleo.classes.pessoa.Contrato;
 import nucleo.classes.pessoa.Hospede;
 import nucleo.classes.quartos.Quarto;
-
-import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
-import javax.swing.JCheckBox;
 
 public class NovoContrato extends JPanel {
 	/**
@@ -72,7 +70,6 @@ public class NovoContrato extends JPanel {
 	 */
 	public NovoContrato() {
 
-		MaskFormatter format = null;
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
 

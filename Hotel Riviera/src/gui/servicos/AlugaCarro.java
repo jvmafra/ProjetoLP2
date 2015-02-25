@@ -127,6 +127,7 @@ public class AlugaCarro extends JPanel {
 						getContrato().adicionaServico(aluguel);
 						Sistema.getHotel().incrementaAlugueisCarro();
 						JOptionPane.showMessageDialog(null, "Carro alugado!");
+						Sistema.setTela(new VisualizaContrato(getContrato()));
 					} catch (Exception e) {
 						JOptionPane.showMessageDialog(null, e.getMessage());
 					}

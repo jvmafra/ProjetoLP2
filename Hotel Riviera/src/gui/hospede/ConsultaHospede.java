@@ -75,13 +75,13 @@ public class ConsultaHospede extends JPanel {
 		btnBuscar.setForeground(new Color(51, 102, 153));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				listModel.clear();
 				String busca = textField.getText();
 				if (busca.length() < 4){
 					JOptionPane.showMessageDialog(null,
 							"Seja mais especifico em sua busca");
 					}
 				else {
+					listModel.clear();
 					try {
 						Long.parseLong(busca);
 						for (int i = 0; i < Sistema.getHotel().getHospedes()
