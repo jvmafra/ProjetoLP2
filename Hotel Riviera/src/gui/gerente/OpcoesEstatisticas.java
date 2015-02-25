@@ -45,6 +45,11 @@ public class OpcoesEstatisticas extends JPanel {
 		add(btnServicos);
 		
 		JButton btnHospedes = new JButton("HOSPEDES +");
+		btnHospedes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new HospedesMais());
+			}
+		});
 		btnHospedes.setForeground(new Color(51, 102, 153));
 		btnHospedes.setFont(new Font("Dialog", Font.BOLD, 15));
 		btnHospedes.setBounds(285, 297, 233, 37);
