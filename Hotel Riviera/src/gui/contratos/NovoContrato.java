@@ -25,6 +25,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.ListSelectionModel;
 import javax.swing.SpinnerDateModel;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
 
@@ -34,6 +35,8 @@ import nucleo.classes.hotel.Periodo;
 import nucleo.classes.pessoa.Contrato;
 import nucleo.classes.pessoa.Hospede;
 import nucleo.classes.quartos.Quarto;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class NovoContrato extends JPanel {
 	/**
@@ -47,6 +50,8 @@ public class NovoContrato extends JPanel {
 	JList<Hospede> list_2;
 	DefaultListModel<Alugavel> listModel;
 	JComboBox<Estrategia> estrategias;
+	JSpinner spinner;
+	JCheckBox chckbxCamaExtra;
 
 
 	/**
@@ -143,7 +148,7 @@ public class NovoContrato extends JPanel {
 
 		JPanel quartosDisponiveis = new JPanel();
 		quartosDisponiveis.setBackground(new Color(51, 102, 153));
-		quartosDisponiveis.setBounds(13, 196, 299, 372);
+		quartosDisponiveis.setBounds(13, 165, 299, 403);
 		margemGeral.add(quartosDisponiveis);
 		quartosDisponiveis.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Quartos disponiveis.", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(255, 255, 255)));
 		quartosDisponiveis.setLayout(null);
@@ -175,8 +180,16 @@ public class NovoContrato extends JPanel {
 		// Instancia o scrollPane que contem o jList
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setSize(243, 197);
-		scrollPane.setLocation(30, 134);
-				
+		scrollPane.setLocation(39, 167);
+
+		chckbxCamaExtra = new JCheckBox("Cama extra");
+		chckbxCamaExtra.setFont(new Font("Dialog", Font.PLAIN, 13));
+		chckbxCamaExtra.setForeground(new Color(255, 255, 255));
+		chckbxCamaExtra.setBackground(new Color(51, 102, 153));
+		chckbxCamaExtra.setBounds(144, 372, 143, 23);
+		quartosDisponiveis.add(chckbxCamaExtra);
+		chckbxCamaExtra.setVisible(false);
+		
 		// Intancio o jList que contem os quartos
 		list = new JList<Alugavel>();
 		list.setFont(new Font("Dialog", Font.PLAIN, 12));
@@ -186,7 +199,19 @@ public class NovoContrato extends JPanel {
 		quartosDisponiveis.add(scrollPane);
 		list.setBounds(30, 134, 243, 100);
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		
+		list.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (((Quarto) list.getSelectedValue()).permiteCamaExtra())
+					chckbxCamaExtra.setVisible(true);
+				else {
+					chckbxCamaExtra.setVisible(false);
+					chckbxCamaExtra.setSelected(false);
+				}
 
+			}
+		});
 		JButton btnPesquisar = new JButton("PESQUISAR");
 		btnPesquisar.setForeground(new Color(51, 102, 153));
 		btnPesquisar.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -196,11 +221,14 @@ public class NovoContrato extends JPanel {
 				Date data2 = (Date) data_final.getValue();
 				Calendar inicio = Sistema.DateToCalendar(data);
 				Calendar fim = Sistema.DateToCalendar(data2);
+				int num = (int) spinner.getValue(); 
 				try {
 					Periodo p = new Periodo(inicio, fim);
 					List<Alugavel> quartos_disponiveis = Sistema.getHotel().verificaAlugaveisDisponiveis(p, Sistema.getHotel().getQuartos());
+					listModel.clear();
 					for (int i = 0; i < quartos_disponiveis.size(); i++) {
-						listModel.addElement(quartos_disponiveis.get(i));
+						if (((Quarto)quartos_disponiveis.get(i)).isCapacidadeValida(num))
+							listModel.addElement(quartos_disponiveis.get(i));	
 					}
 				} catch (Exception e2) {
 					JOptionPane.showMessageDialog(null, e2.getMessage());
@@ -210,26 +238,21 @@ public class NovoContrato extends JPanel {
 		});
 		list.setModel(listModel);
 		scrollPane.setViewportView(list);
-		btnPesquisar.setBounds(109, 96, 129, 25);
+		btnPesquisar.setBounds(109, 130, 129, 25);
 		quartosDisponiveis.add(btnPesquisar);
 		
-		JCheckBox chckbxCamaExtra = new JCheckBox("Cama extra");
-		chckbxCamaExtra.setFont(new Font("Dialog", Font.PLAIN, 13));
-		chckbxCamaExtra.setForeground(new Color(255, 255, 255));
-		chckbxCamaExtra.setBackground(new Color(51, 102, 153));
-		chckbxCamaExtra.setBounds(144, 339, 143, 23);
-		quartosDisponiveis.add(chckbxCamaExtra);
-		Quarto q = (Quarto) list.getSelectedValue();
-		if (q != null) {
-			if (q.permiteCamaExtra())
-				chckbxCamaExtra.setVisible(true);
-			else
-				chckbxCamaExtra.setVisible(false);
-				
-		}
-		else
-			chckbxCamaExtra.setVisible(false);
 		
+		spinner = new JSpinner(new SpinnerNumberModel(1, 1, 4, 1));
+		spinner.setBounds(237, 96, 50, 25);
+		
+		
+		quartosDisponiveis.add(spinner);
+		
+		JLabel lblNumeroDePessoas = new JLabel("Número de Pessoas");
+		lblNumeroDePessoas.setForeground(Color.WHITE);
+		lblNumeroDePessoas.setFont(new Font("Dialog", Font.PLAIN, 14));
+		lblNumeroDePessoas.setBounds(49, 96, 170, 15);
+		quartosDisponiveis.add(lblNumeroDePessoas);
 
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setForeground(new Color(51, 102, 153));
@@ -256,6 +279,7 @@ public class NovoContrato extends JPanel {
 					Periodo p = new Periodo(inicio, fim);
 					Alugavel obj = list.getSelectedValue();
 					Quarto quarto = (Quarto) obj;
+					quarto.setCamaExtra(chckbxCamaExtra.isSelected());
 					Hospede h = list_2.getSelectedValue();
 					Estrategia estrategia = (Estrategia) estrategias.getSelectedItem();
 					Contrato contrato = new Contrato(quarto, h, estrategia, p);
