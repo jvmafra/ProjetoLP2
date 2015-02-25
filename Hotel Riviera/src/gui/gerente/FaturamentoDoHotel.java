@@ -19,6 +19,7 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.title.TextTitle;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 
@@ -43,7 +44,7 @@ public class FaturamentoDoHotel extends JPanel {
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
 		textMensal = new JTextField();
-		textMensal.setBounds(155, 166, 95, 23);
+		textMensal.setBounds(552, 156, 119, 23);
 		add(textMensal);
 		textMensal.setColumns(10);
 		textMensal.setEditable(false);
@@ -51,11 +52,11 @@ public class FaturamentoDoHotel extends JPanel {
 		JLabel lblFaturamentoMensal = new JLabel("Faturamento Mensal");
 		lblFaturamentoMensal.setForeground(new Color(255, 255, 255));
 		lblFaturamentoMensal.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblFaturamentoMensal.setBounds(10, 168, 143, 14);
+		lblFaturamentoMensal.setBounds(77, 160, 143, 14);
 		add(lblFaturamentoMensal);
 
 		textTOTAL = new JTextField();
-		textTOTAL.setBounds(155, 130, 95, 23);
+		textTOTAL.setBounds(602, 550, 107, 23);
 		add(textTOTAL);
 		textTOTAL.setColumns(10);
 		textTOTAL
@@ -64,8 +65,8 @@ public class FaturamentoDoHotel extends JPanel {
 
 		JLabel lblFaturamentoTotal = new JLabel("Faturamento Total");
 		lblFaturamentoTotal.setForeground(new Color(255, 255, 255));
-		lblFaturamentoTotal.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblFaturamentoTotal.setBounds(21, 132, 175, 14);
+		lblFaturamentoTotal.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblFaturamentoTotal.setBounds(446, 554, 175, 14);
 		add(lblFaturamentoTotal);
 
 		btnVoltar = new JButton("Voltar");
@@ -76,7 +77,7 @@ public class FaturamentoDoHotel extends JPanel {
 				Sistema.setTela(new OpcoesEstatisticas());
 			}
 		});
-		btnVoltar.setBounds(372, 531, 89, 23);
+		btnVoltar.setBounds(174, 550, 89, 23);
 		add(btnVoltar);
 
 		JLabel label = new JLabel(new ImageIcon(
@@ -85,6 +86,8 @@ public class FaturamentoDoHotel extends JPanel {
 		label.setBounds(339, 11, 143, 118);
 		add(label);
 		btnPesquisar = new JButton("Pesquisar");
+		btnPesquisar.setForeground(new Color(51, 102, 153));
+		btnPesquisar.setFont(new Font("Dialog", Font.PLAIN, 14));
 		btnPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (list.getSelectedItem() == null) {
@@ -96,11 +99,11 @@ public class FaturamentoDoHotel extends JPanel {
 				}
 			}
 		});
-		btnPesquisar.setBounds(501, 168, 117, 25);
+		btnPesquisar.setBounds(390, 155, 107, 25);
 		add(btnPesquisar);
 
 		list = new JComboBox<String>();
-		list.setBounds(451, 127, 203, 27);
+		list.setBounds(227, 154, 151, 27);
 		add(list);
 		list.setFont(new Font("Dialog", Font.PLAIN, 13));
 		list.setBackground(new Color(255, 255, 255));
@@ -108,14 +111,17 @@ public class FaturamentoDoHotel extends JPanel {
 		preencheLista(list);
 
 		panel = new JPanel();
+		panel.setForeground(new Color(51, 102, 153));
 		panel.setBounds(41, 210, 700, 310);
 		add(panel);
 
 		CategoryDataset dataset = criaInformacoes();
 
 		JFreeChart chart = criaGrafico(dataset, "Faturamento Anual");
+		chart.setTitle(new TextTitle("FATURAMENTO ANUAL", new Font("Dialog", Font.PLAIN, 21)));
 
 		ChartPanel chartPanel = new ChartPanel(chart);
+		chartPanel.setForeground(new Color(51, 102, 153));
 
 		chartPanel.setPreferredSize(new java.awt.Dimension(705, 310));
 

@@ -133,7 +133,7 @@ public class EditaHospede extends JPanel {
 		
 		numCartao = new JTextField();
 		numCartao.setBounds(322, 480, 177, 28);
-		numCartao.setText(hospede.getNumeroCartao());
+		numCartao.setText(hospede.getNumCartao());
 		add(numCartao);
 		numCartao.setColumns(10);
 		
@@ -141,7 +141,7 @@ public class EditaHospede extends JPanel {
 		btnVoltar.setForeground(new Color(51, 102, 153));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new ConsultaHospede());
+				Sistema.setTela(new OpcoesDoHospede());
 			}
 		});
 		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
@@ -153,7 +153,6 @@ public class EditaHospede extends JPanel {
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ModificaHospede(hospede);
-				Sistema.setTela(new ConsultaHospede());
 			}
 		});
 		btnSalvar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
@@ -168,18 +167,20 @@ public class EditaHospede extends JPanel {
 		
 	}
 	private void ModificaHospede(Hospede h){
-		h.setNome(nome.getText());
-		h.setCpf(cpf.getText());
-		h.setEmail(email.getText());
-		h.setEndereco(endereco.getText());
-		h.setIdade(idade.getText());
-		h.setRg(rg.getText());
 		try {
+			h.setNome(nome.getText());
+			h.setCpf(cpf.getText());
+			h.setEmail(email.getText());
+			h.setEndereco(endereco.getText());
+			h.setIdade(idade.getText());
+			h.setRg(rg.getText());
 			h.setTelefone(telefone.getText());
+			h.setNumCartao(numCartao.getText());
+			Sistema.setTela(new OpcoesDoHospede());
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null,	e.getMessage());
 		}
-		h.setNumCartao(numCartao.getText());
+		
 	}
 	
 	private Hospede getHospede(){

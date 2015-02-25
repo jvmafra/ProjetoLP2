@@ -9,12 +9,14 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 import nucleo.classes.servicos.Baba;
+import nucleo.excecoes.NomeInvalidoException;
 import nucleo.excecoes.TelefoneInvalidoException;
 import gui.Sistema;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+
 import javax.swing.ImageIcon;
 
 public class EditaBaba extends JPanel {
@@ -68,11 +70,16 @@ public class EditaBaba extends JPanel {
 		btnSalvar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				baba.setNome(nome.getText());
+				try {
+					baba.setNome(nome.getText());
+				} catch (NomeInvalidoException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				try {
 					baba.setTelefone(telefone.getText());
 					JOptionPane.showMessageDialog(null,"Salvo com sucesso");
-					Sistema.setTela(new ConsultaBabas());
+					Sistema.setTela(new OpcoesDeBaba());
 				} catch (TelefoneInvalidoException e) {
 					JOptionPane.showMessageDialog(null,e.getMessage());
 				}
@@ -98,7 +105,7 @@ public class EditaBaba extends JPanel {
 		btnRemovarBab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.getHotel().removeBaba(baba);
-				Sistema.setTela(new ConsultaBabas());
+				Sistema.setTela(new OpcoesDeBaba());
 			}
 		});
 		add(btnRemovarBab);

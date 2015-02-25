@@ -35,10 +35,10 @@ public class Funcionario implements Serializable{
 			throw new NomeInvalidoException("login invalido");
 		
 		if (senha == null || senha.equals(""))
-			throw new NomeInvalidoException("Senha invalida");
+			throw new NomeInvalidoException("senha invalida");
 		
 		if (senha.length() < 6)
-			throw new Exception("Senha muito curta");
+			throw new Exception("senha muito curta");
 		this.nome = nome;
 		this.login = login;
 		this.senha = senha;
@@ -70,8 +70,11 @@ public class Funcionario implements Serializable{
 	
 	/**
 	 * Modifica o login do funcionario
+	 * @throws NomeInvalidoException 
 	 */
-	public void setLogin(String login) {
+	public void setLogin(String login) throws NomeInvalidoException {
+		if (login == null || login.equals(""))
+			throw new NomeInvalidoException("login invalido");
 		this.login = login;
 	}
 	
@@ -84,8 +87,13 @@ public class Funcionario implements Serializable{
 	
 	/**
 	 * Modifica a senha do funcionario
+	 * @throws Exception 
 	 */
-	public void setSenha(String senha) {
+	public void setSenha(String senha) throws Exception {
+		if (senha == null || senha.equals(""))
+			throw new NomeInvalidoException("senha invalida");
+		if (senha.length() < 6)
+			throw new Exception("senha muito curta");
 		this.senha = senha;
 	}
 	
@@ -107,7 +115,7 @@ public class Funcionario implements Serializable{
 	 * Retorna a string representando o funcionario
 	 */
 	public String toString(){
-		return getNome() + " - " + getLogin() + " - " + funcao();
+		return getNome() +  " - " + funcao();
 	}
 	
 	/**

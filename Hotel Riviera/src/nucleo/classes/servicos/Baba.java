@@ -49,26 +49,7 @@ public class Baba implements Serializable, Alugavel{
 		periodos = new ArrayList<Periodo>();
 	}
 	
-	private boolean verificaTelefone(String telefone){
-		if(telefone.equals("")){
-			return true;
-		}
-		if(telefone.length() < 8 ){
-			return true;
-		}
-		if(telefone.length() > 12){
-			return true;
-		}
-		for (int i = 0; i < telefone.length(); i++) {
-			if(Character.isLetter(telefone.charAt(i))){
-				return true;					
-			}
-		}
-		return false;
-	}
-	
-	
-	
+
 /**
  * Retorna a String Telefone
  * @return String Telefone
@@ -85,8 +66,8 @@ public class Baba implements Serializable, Alugavel{
  * 		Caso o telefone esteja errado
  */
 	public void setTelefone(String telefone) throws TelefoneInvalidoException {
-	if(verificaTelefone(telefone))
-		throw new TelefoneInvalidoException("Telefone invalido");
+		if(telefone == null || verificaTelefone(telefone))
+			throw new TelefoneInvalidoException("Telefone invalido");
 		
 		this.telefone = telefone;
 	}
@@ -103,8 +84,12 @@ public class Baba implements Serializable, Alugavel{
 	 * Muda o nome da Baba
 	 * @param nome
 	 * 		Novo nome da baba
+	 * @throws NomeInvalidoException
+	 * 		verifica se nome e valido 
 	 */
-	public void setNome(String nome) {
+	public void setNome(String nome) throws NomeInvalidoException {
+		if (nome == null || nome.equals(""))
+			throw new NomeInvalidoException("Nome invalido");
 		this.nome = nome;
 	}
 
@@ -161,7 +146,26 @@ public class Baba implements Serializable, Alugavel{
 	
 	@Override
 	public String toString(){
-		return "Nome: " + getNome() + "\n" +"Numero: " + getTelefone();
+		return "Nome: " + getNome() + " - " + getTelefone();
+	}
+	
+	private boolean verificaTelefone(String telefone){
+		
+		if(telefone.equals("")){
+			return true;
+		}
+		if(telefone.length() < 8 ){
+			return true;
+		}
+		if(telefone.length() > 12){
+			return true;
+		}
+		for (int i = 0; i < telefone.length(); i++) {
+			if(Character.isLetter(telefone.charAt(i))){
+				return true;					
+			}
+		}
+		return false;
 	}
 	
 	

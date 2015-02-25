@@ -82,8 +82,13 @@ public class Carro implements Serializable, Alugavel{
 	 * Muda a placa do carro recebendo uma nova placa
 	 * @param placa
 	 * 		nova placa do carro
+	 * @throws PlacaInvalidaException
+	 * 		verifica se a placa e valida 
 	 */
-	public void setPlaca(String placa) {
+	public void setPlaca(String placa) throws PlacaInvalidaException {
+		if(!(verificaPlacaValida(placa))){
+			throw new PlacaInvalidaException("Placa invalida");
+		}
 		this.placa = placa;
 	}
 	
@@ -146,6 +151,11 @@ public class Carro implements Serializable, Alugavel{
 	
 	
 	private boolean verificaPlacaValida(String placa){
+		if(placa == null){
+			return false;
+		}
+		
+		
 		if((!(placa.length() == 7 ))){
 			return false;
 		}

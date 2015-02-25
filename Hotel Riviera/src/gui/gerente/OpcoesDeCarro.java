@@ -47,6 +47,8 @@ public class OpcoesDeCarro extends JPanel {
 		list.setModel(listModel);
 		
 		textField = new JTextField();
+		textField.setForeground(new Color(51, 102, 153));
+		textField.setFont(new Font("Dialog", Font.PLAIN, 13));
 		textField.setBounds(159, 208, 216, 20);
 		add(textField);
 		textField.setColumns(10);
@@ -127,6 +129,28 @@ public class OpcoesDeCarro extends JPanel {
 		btnRemover.setFont(new Font("Dialog", Font.PLAIN, 14));
 		btnRemover.setBounds(489, 349, 99, 25);
 		add(btnRemover);
+		
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				listModel.clear();
+				String busca = textField.getText();
+				if (busca == null || busca.equals("")){
+					for (int i = 0; i < Sistema.getHotel().getCarros().size(); i++) {
+						listModel.addElement(Sistema.getHotel().getCarros().get(i));
+					}
+				} else {
+					for (int i = 0; i < Sistema.getHotel().getCarros().size(); i++) {
+						if (((Carro) (Sistema.getHotel().getCarros().get(i))).getPlaca().contains(busca))
+							listModel.addElement(Sistema.getHotel().getCarros().get(i));
+					}
+				}
+			}
+		});
+		btnBuscar.setFont(new Font("Dialog", Font.PLAIN, 13));
+		btnBuscar.setForeground(new Color(51, 102, 153));
+		btnBuscar.setBounds(393, 206, 99, 23);
+		add(btnBuscar);
 		
 
 	}

@@ -52,7 +52,7 @@ public class ExibeHospede extends JPanel {
 		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Sistema.setTela(new ConsultaHospede());
+				Sistema.setTela(new OpcoesDoHospede());
 			}
 		});
 		btnVoltar.setBounds(359, 469, 89, 23);

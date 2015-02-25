@@ -80,7 +80,7 @@ public class EditarCarro extends JPanel {
 					carro.setPlaca(placa.getText());
 					carro.setLuxo(luxo.isSelected());
 					JOptionPane.showMessageDialog(null, "Carro editado com sucesso");
-					Sistema.setTela(new ConsultaCarro());
+					Sistema.setTela(new OpcoesDeCarro());
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, "Parametros de edicao invalidos");
 				}
@@ -94,7 +94,7 @@ public class EditarCarro extends JPanel {
 		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new ConsultaCarro());
+				Sistema.setTela(new OpcoesDeCarro());
 			}
 		});
 		btnVoltar.setBounds(259, 374, 89, 23);

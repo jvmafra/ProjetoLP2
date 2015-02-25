@@ -46,7 +46,7 @@ public class Hospede implements Serializable{
 		if(RG == null || RG.equals("") || RG.length() != 7 || validoRg(RG))
 			throw new RgInvalidoException("RG invalido");
 		
-		if(idade == null || idade.equals(""))
+		if(verificaIdade(idade))
 			throw new IdadeInvalidaException("Idade invalida");
 		
 		if(email == null || email.equals("") || verificaEmail(email) == false)
@@ -55,7 +55,7 @@ public class Hospede implements Serializable{
 		if(endereco == null || endereco.equals(""))
 			throw new EnderecoInvalidoException("Endereco invalido");
 		
-		if(telefone == null || telefone.equals("") ||  telefone.length() < 8 || telefone.length() > 16)
+		if(verificaTelefone(telefone))
 			throw new TelefoneInvalidoException("Telefone invalido");
 		
 		if (numCartao == null || numCartao.equals("") || !(validaCartaoDeCredito(numCartao))){
@@ -71,42 +71,64 @@ public class Hospede implements Serializable{
 	this.idade = idade;
 	
 	}
+	
 	public String getCpf() {
 		return cpf;
 	}
-	public void setCpf(String cpf) {
+	
+	public void setCpf(String cpf) throws CpfInvalidoExcepcion {
+		if(cpf == null || !(isCPF(cpf)))
+			throw new CpfInvalidoExcepcion("CPF invalido");
 		this.cpf = cpf;
 	}
+	
 	public String getRg() {
 		return rg;
 	}
-	public void setRg(String rg) {
+	
+	public void setRg(String rg) throws RgInvalidoException {
+		if(rg == null || rg.equals("") || rg.length() != 7 || validoRg(rg))
+			throw new RgInvalidoException("RG invalido");
 		this.rg = rg;
 	}
+	
 	public String getNumCartao() {
 		return numCartao;
 	}
-	public void setNumCartao(String numCartao) {
+	
+	public void setNumCartao(String numCartao) throws NumeroCartaoException {
+		if (numCartao == null || numCartao.equals("") || !(validaCartaoDeCredito(numCartao))){
+			throw new NumeroCartaoException("Cartao de credito invalido");
+		}
 		this.numCartao = numCartao;
 	}
-	public void setNome(String nome) {
+	
+	public void setNome(String nome) throws NomeInvalidoException {
+		if(nome == null || nome.equals(""))
+			throw new NomeInvalidoException("Nome invalido");
 		this.nome = nome;
 	}
-	public void setIdade(String idade) {
+	
+	public void setIdade(String idade) throws IdadeInvalidaException {
+		if(verificaIdade(idade))
+			throw new IdadeInvalidaException("Idade invalida");
+		
 		this.idade = idade;
 	}
-	public void setEmail(String email) {
+	
+	public void setEmail(String email) throws EmailInvalidoExcepcion {
+		if(email == null || email.equals("") || verificaEmail(email) == false)
+			throw new EmailInvalidoExcepcion("E-mail invalido");
 		this.email = email;
 	}
-	public void setEndereco(String endereco) {
+	
+	public void setEndereco(String endereco) throws EnderecoInvalidoException {
+		if(endereco == null || endereco.equals(""))
+			throw new EnderecoInvalidoException("Endereco invalido");
 		this.endereco = endereco;
 	}
-	private boolean verificaIdade(String idade) {
-		int idades = Integer.parseInt(idade);
-		if(idades<18 || idades> 120)
-			return false;
-		return true;
-	}
+	
+
 	/**
 	 * Testa numero de cart�o de cr�dito
 	 * @param numero
@@ -138,8 +160,7 @@ public class Hospede implements Serializable{
  * @throws Exception
  */
 	public void setTelefone(String telefone) throws Exception {
-		if(telefone == null || telefone.equals("")
-			||  telefone.length() < 8 || telefone.length() > 12)
+		if(verificaTelefone(telefone))
 			throw new TelefoneInvalidoException("Telefone invalido");
 		this.telefone = telefone;
 	}
@@ -193,9 +214,6 @@ public class Hospede implements Serializable{
 		return numCartao;
 	}
 	
-	public void setNumeroCartao(String num){
-		numCartao = num;
-	}
 
 /**
  * Retorna endereco.	
@@ -220,54 +238,11 @@ public class Hospede implements Serializable{
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
 		if (!(obj instanceof Hospede))
 			return false;
-		Hospede other = (Hospede) obj;
-		if (cpf == null) {
-			if (other.cpf != null)
-				return false;
-		} else if (!cpf.equals(other.cpf))
-			return false;
-		if (email == null) {
-			if (other.email != null)
-				return false;
-		} else if (!email.equals(other.email))
-			return false;
-		if (endereco == null) {
-			if (other.endereco != null)
-				return false;
-		} else if (!endereco.equals(other.endereco))
-			return false;
-		if (idade == null) {
-			if (other.idade != null)
-				return false;
-		} else if (!idade.equals(other.idade))
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		if (numCartao == null) {
-			if (other.numCartao != null)
-				return false;
-		} else if (!numCartao.equals(other.numCartao))
-			return false;
-		if (rg == null) {
-			if (other.rg != null)
-				return false;
-		} else if (!rg.equals(other.rg))
-			return false;
-		if (telefone == null) {
-			if (other.telefone != null)
-				return false;
-		} else if (!telefone.equals(other.telefone))
-			return false;
-		return true;
+		Hospede h = (Hospede) obj;
+		
+		return getNome().equals(h.getNome()) && getCpf().equals(h.getCpf());
 	}
 	/**
 	 * Esse metodo tem como funcao verificar se o cpf recebido e valido.
@@ -296,6 +271,7 @@ public class Hospede implements Serializable{
 		return false;
 		
 	}
+	
 	private static boolean isCPF(String CPF) { // considera-se erro CPF's formados por uma sequencia de numeros iguais 
 		if (CPF.equals("00000000000") || CPF.equals("11111111111") || CPF.equals("22222222222") || 
 			CPF.equals("33333333333") || CPF.equals("44444444444") || CPF.equals("55555555555") || 
@@ -335,7 +311,28 @@ public class Hospede implements Serializable{
 				return(false); 
 			}
 		catch (InputMismatchException erro) { return(false); } }
-				
+	
+	private boolean verificaTelefone(String telefone){
+		if(telefone == null || telefone.equals("") ||  telefone.length() < 8 || telefone.length() > 16)
+				return true;
+		for (int i = 0; i < telefone.length(); i++) {
+			if(Character.isLetter(telefone.charAt(i))){
+				return true;					
+			}
+		}
+		return false;
+	}
+		
+	
+	private boolean verificaIdade(String idade) {
+		if(idade == null || idade.equals(""))
+			return true;
+		int idades = Integer.parseInt(idade);
+		if(idades<18 || idades> 120)
+			return true;
+		return false;
+	}			
+
 
 }
 

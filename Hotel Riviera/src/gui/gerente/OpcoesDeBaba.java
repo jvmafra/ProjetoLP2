@@ -42,12 +42,14 @@ public class OpcoesDeBaba extends JPanel {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(121, 257, 246, 244);
 		add(scrollPane);
-		list.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		list.setFont(new Font("Dialog", Font.PLAIN, 13));
 		list.setForeground(new Color(51, 102, 153));
 		
 		scrollPane.setViewportView(list);
 		list.setModel(listModel);
 		textField = new JTextField();
+		textField.setFont(new Font("Dialog", Font.PLAIN, 13));
+		textField.setForeground(new Color(51, 102, 153));
 		textField.setBounds(121, 215, 216, 20);
 		add(textField);
 		textField.setColumns(10);
@@ -71,7 +73,7 @@ public class OpcoesDeBaba extends JPanel {
 		btnEditaBab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (list.getSelectedValue() == null)
-					JOptionPane.showMessageDialog(null,	"Selecione uma Babá antes");
+					JOptionPane.showMessageDialog(null,	"Selecione uma Babï¿½ antes");
 				else{
 					Sistema.setTela(new EditaBaba((Baba) list.getSelectedValue()));
 				}
@@ -116,7 +118,7 @@ public class OpcoesDeBaba extends JPanel {
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (list.getSelectedValue() == null)
-					JOptionPane.showMessageDialog(null,	"Selecione uma Babá antes");
+					JOptionPane.showMessageDialog(null,	"Selecione uma Babï¿½ antes");
 				else{
 					Sistema.getHotel().removeBaba((Baba) list.getSelectedValue());
 					Sistema.setTela(new OpcoesDeBaba());
@@ -127,6 +129,28 @@ public class OpcoesDeBaba extends JPanel {
 		btnRemover.setFont(new Font("Dialog", Font.PLAIN, 14));
 		btnRemover.setBounds(443, 363, 101, 27);
 		add(btnRemover);
+		
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				listModel.clear();
+				String busca = textField.getText();
+				if (busca == null || busca.equals("")){
+					for (int i = 0; i < Sistema.getHotel().getBabas().size(); i++) {
+						listModel.addElement(Sistema.getHotel().getBabas().get(i));
+					}
+				} else {
+					for (int i = 0; i < Sistema.getHotel().getBabas().size(); i++) {
+						if (((Baba) (Sistema.getHotel().getBabas().get(i))).getNome().contains(busca))
+							listModel.addElement(Sistema.getHotel().getBabas().get(i));
+					}
+				}
+			}
+		});
+		btnBuscar.setForeground(new Color(51, 102, 153));
+		btnBuscar.setFont(new Font("Dialog", Font.PLAIN, 12));
+		btnBuscar.setBounds(349, 214, 88, 23);
+		add(btnBuscar);
 		
 
 	}

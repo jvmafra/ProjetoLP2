@@ -39,7 +39,7 @@ public class VisualizaContrato extends JPanel {
 		btnVoltar.setForeground(new Color(51, 102, 153));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new BuscaContrato());
+				Sistema.setTela(new OpcoesDeContrato());
 			}
 		});
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 14));

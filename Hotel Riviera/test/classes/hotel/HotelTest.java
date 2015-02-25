@@ -50,7 +50,7 @@ public class HotelTest {
 		baba2 = new Baba("Josefa", "98798798");
 		ct1 = new Contrato(q, h1, e, p);
 		ct2 = new Contrato(q, h2, e, p);
-		f = new Funcionario("admin", "123456", false);
+		f = new Funcionario("nome", "admin", "123456", false);
 
 	}
 	

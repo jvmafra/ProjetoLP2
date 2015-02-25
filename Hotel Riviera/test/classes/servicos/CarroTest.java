@@ -4,7 +4,12 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import nucleo.classes.hotel.Periodo;
+import nucleo.classes.servicos.Baba;
 import nucleo.classes.servicos.Carro;
+import nucleo.excecoes.DescricaoInvalidaException;
+import nucleo.excecoes.NomeInvalidoException;
+import nucleo.excecoes.PlacaInvalidaException;
+import nucleo.excecoes.TelefoneInvalidoException;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -27,6 +32,13 @@ public class CarroTest {
 	
 		try{
 			c1 = new Carro("Carro","as234aa",true);
+			Assert.fail("Deveria lancar excecao");
+		} catch(Exception e) {
+			Assert.assertEquals("Placa invalida", e.getMessage());
+		}
+		
+		try{
+			c1 = new Carro("Carro",null ,true);
 			Assert.fail("Deveria lancar excecao");
 		} catch(Exception e) {
 			Assert.assertEquals("Placa invalida", e.getMessage());
@@ -81,6 +93,62 @@ public class CarroTest {
 		Assert.assertFalse(c1.isDisponivel(p2));
 	}
 	
+	@Test
+	public void testAdicionaPeriodo() throws Exception {
+		Calendar data3 = new GregorianCalendar(2015, 5, 22);
+		Calendar data4 = new GregorianCalendar(2015, 5, 24);
+		Periodo p = new Periodo(data3, data4);
+		c1= new Carro("Carro","asd1234" , true);
+		Assert.assertEquals(c1.getPeriodos().size(), 0);
+		c1.adicionaPeriodo(p);
+		Assert.assertEquals(c1.getPeriodos().size(), 1);
+	}
 	
+	@Test
+	public void testRemovePeriodo() throws Exception{
+		Calendar data3 = new GregorianCalendar(2015, 5, 22);
+		Calendar data4 = new GregorianCalendar(2015, 5, 24);
+		Periodo p = new Periodo(data3, data4);
+		c1= new Carro("Carro","asd1234" , true);
+		c1.adicionaPeriodo(p);
+		Assert.assertEquals(c1.getPeriodos().size(), 1);
+		c1.removePeriodo(p);
+		Assert.assertEquals(c1.getPeriodos().size(), 0);
+	}
+	
+	@Test
+	public void testSetPlaca(){
+		try{
+			c1= new Carro("Carro","asd1234" , true);
+			c1.setPlaca("12345678");
+			Assert.fail("Deveria lancar excecao");
+		} catch(Exception e) {
+		Assert.assertEquals("Placa invalida", e.getMessage());
+		}
+	
+		try{
+			c1= new Carro("Carro","asd1234" , true);
+			c1.setPlaca("as123as");
+			Assert.fail("Deveria lancar excecao");
+		} catch(Exception e) {
+			Assert.assertEquals("Placa invalida", e.getMessage());
+		}
+		
+		try{
+			c1= new Carro("Carro","asd1234" , true);
+			c1.setPlaca("aaaaaaa");
+			Assert.fail("Deveria lancar excecao");
+		} catch(Exception e) {
+			Assert.assertEquals("Placa invalida", e.getMessage());
+		}
+		
+		try{
+			c1= new Carro("Carro","asd1234" , true);
+			c1.setPlaca(null);
+			Assert.fail("Deveria lancar excecao");
+		} catch(Exception e) {
+			Assert.assertEquals("Placa invalida", e.getMessage());
+		}
+	}
 	
 }
