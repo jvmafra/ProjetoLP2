@@ -100,7 +100,7 @@ public class OpcoesDeContrato extends JPanel {
 			}
 		});
 		btnNovoContrato.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNovoContrato.setBounds(587, 359, 100, 25);
+		btnNovoContrato.setBounds(580, 354, 100, 25);
 		add(btnNovoContrato);
 
 		rdbtnAbertos = new JRadioButton("Abertos");
@@ -125,7 +125,7 @@ public class OpcoesDeContrato extends JPanel {
 			}
 		});
 		btnAbrir.setActionCommand("Remover");
-		btnAbrir.setBounds(587, 408, 100, 25);
+		btnAbrir.setBounds(580, 406, 100, 25);
 		add(btnAbrir);
 
 		JLabel lblNewLabel = new JLabel(new ImageIcon(

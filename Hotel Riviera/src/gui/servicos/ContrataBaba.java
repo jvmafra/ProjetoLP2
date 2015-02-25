@@ -69,6 +69,8 @@ public class ContrataBaba extends JPanel {
 		add(scrollPane);
 		
 		list = new JList<Alugavel>();
+		list.setForeground(new Color(51, 102, 153));
+		list.setFont(new Font("Dialog", Font.PLAIN, 13));
 		scrollPane.setViewportView(list);
 		list.setBackground(Color.WHITE);
 		final DefaultListModel<Alugavel> listModel = new DefaultListModel<Alugavel>();
@@ -129,8 +131,8 @@ public class ContrataBaba extends JPanel {
 				try {
 					Periodo p = new Periodo(inicio, fim);
 					List<Alugavel> babas_disponiveis = Sistema.getHotel().verificaAlugaveisDisponiveis(p, Sistema.getHotel().getBabas());
-					for (int i = 0; i < babas_disponiveis.size(); i++) {
-						listModel.addElement(babas_disponiveis.get(i));		
+					for (Alugavel baba: babas_disponiveis) {
+						listModel.addElement(baba);		
 					}
 					
 				} catch (Exception e2) {
@@ -140,6 +142,7 @@ public class ContrataBaba extends JPanel {
 			}
 		});
 		
+		list.setModel(listModel);
 		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(btnBuscar);
 		

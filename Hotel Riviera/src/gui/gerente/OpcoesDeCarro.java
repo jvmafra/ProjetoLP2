@@ -106,11 +106,11 @@ public class OpcoesDeCarro extends JPanel {
 		JLabel lblNewLabel2 = new JLabel("OPCOES DE CARRO");
 		lblNewLabel2.setFont(new Font("Bitstream Charter", Font.BOLD, 26));
 		lblNewLabel2.setForeground(new Color(255, 255, 255));
-		lblNewLabel2.setBounds(289, 134, 278, 40);
+		lblNewLabel2.setBounds(310, 132, 278, 40);
 		add(lblNewLabel2);
 		
 		JLabel lblNewLabel = new JLabel(new ImageIcon(OpcoesDeCarro.class.getResource("/nucleo/icones/hotel4.png")));
-		lblNewLabel.setBounds(332, 30, 235, 105);
+		lblNewLabel.setBounds(307, 29, 235, 105);
 		add(lblNewLabel);
 		
 		JButton btnRemover = new JButton("Remover");

@@ -69,6 +69,8 @@ public class Hospede implements Serializable{
 	this.endereco = endereco;
 	this.rg = RG;
 	this.idade = idade;
+	this.numCartao = numCartao;
+	
 	
 	}
 	
@@ -210,10 +212,6 @@ public class Hospede implements Serializable{
 		return email;
 	}
 	
-	public String getNumeroCartao(){
-		return numCartao;
-	}
-	
 
 /**
  * Retorna endereco.	
@@ -249,7 +247,7 @@ public class Hospede implements Serializable{
 	 * @param CPF
 	 * @return
 	 */
-	
+
 	private boolean verificaEmail(String email){
 		Pattern p = Pattern
 				.compile("^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$");

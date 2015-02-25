@@ -276,6 +276,6 @@ public class NovoContrato extends JPanel {
 		margemGeral.add(lblNewLabel);
 
 		
-		
+	
 	}	
 }

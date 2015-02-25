@@ -36,7 +36,6 @@ public class EditaHospede extends JPanel {
 	 */
 	public EditaHospede(Hospede h) {
 		setBackground(new Color(51, 102, 153));
-
 		this.hospede = h;
 		setBounds(0, 0, 800, 600);
 		setLayout(null);
@@ -143,6 +142,7 @@ public class EditaHospede extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDoHospede());
 			}
+			
 		});
 		btnVoltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnVoltar.setBounds(166, 547, 117, 25);

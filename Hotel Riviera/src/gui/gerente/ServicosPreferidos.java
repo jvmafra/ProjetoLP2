@@ -39,7 +39,7 @@ public class ServicosPreferidos extends JPanel {
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Sistema.setTela(new OpcoesPrivadas());
+				Sistema.setTela(new OpcoesEstatisticas());
 			}
 		});
 		btnVoltar.setForeground(new Color(51, 102, 153));
