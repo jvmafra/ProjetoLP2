@@ -42,7 +42,7 @@ public class OpcoesDeEstrategia extends JPanel {
 		});
 		btnNovaEstrategia.setForeground(new Color(51, 102, 153));
 		btnNovaEstrategia.setFont(new Font("Dialog", Font.PLAIN, 14));
-		btnNovaEstrategia.setBounds(526, 345, 106, 33);
+		btnNovaEstrategia.setBounds(525, 388, 90, 30);
 		add(btnNovaEstrategia);
 
 		JButton btnEditaEstrategia = new JButton("Editar");
@@ -56,7 +56,7 @@ public class OpcoesDeEstrategia extends JPanel {
 		});
 		btnEditaEstrategia.setForeground(new Color(51, 102, 153));
 		btnEditaEstrategia.setFont(new Font("Dialog", Font.PLAIN, 14));
-		btnEditaEstrategia.setBounds(526, 203, 106, 33);
+		btnEditaEstrategia.setBounds(525, 246, 90, 30);
 		add(btnEditaEstrategia);
 		
 		JButton btnRemoveEstrategia = new JButton("Remover");
@@ -71,7 +71,7 @@ public class OpcoesDeEstrategia extends JPanel {
 		});
 		btnRemoveEstrategia.setForeground(new Color(51, 102, 153));
 		btnRemoveEstrategia.setFont(new Font("Dialog", Font.PLAIN, 14));
-		btnRemoveEstrategia.setBounds(526, 273, 106, 33);
+		btnRemoveEstrategia.setBounds(525, 316, 90, 30);
 		add(btnRemoveEstrategia);
 
 		JButton btnVoltar = new JButton("Voltar");
@@ -82,10 +82,10 @@ public class OpcoesDeEstrategia extends JPanel {
 				Sistema.setTela(new OpcoesPrivadas());
 			}
 		});
-		btnVoltar.setBounds(359, 515, 89, 23);
+		btnVoltar.setBounds(359, 515, 90, 30);
 		add(btnVoltar);
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(130, 200, 335, 204);
+		scrollPane.setBounds(130, 200, 335, 263);
 		add(scrollPane);
 
 		list = new JList<Estrategia>();

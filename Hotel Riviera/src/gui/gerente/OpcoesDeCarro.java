@@ -39,7 +39,7 @@ public class OpcoesDeCarro extends JPanel {
 		setLayout(null);
 		setBounds(0,0,800,600);
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(159, 251, 246, 244);
+		scrollPane.setBounds(184, 263, 246, 244);
 		add(scrollPane);
 		scrollPane.setViewportView(list);
 		list.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -49,14 +49,14 @@ public class OpcoesDeCarro extends JPanel {
 		textField = new JTextField();
 		textField.setForeground(new Color(51, 102, 153));
 		textField.setFont(new Font("Dialog", Font.PLAIN, 13));
-		textField.setBounds(159, 208, 216, 20);
+		textField.setBounds(326, 210, 157, 30);
 		add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblPlaca = new JLabel("Digite a placa do Carro:");
 		lblPlaca.setForeground(new Color(255, 255, 255));
 		lblPlaca.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblPlaca.setBounds(159, 186, 170, 20);
+		lblPlaca.setBounds(177, 210, 170, 20);
 		add(lblPlaca);
 
 		for (int i = 0; i < Sistema.getHotel().getCarros().size(); i++) {
@@ -78,7 +78,7 @@ public class OpcoesDeCarro extends JPanel {
 			}
 				
 		});
-		btnEditaCarro.setBounds(489, 397, 99, 25);
+		btnEditaCarro.setBounds(514, 399, 90, 30);
 		add(btnEditaCarro);
 		
 		JButton btnNovo = new JButton("Novo");
@@ -89,7 +89,7 @@ public class OpcoesDeCarro extends JPanel {
 				Sistema.setTela(new NovoCarro());
 			}
 		});
-		btnNovo.setBounds(489, 301, 99, 25);
+		btnNovo.setBounds(514, 303, 90, 30);
 		add(btnNovo);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -100,7 +100,7 @@ public class OpcoesDeCarro extends JPanel {
 				Sistema.setTela(new OpcoesPrivadas());
 			}
 		});
-		btnVoltar.setBounds(340, 529, 105, 25);
+		btnVoltar.setBounds(340, 529, 90, 30);
 		add(btnVoltar);
 		
 		JLabel lblNewLabel2 = new JLabel("OPCOES DE CARRO");
@@ -127,7 +127,7 @@ public class OpcoesDeCarro extends JPanel {
 		});
 		btnRemover.setForeground(new Color(51, 102, 153));
 		btnRemover.setFont(new Font("Dialog", Font.PLAIN, 14));
-		btnRemover.setBounds(489, 349, 99, 25);
+		btnRemover.setBounds(514, 351, 90, 30);
 		add(btnRemover);
 		
 		JButton btnBuscar = new JButton("Buscar");
@@ -149,7 +149,7 @@ public class OpcoesDeCarro extends JPanel {
 		});
 		btnBuscar.setFont(new Font("Dialog", Font.PLAIN, 13));
 		btnBuscar.setForeground(new Color(51, 102, 153));
-		btnBuscar.setBounds(393, 206, 99, 23);
+		btnBuscar.setBounds(514, 210, 90, 30);
 		add(btnBuscar);
 		
 

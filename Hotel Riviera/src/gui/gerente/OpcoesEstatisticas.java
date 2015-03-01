@@ -74,7 +74,7 @@ public class OpcoesEstatisticas extends JPanel {
 		});
 		btnVoltar.setForeground(new Color(51, 102, 153));
 		btnVoltar.setFont(new Font("Dialog", Font.PLAIN, 14));
-		btnVoltar.setBounds(341, 462, 117, 25);
+		btnVoltar.setBounds(357, 462, 90, 30);
 		add(btnVoltar);
 		
 		JLabel lblNewLabel = new JLabel("");

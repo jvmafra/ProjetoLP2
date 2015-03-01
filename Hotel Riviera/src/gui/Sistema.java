@@ -1,4 +1,6 @@
+
 package gui;
+
 
 import java.awt.CardLayout;
 import java.awt.EventQueue;
@@ -12,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import nucleo.classes.arquivo.Arquivos;
 import nucleo.classes.hotel.Hotel;
@@ -26,6 +29,7 @@ public class Sistema extends JFrame {
 	private static Sistema janela;
 	private static Hotel hotel;
 	private JPanel contentPane;
+	
 
 
 	/**
@@ -35,9 +39,11 @@ public class Sistema extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				
-//				try {
-//					 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-//				} catch (Exception e) {}
+				try {
+					 UIManager.setLookAndFeel(new NimbusLookAndFeel());
+				} catch (Exception e) {
+					
+				}
 				criaHotel();
 				setTela(new LoginDeFuncionario(false));
 			}
@@ -60,10 +66,10 @@ public class Sistema extends JFrame {
 		});
 		setTitle("Hotel Riviera Campina");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 800, 600);
+		setBounds(100, 10, 800, 600);
 		//this.setExtendedState(MAXIMIZED_BOTH);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
 		setResizable(false);
@@ -78,10 +84,11 @@ public class Sistema extends JFrame {
 		if(janela == null) iniciaSistema();
 
 		if(novaTela == null)
-			System.out.println("Pode isso nao");
+			System.err.println("Tela inválida");
 		janela.contentPane.removeAll();
 		janela.contentPane.add(novaTela);
 		janela.revalidate();
+
 	}
 	
 	public static Hotel getHotel() {

@@ -11,7 +11,6 @@ import nucleo.classes.formas_cobranca.Estrategia;
 import nucleo.classes.hotel.Periodo;
 import nucleo.classes.hotel.Servico;
 import nucleo.classes.quartos.Quarto;
-import nucleo.excecoes.ContratoFechadoException;
 import nucleo.excecoes.PeriodoInvalidoException;
 
 /**

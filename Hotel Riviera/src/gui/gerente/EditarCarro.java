@@ -37,7 +37,7 @@ public class EditarCarro extends JPanel {
 		setLayout(null);
 		
 		descricao = new JTextField();
-		descricao.setBounds(332, 186, 177, 28);
+		descricao.setBounds(332, 186, 177, 30);
 		descricao.setText(carro.getDescricao());
 		add(descricao);
 		descricao.setColumns(10);
@@ -55,7 +55,7 @@ public class EditarCarro extends JPanel {
 		add(placa_1);
 		
 		placa = new JTextField();
-		placa.setBounds(332, 241, 177, 28);
+		placa.setBounds(332, 241, 177, 30);
 		placa.setText(carro.getPlaca());
 		add(placa);
 		placa.setColumns(10);
@@ -64,7 +64,7 @@ public class EditarCarro extends JPanel {
 		luxo.setForeground(new Color(255, 255, 255));
 		luxo.setBackground(new Color(51, 102, 153));
 		luxo.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		luxo.setBounds(450, 286, 59, 27);
+		luxo.setBounds(450, 286, 60, 30);
 		luxo.setSelected(carro.isLuxo());
 		add(luxo);
 		
@@ -86,7 +86,7 @@ public class EditarCarro extends JPanel {
 				}
 			}
 		});
-		btnSalvar.setBounds(433, 374, 89, 23);
+		btnSalvar.setBounds(433, 374, 90, 30);
 		add(btnSalvar);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -97,7 +97,7 @@ public class EditarCarro extends JPanel {
 				Sistema.setTela(new OpcoesDeCarro());
 			}
 		});
-		btnVoltar.setBounds(259, 374, 89, 23);
+		btnVoltar.setBounds(259, 374, 90, 30);
 		add(btnVoltar);
 		
 		JLabel label = new JLabel("");

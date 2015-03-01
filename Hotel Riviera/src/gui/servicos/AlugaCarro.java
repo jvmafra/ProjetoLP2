@@ -154,7 +154,7 @@ public class AlugaCarro extends JPanel {
 		
 		JButton btnPesquisar = new JButton("Pesquisar");
 		btnPesquisar.setForeground(new Color(51, 102, 153));
-		btnPesquisar.setBounds(507, 207, 107, 23);
+		btnPesquisar.setBounds(542, 203, 100, 30);
 		btnPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -179,7 +179,7 @@ public class AlugaCarro extends JPanel {
 		list.setModel(listModel);
 		add(btnPesquisar);
 		
-		JLabel lblCarrosDisponveis = new JLabel("Carros disponiveis");
+		JLabel lblCarrosDisponveis = new JLabel("Carros dispon\u00EDveis");
 		lblCarrosDisponveis.setForeground(new Color(255, 255, 255));
 		lblCarrosDisponveis.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblCarrosDisponveis.setBounds(263, 274, 138, 15);

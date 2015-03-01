@@ -52,7 +52,7 @@ public class NovaRefeicao extends JPanel {
 		data_refeicao.setForeground(new Color(51, 102, 153));
 		data_refeicao.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		data_refeicao.setModel(new SpinnerDateModel(new Date(1423360800000L), null, null, Calendar.DAY_OF_YEAR));
-		data_refeicao.setBounds(339, 320, 143, 20);
+		data_refeicao.setBounds(339, 320, 143, 30);
 		add(data_refeicao);
 		
 		JLabel lblValor = new JLabel("Valor:");
@@ -62,7 +62,7 @@ public class NovaRefeicao extends JPanel {
 		add(lblValor);
 		
 		valor = new JTextField();
-		valor.setBounds(339, 362, 114, 19);
+		valor.setBounds(339, 362, 110, 30);
 		add(valor);
 		valor.setColumns(10);
 		

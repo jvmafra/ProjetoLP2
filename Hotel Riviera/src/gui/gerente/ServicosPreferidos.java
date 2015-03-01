@@ -44,7 +44,7 @@ public class ServicosPreferidos extends JPanel {
 		});
 		btnVoltar.setForeground(new Color(51, 102, 153));
 		btnVoltar.setFont(new Font("Dialog", Font.PLAIN, 14));
-		btnVoltar.setBounds(344, 518, 117, 25);
+		btnVoltar.setBounds(344, 518, 90, 30);
 		add(btnVoltar);
 		
 		JPanel panel = new JPanel();
@@ -53,7 +53,7 @@ public class ServicosPreferidos extends JPanel {
 
 		PieDataset dataset = criaDados();
 
-		JFreeChart chart = criaGrafico(dataset, "ServiÃ§os");
+		JFreeChart chart = criaGrafico(dataset, "Serviços");
 
 		ChartPanel chartPanel = new ChartPanel(chart);
 

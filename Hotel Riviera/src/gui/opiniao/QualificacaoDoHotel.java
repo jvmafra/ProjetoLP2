@@ -2,23 +2,18 @@ package gui.opiniao;
 
 import gui.Sistema;
 
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JEditorPane;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JTextPane;
-
-import nucleo.classes.servicos.*;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Font;
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.UIManager;
-import javax.swing.JScrollPane;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
 
 public class QualificacaoDoHotel extends JPanel {
 	/**
@@ -35,26 +30,26 @@ public class QualificacaoDoHotel extends JPanel {
 		setBackground(new Color(51, 102, 153));
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
-		JLabel lblComentariosMaisRecentes = new JLabel("OPINIOES CADASTRADAS");
+		JLabel lblComentariosMaisRecentes = new JLabel("OPINI\u00D5ES CADASTRADAS");
 		lblComentariosMaisRecentes.setForeground(new Color(255, 255, 255));
 		lblComentariosMaisRecentes.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblComentariosMaisRecentes.setBounds(306, 153, 214, 36);
 		add(lblComentariosMaisRecentes);
 		
-		JLabel lblMdiaDoHotel = new JLabel("MEDIA DE ACEITACAO: ");
+		JLabel lblMdiaDoHotel = new JLabel("M\u00C9DIA DE ACEITACAO: ");
 		lblMdiaDoHotel.setForeground(new Color(255, 255, 255));
 		lblMdiaDoHotel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblMdiaDoHotel.setBounds(251, 467, 184, 25);
 		add(lblMdiaDoHotel);
 		
 		media_hotel = new JTextField();
-		media_hotel.setBounds(408, 471, 86, 20);
+		media_hotel.setBounds(409, 466, 50, 30);
 		media_hotel.setText(String.valueOf(Sistema.getHotel().MediaDoHotel()));
 		add(media_hotel);
 		media_hotel.setColumns(10);
 		media_hotel.setText(Sistema.getHotel().MediaDoHotel());
 		
-		JButton btnVoltar = new JButton("VOLTAR");
+		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setForeground(new Color(51, 102, 153));
 		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
@@ -63,7 +58,7 @@ public class QualificacaoDoHotel extends JPanel {
 
 			}
 		});
-		btnVoltar.setBounds(346, 526, 89, 23);
+		btnVoltar.setBounds(346, 526, 90, 30);
 		add(btnVoltar);
 		
 		JScrollPane scrollPane = new JScrollPane();

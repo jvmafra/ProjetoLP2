@@ -52,7 +52,7 @@ public class NovaMassagem extends JPanel {
 		data_inicial = new JSpinner();
 		data_inicial.setFont(new Font("NanumGothic", Font.PLAIN, 13));
 		data_inicial.setModel(new SpinnerDateModel(new Date(1424833200000L), null, null, Calendar.DAY_OF_YEAR));
-		data_inicial.setBounds(362, 221, 144, 27);
+		data_inicial.setBounds(362, 221, 130, 30);
 		add(data_inicial);
 		
 		JLabel lblInicio = new JLabel("Inicio:");
@@ -64,7 +64,7 @@ public class NovaMassagem extends JPanel {
 		data_final = new JSpinner();
 		data_final.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		data_final.setModel(new SpinnerDateModel(new Date(1424833200000L), null, null, Calendar.DAY_OF_YEAR));
-		data_final.setBounds(362, 273, 144, 27);
+		data_final.setBounds(362, 273, 130, 30);
 		add(data_final);
 		
 		JLabel lblFim = new JLabel("Fim:");
@@ -82,7 +82,7 @@ public class NovaMassagem extends JPanel {
 		tipos = new JComboBox<TipoDeMassagens>();
 		tipos.setFont(new Font("Dialog", Font.PLAIN, 13));
 		tipos.setForeground(new Color(51, 102, 153));
-		tipos.setBounds(330, 354, 176, 24);
+		tipos.setBounds(330, 354, 176, 30);
 		add(tipos);
 		adicionaOpcoesMassagem();
 		

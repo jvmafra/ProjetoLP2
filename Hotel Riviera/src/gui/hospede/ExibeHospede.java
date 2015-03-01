@@ -19,6 +19,7 @@ import nucleo.classes.pessoa.*;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
+import javax.swing.JTextArea;
 
 public class ExibeHospede extends JPanel {
 
@@ -38,11 +39,11 @@ public class ExibeHospede extends JPanel {
 		setBounds(0,0,800,600);
 		setLayout(null);
 		
-		JTextPane texthospede = new JTextPane();
+		JTextArea texthospede = new JTextArea();
 		texthospede.setForeground(new Color(255, 255, 255));
 		texthospede.setBackground(new Color(51, 102, 153));
 		texthospede.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		texthospede.setBounds(306, 163, 314, 177);
+		texthospede.setBounds(250, 163, 314, 177);
 		texthospede.setText(hospede.mostraInformacoes());
 		texthospede.setEditable(false);
 		add(texthospede);
@@ -55,7 +56,7 @@ public class ExibeHospede extends JPanel {
 				Sistema.setTela(new OpcoesDoHospede());
 			}
 		});
-		btnVoltar.setBounds(359, 469, 89, 23);
+		btnVoltar.setBounds(360, 523, 90, 30);
 		add(btnVoltar);
 		
 		JLabel lblNewLabel = new JLabel("New label");
@@ -74,16 +75,16 @@ public class ExibeHospede extends JPanel {
 		contratos.setForeground(new Color(255, 255, 255));
 		contratos.setFont(new Font("Dialog", Font.PLAIN, 14));
 		contratos.setEditable(false);
-		contratos.setBounds(473, 377, 38, 19);
+		contratos.setBounds(473, 377, 38, 30);
 		add(contratos);
 		contratos.setColumns(10);
 		contratos.setText(String.valueOf(contratosJaFeitos()));
-		
+		contratos.setOpaque(false);
 		
 		JLabel lblAtualmente = new JLabel("Atualmente:");
 		lblAtualmente.setForeground(new Color(255, 255, 255));
 		lblAtualmente.setFont(new Font("Dialog", Font.PLAIN, 14));
-		lblAtualmente.setBounds(306, 408, 100, 15);
+		lblAtualmente.setBounds(306, 435, 100, 15);
 		add(lblAtualmente);
 		
 		atualmente = new JTextField();
@@ -91,10 +92,12 @@ public class ExibeHospede extends JPanel {
 		atualmente.setEditable(false);
 		atualmente.setFont(new Font("Dialog", Font.PLAIN, 14));
 		atualmente.setForeground(new Color(255, 255, 255));
-		atualmente.setBounds(396, 406, 183, 19);
+		atualmente.setBounds(397, 428, 180, 30);
 		add(atualmente);
 		atualmente.setColumns(10);
 		atualmente.setText(atualmente());
+		atualmente.setOpaque(false);
+		atualmente.setEditable(false);
 
 	}
 	

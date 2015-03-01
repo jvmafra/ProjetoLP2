@@ -37,8 +37,8 @@ public class OpcoesFuncionario extends JPanel {
 				Sistema.setTela(new NovoFuncionario());
 			}
 		});
-		btnNovo.setFont(new Font("Dialog", Font.BOLD, 15));
-		btnNovo.setBounds(472, 261, 116, 28);
+		btnNovo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnNovo.setBounds(524, 261, 90, 30);
 		add(btnNovo);
 		
 		JButton btnEditar = new JButton("Editar");
@@ -51,23 +51,23 @@ public class OpcoesFuncionario extends JPanel {
 			}
 		});
 		btnEditar.setForeground(new Color(51, 102, 153));
-		btnEditar.setFont(new Font("Dialog", Font.BOLD, 15));
-		btnEditar.setBounds(472, 353, 116, 28);
+		btnEditar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnEditar.setBounds(524, 353, 90, 30);
 		add(btnEditar);
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setForeground(new Color(51, 102, 153));
-		btnVoltar.setFont(new Font("Dialog", Font.PLAIN, 13));
+		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesPrivadas());
 			}
 		});
-		btnVoltar.setBounds(378, 510, 89, 23);
+		btnVoltar.setBounds(378, 510, 90, 30);
 		add(btnVoltar);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(127, 193, 286, 266);
+		scrollPane.setBounds(179, 193, 286, 266);
 		add(scrollPane);
 		list = new JList<Funcionario>();
 		list.setFont(new Font("Dialog", Font.PLAIN, 13));
@@ -83,7 +83,7 @@ public class OpcoesFuncionario extends JPanel {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(OpcoesFuncionario.class.getResource("/nucleo/icones/hotel4.png")));
-		lblNewLabel.setBounds(347, 71, 141, 94);
+		lblNewLabel.setBounds(346, 31, 141, 94);
 		add(lblNewLabel);
 	}
 

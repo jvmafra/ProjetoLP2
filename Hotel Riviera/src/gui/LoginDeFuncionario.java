@@ -2,35 +2,21 @@ package gui;
 
 import gui.gerente.OpcoesPrivadas;
 
-import java.awt.EventQueue;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.io.Serializable;
 
-import javax.swing.AbstractAction;
-import javax.swing.Action;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.border.TitledBorder;
-
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import java.awt.FlowLayout;
-
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.BevelBorder;
-
-import java.awt.Color;
-import java.io.Serializable;
-
-import javax.swing.border.MatteBorder;
-import javax.swing.ImageIcon;
 
 public class LoginDeFuncionario extends JPanel implements Serializable {
 	/**
@@ -40,6 +26,7 @@ public class LoginDeFuncionario extends JPanel implements Serializable {
 	private JTextField login;
 	private JPasswordField senha;
 	private boolean analisaGerente;
+	JButton btnEntrar;
 	private JLabel areaReservada;
 
 	
@@ -54,23 +41,31 @@ public class LoginDeFuncionario extends JPanel implements Serializable {
 		lblNewLabel.setIcon(new ImageIcon(LoginDeFuncionario.class.getResource("/nucleo/icones/Logo Hotel.png")));
 		add(lblNewLabel);
 		JLabel login_1 = new JLabel("Login");
-		login_1.setBounds(317, 355, 51, 16);
+		login_1.setBounds(310, 358, 51, 16);
 		add(login_1);
 		login_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		
 		
 		JLabel senha_1 = new JLabel("Senha");
-		senha_1.setBounds(310, 387, 44, 16);
+		senha_1.setBounds(310, 398, 44, 16);
 		add(senha_1);
 		senha_1.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		
-		JButton btnEntrar = new JButton("Entrar");
-		btnEntrar.setBounds(363, 418, 86, 25);
+		btnEntrar = new JButton("Entrar");
+		btnEntrar.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				 if (e.getKeyCode() == KeyEvent.VK_ENTER) {  
+	                    btnEntrar.doClick(); 
+	                    }
+			}
+		});
+		btnEntrar.setBounds(363, 433, 90, 30);
 		add(btnEntrar);
 		btnEntrar.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (Sistema.getHotel().verificaLogin(login.getText(), senha.getText(), isAnalisaGerente()))
+				if (Sistema.getHotel().verificaLogin(login.getText(), String.valueOf(senha.getPassword()), isAnalisaGerente()))
 					if (isAnalisaGerente())
 						Sistema.setTela(new OpcoesPrivadas());
 					else
@@ -84,17 +79,33 @@ public class LoginDeFuncionario extends JPanel implements Serializable {
 		});
 		
 		senha = new JPasswordField();
-		senha.setBounds(363, 386, 98, 20);
+		senha.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				 if (e.getKeyCode() == KeyEvent.VK_ENTER) {  
+	                    btnEntrar.doClick(); 
+	                    }
+			}
+		});
+		senha.setBounds(363, 394, 100, 30);
 		add(senha);
 		senha.setColumns(10);
 		
 		login = new JTextField();
-		login.setBounds(363, 354, 98, 20);
+		login.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				 if (e.getKeyCode() == KeyEvent.VK_ENTER) {  
+	                    senha.grabFocus(); 
+	                    }
+			}
+		});
+		login.setBounds(363, 354, 100, 30);
 		add(login);
 		login.setColumns(10);
 		
 		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setBounds(363, 455, 86, 25);
+		btnVoltar.setBounds(363, 483, 90, 30);
 		if (isAnalisaGerente()){
 			alteraTela(lblNewLabel, login_1, senha_1, btnEntrar, btnVoltar);
 			

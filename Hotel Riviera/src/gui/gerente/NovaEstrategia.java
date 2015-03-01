@@ -42,18 +42,18 @@ public class NovaEstrategia extends JPanel {
 		add(lblDescircao);
 		
 		nome = new JTextField();
-		nome.setBounds(336, 266, 151, 20);
+		nome.setBounds(336, 266, 150, 30);
 		add(nome);
 		nome.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Fator: ");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		lblNewLabel.setBounds(286, 303, 71, 19);
+		lblNewLabel.setBounds(286, 324, 71, 19);
 		add(lblNewLabel);
 		
 		fator = new JTextField();
-		fator.setBounds(336, 303, 151, 20);
+		fator.setBounds(336, 316, 150, 30);
 		add(fator);
 		fator.setColumns(10);
 		
@@ -66,7 +66,7 @@ public class NovaEstrategia extends JPanel {
 			}
 		});
 		voltar.setFont(new Font("NanumGothic", Font.PLAIN, 12));
-		voltar.setBounds(183, 363, 73, 27);
+		voltar.setBounds(184, 460, 90, 30);
 		add(voltar);
 		
 		JButton limpar = new JButton("Limpar");
@@ -78,7 +78,7 @@ public class NovaEstrategia extends JPanel {
 				fator.setText("");
 			}
 		});
-		limpar.setBounds(343, 363, 79, 27);
+		limpar.setBounds(344, 460, 90, 30);
 		add(limpar);
 		
 		JButton concluir = new JButton("Concluir");
@@ -97,7 +97,7 @@ public class NovaEstrategia extends JPanel {
 			}
 		});
 		concluir.setFont(new Font("NanumGothic", Font.PLAIN, 12));
-		concluir.setBounds(507, 363, 91, 27);
+		concluir.setBounds(508, 460, 90, 30);
 		add(concluir);
 		
 		JLabel lblNewLabel_1 = new JLabel("");

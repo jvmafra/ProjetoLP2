@@ -4,13 +4,15 @@ import gui.Sistema;
 import gui.hospede.NovoHospede;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -35,8 +37,11 @@ import nucleo.classes.hotel.Periodo;
 import nucleo.classes.pessoa.Contrato;
 import nucleo.classes.pessoa.Hospede;
 import nucleo.classes.quartos.Quarto;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
+
 
 public class NovoContrato extends JPanel {
 	/**
@@ -44,6 +49,7 @@ public class NovoContrato extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	
 	JSpinner data_inicial;
 	JSpinner data_final;
 	JList<Alugavel> list;
@@ -52,38 +58,28 @@ public class NovoContrato extends JPanel {
 	JComboBox<Estrategia> estrategias;
 	JSpinner spinner;
 	JCheckBox chckbxCamaExtra;
+	UtilDateModel model;
+	JDatePanelImpl datePanel;
+	JDatePickerImpl datePicker;
 
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					NovoContrato frame = new NovoContrato();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
 	public NovoContrato() {
 
+		
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
-
+		
 		JPanel margemGeral = new JPanel();
 		margemGeral.setBackground(new Color(51, 102, 153));
 		margemGeral.setBounds(0, 0, 800, 600);
 		add(margemGeral);
 		margemGeral.setLayout(null);
 
+		
 		JPanel DadosHospedes = new JPanel();
 		DadosHospedes.setForeground(new Color(255, 255, 255));
 		DadosHospedes.setBackground(new Color(51, 102, 153));
@@ -123,8 +119,8 @@ public class NovoContrato extends JPanel {
 				Sistema.setTela(new NovoHospede(true));
 			}
 		});
-		btnNovoHospede.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnNovoHospede.setBounds(505, 62, 179, 25);
+		btnNovoHospede.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnNovoHospede.setBounds(505, 62, 160, 30);
 		DadosHospedes.add(btnNovoHospede);
 
 		JPanel EstrategiasPagamento = new JPanel();
@@ -138,7 +134,7 @@ public class NovoContrato extends JPanel {
 		estrategias.setFont(new Font("Tw Cen MT", Font.PLAIN, 14));
 		estrategias.setForeground(new Color(51, 102, 153));
 		estrategias.setBackground(Color.WHITE);
-		estrategias.setBounds(25, 31, 257, 26);
+		estrategias.setBounds(25, 31, 257, 25);
 		for (Estrategia estrategia: Sistema.getHotel().getEstrategias()){
 			estrategias.addItem(estrategia);
 		}
@@ -155,13 +151,13 @@ public class NovoContrato extends JPanel {
 
 		data_inicial = new JSpinner();
 		data_inicial.setFont(new Font("NanumGothic", Font.PLAIN, 13));
-		data_inicial.setBounds(99, 32, 188, 20);
+		data_inicial.setBounds(85, 25, 200, 25);
 		data_inicial.setModel(new SpinnerDateModel());
 		quartosDisponiveis.add(data_inicial);
 
 		data_final = new JSpinner();
 		data_final.setFont(new Font("NanumGothic", Font.PLAIN, 13));
-		data_final.setBounds(99, 64, 188, 20);
+		data_final.setBounds(85, 60, 200, 25);
 		data_final.setModel(new SpinnerDateModel());
 		quartosDisponiveis.add(data_final);
 
@@ -212,11 +208,14 @@ public class NovoContrato extends JPanel {
 
 			}
 		});
+		
+		
 		JButton btnPesquisar = new JButton("PESQUISAR");
 		btnPesquisar.setForeground(new Color(51, 102, 153));
-		btnPesquisar.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 				Date data = (Date) data_inicial.getValue();
 				Date data2 = (Date) data_final.getValue();
 				Calendar inicio = Sistema.DateToCalendar(data);
@@ -243,15 +242,15 @@ public class NovoContrato extends JPanel {
 		
 		
 		spinner = new JSpinner(new SpinnerNumberModel(1, 1, 4, 1));
-		spinner.setBounds(237, 96, 50, 25);
+		spinner.setBounds(230, 96, 50, 25);
 		
 		
 		quartosDisponiveis.add(spinner);
 		
-		JLabel lblNumeroDePessoas = new JLabel("Número de Pessoas");
+		JLabel lblNumeroDePessoas = new JLabel("N\u00FAmero de Pessoas");
 		lblNumeroDePessoas.setForeground(Color.WHITE);
 		lblNumeroDePessoas.setFont(new Font("Dialog", Font.PLAIN, 14));
-		lblNumeroDePessoas.setBounds(49, 96, 170, 15);
+		lblNumeroDePessoas.setBounds(39, 96, 170, 23);
 		quartosDisponiveis.add(lblNumeroDePessoas);
 
 		JButton btnVoltar = new JButton("Voltar");
@@ -263,12 +262,12 @@ public class NovoContrato extends JPanel {
 		});
 		// btnVoltar.setAction(action_1);
 		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnVoltar.setBounds(422, 503, 94, 25);
+		btnVoltar.setBounds(422, 503, 90, 30);
 		margemGeral.add(btnVoltar);
 		
 		JButton btnNewButton = new JButton("Concluir");
 		btnNewButton.setForeground(new Color(51, 102, 153));
-		btnNewButton.setFont(new Font("Dialog", Font.PLAIN, 14));
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Date data = (Date) data_inicial.getValue();
@@ -291,15 +290,23 @@ public class NovoContrato extends JPanel {
 				}
 			}
 		});
-		btnNewButton.setBounds(617, 503, 109, 25);
+		btnNewButton.setBounds(617, 503, 90, 30);
 		margemGeral.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(NovoContrato.class.getResource("/nucleo/icones/hotel4.png")));
 		lblNewLabel.setBounds(505, 317, 175, 142);
-		margemGeral.add(lblNewLabel);
-
+		margemGeral.add(lblNewLabel);	
 		
-	
+		
+		////////////////////////////////////////////
+		model = new UtilDateModel();
+		JDatePanelImpl datePanel = new JDatePanelImpl(model, new Properties());
+		datePicker = new JDatePickerImpl(datePanel, null);
+		datePicker.setSize(202, 23);
+		datePicker.setLocation(314, 296);
+		 
+		
+		///////////////////////////////////////////
 	}	
 }

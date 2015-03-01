@@ -2,11 +2,12 @@ package gui.gerente;
 
 import gui.Sistema;
 
-import java.awt.EventQueue;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -21,8 +22,6 @@ import nucleo.classes.quartos.QuartoLuxoDuplo;
 import nucleo.classes.quartos.QuartoLuxoSimples;
 import nucleo.classes.quartos.QuartoLuxoTriplo;
 import nucleo.classes.quartos.QuartoPresidencial;
-import java.awt.Color;
-import javax.swing.ImageIcon;
 
 public class CadastroQuarto extends JPanel {
 	/**
@@ -51,7 +50,7 @@ public class CadastroQuarto extends JPanel {
 		
 		JButton voltar = new JButton("Voltar");
 		voltar.setForeground(new Color(51, 102, 153));
-		voltar.setBounds(292, 356, 73, 27);
+		voltar.setBounds(292, 356, 91, 30);
 		voltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		voltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -64,7 +63,7 @@ public class CadastroQuarto extends JPanel {
 		
 		JButton concluir = new JButton("Concluir");
 		concluir.setForeground(new Color(51, 102, 153));
-		concluir.setBounds(453, 356, 91, 27);
+		concluir.setBounds(453, 356, 91, 30);
 		concluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -83,7 +82,7 @@ public class CadastroQuarto extends JPanel {
 		
 		quartos = new JComboBox<Quarto>();
 		quartos.setForeground(new Color(51, 102, 153));
-		quartos.setBounds(292, 277, 239, 24);
+		quartos.setBounds(292, 277, 239, 30);
 		quartos.setBackground(Color.WHITE);
 		quartos.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		add(quartos);

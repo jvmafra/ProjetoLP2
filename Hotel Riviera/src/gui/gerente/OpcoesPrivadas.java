@@ -1,20 +1,17 @@
 package gui.gerente;
 
 import gui.LoginDeFuncionario;
-import gui.PaginaInicialHotel;
 import gui.Sistema;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JPanel;
-
-import java.awt.Font;
-import java.awt.Color;
-
-import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class OpcoesPrivadas extends JPanel {
 
@@ -38,7 +35,7 @@ public class OpcoesPrivadas extends JPanel {
 				Sistema.setTela(new OpcoesEstatisticas());
 			}
 		});
-		btnFaturamentos.setBounds(306, 210, 197, 33);
+		btnFaturamentos.setBounds(306, 199, 197, 33);
 		add(btnFaturamentos);
 		
 		JButton btnCadastraFuncionrio = new JButton("FUNCIONARIO");
@@ -49,18 +46,18 @@ public class OpcoesPrivadas extends JPanel {
 			}
 		});
 		btnCadastraFuncionrio.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnCadastraFuncionrio.setBounds(306, 263, 197, 33);
+		btnCadastraFuncionrio.setBounds(306, 252, 197, 33);
 		add(btnCadastraFuncionrio);
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setForeground(new Color(51, 102, 153));
-		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new LoginDeFuncionario(true));
 			}
 		});
-		btnVoltar.setBounds(358, 549, 89, 23);
+		btnVoltar.setBounds(358, 538, 90, 30);
 		add(btnVoltar);
 		
 		JButton btnCadastroCarro = new JButton("CARRO");
@@ -71,7 +68,7 @@ public class OpcoesPrivadas extends JPanel {
 				Sistema.setTela(new OpcoesDeCarro());
 			}
 		});
-		btnCadastroCarro.setBounds(306, 373, 197, 33);
+		btnCadastroCarro.setBounds(306, 362, 197, 33);
 		add(btnCadastroCarro);
 		
 		JButton btnCadastraBab = new JButton("BABA");
@@ -82,7 +79,7 @@ public class OpcoesPrivadas extends JPanel {
 				Sistema.setTela(new OpcoesDeBaba());
 			}
 		});
-		btnCadastraBab.setBounds(306, 429, 195, 33);
+		btnCadastraBab.setBounds(306, 418, 195, 33);
 		add(btnCadastraBab);
 		
 		JButton btnCadastraQuarto = new JButton("CADASTRA QUARTO");
@@ -93,7 +90,7 @@ public class OpcoesPrivadas extends JPanel {
 				Sistema.setTela(new CadastroQuarto());
 			}
 		});
-		btnCadastraQuarto.setBounds(306, 482, 195, 33);
+		btnCadastraQuarto.setBounds(306, 471, 195, 33);
 		add(btnCadastraQuarto);
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -115,7 +112,7 @@ public class OpcoesPrivadas extends JPanel {
 		});
 		btnNewButton.setForeground(new Color(51, 102, 153));
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnNewButton.setBounds(306, 319, 197, 33);
+		btnNewButton.setBounds(306, 308, 197, 33);
 		add(btnNewButton);
 
 	}

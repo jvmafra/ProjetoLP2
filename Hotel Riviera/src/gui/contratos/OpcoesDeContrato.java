@@ -2,7 +2,6 @@ package gui.contratos;
 
 import gui.PaginaInicialHotel;
 import gui.Sistema;
-import gui.hospede.OpcoesDoHospede;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -17,14 +16,12 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 
 import nucleo.classes.pessoa.Contrato;
-
-import javax.swing.JRadioButton;
-import javax.swing.JRadioButtonMenuItem;
 
 public class OpcoesDeContrato extends JPanel {
 
@@ -54,7 +51,7 @@ public class OpcoesDeContrato extends JPanel {
 		JLabel lblDigiteONome = new JLabel("Digite o nome ou o CPF do hospede:");
 		lblDigiteONome.setForeground(new Color(255, 255, 255));
 		lblDigiteONome.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		lblDigiteONome.setBounds(492, 147, 280, 30);
+		lblDigiteONome.setBounds(463, 146, 280, 30);
 		add(lblDigiteONome);
 
 		// Adiciona os quartos disponíveis no jList
@@ -80,7 +77,7 @@ public class OpcoesDeContrato extends JPanel {
 		list.setModel(listModel);
 
 		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setSize(100, 25);
+		btnVoltar.setSize(90, 30);
 		btnVoltar.setLocation(376, 533);
 		btnVoltar.setForeground(new Color(51, 102, 153));
 		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -100,7 +97,7 @@ public class OpcoesDeContrato extends JPanel {
 			}
 		});
 		btnNovoContrato.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNovoContrato.setBounds(580, 354, 100, 25);
+		btnNovoContrato.setBounds(580, 402, 90, 30);
 		add(btnNovoContrato);
 
 		rdbtnAbertos = new JRadioButton("Abertos");
@@ -125,7 +122,7 @@ public class OpcoesDeContrato extends JPanel {
 			}
 		});
 		btnAbrir.setActionCommand("Remover");
-		btnAbrir.setBounds(580, 406, 100, 25);
+		btnAbrir.setBounds(580, 338, 90, 30);
 		add(btnAbrir);
 
 		JLabel lblNewLabel = new JLabel(new ImageIcon(
@@ -151,6 +148,7 @@ public class OpcoesDeContrato extends JPanel {
 		grupo.add(rdbtnFechados_1);
 		grupo.add(rdbtnGeral);
 		grupo.add(rdbtnAbertos);
+		rdbtnGeral.setSelected(true);
 
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
@@ -178,8 +176,8 @@ public class OpcoesDeContrato extends JPanel {
 			}
 		});
 		btnBuscar.setForeground(new Color(51, 102, 153));
-		btnBuscar.setFont(new Font("Dialog", Font.PLAIN, 13));
-		btnBuscar.setBounds(580, 250, 100, 25);
+		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnBuscar.setBounds(580, 263, 90, 30);
 		add(btnBuscar);
 
 	}

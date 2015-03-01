@@ -1,20 +1,19 @@
 package gui.servicos;
 
-import gui.PaginaInicialHotel;
 import gui.Sistema;
 import gui.contratos.VisualizaContrato;
 
-import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import nucleo.classes.pessoa.Contrato;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Font;
-import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 
 public class OpcoesDeServicos extends JPanel {
 	/**
@@ -73,7 +72,7 @@ public class OpcoesDeServicos extends JPanel {
 				Sistema.setTela(new VisualizaContrato(getContrato()));
 			}
 		});
-		btnVoltar.setBounds(351, 531, 89, 23);
+		btnVoltar.setBounds(351, 521, 90, 30);
 		add(btnVoltar);
 		
 		JButton btnNewButton = new JButton("MASSAGEM");

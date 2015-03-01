@@ -40,7 +40,7 @@ public class OpcoesDeBaba extends JPanel {
 		
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(121, 257, 246, 244);
+		scrollPane.setBounds(188, 275, 246, 244);
 		add(scrollPane);
 		list.setFont(new Font("Dialog", Font.PLAIN, 13));
 		list.setForeground(new Color(51, 102, 153));
@@ -50,14 +50,14 @@ public class OpcoesDeBaba extends JPanel {
 		textField = new JTextField();
 		textField.setFont(new Font("Dialog", Font.PLAIN, 13));
 		textField.setForeground(new Color(51, 102, 153));
-		textField.setBounds(121, 215, 216, 20);
+		textField.setBounds(225, 212, 277, 30);
 		add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Digite o nome da Baba:");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblNewLabel.setBounds(121, 189, 170, 25);
+		lblNewLabel.setBounds(188, 185, 170, 25);
 		add(lblNewLabel);
 		
 		for (Alugavel baba: Sistema.getHotel().getBabas()) {
@@ -79,7 +79,7 @@ public class OpcoesDeBaba extends JPanel {
 				}
 			}
 		});
-		btnEditaBab.setBounds(443, 419, 101, 25);
+		btnEditaBab.setBounds(510, 415, 100, 30);
 		add(btnEditaBab);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -90,7 +90,7 @@ public class OpcoesDeBaba extends JPanel {
 				Sistema.setTela(new OpcoesPrivadas());
 			}
 		});
-		btnVoltar.setBounds(347, 548, 88, 25);
+		btnVoltar.setBounds(414, 544, 90, 30);
 		add(btnVoltar);
 		
 		JButton btnNewButton = new JButton("Nova");
@@ -101,7 +101,7 @@ public class OpcoesDeBaba extends JPanel {
 		});
 		btnNewButton.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		btnNewButton.setForeground(new Color(51, 102, 153));
-		btnNewButton.setBounds(443, 310, 101, 27);
+		btnNewButton.setBounds(510, 306, 100, 30);
 		add(btnNewButton);
 		
 		JLabel lblLabel = new JLabel("OPCOES DE BABA");
@@ -127,7 +127,7 @@ public class OpcoesDeBaba extends JPanel {
 		});
 		btnRemover.setForeground(new Color(51, 102, 153));
 		btnRemover.setFont(new Font("Dialog", Font.PLAIN, 14));
-		btnRemover.setBounds(443, 363, 101, 27);
+		btnRemover.setBounds(510, 359, 100, 30);
 		add(btnRemover);
 		
 		JButton btnBuscar = new JButton("Buscar");
@@ -149,7 +149,7 @@ public class OpcoesDeBaba extends JPanel {
 		});
 		btnBuscar.setForeground(new Color(51, 102, 153));
 		btnBuscar.setFont(new Font("Dialog", Font.PLAIN, 12));
-		btnBuscar.setBounds(349, 214, 88, 23);
+		btnBuscar.setBounds(558, 212, 90, 30);
 		add(btnBuscar);
 		
 

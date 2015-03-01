@@ -37,23 +37,23 @@ public class NovaBaba extends JPanel {
 		
 		JLabel lblDescircao = new JLabel("Nome: ");
 		lblDescircao.setForeground(new Color(255, 255, 255));
-		lblDescircao.setBounds(276, 266, 71, 19);
+		lblDescircao.setBounds(177, 247, 71, 19);
 		lblDescircao.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		add(lblDescircao);
 		
 		nome = new JTextField();
-		nome.setBounds(336, 266, 151, 20);
+		nome.setBounds(237, 247, 339, 30);
 		add(nome);
 		nome.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Telefone: ");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		lblNewLabel.setBounds(260, 303, 76, 19);
+		lblNewLabel.setBounds(164, 321, 76, 19);
 		add(lblNewLabel);
 		
 		telefone = new JTextField();
-		telefone.setBounds(336, 303, 151, 20);
+		telefone.setBounds(240, 317, 150, 30);
 		add(telefone);
 		telefone.setColumns(10);
 		
@@ -66,7 +66,7 @@ public class NovaBaba extends JPanel {
 			}
 		});
 		voltar.setFont(new Font("NanumGothic", Font.PLAIN, 12));
-		voltar.setBounds(183, 363, 73, 27);
+		voltar.setBounds(183, 439, 90, 30);
 		add(voltar);
 		
 		JButton limpar = new JButton("Limpar");
@@ -78,7 +78,7 @@ public class NovaBaba extends JPanel {
 				telefone.setText("");
 			}
 		});
-		limpar.setBounds(343, 363, 79, 27);
+		limpar.setBounds(343, 439, 90, 30);
 		add(limpar);
 		
 		JButton concluir = new JButton("Concluir");
@@ -97,7 +97,7 @@ public class NovaBaba extends JPanel {
 			}
 		});
 		concluir.setFont(new Font("NanumGothic", Font.PLAIN, 12));
-		concluir.setBounds(507, 363, 91, 27);
+		concluir.setBounds(507, 439, 90, 30);
 		add(concluir);
 		
 		JLabel lblNewLabel_1 = new JLabel("");

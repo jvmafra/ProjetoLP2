@@ -15,7 +15,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import nucleo.classes.formas_cobranca.Estrategia;
-import nucleo.excecoes.TelefoneInvalidoException;
 
 public class EditaEstrategia extends JPanel {
 	private Estrategia estrategia;
@@ -38,7 +37,7 @@ public class EditaEstrategia extends JPanel {
 		setLayout(null);
 
 		nome = new JTextField();
-		nome.setBounds(331, 233, 177, 28);
+		nome.setBounds(331, 233, 175, 30);
 		nome.setText(estrategia.getNome());
 		add(nome);
 		nome.setColumns(10);
@@ -56,14 +55,14 @@ public class EditaEstrategia extends JPanel {
 		add(fator_1);
 
 		fator = new JTextField();
-		fator.setBounds(331, 286, 177, 28);
+		fator.setBounds(331, 286, 175, 30);
 		fator.setText(String.valueOf(estrategia.getFator()));
 		add(fator);
 		fator.setColumns(10);
 
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.setForeground(new Color(51, 102, 153));
-		btnSalvar.setBounds(486, 386, 89, 23);
+		btnSalvar.setBounds(454, 386, 90, 30);
 		btnSalvar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -81,7 +80,7 @@ public class EditaEstrategia extends JPanel {
 
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setForeground(new Color(51, 102, 153));
-		btnVoltar.setBounds(180, 386, 89, 23);
+		btnVoltar.setBounds(260, 386, 90, 30);
 		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

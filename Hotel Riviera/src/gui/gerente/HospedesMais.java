@@ -26,7 +26,6 @@ public class HospedesMais extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JList<String> list;
-	private JTextField textField;
 	private DefaultListModel<String> listModel;
 
 	/**
@@ -64,7 +63,7 @@ public class HospedesMais extends JPanel {
 				Sistema.setTela(new OpcoesEstatisticas());
 			}
 		});
-		btnVoltar.setBounds(359, 521, 95, 25);
+		btnVoltar.setBounds(359, 521, 90, 30);
 		add(btnVoltar);
 
 	}

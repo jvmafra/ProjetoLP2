@@ -46,7 +46,7 @@ public class OpcoesDoHospede extends JPanel {
 		JButton btnNewButton = new JButton("Novo");
 		btnNewButton.setForeground(new Color(51, 102, 153));
 		btnNewButton.setFont(new Font("Dialog", Font.PLAIN, 14));
-		btnNewButton.setBounds(537, 290, 100, 25);
+		btnNewButton.setBounds(537, 290, 90, 30);
 		add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -62,7 +62,7 @@ public class OpcoesDoHospede extends JPanel {
 				Sistema.setTela(new PaginaInicialHotel());
 			}
 		});
-		btnVoltar.setBounds(359, 521, 95, 25);
+		btnVoltar.setBounds(359, 521, 90, 30);
 		add(btnVoltar);
 		
 		JLabel lblNewLabel = new JLabel("New label");
@@ -134,7 +134,7 @@ public class OpcoesDoHospede extends JPanel {
 		});
 		list.setModel(listModel);
 		btnBuscar.setFont(new Font("Dialog", Font.PLAIN, 12));
-		btnBuscar.setBounds(518, 173, 100, 25);
+		btnBuscar.setBounds(537, 170, 90, 30);
 		add(btnBuscar);
 
 		JLabel lblResultadosDaSua = new JLabel("Resultados da busca:");
@@ -154,7 +154,7 @@ public class OpcoesDoHospede extends JPanel {
 			}
 		});
 		btnAbrir.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		btnAbrir.setBounds(537, 346, 100, 25);
+		btnAbrir.setBounds(537, 346, 90, 30);
 		add(btnAbrir);
 		
 		JButton btnEditar = new JButton("Editar");
@@ -168,7 +168,7 @@ public class OpcoesDoHospede extends JPanel {
 		});
 		btnEditar.setForeground(new Color(51, 102, 153));
 		btnEditar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		btnEditar.setBounds(537, 405, 100, 25);
+		btnEditar.setBounds(537, 405, 90, 30);
 		add(btnEditar);
 		
 	}

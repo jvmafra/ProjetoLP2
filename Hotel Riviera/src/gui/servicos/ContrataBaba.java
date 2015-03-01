@@ -54,13 +54,13 @@ public class ContrataBaba extends JPanel {
 		
 		data_inicial = new JSpinner();
 		data_inicial.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		data_inicial.setBounds(368, 177, 159, 29);
+		data_inicial.setBounds(368, 165, 130, 30);
 		data_inicial.setModel(new SpinnerDateModel());
 		add(data_inicial);
 		
 		data_final = new JSpinner();
 		data_final.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		data_final.setBounds(368, 218, 159, 29);
+		data_final.setBounds(368, 206, 130, 30);
 		data_final.setModel(new SpinnerDateModel());
 		add(data_final);
 		
@@ -121,7 +121,7 @@ public class ContrataBaba extends JPanel {
 		
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.setForeground(new Color(51, 102, 153));
-		btnBuscar.setBounds(410, 258, 117, 25);
+		btnBuscar.setBounds(410, 246, 117, 25);
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Date data = (Date) data_inicial.getValue();
@@ -148,17 +148,17 @@ public class ContrataBaba extends JPanel {
 		
 		JLabel lblDataInicial = new JLabel("Data inicial:");
 		lblDataInicial.setForeground(new Color(255, 255, 255));
-		lblDataInicial.setBounds(274, 183, 84, 15);
+		lblDataInicial.setBounds(274, 171, 84, 15);
 		lblDataInicial.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		add(lblDataInicial);
 		
 		JLabel lblDataFinal = new JLabel("Data final:");
 		lblDataFinal.setForeground(new Color(255, 255, 255));
-		lblDataFinal.setBounds(284, 224, 74, 15);
+		lblDataFinal.setBounds(284, 212, 74, 15);
 		lblDataFinal.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		add(lblDataFinal);
 		
-		JLabel lblBabsDisponveis = new JLabel("Babas disponiveis");
+		JLabel lblBabsDisponveis = new JLabel("Bab\u00E1s dispon\u00EDveis");
 		lblBabsDisponveis.setForeground(new Color(255, 255, 255));
 		lblBabsDisponveis.setBounds(278, 296, 134, 15);
 		lblBabsDisponveis.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -171,7 +171,7 @@ public class ContrataBaba extends JPanel {
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(ContrataBaba.class.getResource("/nucleo/icones/hotel4.png")));
-		label.setBounds(321, 23, 184, 129);
+		label.setBounds(321, 11, 184, 129);
 		add(label);
 		
 

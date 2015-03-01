@@ -38,23 +38,23 @@ public class NovoCarro extends JPanel {
 		JLabel lblDescircao = new JLabel("Descricao: ");
 		lblDescircao.setForeground(new Color(255, 255, 255));
 		lblDescircao.setBackground(new Color(255, 255, 255));
-		lblDescircao.setBounds(264, 215, 71, 19);
+		lblDescircao.setBounds(254, 228, 71, 19);
 		lblDescircao.setFont(new Font("NanumGothic", Font.PLAIN, 14));
 		add(lblDescircao);
 		
 		descricao = new JTextField();
-		descricao.setBounds(353, 215, 175, 20);
+		descricao.setBounds(343, 228, 175, 30);
 		add(descricao);
 		descricao.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Placa:");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		lblNewLabel.setBounds(295, 246, 39, 19);
+		lblNewLabel.setBounds(285, 282, 39, 19);
 		add(lblNewLabel);
 		
 		placa = new JTextField();
-		placa.setBounds(353, 246, 86, 19);
+		placa.setBounds(343, 278, 85, 30);
 		add(placa);
 		placa.setColumns(10);
 		
@@ -62,7 +62,7 @@ public class NovoCarro extends JPanel {
 		luxo.setForeground(new Color(255, 255, 255));
 		luxo.setBackground(new Color(51, 102, 153));
 		luxo.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		luxo.setBounds(475, 242, 59, 27);
+		luxo.setBounds(461, 278, 59, 27);
 		add(luxo);
 		
 		JButton voltar = new JButton("Voltar");
@@ -73,7 +73,7 @@ public class NovoCarro extends JPanel {
 			}
 		});
 		voltar.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		voltar.setBounds(231, 351, 73, 27);
+		voltar.setBounds(232, 413, 90, 30);
 		add(voltar);
 		
 		JButton limpar = new JButton("Limpar");
@@ -86,7 +86,7 @@ public class NovoCarro extends JPanel {
 				descricao.setText("");
 			}
 		});
-		limpar.setBounds(370, 351, 79, 27);
+		limpar.setBounds(371, 413, 90, 30);
 		add(limpar);
 		
 		JButton concluir = new JButton("Concluir");
@@ -105,7 +105,7 @@ public class NovoCarro extends JPanel {
 			}
 		});
 		concluir.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		concluir.setBounds(512, 351, 91, 27);
+		concluir.setBounds(513, 413, 90, 30);
 		add(concluir);
 		
 		JLabel lblNewLabel_1 = new JLabel("");

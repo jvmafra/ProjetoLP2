@@ -11,19 +11,18 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextPane;
-
 import nucleo.classes.pessoa.Contrato;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 public class VisualizaContrato extends JPanel {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextPane servicos;
+	private JTextArea servicos;
 	private Contrato contrato;
 
 	/**
@@ -35,18 +34,18 @@ public class VisualizaContrato extends JPanel {
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
 		
-		JButton btnVoltar = new JButton("VOLTAR");
+		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setForeground(new Color(51, 102, 153));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sistema.setTela(new OpcoesDeContrato());
 			}
 		});
-		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnVoltar.setBounds(89, 519, 117, 25);
+		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnVoltar.setBounds(89, 537, 90, 30);
 		add(btnVoltar);
 		
-		JButton btnFecharContrato = new JButton("FECHAR CONTRATO");
+		JButton btnFecharContrato = new JButton("Fechar Contrato");
 		btnFecharContrato.setForeground(new Color(51, 102, 153));
 		btnFecharContrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -55,24 +54,17 @@ public class VisualizaContrato extends JPanel {
 				
 			}
 		});
-		btnFecharContrato.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnFecharContrato.setBounds(514, 519, 188, 25);
+		btnFecharContrato.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnFecharContrato.setBounds(514, 537, 150, 30);
 		add(btnFecharContrato);
 		
-		JTextPane status = new JTextPane();
-		status.setBackground(new Color(51, 102, 153));
-		status.setForeground(new Color(255, 255, 255));
-		status.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		status.setBounds(57, 146, 291, 362);
-		status.setText(getContrato().imprimeResumoAtual());
-		add(status);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(VisualizaContrato.class.getResource("/nucleo/icones/hotel4.png")));
 		lblNewLabel.setBounds(326, 11, 161, 105);
 		add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("NOVO SERVICO");
+		JButton btnNewButton = new JButton("Novo Serviço");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (getContrato().isAberto())
@@ -81,23 +73,37 @@ public class VisualizaContrato extends JPanel {
 					JOptionPane.showMessageDialog(null, "O contrato ja foi fechado!");
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnNewButton.setForeground(new Color(51, 102, 153));
-		btnNewButton.setBounds(282, 518, 161, 26);
+		btnNewButton.setBounds(282, 536, 150, 30);
 		add(btnNewButton);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(450, 126, 302, 382);
-		add(scrollPane);
+		JScrollPane scrStatus = new JScrollPane();
+		scrStatus.setBounds(57, 145, 290, 360);
 		
-		servicos = new JTextPane();
-		scrollPane.setViewportView(servicos);
+		JTextArea status = new JTextArea();
+		status.setText(getContrato().imprimeResumoAtual());
+		status.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		status.setBounds(57, 146, 291, 362);
+		status.setBackground(new Color(51, 102, 153));
+		status.setForeground(new Color(255, 255, 255));
+		status.setEditable(false);
+		
+		scrStatus.setViewportView(status);
+		add(scrStatus);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(462, 145, 290, 360);
+		
+		servicos = new JTextArea();
 		servicos.setBackground(new Color(51, 102, 153));
 		servicos.setForeground(new Color(255, 255, 255));
 		servicos.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		servicos.setText(getContrato().imprimeCadaServicoEspecial());
 		servicos.setEditable(false);
-		servicos.setText(getContrato().imprimeCadaServicoEspecial());
-		servicos.setText(getContrato().imprimeCadaServicoEspecial());
+		
+		scrollPane.setViewportView(servicos);
+		add(scrollPane);
 
 	}
 	
