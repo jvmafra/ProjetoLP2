@@ -84,10 +84,12 @@ public class Sistema extends JFrame {
 		if(janela == null) iniciaSistema();
 
 		if(novaTela == null)
-			System.err.println("Tela inválida");
+			System.err.println("Tela invï¿½lida");
 		janela.contentPane.removeAll();
 		janela.contentPane.add(novaTela);
+		janela.repaint();
 		janela.revalidate();
+		
 
 	}
 	

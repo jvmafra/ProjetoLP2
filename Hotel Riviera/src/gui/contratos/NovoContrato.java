@@ -12,7 +12,6 @@ import java.awt.event.MouseEvent;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Properties;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -38,10 +37,6 @@ import nucleo.classes.pessoa.Contrato;
 import nucleo.classes.pessoa.Hospede;
 import nucleo.classes.quartos.Quarto;
 
-import org.jdatepicker.impl.JDatePanelImpl;
-import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilDateModel;
-
 
 public class NovoContrato extends JPanel {
 	/**
@@ -58,9 +53,7 @@ public class NovoContrato extends JPanel {
 	JComboBox<Estrategia> estrategias;
 	JSpinner spinner;
 	JCheckBox chckbxCamaExtra;
-	UtilDateModel model;
-	JDatePanelImpl datePanel;
-	JDatePickerImpl datePicker;
+
 
 
 
@@ -298,15 +291,5 @@ public class NovoContrato extends JPanel {
 		lblNewLabel.setBounds(505, 317, 175, 142);
 		margemGeral.add(lblNewLabel);	
 		
-		
-		////////////////////////////////////////////
-		model = new UtilDateModel();
-		JDatePanelImpl datePanel = new JDatePanelImpl(model, new Properties());
-		datePicker = new JDatePickerImpl(datePanel, null);
-		datePicker.setSize(202, 23);
-		datePicker.setLocation(314, 296);
-		 
-		
-		///////////////////////////////////////////
 	}	
 }
