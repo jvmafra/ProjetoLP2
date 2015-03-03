@@ -1,7 +1,6 @@
 
 package gui;
 
-
 import java.awt.CardLayout;
 import java.awt.EventQueue;
 import java.awt.event.WindowAdapter;
