@@ -31,7 +31,10 @@ public class Estrategia implements Serializable{
 		return nome;
 	}
 
-	public void setNome(String nome) {
+	public void setNome(String nome) throws NomeInvalidoException {
+		if (nome == null || nome.equals(""))
+			throw new NomeInvalidoException("Digite um nome");
+		
 		this.nome = nome;
 	}
 
@@ -39,7 +42,9 @@ public class Estrategia implements Serializable{
 		return fator;
 	}
 
-	public void setFator(double fator) {
+	public void setFator(double fator) throws ValorInvalidoException {
+		if (fator <= 0)
+			throw new ValorInvalidoException("Digite um fator valido");
 		this.fator = fator;
 	}
 	

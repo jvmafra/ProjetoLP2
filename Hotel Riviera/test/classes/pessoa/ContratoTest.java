@@ -45,34 +45,57 @@ public class ContratoTest {
 	@Test
 	public void testaConstrutor() {
 		try {
-			Contrato c1 = new Contrato(null, h, e, periodo);
+			contrato = new Contrato(null, h, e, periodo);
 			Assert.fail("Deveria lancar excecao");
 		} catch (Exception e) {
 			Assert.assertEquals("Quarto invalido", e.getMessage());
 		}
 		
 		try {
-			Contrato c1 = new Contrato(quarto, null, e, periodo);
+			contrato = new Contrato(quarto, null, e, periodo);
 			Assert.fail("Deveria lancar excecao");
 		} catch (Exception e) {
 			Assert.assertEquals("Hospede invalido", e.getMessage());
 		}
 		
 		try {
-			Contrato c1 = new Contrato(quarto, h, null, periodo);
+			contrato = new Contrato(quarto, h, null, periodo);
 			Assert.fail("Deveria lancar excecao");
 		} catch (Exception e) {
 			Assert.assertEquals("Estrategia invalida", e.getMessage());
 		}
 		
 		try {
-			Contrato c1 = new Contrato(quarto, h, e, null);
+			contrato = new Contrato(quarto, h, e, null);
 			Assert.fail("Deveria lancar excecao");
 		} catch (Exception e) {
 			Assert.assertEquals("Periodo invalido", e.getMessage());
 		}
 		
 			
+	}
+	
+	@Test
+	public void testaGetsPrincipais() {
+		Assert.assertEquals("Edval", contrato.getNome());
+		Assert.assertEquals("e@hot.com", contrato.getEmail());
+		Assert.assertEquals("10530025485", contrato.getCPF());
+		
+		
+	}
+	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void testaMulta() throws Exception {
+		Calendar data1 = new GregorianCalendar(2015, 2, 1);
+		Calendar data2 = new GregorianCalendar(2015, 2, 3);
+		Calendar data3 = new GregorianCalendar(2015, 2, 2);
+		
+		Contrato c = new Contrato(quarto, h, e, new Periodo(data1, data2));
+		Contrato c2 = new Contrato(quarto, h, e, new Periodo(data1, data3));
+		
+		Assert.assertEquals(200.0, c.calculaMulta(), 0.001);
+		Assert.assertEquals(400.0, c2.calculaMulta(), 0.001);
 	}
 	
 	

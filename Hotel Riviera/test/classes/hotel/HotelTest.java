@@ -125,6 +125,12 @@ public class HotelTest {
 		
 		Assert.assertEquals(hotel.MediaDoHotel(), "7,50");
 		
+		
+		
+	}
+	
+	@Test
+	public void testaValores(){
 		hotel.check_in(ct1);
 		hotel.check_in(ct2);
 		Assert.assertEquals(hotel.faturamentoTotal(), 0.0);
@@ -137,9 +143,6 @@ public class HotelTest {
 		Assert.assertEquals(hotel.getFaturamentoMensal(mes), ct1.calculaValorTotal() + ct2.calculaValorTotal());
 		
 		Assert.assertTrue(hotel.getFaturamentoMensal(mes) == hotel.faturamentoTotal());
-		
-		
-		
 	}
 	
 	

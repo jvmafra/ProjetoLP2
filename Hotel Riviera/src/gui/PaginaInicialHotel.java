@@ -1,19 +1,11 @@
 package gui;
 
 import gui.contratos.OpcoesDeContrato;
-import gui.gerente.OpcoesPrivadas;
 import gui.hospede.OpcoesDoHospede;
-import gui.opiniao.OpcoesDeOpiniao;
-import gui.servicos.OpcoesDeServicos;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
