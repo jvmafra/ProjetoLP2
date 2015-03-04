@@ -1,13 +1,11 @@
 package classes.hotel;
 
-import static org.junit.Assert.*;
-
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-
 import junit.framework.Assert;
 import nucleo.classes.formas_cobranca.Estrategia;
 import nucleo.classes.hotel.Hotel;
+import nucleo.classes.hotel.Opiniao;
 import nucleo.classes.hotel.Periodo;
 import nucleo.classes.pessoa.Contrato;
 import nucleo.classes.pessoa.Funcionario;
@@ -16,11 +14,11 @@ import nucleo.classes.quartos.Quarto;
 import nucleo.classes.quartos.QuartoPresidencial;
 import nucleo.classes.servicos.Baba;
 import nucleo.classes.servicos.Carro;
-import nucleo.excecoes.EntradaDeDadosException;
 
 import org.junit.Before;
 import org.junit.Test;
 
+@SuppressWarnings("deprecation")
 public class HotelTest {
 	Hospede h1;
 	Hospede h2;
@@ -35,7 +33,8 @@ public class HotelTest {
 	Calendar data_2 = new GregorianCalendar(2015, 6, 27);
 	Hotel hotel;
 	Funcionario f;
-	
+	Periodo p;
+
 	@Before
 	public void setUp() throws Exception {
 		Estrategia e = new Estrategia("Simples", 1.0);
@@ -43,7 +42,7 @@ public class HotelTest {
 		hotel = new Hotel();
 		h1 = new Hospede("Edval","10530025485", "3224432", "18",  "e@hot.com", "8888888888", "ary", "4001635716004159");
 		h2 = new Hospede("Edval","10530025485", "3224434", "18",  "e@hot.com", "8888888888", "ary", "4001635716004159");
-		Periodo p = new Periodo(data_1, data_2);
+		p = new Periodo(data_1, data_2);
 		c1 = new Carro("Palio", "MOR8011", false);
 		c2 = new Carro("Civic", "VDP8024", true);
 		baba1 = new Baba("Maria", "88258485");
@@ -55,7 +54,7 @@ public class HotelTest {
 	}
 	
 	@Test
-	public void testaAdicaoNasListas() throws Exception{
+	public void testaAdicaoERemocaoNasListas() throws Exception{
 		hotel.check_in(ct1);
 		Assert.assertEquals(1,hotel.getContratos().size());
 		Assert.assertEquals(1,hotel.getContratosAbertos().size());
@@ -88,10 +87,27 @@ public class HotelTest {
 		Assert.assertTrue(hotel.getEstrategias().size() == 7);
 		
 		Estrategia e2 = new Estrategia("Olimpiadas", 3.2);
-		hotel.adicionaEstrategia(e);
+		hotel.adicionaEstrategia(e2);
 		Assert.assertTrue(hotel.getEstrategias().size() == 8);
 		
+		hotel.removeEstrategia(e2);
+		Assert.assertTrue(hotel.getEstrategias().size() == 7);
+		
+		hotel.incrementaAlugueisCarro();
+		hotel.incrementaBabySitter();
+		hotel.incrementaMassagens();
+		Assert.assertTrue(hotel.getAlugueisCarro() == 1);
+		Assert.assertTrue(hotel.getBabySitter() == 1);
+		Assert.assertTrue(hotel.getMassagens() == 1);
+		Assert.assertTrue(hotel.getRefeicoes() == 0);
+		
+		Assert.assertEquals(hotel.verificaAlugaveisDisponiveis(p, hotel.getQuartos()).size(), 85);
+		ct1 = new Contrato((Quarto) hotel.getQuartos().get(0), h1, e, p);
+		Assert.assertEquals(hotel.verificaAlugaveisDisponiveis(p, hotel.getQuartos()).size(), 84);
+		
+		
 	}
+
 	
 	@Test
 	public void testaFuncionalidades() throws Exception{
@@ -103,8 +119,33 @@ public class HotelTest {
 		Assert.assertTrue(hotel.verificaLogin("admin", "123456", true) == true);
 		Assert.assertTrue(hotel.verificaLogin("admin", "12345", false) == false);
 		
+		hotel.adicionaOpiniao(new Opiniao("Comentario", 10));
+		hotel.adicionaOpiniao(new Opiniao("Comentario", 5));
+		Assert.assertTrue(hotel.getOpinioes().size() == 2);
+		
+		Assert.assertEquals(hotel.MediaDoHotel(), "7,50");
+		
+		hotel.check_in(ct1);
+		hotel.check_in(ct2);
+		Assert.assertEquals(hotel.faturamentoTotal(), 0.0);
+		
+		int mes = p.getData_final().get(Calendar.MONTH);
+		
+		hotel.check_out(ct1);
+		Assert.assertEquals(hotel.getFaturamentoMensal(mes), ct1.calculaValorTotal());
+		hotel.check_out(ct2);
+		Assert.assertEquals(hotel.getFaturamentoMensal(mes), ct1.calculaValorTotal() + ct2.calculaValorTotal());
+		
+		Assert.assertTrue(hotel.getFaturamentoMensal(mes) == hotel.faturamentoTotal());
+		
+		
+		
 	}
 	
+	
+
+	
+
 	
 
 }

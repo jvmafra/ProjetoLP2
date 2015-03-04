@@ -32,16 +32,14 @@ public class Contrato implements Serializable{
 
 	/**
 	 * Construtor que recebe as informacoes necessarias para criacao de um contrato
-	 * @param servicos
-	 * 			Recebe uma lista de servicos (obrigatoriamente um quarto no minimo) ou outros servicos contratados no momento do cadastro
+	 * @param quarto
+	 * 			O quarto alugado pelo hospede
 	 * @param hospede
 	 * 			Recebe todas as informacoes a respeito de um hospede
 	 * @param e
 	 * 			Recebe uma estrategia de cobranca que dependera do periodo do cadastro do hospede
 	 * @param periodo
 	 * 			Recebe o periodo de hospedagem
-	 * @param formaDePagamento
-	 * 			Recebe a forma de pagamento do hospede
 	 */
 	public Contrato (Quarto quarto, Hospede hospede, Estrategia e, Periodo periodo) throws Exception{
 		if (quarto == null)
@@ -50,7 +48,7 @@ public class Contrato implements Serializable{
 			throw new Exception("Hospede invalido");
 		if (e == null)
 			throw new Exception("Estrategia invalida");
-		if (periodo == null){
+		if (periodo == null || periodo.getNumeroDias() == 0){
 			throw new PeriodoInvalidoException("Periodo invalido");
 		}
 		
@@ -64,9 +62,6 @@ public class Contrato implements Serializable{
 		aberto = true;
 	}
 
-	public void setPeriodo(Periodo periodo) {
-		this.periodo = periodo;
-	}
 
 	/**
 	 * Retorna a estrategia atual de cobranca
