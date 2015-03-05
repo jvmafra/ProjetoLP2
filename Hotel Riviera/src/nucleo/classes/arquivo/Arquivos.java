@@ -9,7 +9,7 @@ import java.io.ObjectOutputStream;
 import nucleo.classes.hotel.Hotel;
 
 public class Arquivos {
-	private final static String DIR = "Documentos do Hotel";
+	public final static String DIR = "Documentos do Hotel";
 	static {
 		try {
 			new File(DIR).mkdir();

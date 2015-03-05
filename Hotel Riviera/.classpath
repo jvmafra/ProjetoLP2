@@ -19,5 +19,6 @@
 	<classpathentry kind="lib" path="/home/joaovbm/Documentos/javamail-1.4.7/lib/mailapi.jar"/>
 	<classpathentry kind="lib" path="/home/joaovbm/Documentos/javamail-1.4.7/lib/pop3.jar"/>
 	<classpathentry kind="lib" path="/home/joaovbm/Documentos/javamail-1.4.7/lib/smtp.jar"/>
+	<classpathentry kind="lib" path="/home/joaovbm/Documentos/iText-5.0.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
