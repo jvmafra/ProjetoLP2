@@ -61,7 +61,7 @@ public class NovoHospede extends JPanel {
 		}
 
 		nome = new JFormattedTextField(format);
-		
+
 		nome.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -214,7 +214,7 @@ public class NovoHospede extends JPanel {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		
+
 		numCartao = new JFormattedTextField(format_3);
 		numCartao.addKeyListener(new KeyAdapter() {
 			@Override
@@ -259,12 +259,12 @@ public class NovoHospede extends JPanel {
 		btnConcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Hospede hospede = new Hospede(nome.getText(), cpf.getText()
-							.replace(".", "").replace("-", ""), rg.getText()
-							.replace(".", ""), idade.getText(),
-							email.getText(), telefone.getText(), endereco
-									.getText(), numCartao.getText().replace(
-									".", ""));
+					Hospede hospede = new Hospede(nome.getText(), 
+							cpf.getText().replace(".", "").replace("-", ""), 
+							rg.getText().replace(".", ""), 
+							idade.getText(), email.getText(), 
+							telefone.getText().replace("-", "").replace("(", "").replace(")", ""),
+							endereco.getText(), numCartao.getText().replace(".", ""));
 					Sistema.getHotel().adicionaHospede(hospede);
 					JOptionPane.showMessageDialog(null, "Hospede criado!");
 					if (vemDoContrato())
@@ -316,13 +316,13 @@ public class NovoHospede extends JPanel {
 					String cidade = busca.getCidade(CEP);
 					String uf = busca.getUF(CEP);
 
-					endereco.setText(end + " - " + bairro
-							+ " - " + cidade + "-" + uf);
+					endereco.setText(end + " - " + bairro + " - " + cidade
+							+ "-" + uf);
 
 				} catch (IOException e) {
 					JOptionPane.showMessageDialog(null,
-							"A busca não pôde ser realizada\n"
-									+ "Verifique sua conexão com a internet");
+							"A busca nï¿½o pï¿½de ser realizada\n"
+									+ "Verifique sua conexï¿½o com a internet");
 				}
 			}
 		});
