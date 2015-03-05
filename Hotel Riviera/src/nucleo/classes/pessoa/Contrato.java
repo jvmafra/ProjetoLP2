@@ -278,20 +278,6 @@ public class Contrato implements Serializable{
 				"\n\nMulta: R$" + calculaMulta();
 	}
 	
-	/**
-	 * Imprime a fatura final com todas as caracteristicas da hospedagem
-	 * @return String
-	 * 			Contem as informacoes do hospede, o quarto, todos servicos usados e seu valor total, alem do valor final da estadia, a forma de pagamento e o status atual do contrato
-	 */
-	public String imprimeFaturaFinal(){
-		return hospede.toString() + "\nPeriodo: " + getPeriodo().toString() + "(" + numDias() + " dias)"
-				+ "\nDados do quarto: " + servicos.get(0).toString()
-				+ "\n\nServicos especiais (pela ordem): " + imprimeCadaServicoEspecial()
-				+ "\n\n\nValor total dos servicos: " + calculaValorServicos() 
-				+ "\nValor total da estadia: " + calculaValorTotal()
-				+ "\n\nStatus do contrato: " + mostraStatus();
-	}
-	
 	
 	/**
 	 * Verifica um contrato atualmente. Como sera usado apenas para rapida verificacao nao contem informacoes de pagamento (apenas em relacao ao quarto ,que e fixo)

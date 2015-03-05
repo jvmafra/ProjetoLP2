@@ -80,22 +80,11 @@ public class ContratoTest {
 		Assert.assertEquals("Edval", contrato.getNome());
 		Assert.assertEquals("e@hot.com", contrato.getEmail());
 		Assert.assertEquals("10530025485", contrato.getCPF());
+		Assert.assertEquals("3224432", contrato.getRG());
+		Assert.assertEquals("8888888888", contrato.getTelefone());
+		Assert.assertEquals("ary", contrato.getEndereco());
+		Assert.assertEquals(4, contrato.numDias());
 		
-		
-	}
-	
-	@SuppressWarnings("deprecation")
-	@Test
-	public void testaMulta() throws Exception {
-		Calendar data1 = new GregorianCalendar(2015, 2, 1);
-		Calendar data2 = new GregorianCalendar(2015, 2, 3);
-		Calendar data3 = new GregorianCalendar(2015, 2, 2);
-		
-		Contrato c = new Contrato(quarto, h, e, new Periodo(data1, data2));
-		Contrato c2 = new Contrato(quarto, h, e, new Periodo(data1, data3));
-		
-		Assert.assertEquals(200.0, c.calculaMulta(), 0.001);
-		Assert.assertEquals(400.0, c2.calculaMulta(), 0.001);
 	}
 	
 	
@@ -134,6 +123,7 @@ public class ContratoTest {
 		Assert.assertEquals("ABERTO", contrato.mostraStatus());
 		contrato.fechaContrato();
 		Assert.assertEquals("FECHADO", contrato.mostraStatus());
+		Assert.assertFalse(contrato.fechaContrato());
 		
 	}
 	
@@ -185,6 +175,9 @@ public class ContratoTest {
 		c2.removeServico(aluguel_carro);
 		
 		Assert.assertTrue(c2.equals(contrato));
+		
+		Assert.assertFalse(contrato.equals(aluguel_carro));
+		
 	}
 	
 	
