@@ -97,7 +97,7 @@ public class OpcoesDeContrato extends JPanel {
 			}
 		});
 		btnNovoContrato.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNovoContrato.setBounds(580, 402, 90, 30);
+		btnNovoContrato.setBounds(590, 315, 118, 30);
 		add(btnNovoContrato);
 
 		rdbtnAbertos = new JRadioButton("Abertos");
@@ -122,7 +122,7 @@ public class OpcoesDeContrato extends JPanel {
 			}
 		});
 		btnAbrir.setActionCommand("Remover");
-		btnAbrir.setBounds(580, 338, 90, 30);
+		btnAbrir.setBounds(590, 368, 118, 30);
 		add(btnAbrir);
 
 		JLabel lblNewLabel = new JLabel(new ImageIcon(
@@ -172,13 +172,33 @@ public class OpcoesDeContrato extends JPanel {
 							listModel.addElement(Sistema.getHotel()
 									.getContratos().get(i));
 						}
-				
+			
 			}
 		});
 		btnBuscar.setForeground(new Color(51, 102, 153));
 		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnBuscar.setBounds(580, 263, 90, 30);
+		btnBuscar.setBounds(580, 242, 100, 23);
 		add(btnBuscar);
+		
+		JButton btnRemover = new JButton("Remover");
+		btnRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Contrato contrato = list.getSelectedValue();
+				if (contrato == null)
+					JOptionPane
+					.showMessageDialog(null, "Selecione um contrato");
+				else {
+					Sistema.getHotel().removeContrato(contrato);
+					contrato.getQuarto().removePeriodo(contrato.getPeriodo());
+					Sistema.setTela(new OpcoesDeContrato());
+				}
+					
+			}
+		});
+		btnRemover.setForeground(new Color(51, 102, 153));
+		btnRemover.setFont(new Font("Dialog", Font.PLAIN, 14));
+		btnRemover.setBounds(590, 420, 118, 30);
+		add(btnRemover);
 
 	}
 }

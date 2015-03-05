@@ -339,6 +339,14 @@ public class Hotel implements Serializable{
 	
 
 	/**
+	 * Remove um contrato do hotel
+	 */
+	public void removeContrato(Contrato c){
+		contratos.remove(c);
+	}
+	
+
+	/**
 	 * Remove uma estrategia de cobranca do hotel
 	 */
 	public void removeEstrategia(Estrategia e){
