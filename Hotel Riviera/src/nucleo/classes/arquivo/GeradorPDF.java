@@ -22,13 +22,13 @@ public class GeradorPDF {
            // criação do documento
           Document document = new Document();
           try {
-             
-              PdfWriter.getInstance(document, new FileOutputStream("PDF_DevMedia.pdf"));
-             
+
               document.add(new Paragraph(getContrato().getHospede().mostraInformacoes()));
               document.add(new Paragraph(getContrato().imprimeCadaServicoEspecial()));
               document.add(new Paragraph("Periodo " + getContrato().getPeriodo().toString()));
               document.add(new Paragraph("Valor total: R$ " + getContrato().calculaValorTotal()));
+              
+              PdfWriter.getInstance(document, new FileOutputStream("PDF_DevMedia.pdf"));
               
 }
           catch(DocumentException de) {
