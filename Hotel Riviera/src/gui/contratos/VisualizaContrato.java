@@ -49,17 +49,21 @@ public class VisualizaContrato extends JPanel {
 		btnFecharContrato.setForeground(new Color(51, 102, 153));
 		btnFecharContrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-				Sistema.setTela(new VisualizaContrato(getContrato()));
-				int j = JOptionPane.showConfirmDialog(null, "Deseja mesmo fechar o contrato?");
-				if (j == 0) {
-					Sistema.getHotel().check_out(getContrato());
-					Sistema.setTela(new FaturaFinal(getContrato()));
+				
+				if (getContrato().isAberto()) {
+					int j = JOptionPane.showConfirmDialog(null, "Deseja mesmo fechar o contrato?");
+					if (j == 0) {
+						Sistema.getHotel().check_out(getContrato());
+						Sistema.setTela(new FaturaFinal(getContrato()));
+					}
+					
+					else  {
+						Sistema.setTela(new VisualizaContrato(getContrato()));
+					}
 				}
 				
-				else  {
-					Sistema.setTela(new VisualizaContrato(getContrato()));
-				}
+				else
+					JOptionPane.showMessageDialog(null, "O contrato ja foi fechado!");
 				
 			}
 		});
@@ -73,7 +77,7 @@ public class VisualizaContrato extends JPanel {
 		lblNewLabel.setBounds(326, 11, 161, 105);
 		add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Novo Serviï¿½o");
+		JButton btnNewButton = new JButton("Novo Serviço");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (getContrato().isAberto())

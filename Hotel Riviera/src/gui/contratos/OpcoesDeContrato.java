@@ -187,10 +187,16 @@ public class OpcoesDeContrato extends JPanel {
 				if (contrato == null)
 					JOptionPane
 					.showMessageDialog(null, "Selecione um contrato");
+				
 				else {
-					Sistema.getHotel().removeContrato(contrato);
-					contrato.getQuarto().removePeriodo(contrato.getPeriodo());
+					int j = JOptionPane.showConfirmDialog(null, "Deseja mesmo remover o contrato? Ele nao constara para fins de faturamentos futuros");
+					if (j == 0) {
+						Sistema.getHotel().removeContrato(contrato);
+						contrato.getQuarto().removePeriodo(contrato.getPeriodo());
+					}
+					
 					Sistema.setTela(new OpcoesDeContrato());
+					
 				}
 					
 			}

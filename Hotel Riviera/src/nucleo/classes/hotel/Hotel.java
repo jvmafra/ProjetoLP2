@@ -93,6 +93,7 @@ public class Hotel implements Serializable{
 	 */
 	public void check_out(Contrato c){
 		c.fechaContrato();
+		c.getQuarto().removePeriodo(c.getPeriodo());
 	}
 		/**
 	 * Retorna uma list com os contratos do hotel

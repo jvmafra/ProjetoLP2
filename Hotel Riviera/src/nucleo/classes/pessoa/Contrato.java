@@ -274,8 +274,7 @@ public class Contrato implements Serializable{
 	 */
 	public String imprimeResumoAtual(){
 		return hospede.mostraInformacoes() + "\n\nQuarto: " + servicos.get(0) + 
-				"\n\nPeriodo: " + getPeriodo().toString() + "\n\nSTATUS: " + mostraStatus() +
-				"\n\nMulta: R$" + calculaMulta();
+				"\n\nPeriodo: " + getPeriodo().toString() + "\n\nSTATUS: " + mostraStatus();
 	}
 	
 	

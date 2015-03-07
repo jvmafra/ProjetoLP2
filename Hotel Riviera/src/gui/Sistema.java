@@ -8,7 +8,6 @@ import java.awt.event.WindowEvent;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
@@ -118,6 +117,10 @@ public class Sistema extends JFrame {
 		cal= new GregorianCalendar();
 		cal.setTime(data);  
 		return cal;
+	}
+	
+	public static Calendar getHoje(){
+		return new GregorianCalendar();
 	}
 
 }
