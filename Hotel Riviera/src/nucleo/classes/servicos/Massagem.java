@@ -16,21 +16,30 @@ public class Massagem implements Servico, Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Periodo periodo;
 	private double valor;
 	private String nome;
+	private Calendar data;
+	private int duracao;
 	
-	public Massagem(TipoDeMassagens tipo, Periodo periodo) throws ValorInvalidoException, PeriodoInvalidoException, TipoDeMassagensInvalidoException, TipoDeMassagensInvalidaException  {
+	public Massagem(TipoDeMassagens tipo, Calendar data, int duracao) throws ValorInvalidoException, PeriodoInvalidoException, TipoDeMassagensInvalidoException, TipoDeMassagensInvalidaException  {
 	if (tipo == null){
 		throw new TipoDeMassagensInvalidaException("Tipo de massagem invalida");
 	}
 	
-	if (!(isPeriodoValido(periodo))){
-		throw new PeriodoInvalidoException("Periodo de massagem invalido");
-	}
+	if (data == null)
+		throw new PeriodoInvalidoException("Selecione uma data.");
+	
+	if (data.get(Calendar.HOUR_OF_DAY) + duracao > 22 || data.get(Calendar.HOUR_OF_DAY) < 8)
+		throw new PeriodoInvalidoException("A massagem não funciona nesse horário.");
+	
+	if (duracao <= 0 || duracao > 3)
+		throw new PeriodoInvalidoException("A massagem deve durar entre 1 e 3 horas");
+	
 	this.valor = tipo.getValor();
-	this.periodo = periodo;
 	this.nome = tipo.getNome();
+	this.duracao = duracao;
+	this.data = data;
+	
 	}
 	
 	
@@ -40,29 +49,29 @@ public class Massagem implements Servico, Serializable {
 	
 	@Override
 	public double valor() {	
-		return valor * periodo.getTotalDeHoras();
+		return valor * totalDeHoras();
 	}
 	
 	public int totalDeHoras(){
-		return  periodo.getTotalDeHoras();
+		return duracao;
 	}
 
 
-	public Periodo getPeriodo() {
-		return periodo;
+	public Calendar getData() {
+		return data;
 	}
-
-
-	public void setPeriodo(Periodo periodo) throws PeriodoInvalidoException {
-		if (!(isPeriodoValido(periodo))){
-			throw new PeriodoInvalidoException("periodo invalido");
-		}
-		this.periodo = periodo;
+	
+	private String diaDaMassagem(){
+		int dia = data.get(Calendar.DATE);
+		int mes = data.get(Calendar.MONTH) + 1;
+		int ano = data.get(Calendar.YEAR);
+		
+		return dia + "/" + mes + "/" + ano;
 	}
 	
 	@Override
 	public String toString() {
-		return  "MASSAGEM: " + getNome() + "\nDuracao: " + getPeriodo().getTotalDeHoras() + " hora(s)" + "\nValor: R$ " + valor();
+		return  "MASSAGEM: " + getNome() + "\nDia: " + diaDaMassagem() + "\nDuracao: " + totalDeHoras() + " hora(s)" + "\nValor: R$ " + valor();
 	}
 
 
@@ -75,19 +84,6 @@ public class Massagem implements Servico, Serializable {
 		return getNome().equals(outro.getNome()) && valor() == outro.valor();
 	}
 	
-	private boolean isPeriodoValido(Periodo periodo){
-		if (periodo == null){
-			return false;
-		}
-		if (periodo.getData_inicial().get(Calendar.HOUR_OF_DAY) < 6 || periodo.getData_final().get(Calendar.HOUR_OF_DAY) > 22){
-			return false;
-		}
-		
-		if (periodo.getTotalDeHoras()> 3){
-			return false;
-		}
-		return true;
-	}
 
 }
 	

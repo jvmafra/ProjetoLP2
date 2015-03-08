@@ -27,6 +27,7 @@ import nucleo.classes.servicos.TipoDeMassagens;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SpinnerNumberModel;
 
 public class NovaMassagem extends JPanel {
 
@@ -35,7 +36,7 @@ public class NovaMassagem extends JPanel {
 	Contrato contrato;
 	JComboBox<TipoDeMassagens> tipos;
 	JSpinner data_inicial;
-	JSpinner data_final;
+	JSpinner duracao;
 	
 	public NovaMassagem(Contrato contrato) {
 		this.contrato = contrato;
@@ -52,37 +53,25 @@ public class NovaMassagem extends JPanel {
 		data_inicial = new JSpinner();
 		data_inicial.setFont(new Font("NanumGothic", Font.PLAIN, 13));
 		data_inicial.setModel(new SpinnerDateModel(new Date(1424833200000L), null, null, Calendar.DAY_OF_YEAR));
-		data_inicial.setBounds(362, 221, 130, 30);
+		data_inicial.setBounds(328, 284, 130, 30);
 		add(data_inicial);
 		
-		JLabel lblInicio = new JLabel("Inicio:");
-		lblInicio.setForeground(new Color(255, 255, 255));
-		lblInicio.setFont(new Font("Dialog", Font.PLAIN, 14));
-		lblInicio.setBounds(309, 227, 70, 15);
-		add(lblInicio);
-		
-		data_final = new JSpinner();
-		data_final.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		data_final.setModel(new SpinnerDateModel(new Date(1424833200000L), null, null, Calendar.DAY_OF_YEAR));
-		data_final.setBounds(362, 273, 130, 30);
-		add(data_final);
-		
-		JLabel lblFim = new JLabel("Fim:");
-		lblFim.setForeground(new Color(255, 255, 255));
-		lblFim.setFont(new Font("Dialog", Font.PLAIN, 14));
-		lblFim.setBounds(309, 279, 70, 15);
-		add(lblFim);
+		JLabel lblData = new JLabel("Data:");
+		lblData.setForeground(new Color(255, 255, 255));
+		lblData.setFont(new Font("Dialog", Font.PLAIN, 14));
+		lblData.setBounds(286, 291, 70, 15);
+		add(lblData);
 		
 		JLabel lblTipo = new JLabel("Tipo: ");
 		lblTipo.setFont(new Font("Dialog", Font.PLAIN, 14));
 		lblTipo.setForeground(new Color(255, 255, 255));
-		lblTipo.setBounds(286, 359, 70, 15);
+		lblTipo.setBounds(286, 215, 70, 15);
 		add(lblTipo);
 		
 		tipos = new JComboBox<TipoDeMassagens>();
 		tipos.setFont(new Font("Dialog", Font.PLAIN, 13));
 		tipos.setForeground(new Color(51, 102, 153));
-		tipos.setBounds(330, 354, 176, 30);
+		tipos.setBounds(328, 207, 176, 30);
 		add(tipos);
 		adicionaOpcoesMassagem();
 		
@@ -101,14 +90,13 @@ public class NovaMassagem extends JPanel {
 		btnConcluirconcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Date data = (Date) data_inicial.getValue();
-				Date data2 = (Date) data_final.getValue();
-				Calendar inicio = Sistema.DateToCalendar(data);
-				Calendar fim = Sistema.DateToCalendar(data2);
-				if (getContrato().getPeriodo().dataIsContida(inicio) && (getContrato().getPeriodo().dataIsContida(fim))){
+				Calendar data_massagem = Sistema.DateToCalendar(data);
+				int duracao_da_massagem = (Integer) duracao.getValue();
+				
+				if (getContrato().getPeriodo().dataIsContida(data_massagem)){
 					try {
-						Periodo p = new Periodo(inicio, fim);
 						TipoDeMassagens tipo = (TipoDeMassagens) tipos.getSelectedItem();
-						Massagem massagem = new Massagem(tipo, p);
+						Massagem massagem = new Massagem(tipo, data_massagem, duracao_da_massagem);
 						getContrato().adicionaServico(massagem);
 						Sistema.getHotel().incrementaMassagens();
 						JOptionPane.showMessageDialog(null, "Massagem adicionada!");
@@ -118,7 +106,7 @@ public class NovaMassagem extends JPanel {
 					}
 				}
 				else{
-					JOptionPane.showMessageDialog(null, "O hospede nao esta no hotel nesse periodo");
+					JOptionPane.showMessageDialog(null, "O hospede nao esta no hotel nessa data");
 				}
 				
 				
@@ -129,6 +117,18 @@ public class NovaMassagem extends JPanel {
 		btnConcluirconcluir.setFont(new Font("Dialog", Font.PLAIN, 13));
 		btnConcluirconcluir.setBounds(480, 458, 117, 25);
 		add(btnConcluirconcluir);
+		
+		JLabel lblDuracao = new JLabel("Duracao:");
+		lblDuracao.setForeground(Color.WHITE);
+		lblDuracao.setFont(new Font("Dialog", Font.PLAIN, 14));
+		lblDuracao.setBounds(258, 348, 70, 15);
+		add(lblDuracao);
+		
+		duracao = new JSpinner();
+		duracao.setFont(new Font("Dialog", Font.BOLD, 14));
+		duracao.setModel(new SpinnerNumberModel(1, 1, 3, 1));
+		duracao.setBounds(328, 346, 45, 20);
+		add(duracao);
 	}
 	
 	public Contrato getContrato(){

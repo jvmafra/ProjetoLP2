@@ -77,7 +77,7 @@ public class VisualizaContrato extends JPanel {
 		lblNewLabel.setBounds(326, 11, 161, 105);
 		add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Novo Serviço");
+		JButton btnNewButton = new JButton("Novo ServiÃ§o");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (getContrato().isAberto())
