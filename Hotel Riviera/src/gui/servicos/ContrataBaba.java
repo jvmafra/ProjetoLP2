@@ -164,11 +164,6 @@ public class ContrataBaba extends JPanel {
 		lblBabsDisponveis.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(lblBabsDisponveis);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(311, 11, 194, 140);
-		lblNewLabel.setIcon(new ImageIcon("/home/edvalmsg/Downloads/bebe.jpg"));
-		add(lblNewLabel);
-		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(ContrataBaba.class.getResource("/nucleo/icones/hotel4.png")));
 		label.setBounds(321, 11, 184, 129);

@@ -127,7 +127,7 @@ public class NovaMassagem extends JPanel {
 		duracao = new JSpinner();
 		duracao.setFont(new Font("Dialog", Font.BOLD, 14));
 		duracao.setModel(new SpinnerNumberModel(1, 1, 3, 1));
-		duracao.setBounds(328, 346, 45, 20);
+		duracao.setBounds(328, 346, 48, 30);
 		add(duracao);
 	}
 	

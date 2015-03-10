@@ -54,11 +54,11 @@ public class NovoHospede extends JPanel {
 		setBounds(0, 0, 800, 600);
 		setLayout(null);
 
-		try {
-			format = new MaskFormatter(maskNome());
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			format = new MaskFormatter(maskNome());
+//		} catch (ParseException e) {
+//			e.printStackTrace();
+//		}
 
 		nome = new JFormattedTextField(format);
 
@@ -167,12 +167,12 @@ public class NovoHospede extends JPanel {
 		JLabel endereco_1 = new JLabel("Endereco:");
 		endereco_1.setForeground(new Color(255, 255, 255));
 		endereco_1.setFont(new Font("NanumGothic", Font.PLAIN, 14));
-		endereco_1.setBounds(65, 435, 70, 15);
+		endereco_1.setBounds(75, 435, 70, 15);
 		add(endereco_1);
 
 		endereco = new JTextField();
 		endereco.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		endereco.setBounds(145, 429, 525, 30);
+		endereco.setBounds(163, 428, 513, 30);
 		add(endereco);
 		endereco.setColumns(10);
 
@@ -296,13 +296,13 @@ public class NovoHospede extends JPanel {
 		});
 		txtCep.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtCep.setColumns(10);
-		txtCep.setBounds(196, 380, 148, 30);
+		txtCep.setBounds(223, 379, 148, 30);
 		add(txtCep);
 
 		JLabel lbCEP = new JLabel("Busque pelo CEP:");
 		lbCEP.setForeground(Color.WHITE);
 		lbCEP.setFont(new Font("Dialog", Font.PLAIN, 14));
-		lbCEP.setBounds(65, 386, 121, 15);
+		lbCEP.setBounds(75, 386, 140, 15);
 		add(lbCEP);
 
 		btnBuscaCep = new JButton("Busca CEP");
@@ -347,12 +347,12 @@ public class NovoHospede extends JPanel {
 		return vemDoContrato;
 	}
 
-	private String maskNome() {
-		String nome = "";
-		for (int i = 0; i < 50; i++) {
-			nome += "U";
-		}
-		return nome;
+//	private String maskNome() {
+//		String nome = "";
+//		for (int i = 0; i < 50; i++) {
+//			nome += "U";
+//		}
+//		return nome;
 
-	}
+	
 }
