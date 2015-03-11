@@ -101,7 +101,7 @@ public class NovaEstrategia extends JPanel {
 		add(concluir);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(NovaBaba.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(NovaBaba.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel_1.setBounds(327, 40, 160, 105);
 		add(lblNewLabel_1);
 	}

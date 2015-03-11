@@ -94,7 +94,7 @@ public class OpcoesPrivadas extends JPanel {
 		add(btnCadastraQuarto);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(OpcoesPrivadas.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel.setIcon(new ImageIcon(OpcoesPrivadas.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel.setBounds(331, 23, 184, 98);
 		add(lblNewLabel);
 		

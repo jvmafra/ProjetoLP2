@@ -230,7 +230,7 @@ public class EditaHospede extends JPanel {
 		add(btnSalvar);
 
 		JLabel lblNewLabel = new JLabel(new ImageIcon(
-				EditaHospede.class.getResource("/nucleo/icones/hotel4.png")));
+				EditaHospede.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel.setBounds(334, 11, 177, 95);
 		add(lblNewLabel);
 

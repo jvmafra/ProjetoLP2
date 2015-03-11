@@ -109,7 +109,7 @@ public class OpcoesDeCarro extends JPanel {
 		lblNewLabel2.setBounds(310, 132, 278, 40);
 		add(lblNewLabel2);
 		
-		JLabel lblNewLabel = new JLabel(new ImageIcon(OpcoesDeCarro.class.getResource("/nucleo/icones/hotel4.png")));
+		JLabel lblNewLabel = new JLabel(new ImageIcon(OpcoesDeCarro.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel.setBounds(307, 29, 235, 105);
 		add(lblNewLabel);
 		

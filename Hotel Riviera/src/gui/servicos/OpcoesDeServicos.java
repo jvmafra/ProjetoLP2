@@ -87,7 +87,7 @@ public class OpcoesDeServicos extends JPanel {
 		add(btnNewButton);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(OpcoesDeServicos.class.getResource("/nucleo/icones/hotel4.png")));
+		label.setIcon(new ImageIcon(OpcoesDeServicos.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		label.setBounds(318, 23, 147, 102);
 		add(label);
 

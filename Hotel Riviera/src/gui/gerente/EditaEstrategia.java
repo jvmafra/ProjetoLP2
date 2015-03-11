@@ -91,7 +91,7 @@ public class EditaEstrategia extends JPanel {
 
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(EditaEstrategia.class
-				.getResource("/nucleo/icones/hotel4.png")));
+				.getResource("/nucleo/icones/hotel4 feito.png")));
 		label.setBounds(321, 40, 138, 100);
 		add(label);
 

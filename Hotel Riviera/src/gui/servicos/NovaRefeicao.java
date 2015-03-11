@@ -122,7 +122,7 @@ public class NovaRefeicao extends JPanel {
 		add(lblNewLabel);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(NovaRefeicao.class.getResource("/nucleo/icones/hotel4.png")));
+		label.setIcon(new ImageIcon(NovaRefeicao.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		label.setBounds(314, 45, 175, 132);
 		add(label);
 

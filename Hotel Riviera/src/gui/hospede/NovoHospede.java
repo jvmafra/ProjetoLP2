@@ -282,7 +282,7 @@ public class NovoHospede extends JPanel {
 
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(NovoHospede.class
-				.getResource("/nucleo/icones/hotel4.png")));
+				.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel.setBounds(334, 22, 169, 89);
 		add(lblNewLabel);
 

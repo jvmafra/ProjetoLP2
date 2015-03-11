@@ -110,7 +110,7 @@ public class OpcoesDeBaba extends JPanel {
 		lblLabel.setBounds(289, 134, 278, 40);
 		add(lblLabel);
 		
-		JLabel label = new JLabel(new ImageIcon(OpcoesDeBaba.class.getResource("/nucleo/icones/hotel4.png")));
+		JLabel label = new JLabel(new ImageIcon(OpcoesDeBaba.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		label.setBounds(325, 24, 151, 98);
 		add(label);
 		

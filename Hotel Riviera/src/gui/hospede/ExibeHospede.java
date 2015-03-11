@@ -60,7 +60,7 @@ public class ExibeHospede extends JPanel {
 		add(btnVoltar);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(ExibeHospede.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel.setIcon(new ImageIcon(ExibeHospede.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel.setBounds(323, 22, 138, 89);
 		add(lblNewLabel);
 		

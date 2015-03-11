@@ -78,7 +78,7 @@ public class OpcoesEstatisticas extends JPanel {
 		add(btnVoltar);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(OpcoesEstatisticas.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel.setIcon(new ImageIcon(OpcoesEstatisticas.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel.setBounds(319, 30, 151, 105);
 		add(lblNewLabel);
 	}

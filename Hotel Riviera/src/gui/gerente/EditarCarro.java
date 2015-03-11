@@ -101,7 +101,7 @@ public class EditarCarro extends JPanel {
 		add(btnVoltar);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(EditarCarro.class.getResource("/nucleo/icones/hotel4.png")));
+		label.setIcon(new ImageIcon(EditarCarro.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		label.setBounds(322, 30, 143, 97);
 		add(label);
 	}

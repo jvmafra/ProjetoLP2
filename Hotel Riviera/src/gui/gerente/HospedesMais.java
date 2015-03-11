@@ -37,7 +37,7 @@ public class HospedesMais extends JPanel {
 		setLayout(null);
 
 		JLabel lblNewLabel = new JLabel(new ImageIcon(
-				ExibeHospede.class.getResource("/nucleo/icones/hotel4.png")));
+				ExibeHospede.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel.setBounds(323, 22, 138, 89);
 		add(lblNewLabel);
 

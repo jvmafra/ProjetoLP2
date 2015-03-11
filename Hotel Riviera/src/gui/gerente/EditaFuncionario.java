@@ -55,7 +55,7 @@ public class EditaFuncionario extends JPanel {
 
 		JLabel label = new JLabel(new ImageIcon(
 				OpcoesDeEstrategia.class
-						.getResource("/nucleo/icones/hotel4.png")));
+						.getResource("/nucleo/icones/hotel4 feito.png")));
 		label.setBounds(300, 12, 221, 120);
 		add(label);
 
@@ -97,7 +97,7 @@ public class EditaFuncionario extends JPanel {
 						JOptionPane.showMessageDialog(null, e.getMessage());
 					}
 				} else {
-					JOptionPane.showMessageDialog(null,"As senhas não conferem\n"
+					JOptionPane.showMessageDialog(null,"As senhas nï¿½o conferem\n"
 							+ "Os dados foram restaurados");
 					preencheCampos();
 				}

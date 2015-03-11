@@ -126,7 +126,7 @@ public class OpcoesDeContrato extends JPanel {
 		add(btnAbrir);
 
 		JLabel lblNewLabel = new JLabel(new ImageIcon(
-				OpcoesDeContrato.class.getResource("/nucleo/icones/hotel4.png")));
+				OpcoesDeContrato.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel.setBounds(322, 33, 134, 85);
 		add(lblNewLabel);
 

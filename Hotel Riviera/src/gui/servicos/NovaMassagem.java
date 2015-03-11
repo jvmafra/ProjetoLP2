@@ -45,7 +45,7 @@ public class NovaMassagem extends JPanel {
 		setLayout(null);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(NovaMassagem.class.getResource("/nucleo/icones/hotel4.png")));
+		label.setIcon(new ImageIcon(NovaMassagem.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		label.setBounds(320, 49, 138, 94);
 		add(label);
 		setBounds(0,0,800,600);

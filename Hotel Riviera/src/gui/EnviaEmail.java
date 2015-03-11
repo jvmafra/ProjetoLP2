@@ -27,7 +27,7 @@ public class EnviaEmail extends JPanel {
 		setBounds(0, 0, 800, 600);
 		setBackground(new Color(51, 102, 153));
 		JLabel lblEmail= new JLabel(new ImageIcon(EnviaEmail.class
-				.getResource("/nucleo/icones/hotel4.png")));
+				.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblEmail.setBounds(322, 33, 134, 85);
 		lblEmail.setText(destinatario.getEmail());
 		add(lblEmail);

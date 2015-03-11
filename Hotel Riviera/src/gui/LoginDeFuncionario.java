@@ -125,7 +125,7 @@ public class LoginDeFuncionario extends JPanel implements Serializable {
 			JButton btnEntrar, JButton btnVoltar) {
 		add(btnVoltar);
 		setBackground(new Color(51, 102, 153));
-		lblNewLabel.setIcon(new ImageIcon(LoginDeFuncionario.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel.setIcon(new ImageIcon(LoginDeFuncionario.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel.setBounds(331, 150, 184, 98);
 		senha_1.setForeground(Color.WHITE);
 		login_1.setForeground(Color.WHITE);

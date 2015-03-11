@@ -109,7 +109,7 @@ public class NovoCarro extends JPanel {
 		add(concluir);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(NovoCarro.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(NovoCarro.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel_1.setBounds(341, 12, 166, 90);
 		add(lblNewLabel_1);
 	}

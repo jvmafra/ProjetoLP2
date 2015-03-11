@@ -52,7 +52,7 @@ public class OpcoesFuncionario extends JPanel {
 		});
 		btnEditar.setForeground(new Color(51, 102, 153));
 		btnEditar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnEditar.setBounds(524, 353, 90, 30);
+		btnEditar.setBounds(524, 361, 90, 30);
 		add(btnEditar);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -82,9 +82,27 @@ public class OpcoesFuncionario extends JPanel {
 		list.setModel(listModel);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(OpcoesFuncionario.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel.setIcon(new ImageIcon(OpcoesFuncionario.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel.setBounds(346, 31, 141, 94);
 		add(lblNewLabel);
+		
+		JButton btnRemover = new JButton("Remover");
+		btnRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Funcionario f = (Funcionario) list.getSelectedValue();
+				if (list.getSelectedValue() != null){
+					Sistema.getHotel().getFuncionarios().remove(f);
+					Sistema.setTela(new OpcoesFuncionario());
+				}
+				else
+					JOptionPane.showMessageDialog(null, "Selecione um funcionário primeiro");
+					
+					
+			}
+		});
+		btnRemover.setForeground(new Color(51, 102, 153));
+		btnRemover.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnRemover.setBounds(524, 312, 90, 30);
+		add(btnRemover);
 	}
-
 }

@@ -53,7 +53,7 @@ public class ServicosPreferidos extends JPanel {
 
 		PieDataset dataset = criaDados();
 
-		JFreeChart chart = criaGrafico(dataset, "Serviços");
+		JFreeChart chart = criaGrafico(dataset, "Serviï¿½os");
 
 		ChartPanel chartPanel = new ChartPanel(chart);
 
@@ -62,7 +62,7 @@ public class ServicosPreferidos extends JPanel {
 		panel.add(chartPanel);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(CadastroQuarto.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel.setIcon(new ImageIcon(CadastroQuarto.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel.setBounds(328, 25, 169, 105);
 		add(lblNewLabel);
 

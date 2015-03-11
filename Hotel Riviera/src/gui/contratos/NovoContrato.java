@@ -286,7 +286,7 @@ public class NovoContrato extends JPanel {
 
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(NovoContrato.class
-				.getResource("/nucleo/icones/hotel4.png")));
+				.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel.setBounds(505, 317, 175, 142);
 		margemGeral.add(lblNewLabel);
 

@@ -57,6 +57,7 @@ public class PaginaInicialHotel extends JPanel {
 		btnOpinies.setForeground(new Color(51, 102, 153));
 		btnOpinies.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				Sistema.setTela(new Sobre());
 			}
 		});
 		btnOpinies.setBounds(317, 380, 150, 50);
@@ -86,7 +87,7 @@ public class PaginaInicialHotel extends JPanel {
 		panel.add(btnSair);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(PaginaInicialHotel.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel.setIcon(new ImageIcon(PaginaInicialHotel.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel.setBounds(317, 30, 158, 94);
 		panel.add(lblNewLabel);
 

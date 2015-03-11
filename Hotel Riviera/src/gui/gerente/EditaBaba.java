@@ -110,7 +110,7 @@ public class EditaBaba extends JPanel {
 		add(btnRemovarBab);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(EditaBaba.class.getResource("/nucleo/icones/hotel4.png")));
+		label.setIcon(new ImageIcon(EditaBaba.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		label.setBounds(340, 56, 185, 100);
 		add(label);
 

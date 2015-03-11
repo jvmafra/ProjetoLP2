@@ -186,7 +186,7 @@ public class AlugaCarro extends JPanel {
 		add(lblCarrosDisponveis);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(AlugaCarro.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel.setIcon(new ImageIcon(AlugaCarro.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel.setBounds(319, 11, 229, 116);
 		add(lblNewLabel);
 		

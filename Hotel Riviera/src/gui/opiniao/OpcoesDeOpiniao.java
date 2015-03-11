@@ -30,7 +30,7 @@ public class OpcoesDeOpiniao extends JPanel {
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
 		
-		JButton btnNovaOpinio = new JButton("NOVA OPINIÃO");
+		JButton btnNovaOpinio = new JButton("NOVA OPINIï¿½O");
 		btnNovaOpinio.setForeground(new Color(51, 102, 153));
 		btnNovaOpinio.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNovaOpinio.addActionListener(new ActionListener() {
@@ -41,7 +41,7 @@ public class OpcoesDeOpiniao extends JPanel {
 		btnNovaOpinio.setBounds(234, 201, 328, 51);
 		add(btnNovaOpinio);
 		
-		JButton btnQualificaoDoHotel = new JButton("MÉDIA DO HOTEL");
+		JButton btnQualificaoDoHotel = new JButton("Mï¿½DIA DO HOTEL");
 		btnQualificaoDoHotel.setForeground(new Color(51, 102, 153));
 		btnQualificaoDoHotel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnQualificaoDoHotel.addActionListener(new ActionListener() {
@@ -67,7 +67,7 @@ public class OpcoesDeOpiniao extends JPanel {
 		add(btnVoltar);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(OpcoesDeOpiniao.class.getResource("/nucleo/icones/hotel4.png")));
+		label.setIcon(new ImageIcon(OpcoesDeOpiniao.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		label.setBounds(325, 27, 138, 105);
 		add(label);
 

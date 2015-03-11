@@ -82,7 +82,7 @@ public class FaturamentoDoHotel extends JPanel {
 
 		JLabel label = new JLabel(new ImageIcon(
 				FaturamentoDoHotel.class
-						.getResource("/nucleo/icones/hotel4.png")));
+						.getResource("/nucleo/icones/hotel4 feito.png")));
 		label.setBounds(339, 11, 143, 118);
 		add(label);
 		btnPesquisar = new JButton("Pesquisar");

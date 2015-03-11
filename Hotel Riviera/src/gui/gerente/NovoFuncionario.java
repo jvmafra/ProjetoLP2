@@ -114,7 +114,7 @@ public class NovoFuncionario extends JPanel {
 		add(btnCadastrar);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(NovoFuncionario.class.getResource("/nucleo/icones/hotel4.png")));
+		label.setIcon(new ImageIcon(NovoFuncionario.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		label.setBounds(317, 12, 161, 105);
 		add(label);
 		

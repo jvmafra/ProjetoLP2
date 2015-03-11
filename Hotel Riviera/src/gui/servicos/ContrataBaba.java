@@ -165,7 +165,7 @@ public class ContrataBaba extends JPanel {
 		add(lblBabsDisponveis);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(ContrataBaba.class.getResource("/nucleo/icones/hotel4.png")));
+		label.setIcon(new ImageIcon(ContrataBaba.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		label.setBounds(321, 11, 184, 129);
 		add(label);
 		

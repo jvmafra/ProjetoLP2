@@ -93,7 +93,7 @@ public class CadastraOpiniao extends JPanel {
 		add(btnSalvar);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(CadastraOpiniao.class.getResource("/nucleo/icones/hotel4.png")));
+		label.setIcon(new ImageIcon(CadastraOpiniao.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		label.setBounds(347, 11, 196, 119);
 		add(label);
 

@@ -66,7 +66,7 @@ public class OpcoesDoHospede extends JPanel {
 		add(btnVoltar);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(OpcoesDoHospede.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel.setIcon(new ImageIcon(OpcoesDoHospede.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel.setBounds(334, 12, 144, 120);
 		add(lblNewLabel);
 

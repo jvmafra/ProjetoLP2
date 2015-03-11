@@ -74,7 +74,7 @@ public class QualificacaoDoHotel extends JPanel {
 		status.setText(Sistema.getHotel().imprimeOpinioes());
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(QualificacaoDoHotel.class.getResource("/nucleo/icones/hotel4.png")));
+		label.setIcon(new ImageIcon(QualificacaoDoHotel.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		label.setBounds(324, 11, 273, 131);
 		add(label);
 		

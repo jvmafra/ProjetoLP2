@@ -56,7 +56,7 @@ public class FaturaFinal extends JPanel {
 		
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(VisualizaContrato.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel.setIcon(new ImageIcon(VisualizaContrato.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel.setBounds(326, 11, 161, 105);
 		add(lblNewLabel);
 		

@@ -108,7 +108,7 @@ public class CadastroQuarto extends JPanel {
 		add(selecionaQuarto);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(CadastroQuarto.class.getResource("/nucleo/icones/hotel4.png")));
+		lblNewLabel.setIcon(new ImageIcon(CadastroQuarto.class.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel.setBounds(337, 26, 169, 105);
 		add(lblNewLabel);
 		
