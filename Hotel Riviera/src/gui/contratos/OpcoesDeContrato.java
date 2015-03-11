@@ -33,6 +33,7 @@ public class OpcoesDeContrato extends JPanel {
 	private JRadioButton rdbtnAbertos, rdbtnGeral, rdbtnFechados_1;
 	private DefaultListModel<Contrato> listModel;
 	private JTextField textField;
+	private JButton btnAbrir;
 
 	/**
 	 * Create the panel.
@@ -107,7 +108,7 @@ public class OpcoesDeContrato extends JPanel {
 		rdbtnAbertos.setOpaque(false);
 		add(rdbtnAbertos);
 
-		JButton btnAbrir = new JButton("Abrir");
+		btnAbrir = new JButton("Abrir");
 		btnAbrir.setForeground(new Color(51, 102, 153));
 		btnAbrir.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAbrir.addActionListener(new ActionListener() {
@@ -126,7 +127,8 @@ public class OpcoesDeContrato extends JPanel {
 		add(btnAbrir);
 
 		JLabel lblNewLabel = new JLabel(new ImageIcon(
-				OpcoesDeContrato.class.getResource("/nucleo/icones/hotel4 feito.png")));
+				OpcoesDeContrato.class
+						.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel.setBounds(322, 33, 134, 85);
 		add(lblNewLabel);
 
@@ -153,52 +155,56 @@ public class OpcoesDeContrato extends JPanel {
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-					listModel.clear();
-					if (rdbtnAbertos.isSelected()) {
-						for (int i = 0; i < Sistema.getHotel()
-								.getContratosAbertos().size(); i++) {
-							listModel.addElement(Sistema.getHotel()
-									.getContratosAbertos().get(i));
-						}
-					} else if (rdbtnFechados_1.isSelected()) {
-						for (int i = 0; i < Sistema.getHotel()
-								.getContratosFechados().size(); i++) {
-							listModel.addElement(Sistema.getHotel()
-									.getContratosFechados().get(i));
-						}
-					} else
-						for (int i = 0; i < Sistema.getHotel().getContratos()
-								.size(); i++) {
-							listModel.addElement(Sistema.getHotel()
-									.getContratos().get(i));
-						}
-			
+				listModel.clear();
+				if (rdbtnAbertos.isSelected()) {
+					for (int i = 0; i < Sistema.getHotel()
+							.getContratosAbertos().size(); i++) {
+						listModel.addElement(Sistema.getHotel()
+								.getContratosAbertos().get(i));
+					}
+				} else if (rdbtnFechados_1.isSelected()) {
+					for (int i = 0; i < Sistema.getHotel()
+							.getContratosFechados().size(); i++) {
+						listModel.addElement(Sistema.getHotel()
+								.getContratosFechados().get(i));
+					}
+				} else
+					for (int i = 0; i < Sistema.getHotel().getContratos()
+							.size(); i++) {
+						listModel.addElement(Sistema.getHotel().getContratos()
+								.get(i));
+					}
+
 			}
 		});
 		btnBuscar.setForeground(new Color(51, 102, 153));
 		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnBuscar.setBounds(580, 242, 100, 23);
 		add(btnBuscar);
-		
+
 		JButton btnRemover = new JButton("Remover");
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Contrato contrato = list.getSelectedValue();
 				if (contrato == null)
 					JOptionPane
-					.showMessageDialog(null, "Selecione um contrato");
-				
+							.showMessageDialog(null, "Selecione um contrato");
+
 				else {
-					int j = JOptionPane.showConfirmDialog(null, "Deseja mesmo remover o contrato? Ele nao constara para fins de faturamentos futuros");
+					int j = JOptionPane
+							.showConfirmDialog(
+									null,
+									"Deseja mesmo remover o contrato? Ele nao constara para fins de faturamentos futuros");
 					if (j == 0) {
 						Sistema.getHotel().removeContrato(contrato);
-						contrato.getQuarto().removePeriodo(contrato.getPeriodo());
+						contrato.getQuarto().removePeriodo(
+								contrato.getPeriodo());
 					}
-					
+
 					Sistema.setTela(new OpcoesDeContrato());
-					
+
 				}
-					
+
 			}
 		});
 		btnRemover.setForeground(new Color(51, 102, 153));

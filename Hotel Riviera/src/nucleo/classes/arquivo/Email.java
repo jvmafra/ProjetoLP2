@@ -7,12 +7,7 @@ import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 
 public class Email {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-
+	
 	public Email() {
 
 	}

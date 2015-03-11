@@ -1,65 +1,111 @@
 package gui;
 
+import gui.hospede.ExibeHospede;
+
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
-import nucleo.classes.pessoa.Hospede;
+import javax.swing.JButton;
 import javax.swing.JEditorPane;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
+import nucleo.classes.arquivo.Email;
+import nucleo.classes.pessoa.Hospede;
+
 public class EnviaEmail extends JPanel {
-	Hospede destinatario;
+	private Hospede hospede;
 	
 	private static final long serialVersionUID = 1L;
 	private JTextField textEmail;
-	private JTextField textDestinatario;
+	private JTextField txtAssunto;
+	private JEditorPane editorPane;
+	
+	
 
 	/**
 	 * Create the panel.
 	 */
 	public EnviaEmail(Hospede destinatario) {
-		this.destinatario = destinatario;
-		
-		setLayout(null);
+		this.hospede = destinatario;
 		setBounds(0, 0, 800, 600);
 		setBackground(new Color(51, 102, 153));
-		JLabel lblEmail= new JLabel(new ImageIcon(EnviaEmail.class
+		setLayout(null);
+		JLabel icone = new JLabel(new ImageIcon(EnviaEmail.class
 				.getResource("/nucleo/icones/hotel4 feito.png")));
-		lblEmail.setBounds(322, 33, 134, 85);
-		lblEmail.setText(destinatario.getEmail());
-		add(lblEmail);
+		icone.setBounds(312, 11, 138, 105);
+		add(icone);
+		
+		JLabel lblEmail_1 = new JLabel("Email: ");
+		lblEmail_1.setBounds(95, 141, 57, 20);
+		lblEmail_1.setForeground(Color.WHITE);
+		add(lblEmail_1);
 		
 		textEmail = new JTextField();
-		textEmail.setBounds(151, 204, 382, 30);
+		textEmail.setBounds(157, 141, 465, 30);
+		textEmail.setText(destinatario.getEmail());
 		add(textEmail);
 		textEmail.setColumns(10);
 		
-		JLabel lblEmail_1 = new JLabel("Email");
-		lblEmail_1.setForeground(Color.WHITE);
-		lblEmail_1.setBounds(81, 203, 52, 30);
-		add(lblEmail_1);
+		JLabel lblAssunto = new JLabel("Assunto: ");
+		lblAssunto.setBounds(81, 188, 69, 14);
+		lblAssunto.setForeground(Color.WHITE);
+		add(lblAssunto);
 		
-		textDestinatario = new JTextField();
-		textDestinatario.setColumns(10);
-		textDestinatario.setBounds(151, 150, 382, 30);
-		add(textDestinatario);
+		txtAssunto = new JTextField();
+		txtAssunto.setBounds(155, 185, 465, 30);
+		txtAssunto.setText((String) null);
+		txtAssunto.setColumns(10);
+		add(txtAssunto);
 		
-		JLabel lblDestinatrio = new JLabel("Destinatário");
-		lblDestinatrio.setForeground(Color.WHITE);
-		lblDestinatrio.setBounds(31, 149, 102, 30);
-		add(lblDestinatrio);
-		
-		JEditorPane edTextoEmail = new JEditorPane();
-		edTextoEmail.setBounds(151, 268, 530, 303);
-		add(edTextoEmail);
-		
-		JLabel lblTextoDoEmail = new JLabel("Texto do Email");
+		JLabel lblTextoDoEmail = new JLabel("Texto do Email: ");
+		lblTextoDoEmail.setBounds(54, 231, 98, 14);
 		lblTextoDoEmail.setForeground(Color.WHITE);
-		lblTextoDoEmail.setBounds(12, 269, 121, 30);
 		add(lblTextoDoEmail);
+		
+		JButton btnEnviar = new JButton("Enviar");
+		btnEnviar.setBounds(648, 307, 90, 30);
+		btnEnviar.setForeground(new Color(51, 102, 153));
+		btnEnviar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Email e = new Email();
+				try {
+					e.enviaEmail(textEmail.getText(), editorPane.getText(), txtAssunto.getText());
+					JOptionPane.showMessageDialog(null, "Email enviado com sucesso.");
 
+				} catch (Exception e1) {
+					JOptionPane.showMessageDialog(null, "Não foi possível enviar seu email.");
+				}
+				
+			}
+		});
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(157, 231, 465, 333);
+		add(scrollPane);
+		
+		editorPane = new JEditorPane();
+		scrollPane.setViewportView(editorPane);
+		btnEnviar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		add(btnEnviar);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new ExibeHospede(hospede));
+			}
+		});
+		btnVoltar.setForeground(new Color(51, 102, 153));
+		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnVoltar.setBounds(648, 393, 90, 30);
+		add(btnVoltar);
+
+		
 	}
 }

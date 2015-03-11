@@ -1,25 +1,24 @@
 package gui.hospede;
 
+import gui.EnviaEmail;
 import gui.Sistema;
 
-import javax.swing.JPanel;
-
-import nucleo.classes.pessoa.Hospede;
-
-import javax.swing.JTextPane;
-import javax.swing.JButton;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Font;
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import nucleo.classes.pessoa.*;
-import javax.swing.JLabel;
+
 import javax.swing.ImageIcon;
-import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import nucleo.classes.pessoa.Contrato;
+import nucleo.classes.pessoa.Hospede;
 
 public class ExibeHospede extends JPanel {
 
@@ -56,7 +55,7 @@ public class ExibeHospede extends JPanel {
 				Sistema.setTela(new OpcoesDoHospede());
 			}
 		});
-		btnVoltar.setBounds(360, 523, 90, 30);
+		btnVoltar.setBounds(250, 524, 90, 30);
 		add(btnVoltar);
 		
 		JLabel lblNewLabel = new JLabel("New label");
@@ -98,6 +97,17 @@ public class ExibeHospede extends JPanel {
 		atualmente.setText(atualmente());
 		atualmente.setOpaque(false);
 		atualmente.setEditable(false);
+		
+		JButton btnEmail = new JButton("Email");
+		btnEmail.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sistema.setTela(new EnviaEmail(hospede));
+			}
+		});
+		btnEmail.setForeground(new Color(51, 102, 153));
+		btnEmail.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnEmail.setBounds(474, 524, 90, 30);
+		add(btnEmail);
 
 	}
 	
