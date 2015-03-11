@@ -126,7 +126,7 @@ public class LoginDeFuncionario extends JPanel implements Serializable {
 		add(btnVoltar);
 		setBackground(new Color(51, 102, 153));
 		lblNewLabel.setIcon(new ImageIcon(LoginDeFuncionario.class.getResource("/nucleo/icones/hotel4 feito.png")));
-		lblNewLabel.setBounds(331, 150, 184, 98);
+		lblNewLabel.setBounds(331, 80, 184, 98);
 		senha_1.setForeground(Color.WHITE);
 		login_1.setForeground(Color.WHITE);
 		btnEntrar.setForeground(new Color(51, 102, 153));
@@ -134,7 +134,7 @@ public class LoginDeFuncionario extends JPanel implements Serializable {
 		areaReservada = new JLabel("AREA RESERVADA");
 		areaReservada.setFont(new Font("Bitstream Charter", Font.BOLD, 26));
 		areaReservada.setForeground(new Color(255, 255, 255));
-		areaReservada.setBounds(296, 280, 262, 55);
+		areaReservada.setBounds(296, 200, 262, 55);
 		add(areaReservada);
 	}
 
