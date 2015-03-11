@@ -5,20 +5,17 @@ import gui.Sistema;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
-
-import javax.swing.JPanel;
-
-import nucleo.classes.pessoa.Funcionario;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.JLabel;
-
-import java.awt.event.ActionListener;
-import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+import nucleo.classes.pessoa.Funcionario;
 
 public class EditaFuncionario extends JPanel {
 	private Funcionario funcionario;
@@ -81,15 +78,15 @@ public class EditaFuncionario extends JPanel {
 
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.setForeground(new Color(51, 102, 153));
-		btnSalvar.setBounds(464, 418, 89, 23);
+		btnSalvar.setBounds(464, 418, 90, 30);
 		btnSalvar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (confirmaSenha.getText().equals(textSenha.getText())) {
+				if (String.valueOf(confirmaSenha.getPassword()).equals(String.valueOf(textSenha.getPassword()))) {
 					try {
 						funcionario.setNome(textNome.getText());
 						funcionario.setLogin(textLogin.getText());
-						funcionario.setSenha(textSenha.getText());
+						funcionario.setSenha(String.valueOf(textSenha.getPassword()));
 						JOptionPane
 								.showMessageDialog(null, "Salvo com sucesso");
 						Sistema.setTela(new OpcoesFuncionario());
@@ -114,7 +111,7 @@ public class EditaFuncionario extends JPanel {
 		});
 		btnVoltar.setForeground(new Color(51, 102, 153));
 		btnVoltar.setFont(new Font("Dialog", Font.PLAIN, 14));
-		btnVoltar.setBounds(344, 418, 89, 23);
+		btnVoltar.setBounds(344, 418, 90, 30);
 		add(btnVoltar);
 
 		confirmaSenha = new JPasswordField();

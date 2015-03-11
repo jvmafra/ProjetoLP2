@@ -11,7 +11,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import nucleo.classes.arquivo.Email;
+import nucleo.classes.arquivo.GeradorPDF;
 import nucleo.classes.pessoa.Contrato;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
@@ -49,11 +53,18 @@ public class VisualizaContrato extends JPanel {
 		btnFecharContrato.setForeground(new Color(51, 102, 153));
 		btnFecharContrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				if (getContrato().isAberto()) {
 					int j = JOptionPane.showConfirmDialog(null, "Deseja mesmo fechar o contrato?");
 					if (j == 0) {
 						Sistema.getHotel().check_out(getContrato());
+						Contrato c = VisualizaContrato.this.contrato;
+						GeradorPDF a = new GeradorPDF(c);
+						Email em = new Email();
+						try {
+							em.enviaEmailComAnexo(c.getEmail(), "Fatura", "Fatura", a.getDocumento());
+						} catch (Exception e1) {
+							e1.printStackTrace();
+						}
 						Sistema.setTela(new FaturaFinal(getContrato()));
 					}
 					

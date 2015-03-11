@@ -78,6 +78,7 @@ public class EnviaEmail extends JPanel {
 				try {
 					e.enviaEmail(textEmail.getText(), editorPane.getText(), txtAssunto.getText());
 					JOptionPane.showMessageDialog(null, "Email enviado com sucesso.");
+					Sistema.setTela(new ExibeHospede(hospede));
 
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog(null, "Não foi possível enviar seu email.");

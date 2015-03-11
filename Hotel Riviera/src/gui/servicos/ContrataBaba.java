@@ -3,35 +3,30 @@ package gui.servicos;
 import gui.Sistema;
 import gui.contratos.VisualizaContrato;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
-import javax.swing.JButton;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Font;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-
-import javax.swing.JLabel;
 
 import nucleo.classes.hotel.Alugavel;
 import nucleo.classes.hotel.Periodo;
 import nucleo.classes.pessoa.Contrato;
-import nucleo.classes.pessoa.Hospede;
 import nucleo.classes.servicos.Baba;
 import nucleo.classes.servicos.BabySitter;
-
-import java.awt.Color;
-
-import javax.swing.ImageIcon;
 public class ContrataBaba extends JPanel {
 	private Contrato contrato;
 	JSpinner data_inicial;

@@ -3,31 +3,26 @@ package gui.servicos;
 import gui.Sistema;
 import gui.contratos.VisualizaContrato;
 
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
+import javax.swing.SpinnerNumberModel;
 
-import java.util.Date;
-import java.util.Calendar;
-import java.awt.Font;
-
-import javax.swing.JComboBox;
-import javax.swing.JButton;
-
-import nucleo.classes.hotel.Periodo;
 import nucleo.classes.pessoa.Contrato;
 import nucleo.classes.servicos.Massagem;
 import nucleo.classes.servicos.TipoDeMassagens;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.SpinnerNumberModel;
 
 public class NovaMassagem extends JPanel {
 

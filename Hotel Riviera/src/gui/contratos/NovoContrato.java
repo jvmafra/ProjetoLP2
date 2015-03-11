@@ -266,12 +266,11 @@ public class NovoContrato extends JPanel {
 				Calendar fim = Sistema.DateToCalendar(data2);
 				try {
 					Periodo p = new Periodo(inicio, fim);
-					Alugavel obj = list.getSelectedValue();
-					Quarto quarto = (Quarto) obj;
-					quarto.setCamaExtra(chckbxCamaExtra.isSelected());
+					System.out.println(p.getNumeroDias());
+					Quarto quarto = (Quarto) list.getSelectedValue();
+					verificaCamaExtra(quarto);
 					Hospede h = list_2.getSelectedValue();
-					Estrategia estrategia = (Estrategia) estrategias
-							.getSelectedItem();
+					Estrategia estrategia = (Estrategia) estrategias.getSelectedItem();
 					Contrato contrato = new Contrato(quarto, h, estrategia, p);
 					Sistema.getHotel().check_in(contrato);
 					JOptionPane.showMessageDialog(null, "Contrato adicionado");
@@ -279,6 +278,11 @@ public class NovoContrato extends JPanel {
 				} catch (Exception e6) {
 					JOptionPane.showMessageDialog(null, e6.getMessage());
 				}
+			}
+
+			private void verificaCamaExtra(Quarto quarto) {
+				if (chckbxCamaExtra.isSelected() == true)
+					quarto.setCamaExtra(chckbxCamaExtra.isSelected());
 			}
 		});
 		btnNewButton.setBounds(617, 503, 90, 30);

@@ -3,29 +3,24 @@ package gui.servicos;
 import gui.Sistema;
 import gui.contratos.VisualizaContrato;
 
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.Date;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JSpinner;
+import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
 
-import java.util.Date;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
-
-import nucleo.classes.servicos.Refeicao;
 import nucleo.classes.pessoa.Contrato;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Color;
+import nucleo.classes.servicos.Refeicao;
 
 public class NovaRefeicao extends JPanel {
 	private static final long serialVersionUID = 1L;
