@@ -93,5 +93,7 @@ public class QuartoLuxoDuplo extends Quarto{
 			return false;
 		return super.equals(obj);
 	}
+	
+	
 
 }

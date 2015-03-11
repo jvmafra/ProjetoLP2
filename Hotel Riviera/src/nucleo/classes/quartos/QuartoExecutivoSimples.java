@@ -48,7 +48,9 @@ public class QuartoExecutivoSimples extends Quarto{
 	}
 	
 
-
+	/**
+	 * Retorna um boolean True se caso o quarto permite cama extra
+	 */
 	@Override
 	public boolean permiteCamaExtra() {
 		return true;

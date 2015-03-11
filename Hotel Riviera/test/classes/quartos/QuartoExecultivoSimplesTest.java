@@ -1,17 +1,31 @@
 package classes.quartos;
 
 import static org.junit.Assert.*;
+
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+import nucleo.classes.hotel.Periodo;
 import nucleo.classes.quartos.Quarto;
 import nucleo.classes.quartos.QuartoExecutivoSimples;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class QuartoExecultivoSimplesTest {
-
+		Calendar data_inicial = new GregorianCalendar(2015, 1, 24);
+		Calendar data_final = new GregorianCalendar(2015, 1, 25);
+		private Periodo p;
 		private Quarto q1;
 		private Quarto q2;
 		private Quarto q3;
+		
+		
+		@Before
+		public void setUp() throws Exception {
+			p = new Periodo(data_inicial, data_final);
+		}
 		
 		@Test
 		public void testaExecutivoSimples() {
@@ -41,5 +55,44 @@ public class QuartoExecultivoSimplesTest {
 			q1 = new QuartoExecutivoSimples(10);
 			Assert.assertEquals(q1.toString(), "N: " + q1.getNumeroDoQuarto() +" - Executivo Simples");
 		}
-
+		
+		@Test
+		public void testPermiteCamaExtra() throws Exception{
+			q1 = new QuartoExecutivoSimples(10);
+			Assert.assertTrue(q1.permiteCamaExtra());
+		}
+		
+		
+		@Test
+		public void testIscapacidadeVAlida() throws Exception{
+			q1 = new QuartoExecutivoSimples(10);
+			Assert.assertTrue(q1.isCapacidadeValida(1));
+			Assert.assertFalse(q1.isCapacidadeValida(3));
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 }
