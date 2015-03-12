@@ -122,7 +122,7 @@ public class NovoFuncionario extends JPanel {
 		label.setBounds(317, 12, 161, 105);
 		add(label);
 		
-		JLabel lblNewLabel = new JLabel("NOVO FUNCIONÁRIO");
+		JLabel lblNewLabel = new JLabel("NOVO FUNCIONARIO");
 		lblNewLabel.setFont(new Font("Bitstream Charter", Font.BOLD, 26));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBounds(270, 131, 278, 40);

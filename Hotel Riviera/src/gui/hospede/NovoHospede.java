@@ -350,16 +350,6 @@ public class NovoHospede extends JPanel {
 		return vemDoContrato;
 	}
 
-//	private boolean verificaCaracteresInvalidos(String nome) {
-//		String alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÀÂÃÈÉÊẼÌÍÎĨÔÕÒÓÛŨÙÚ";
-//		for (int i = 0; i < nome.length(); i++) {
-//			if (!(alfabeto.contains(nome.toUpperCase())))
-//				return false;			
-//		}
-//		return true;
-//			
-//	
-//	}
 
 	
 }

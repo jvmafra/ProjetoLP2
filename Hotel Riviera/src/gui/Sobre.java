@@ -57,7 +57,7 @@ public class Sobre extends JPanel {
 		lblHugoGabrielBezerra.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		add(lblHugoGabrielBezerra);
 		
-		JLabel lblJooVictorMafra = new JLabel("João Victor Mafra");
+		JLabel lblJooVictorMafra = new JLabel("Joao Victor Mafra");
 		lblJooVictorMafra.setBounds(342, 438, 113, 17);
 		lblJooVictorMafra.setForeground(Color.WHITE);
 		lblJooVictorMafra.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -76,6 +76,10 @@ public class Sobre extends JPanel {
 		btnVoltar.setBackground(Color.WHITE);
 		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		add(btnVoltar);
+		
+		JLabel label = new JLabel("");
+		label.setBounds(374, 126, 46, 14);
+		add(label);
 		
 	
 	}

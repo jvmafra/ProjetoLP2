@@ -73,7 +73,7 @@ public class Sistema extends JFrame {
 		contentPane.setLayout(new CardLayout(0, 0));
 		setResizable(false);
 
-		btnHome = new JButton("INÍCIO");
+		btnHome = new JButton("INICIO");
 		btnHome.setForeground(new Color(51, 102, 153));
 		btnHome.setIcon(null);
 		btnHome.setBounds(10, 10, 90, 30);
