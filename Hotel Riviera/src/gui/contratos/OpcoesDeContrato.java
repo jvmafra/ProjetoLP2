@@ -163,6 +163,7 @@ public class OpcoesDeContrato extends JPanel {
 				} catch (Exception e) {
 					buscaPorCpf = false;
 				}
+				
 				if (rdbtnAbertos.isSelected()) {
 					for (int i = 0; i < Sistema.getHotel()
 							.getContratosAbertos().size(); i++) {
