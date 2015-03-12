@@ -264,9 +264,9 @@ public class NovoContrato extends JPanel {
 				Date data2 = (Date) data_final.getValue();
 				Calendar inicio = Sistema.DateToCalendar(data);
 				Calendar fim = Sistema.DateToCalendar(data2);
+				fim.add(Calendar.MINUTE, 1);
 				try {
 					Periodo p = new Periodo(inicio, fim);
-					System.out.println(p.getNumeroDias());
 					Quarto quarto = (Quarto) list.getSelectedValue();
 					verificaCamaExtra(quarto);
 					Hospede h = list_2.getSelectedValue();

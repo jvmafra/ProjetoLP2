@@ -37,7 +37,7 @@ public class VisualizaContrato extends JPanel {
 		this.contrato = contrato;
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
-		
+
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setForeground(new Color(51, 102, 153));
 		btnVoltar.addActionListener(new ActionListener() {
@@ -48,63 +48,71 @@ public class VisualizaContrato extends JPanel {
 		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnVoltar.setBounds(89, 537, 90, 30);
 		add(btnVoltar);
-		
+
 		JButton btnFecharContrato = new JButton("Fechar Contrato");
 		btnFecharContrato.setForeground(new Color(51, 102, 153));
 		btnFecharContrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (getContrato().isAberto()) {
-					int j = JOptionPane.showConfirmDialog(null, "Deseja mesmo fechar o contrato?");
+					int j = JOptionPane.showConfirmDialog(null,
+							"Deseja mesmo fechar o contrato?");
 					if (j == 0) {
 						Sistema.getHotel().check_out(getContrato());
-						Contrato c = VisualizaContrato.this.contrato;
-						GeradorPDF a = new GeradorPDF(c);
-						Email em = new Email();
+						Contrato informacoes = VisualizaContrato.this.contrato;
+						GeradorPDF anexo = new GeradorPDF(informacoes);
+						Email mensagem = new Email();
 						try {
-							em.enviaEmailComAnexo(c.getEmail(), "Fatura", "Fatura", a.getDocumento());
+							mensagem.enviaEmailComAnexo(informacoes.getEmail(),
+									Email.getModelodeTexto(informacoes),
+									"Detalhamento de gastos",
+									anexo.getDocumento());
 						} catch (Exception e1) {
 							e1.printStackTrace();
+						} finally {
+							anexo.apagaDocumento();
 						}
 						Sistema.setTela(new FaturaFinal(getContrato()));
 					}
-					
-					else  {
+
+					else {
 						Sistema.setTela(new VisualizaContrato(getContrato()));
 					}
 				}
-				
+
 				else
-					JOptionPane.showMessageDialog(null, "O contrato ja foi fechado!");
-				
+					JOptionPane.showMessageDialog(null,
+							"O contrato ja foi fechado!");
+
 			}
 		});
 		btnFecharContrato.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnFecharContrato.setBounds(514, 537, 150, 30);
 		add(btnFecharContrato);
-		
-		
+
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(VisualizaContrato.class.getResource("/nucleo/icones/hotel4 feito.png")));
+		lblNewLabel.setIcon(new ImageIcon(VisualizaContrato.class
+				.getResource("/nucleo/icones/hotel4 feito.png")));
 		lblNewLabel.setBounds(326, 11, 161, 105);
 		add(lblNewLabel);
-		
+
 		JButton btnNewButton = new JButton("Novo Serviço");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (getContrato().isAberto())
 					Sistema.setTela(new OpcoesDeServicos(getContrato()));
 				else
-					JOptionPane.showMessageDialog(null, "O contrato ja foi fechado!");
+					JOptionPane.showMessageDialog(null,
+							"O contrato ja foi fechado!");
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnNewButton.setForeground(new Color(51, 102, 153));
 		btnNewButton.setBounds(282, 536, 150, 30);
 		add(btnNewButton);
-		
+
 		JScrollPane scrStatus = new JScrollPane();
 		scrStatus.setBounds(57, 145, 290, 360);
-		
+
 		JTextArea status = new JTextArea();
 		status.setText(getContrato().imprimeResumoAtual());
 		status.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -112,26 +120,26 @@ public class VisualizaContrato extends JPanel {
 		status.setBackground(new Color(51, 102, 153));
 		status.setForeground(new Color(255, 255, 255));
 		status.setEditable(false);
-		
+
 		scrStatus.setViewportView(status);
 		add(scrStatus);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(462, 145, 290, 360);
-		
+
 		servicos = new JTextArea();
 		servicos.setBackground(new Color(51, 102, 153));
 		servicos.setForeground(new Color(255, 255, 255));
 		servicos.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		servicos.setText(getContrato().imprimeCadaServicoEspecial());
 		servicos.setEditable(false);
-		
+
 		scrollPane.setViewportView(servicos);
 		add(scrollPane);
 
 	}
-	
-	public Contrato getContrato(){
+
+	public Contrato getContrato() {
 		return contrato;
 	}
 }
