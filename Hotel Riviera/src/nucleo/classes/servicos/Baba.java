@@ -94,7 +94,7 @@ public class Baba implements Serializable, Alugavel{
 	}
 
 	/**
-	 * retorna periodo
+	 * retorna a lista de periodos periodo
 	 */
 	public List<Periodo> getPeriodos() {
 		return periodos;

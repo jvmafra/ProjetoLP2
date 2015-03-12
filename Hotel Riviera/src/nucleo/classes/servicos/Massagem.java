@@ -9,6 +9,16 @@ import nucleo.excecoes.TipoDeMassagensInvalidaException;
 import nucleo.excecoes.TipoDeMassagensInvalidoException;
 import nucleo.excecoes.ValorInvalidoException;
 
+
+/**
+ * Serviço de Massagem , que tem que receber um tipo de massagem uma data e uma duração
+ * Implementa a interface servicos, tendo portanto um valor a ser adicionado ao montante
+ * do hospede
+ * 
+ * 
+ * @author Adiel Andrade
+ *
+ */
 public class Massagem implements Servico, Serializable {
 	/**
 	 * 
@@ -19,7 +29,23 @@ public class Massagem implements Servico, Serializable {
 	private Calendar data;
 	private int duracao;
 	
-	public Massagem(TipoDeMassagens tipo, Calendar data, int duracao) throws ValorInvalidoException, PeriodoInvalidoException, TipoDeMassagensInvalidoException, TipoDeMassagensInvalidaException  {
+	
+	/**
+	 * COnstrutor de Massagem que tem que receber um tipo de massagem uma data e uma duração
+	 * @param tipo
+	 * 		um tipo de massagem que e uma constante criada no enum
+	 * @param data
+	 * 		Uma data valida no periodo 
+	 * @param duracao
+	 * 		A duração da massagem que pode ser de 1 hora ate 3 horas
+	 * @throws ValorInvalidoException
+	 * 		
+	 * @throws PeriodoInvalidoException
+	 * 		Caso o periodo seja nulo eu em um horario invalido pra a massagem
+	 * @throws TipoDeMassagensInvalidaException
+	 * 		caso o tipo passado seja nulo 
+	 */
+	public Massagem(TipoDeMassagens tipo, Calendar data, int duracao) throws  PeriodoInvalidoException, TipoDeMassagensInvalidaException {
 	if (tipo == null){
 		throw new TipoDeMassagensInvalidaException("Tipo de massagem invalida");
 	}
@@ -40,7 +66,11 @@ public class Massagem implements Servico, Serializable {
 	
 	}
 	
-	
+	/**
+	 * Retorna o nome da massagem
+	 * @return
+	 * 		nome
+	 */
 	public String getNome(){
 		return nome;
 	}
@@ -50,11 +80,20 @@ public class Massagem implements Servico, Serializable {
 		return valor * totalDeHoras();
 	}
 	
+	/**
+	 * retorna a duração da massagem
+	 * @return
+	 * 		duracao
+	 */
 	public int totalDeHoras(){
 		return duracao;
 	}
 
-
+	/**
+	 * retorna a data passada para a massagem
+	 * @return
+	 * 		data
+	 */
 	public Calendar getData() {
 		return data;
 	}

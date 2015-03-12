@@ -1,4 +1,5 @@
 package classes.servicos;
+// Adiel Andrade
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -52,13 +53,7 @@ public class RefeicaoTest {
 	
 	}
 		
-	@Test
-	public void testGetDataString() throws Exception{
-		refeicao = new Refeicao(60.0, data3);
-		Assert.assertEquals(refeicao.getDataString(), "22/5/2015");
-		
-			
-	}
+
 	
 	@Test
 	public void testToString() throws Exception{

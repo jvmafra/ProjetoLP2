@@ -7,6 +7,15 @@ import nucleo.classes.hotel.Servico;
 import nucleo.excecoes.PeriodoInvalidoException;
 import nucleo.excecoes.ValorInvalidoException;
 
+/**
+ * Serviço de refeicao, que tem que receber uma data e um valor
+ * Implementa a interface servicos, tendo portanto um valor a ser adicionado ao montante
+ * do hospede
+ * 
+ * @author Adiel Andrade
+ *
+ */
+
 public class Refeicao implements Servico, Serializable{
 	/**
 	 * 
@@ -54,12 +63,7 @@ public class Refeicao implements Servico, Serializable{
 	}
 	
 	
-	/**
-	 * Retorna a data em que foi feita a refeicao
-	 * @return
-	 * 	uma String da data em que foi feita da refeicao
-	 */
-	public String getDataString() {
+	private String getDataString() {
 		int dia = getData().get(Calendar.DATE);
 		int mes = getData().get(Calendar.MONTH);
 		int ano = getData().get(Calendar.YEAR);

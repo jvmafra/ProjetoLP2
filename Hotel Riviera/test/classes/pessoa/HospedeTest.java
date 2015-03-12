@@ -1,4 +1,4 @@
-// Adiel Andrade e Edval
+// Adiel Andrade e Edval Galdino
 
 package classes.pessoa;
 
