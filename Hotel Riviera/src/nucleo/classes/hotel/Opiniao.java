@@ -83,7 +83,9 @@ public class Opiniao implements Serializable{
 	 * Retorna a hora em forma de String no formato XX:YY
 	 */
 	public String getHora() {
+		@SuppressWarnings("deprecation")
 		int hora = data.getTime().getHours();
+		@SuppressWarnings("deprecation")
 		int minutos = data.getTime().getMinutes();
 		
 		String hora_completa = hora + ":" + minutos;

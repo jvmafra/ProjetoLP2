@@ -18,6 +18,10 @@ import nucleo.excecoes.PeriodoInvalidoException;
 
 public class BabySitter implements Servico, Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final int VALOR_HORA_NORMAL = 25;
 	private static final int VALOR_HORA_DOBRADA = 50;
 	private int horaDeInicio;

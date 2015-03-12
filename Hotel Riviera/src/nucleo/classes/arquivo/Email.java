@@ -17,6 +17,7 @@ public class Email {
 
 	}
 
+	@SuppressWarnings("deprecation")
 	public void enviaEmail(String email, String texto, String assunto)
 			throws Exception {
 		if (email == null || !verificaEmail(email))
@@ -41,6 +42,7 @@ public class Email {
 
 	}
 
+	@SuppressWarnings("deprecation")
 	public void enviaEmailComAnexo(String email, String texto, String assunto,
 			File faturaPDF) throws Exception {
 		if (email == null || !verificaEmail(email))

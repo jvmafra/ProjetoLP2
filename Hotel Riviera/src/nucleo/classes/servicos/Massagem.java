@@ -2,9 +2,7 @@ package nucleo.classes.servicos;
 
 import java.io.Serializable;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
-import nucleo.classes.hotel.Periodo;
 import nucleo.classes.hotel.Servico;
 import nucleo.excecoes.PeriodoInvalidoException;
 import nucleo.excecoes.TipoDeMassagensInvalidaException;

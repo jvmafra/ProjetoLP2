@@ -1,9 +1,5 @@
 package nucleo.classes.quartos;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import nucleo.classes.hotel.Periodo;
 /**
  * Classe que representa um objeto do tipo
  * Executivo Triplo

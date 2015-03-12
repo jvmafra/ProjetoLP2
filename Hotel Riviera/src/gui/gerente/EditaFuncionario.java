@@ -40,14 +40,14 @@ public class EditaFuncionario extends JPanel {
 		setLayout(null);
 		setBounds(0, 0, 800, 600);
 		textNome = new JTextField();
-		textNome.setBounds(416, 178, 344, 30);
+		textNome.setBounds(280, 178, 344, 30);
 		
 		add(textNome);
 		textNome.setColumns(10);
 
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setForeground(Color.WHITE);
-		lblNome.setBounds(320, 178, 78, 22);
+		lblNome.setBounds(234, 182, 78, 22);
 		add(lblNome);
 
 		JLabel label = new JLabel(new ImageIcon(
@@ -58,27 +58,27 @@ public class EditaFuncionario extends JPanel {
 
 		textLogin = new JTextField();
 		textLogin.setColumns(10);
-		textLogin.setBounds(416, 228, 130, 30);
+		textLogin.setBounds(280, 228, 130, 30);
 		add(textLogin);
 
 		textSenha = new JPasswordField();
 		textSenha.setColumns(10);
-		textSenha.setBounds(416, 278, 130, 30);
+		textSenha.setBounds(280, 278, 130, 30);
 		add(textSenha);
 
 		lblLogin = new JLabel("Login:");
 		lblLogin.setForeground(Color.WHITE);
-		lblLogin.setBounds(320, 228, 78, 22);
+		lblLogin.setBounds(234, 232, 78, 22);
 		add(lblLogin);
 
 		lblSenha = new JLabel("Senha:");
 		lblSenha.setForeground(Color.WHITE);
-		lblSenha.setBounds(320, 278, 78, 22);
+		lblSenha.setBounds(234, 282, 78, 22);
 		add(lblSenha);
 
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.setForeground(new Color(51, 102, 153));
-		btnSalvar.setBounds(464, 418, 90, 30);
+		btnSalvar.setBounds(436, 418, 90, 30);
 		btnSalvar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -111,18 +111,18 @@ public class EditaFuncionario extends JPanel {
 		});
 		btnVoltar.setForeground(new Color(51, 102, 153));
 		btnVoltar.setFont(new Font("Dialog", Font.PLAIN, 14));
-		btnVoltar.setBounds(344, 418, 90, 30);
+		btnVoltar.setBounds(300, 418, 90, 30);
 		add(btnVoltar);
 
 		confirmaSenha = new JPasswordField();
 		confirmaSenha.setText((String) null);
 		confirmaSenha.setColumns(10);
-		confirmaSenha.setBounds(416, 328, 130, 30);
+		confirmaSenha.setBounds(280, 328, 130, 30);
 		add(confirmaSenha);
 
 		JLabel lblConfirmeASenha = new JLabel("Confirme a senha:");
 		lblConfirmeASenha.setForeground(Color.WHITE);
-		lblConfirmeASenha.setBounds(300, 328, 98, 22);
+		lblConfirmeASenha.setBounds(179, 332, 109, 22);
 		add(lblConfirmeASenha);
 		preencheCampos();
 

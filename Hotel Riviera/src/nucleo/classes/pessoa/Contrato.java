@@ -193,7 +193,7 @@ public class Contrato implements Serializable{
 	 * Calcula o valor de todos os servicos usando a estrategia de cobranca, que depende do periodo
 	 */
 	public double calculaValorTotal(){
-		return (calculaValorServicos() * getEstrategia().getFator()) - calculaMulta();
+		return (calculaValorServicos() * getEstrategia().getFator()) + calculaMulta();
 	}
 	
 	/**

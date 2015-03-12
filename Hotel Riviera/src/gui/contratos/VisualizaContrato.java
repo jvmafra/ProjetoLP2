@@ -53,7 +53,12 @@ public class VisualizaContrato extends JPanel {
 		btnFecharContrato.setForeground(new Color(51, 102, 153));
 		btnFecharContrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (getContrato().isAberto()) {
+				if (getContrato().getPeriodo().getData_inicial().after(Sistema.getHoje())){ // verifica se o hospede ja chegou
+					JOptionPane.showMessageDialog(null,
+							"O hospede ainda nao chegou ao hotel. Caso queira cancelar a reserva, remova o contrato");
+					
+				}
+				else if (getContrato().isAberto()) {
 					int j = JOptionPane.showConfirmDialog(null,
 							"Deseja mesmo fechar o contrato?");
 					if (j == 0) {

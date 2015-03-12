@@ -2,9 +2,7 @@ package nucleo.classes.formas_cobranca;
 
 import java.io.Serializable;
 
-import nucleo.classes.hotel.Periodo;
 import nucleo.excecoes.NomeInvalidoException;
-import nucleo.excecoes.PeriodoInvalidoException;
 import nucleo.excecoes.ValorInvalidoException;
 
 public class Estrategia implements Serializable{

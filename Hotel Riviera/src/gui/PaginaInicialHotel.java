@@ -57,7 +57,7 @@ public class PaginaInicialHotel extends JPanel {
 		btnOpinies.setForeground(new Color(51, 102, 153));
 		btnOpinies.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//Sistema.setTela(new Sobre());
+				Sistema.setTela(new Sobre());
 			}
 		});
 		btnOpinies.setBounds(317, 380, 150, 50);
