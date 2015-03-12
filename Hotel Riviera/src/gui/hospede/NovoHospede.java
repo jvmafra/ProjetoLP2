@@ -324,8 +324,8 @@ public class NovoHospede extends JPanel {
 
 				} catch (IOException e) {
 					JOptionPane.showMessageDialog(null,
-							"A busca n�o p�de ser realizada\n"
-									+ "Verifique sua conex�o com a internet");
+							"A busca nao pode ser realizada\n"
+									+ "Verifique sua conexao com a internet");
 				}
 			}
 		});

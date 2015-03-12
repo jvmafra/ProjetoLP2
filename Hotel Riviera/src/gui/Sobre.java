@@ -7,6 +7,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 
 public class Sobre extends JPanel {
@@ -78,7 +79,8 @@ public class Sobre extends JPanel {
 		add(btnVoltar);
 		
 		JLabel label = new JLabel("");
-		label.setBounds(374, 126, 46, 14);
+		label.setIcon(new ImageIcon(Sobre.class.getResource("/nucleo/icones/sobre.jpg")));
+		label.setBounds(343, 11, 176, 178);
 		add(label);
 		
 	
