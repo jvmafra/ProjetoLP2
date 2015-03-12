@@ -1,8 +1,6 @@
 package classes.quartos;
 
-import static org.junit.Assert.*;
 import nucleo.classes.quartos.Quarto;
-import nucleo.classes.quartos.QuartoExecutivoTriplo;
 import nucleo.classes.quartos.QuartoLuxoDuplo;
 
 import org.junit.Assert;

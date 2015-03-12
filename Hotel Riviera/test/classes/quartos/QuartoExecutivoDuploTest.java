@@ -1,9 +1,7 @@
 package classes.quartos;
 //Adiel Andrade e Hugo Gabriel
-import static org.junit.Assert.*;
 import nucleo.classes.quartos.Quarto;
 import nucleo.classes.quartos.QuartoExecutivoDuplo;
-import nucleo.classes.quartos.QuartoExecutivoSimples;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -1,8 +1,5 @@
-import static org.junit.Assert.*;
 import nucleo.classes.formas_cobranca.Estrategia;
-import nucleo.classes.pessoa.Contrato;
 
-import org.junit.Test;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

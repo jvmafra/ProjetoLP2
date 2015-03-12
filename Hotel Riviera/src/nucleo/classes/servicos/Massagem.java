@@ -6,7 +6,6 @@ import java.util.Calendar;
 import nucleo.classes.hotel.Servico;
 import nucleo.excecoes.PeriodoInvalidoException;
 import nucleo.excecoes.TipoDeMassagensInvalidaException;
-import nucleo.excecoes.TipoDeMassagensInvalidoException;
 import nucleo.excecoes.ValorInvalidoException;
 
 

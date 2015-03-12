@@ -1,12 +1,9 @@
 package classes.pessoa;
 
-import static org.junit.Assert.*;
-
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import nucleo.classes.formas_cobranca.Estrategia;
-import nucleo.classes.hotel.Alugavel;
 import nucleo.classes.hotel.Periodo;
 import nucleo.classes.hotel.Servico;
 import nucleo.classes.pessoa.Contrato;
@@ -18,7 +15,6 @@ import nucleo.classes.servicos.Baba;
 import nucleo.classes.servicos.BabySitter;
 import nucleo.classes.servicos.Carro;
 import nucleo.classes.servicos.Refeicao;
-import nucleo.excecoes.NomeInvalidoException;
 
 import org.junit.Assert;
 import org.junit.Before;

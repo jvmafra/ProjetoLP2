@@ -1,31 +1,22 @@
 package classes.quartos;
 //Adiel Andrade e Hugo Gabriel
-import static org.junit.Assert.*;
-
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import nucleo.classes.hotel.Periodo;
 import nucleo.classes.quartos.Quarto;
 import nucleo.classes.quartos.QuartoExecutivoSimples;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 public class QuartoExecultivoSimplesTest {
 		Calendar data_inicial = new GregorianCalendar(2015, 1, 24);
 		Calendar data_final = new GregorianCalendar(2015, 1, 25);
-		private Periodo p;
+
 		private Quarto q1;
 		private Quarto q2;
 		private Quarto q3;
 		
-		
-		@Before
-		public void setUp() throws Exception {
-			p = new Periodo(data_inicial, data_final);
-		}
 		
 		@Test
 		public void testaExecutivoSimples() {

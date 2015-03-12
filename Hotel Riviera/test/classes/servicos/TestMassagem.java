@@ -1,13 +1,9 @@
 package classes.servicos;
 // Adiel Andrade
 
-import static org.junit.Assert.*;
-
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import nucleo.classes.hotel.Periodo;
-import nucleo.classes.servicos.Baba;
 import nucleo.classes.servicos.Massagem;
 import nucleo.classes.servicos.TipoDeMassagens;
 import nucleo.excecoes.PeriodoInvalidoException;

@@ -4,12 +4,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import nucleo.classes.hotel.Periodo;
-import nucleo.classes.servicos.Baba;
 import nucleo.classes.servicos.Carro;
-import nucleo.excecoes.DescricaoInvalidaException;
-import nucleo.excecoes.NomeInvalidoException;
-import nucleo.excecoes.PlacaInvalidaException;
-import nucleo.excecoes.TelefoneInvalidoException;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -1,7 +1,6 @@
 package classes.quartos;
 //Adiel Andrade e Hugo Gabriel
 import nucleo.classes.quartos.Quarto;
-import nucleo.classes.quartos.QuartoLuxoTriplo;
 import nucleo.classes.quartos.QuartoPresidencial;
 
 import org.junit.Assert;
