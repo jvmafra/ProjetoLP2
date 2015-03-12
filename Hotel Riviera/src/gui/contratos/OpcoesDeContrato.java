@@ -21,6 +21,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 
+import nucleo.classes.arquivo.buscaCEP;
 import nucleo.classes.pessoa.Contrato;
 
 public class OpcoesDeContrato extends JPanel {
@@ -156,23 +157,45 @@ public class OpcoesDeContrato extends JPanel {
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				listModel.clear();
+				boolean buscaPorCpf = true;
+				try {
+					Long.parseLong(textField.getText());
+				} catch (Exception e) {
+					buscaPorCpf = false;
+				}
 				if (rdbtnAbertos.isSelected()) {
 					for (int i = 0; i < Sistema.getHotel()
 							.getContratosAbertos().size(); i++) {
-						listModel.addElement(Sistema.getHotel()
-								.getContratosAbertos().get(i));
+						if (buscaPorCpf){
+							if (Sistema.getHotel().getContratosAbertos().get(i).getCPF().contains(textField.getText()))
+								listModel.addElement(Sistema.getHotel().getContratosAbertos().get(i));
+						}else{
+							if (Sistema.getHotel().getContratosAbertos().get(i).getNome().contains(textField.getText()))
+								listModel.addElement(Sistema.getHotel().getContratosAbertos().get(i));
+						}
+
 					}
 				} else if (rdbtnFechados_1.isSelected()) {
 					for (int i = 0; i < Sistema.getHotel()
 							.getContratosFechados().size(); i++) {
-						listModel.addElement(Sistema.getHotel()
-								.getContratosFechados().get(i));
+						if (buscaPorCpf){
+							if (Sistema.getHotel().getContratosFechados().get(i).getCPF().contains(textField.getText()))
+								listModel.addElement(Sistema.getHotel().getContratosFechados().get(i));
+						}else{
+							if (Sistema.getHotel().getContratosFechados().get(i).getNome().contains(textField.getText()))
+								listModel.addElement(Sistema.getHotel().getContratosFechados().get(i));
+						}
 					}
 				} else
 					for (int i = 0; i < Sistema.getHotel().getContratos()
 							.size(); i++) {
-						listModel.addElement(Sistema.getHotel().getContratos()
-								.get(i));
+						if (buscaPorCpf){
+							if (Sistema.getHotel().getContratos().get(i).getCPF().contains(textField.getText()))
+								listModel.addElement(Sistema.getHotel().getContratos().get(i));
+						}else{
+							if (Sistema.getHotel().getContratos().get(i).getNome().contains(textField.getText()))
+								listModel.addElement(Sistema.getHotel().getContratos().get(i));
+						}
 					}
 
 			}
