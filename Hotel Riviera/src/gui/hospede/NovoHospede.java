@@ -265,7 +265,7 @@ public class NovoHospede extends JPanel {
 							idade.getText(), email.getText(), 
 							telefone.getText().replace("-", "").replace("(", "").replace(")", ""),
 							endereco.getText(), numCartao.getText().replace(".", ""));
-					Sistema.getHotel().adicionaHospede(hospede);
+						Sistema.getHotel().adicionaHospede(hospede);
 					JOptionPane.showMessageDialog(null, "Hospede criado!");
 					if (vemDoContrato())
 						Sistema.setTela(new NovoContrato());
@@ -273,7 +273,7 @@ public class NovoHospede extends JPanel {
 						Sistema.setTela(new OpcoesDoHospede());
 				} catch (EntradaDeDadosException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
-				}
+				} 
 			}
 		});
 		btnConcluir.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -347,12 +347,16 @@ public class NovoHospede extends JPanel {
 		return vemDoContrato;
 	}
 
-//	private String maskNome() {
-//		String nome = "";
-//		for (int i = 0; i < 50; i++) {
-//			nome += "U";
+//	private boolean verificaCaracteresInvalidos(String nome) {
+//		String alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÀÂÃÈÉÊẼÌÍÎĨÔÕÒÓÛŨÙÚ";
+//		for (int i = 0; i < nome.length(); i++) {
+//			if (!(alfabeto.contains(nome.toUpperCase())))
+//				return false;			
 //		}
-//		return nome;
+//		return true;
+//			
+//	
+//	}
 
 	
 }

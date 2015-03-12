@@ -21,7 +21,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 
-import nucleo.classes.arquivo.buscaCEP;
 import nucleo.classes.pessoa.Contrato;
 
 public class OpcoesDeContrato extends JPanel {

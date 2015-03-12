@@ -20,6 +20,7 @@ import nucleo.classes.quartos.QuartoLuxoTriplo;
 import nucleo.classes.quartos.QuartoPresidencial;
 import nucleo.classes.servicos.Baba;
 import nucleo.classes.servicos.Carro;
+import nucleo.excecoes.EntradaDeDadosException;
 
 /**
  * Manipula operacoes relacionadas ao Hotel como um todo
@@ -297,7 +298,11 @@ public class Hotel implements Serializable{
 	/**
 	 * Adiciona um hospede ao hotel
 	 */
-	public void adicionaHospede(Hospede h){
+	public void adicionaHospede(Hospede h) throws EntradaDeDadosException{
+		for (Hospede hospede : hospedes) {
+			if (h.getCpf().equals(hospede.getCpf()))
+					throw new EntradaDeDadosException("Hóspede já existente");			
+		}
 		hospedes.add(h);
 	}
 	
@@ -321,15 +326,6 @@ public class Hotel implements Serializable{
 	public void removeCarro(Carro carro){
 		carros.remove(carro);
 	}
-	
-	/**
-	 * Remove um hospede do hotel
-	 */
-	public void removeHospede(Hospede hospede){
-		hospedes.remove(hospede);
-	}
-	
-
 	
 	/**
 	 * Remove um novo quarto no hotel

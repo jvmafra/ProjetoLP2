@@ -29,6 +29,8 @@ public class CadastroQuarto extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JComboBox<Quarto> quartos;
+	private JButton concluir;
+	private JLabel lblCadastraNovoQuarto;
 
 	/**
 	 * Create the frame.
@@ -45,8 +47,6 @@ public class CadastroQuarto extends JPanel {
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
-	
-
 		
 		JButton voltar = new JButton("Voltar");
 		voltar.setForeground(new Color(51, 102, 153));
@@ -59,9 +59,8 @@ public class CadastroQuarto extends JPanel {
 		});
 		setLayout(null);
 		add(voltar);
-		
-		
-		JButton concluir = new JButton("Concluir");
+
+		concluir = new JButton("Concluir");
 		concluir.setForeground(new Color(51, 102, 153));
 		concluir.setBounds(453, 356, 91, 30);
 		concluir.addActionListener(new ActionListener() {
@@ -112,7 +111,7 @@ public class CadastroQuarto extends JPanel {
 		lblNewLabel.setBounds(337, 26, 169, 105);
 		add(lblNewLabel);
 		
-		JLabel lblCadastraNovoQuarto = new JLabel("CADASTRA NOVO QUARTO");
+		lblCadastraNovoQuarto = new JLabel("CADASTRA NOVO QUARTO");
 		lblCadastraNovoQuarto.setFont(new Font("Bitstream Charter", Font.BOLD, 26));
 		lblCadastraNovoQuarto.setForeground(new Color(255, 255, 255));
 		lblCadastraNovoQuarto.setBounds(248, 128, 365, 55);
@@ -122,6 +121,7 @@ public class CadastroQuarto extends JPanel {
 	private int calculaProximoNumero(){
 		return Sistema.getHotel().getQuartos().size() + 1;
 	}
+	
 }
 
 

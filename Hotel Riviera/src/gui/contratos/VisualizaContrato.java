@@ -72,7 +72,7 @@ public class VisualizaContrato extends JPanel {
 									"Detalhamento de gastos",
 									anexo.getDocumento());
 						} catch (Exception e1) {
-							e1.printStackTrace();
+							JOptionPane.showMessageDialog(null, "Não foi possível enviar o email");
 						} finally {
 							anexo.apagaDocumento();
 						}

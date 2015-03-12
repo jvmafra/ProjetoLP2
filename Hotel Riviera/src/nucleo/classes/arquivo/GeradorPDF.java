@@ -16,11 +16,9 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
 public class GeradorPDF {
-	private Document document;
 	static Contrato contrato;
 
 	public GeradorPDF(Contrato contrato) {
-		this.contrato = contrato;
 		// criação do documento
 		Document document = new Document();
 		try {
