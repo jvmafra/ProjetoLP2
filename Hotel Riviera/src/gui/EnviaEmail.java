@@ -19,6 +19,11 @@ import javax.swing.JTextField;
 import nucleo.classes.arquivo.Email;
 import nucleo.classes.pessoa.Hospede;
 
+/**
+ * Tela que representa o envio de email para um hospede
+ * @author Hugo Gabriel
+ */
+
 public class EnviaEmail extends JPanel {
 	private Hospede hospede;
 	

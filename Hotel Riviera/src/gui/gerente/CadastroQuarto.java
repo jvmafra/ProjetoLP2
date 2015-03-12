@@ -23,6 +23,9 @@ import nucleo.classes.quartos.QuartoLuxoSimples;
 import nucleo.classes.quartos.QuartoLuxoTriplo;
 import nucleo.classes.quartos.QuartoPresidencial;
 
+/**
+ * Cadastra um novo quarto no hotel. O numero dele ja eh calculado automaticamente pelo numero do ultimo
+ */
 public class CadastroQuarto extends JPanel {
 	/**
 	 * 

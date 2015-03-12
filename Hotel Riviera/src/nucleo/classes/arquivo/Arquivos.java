@@ -8,6 +8,11 @@ import java.io.ObjectOutputStream;
 
 import nucleo.classes.hotel.Hotel;
 
+/**
+ * Manipula o carregamento/salvamento dos objetos do hotel
+ * @author Hugo Gabriel Bezerra da Silva
+ */
+
 public class Arquivos {
 	public final static String DIR = "Documentos do Hotel";
 	static {

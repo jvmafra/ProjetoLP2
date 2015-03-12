@@ -15,6 +15,11 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
+/**
+ * Gera uma fatura em PDF a ser enviada para o hospede ao fim do contrato
+ * @author Hugo Gabriel Bezerra da Silva
+ */
+
 public class GeradorPDF {
 	static Contrato contrato;
 

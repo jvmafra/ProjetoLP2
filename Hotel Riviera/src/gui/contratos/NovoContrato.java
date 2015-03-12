@@ -37,6 +37,9 @@ import nucleo.classes.pessoa.Contrato;
 import nucleo.classes.pessoa.Hospede;
 import nucleo.classes.quartos.Quarto;
 
+/**
+ * Cria um novo contrato associado a um hospede
+ */
 public class NovoContrato extends JPanel {
 	/**
 	 * 

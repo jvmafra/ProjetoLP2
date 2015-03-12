@@ -17,6 +17,9 @@ import nucleo.classes.servicos.*;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
+/**
+ * Edita um carro no hotel. Podem ser editadas sua descricao, placa e a identificacao se eh de luxo ou nao
+ */
 public class EditarCarro extends JPanel {
 	/**
 	 * 

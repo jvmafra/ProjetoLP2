@@ -175,7 +175,9 @@ public class Carro implements Serializable, Alugavel{
 	
 	}
 	
-	
+	/**
+	 * Verifica se um carro eh igual a outro
+	 */
 	@Override
 	public boolean equals(Object obj){
 		if (!(obj instanceof Carro))
@@ -186,6 +188,9 @@ public class Carro implements Serializable, Alugavel{
 		return getPlaca().equals(c.getPlaca()) && isLuxo() == c.isLuxo();
 	}
 	
+	/**
+	 * A identificacao do carro contendo a placa do mesmo e sua descricao
+	 */
 	@Override
 	public String toString() {
 		return getDescricao() + " - " + getPlaca();

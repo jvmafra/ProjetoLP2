@@ -19,7 +19,10 @@ import javax.swing.JTextField;
 
 import nucleo.classes.pessoa.Hospede;
 
-
+/**
+ * Mostra a visao geral dos hospedes ja cadastrados no hotel. Pode-se:
+ * ABRIR, EDITAR E CRIAR UM NOVO HOSPEDE 
+ */
 public class OpcoesDoHospede extends JPanel {
 
 	/**

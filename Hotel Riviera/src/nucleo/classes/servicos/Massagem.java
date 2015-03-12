@@ -105,12 +105,18 @@ public class Massagem implements Servico, Serializable {
 		return dia + "/" + mes + "/" + ano;
 	}
 	
+	/**
+	 * Mostra o resumo do servico contratado, com o tipo da massagem, o dia, a duracao e o valor
+	 */
 	@Override
 	public String toString() {
 		return  "MASSAGEM: " + getNome() + "\nDia: " + diaDaMassagem() + "\nDuracao: " + totalDeHoras() + " hora(s)" + "\nValor: R$ " + valor();
 	}
 
-
+	
+	/**
+	 * Verifica se um servico de massagem eh igual a outro
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (!(obj instanceof Massagem)){

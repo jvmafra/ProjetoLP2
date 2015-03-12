@@ -21,6 +21,11 @@ import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import nucleo.classes.arquivo.Arquivos;
 import nucleo.classes.hotel.Hotel;
 
+/**
+ * Manipula todo funcionamento das telas do programa
+ * @author Hugo Gabriel
+ */
+
 public class Sistema extends JFrame {
 
 	private static final long serialVersionUID = 1L;

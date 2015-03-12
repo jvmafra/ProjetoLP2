@@ -13,6 +13,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * Mostra as opcoes privadas que apenas o gerente pode ver
+ * ESTATISTICAS, FUNCIONARIO, ESTRATEGIA, CARRO, BABA e CADASTRA QUARTO
+ */
 public class OpcoesPrivadas extends JPanel {
 
 	/**

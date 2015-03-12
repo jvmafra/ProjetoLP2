@@ -21,6 +21,9 @@ import javax.swing.ImageIcon;
 import nucleo.classes.hotel.Alugavel;
 import nucleo.classes.servicos.Baba;
 
+/**
+ * Mostra a visao geral das babas do hotel. Podemos pesquisar, remover, editar ou criar
+ */
 public class OpcoesDeBaba extends JPanel {
 	private JTextField textField;
 	private JList<Alugavel> list = new JList<Alugavel>();

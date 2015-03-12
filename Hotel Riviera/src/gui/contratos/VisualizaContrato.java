@@ -21,6 +21,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+/**
+ * Mostra a a vista geral de um contrato atualmente
+ * DADOS DO HOSPEDE, SERVICOS CONSUMIDOS, QUARTO E STATUS
+ */
 public class VisualizaContrato extends JPanel {
 	/**
 	 * 

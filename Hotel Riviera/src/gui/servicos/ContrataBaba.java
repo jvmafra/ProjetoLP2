@@ -27,6 +27,10 @@ import nucleo.classes.hotel.Periodo;
 import nucleo.classes.pessoa.Contrato;
 import nucleo.classes.servicos.Baba;
 import nucleo.classes.servicos.BabySitter;
+
+/**
+ * Tela para novo servico de Babysitter
+ */
 public class ContrataBaba extends JPanel {
 	private Contrato contrato;
 	JSpinner data_inicial;

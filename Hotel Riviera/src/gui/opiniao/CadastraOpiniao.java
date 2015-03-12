@@ -19,6 +19,9 @@ import javax.swing.SpinnerNumberModel;
 
 import nucleo.classes.hotel.Opiniao;
 
+/**
+ * Tela que cadastra um nova opiniao do hotel fornecida por um hospede (possui comentario e nota)
+ */
 public class CadastraOpiniao extends JPanel {
 
 	/**

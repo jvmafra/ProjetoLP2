@@ -15,6 +15,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
+/**
+ * Tela que mostra as opinioes ja dadas sobre o hotel e a media de aceitacao dele pela media de notas
+ */
 public class QualificacaoDoHotel extends JPanel {
 	/**
 	 * 

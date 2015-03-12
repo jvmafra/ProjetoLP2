@@ -17,6 +17,9 @@ import nucleo.classes.servicos.Carro;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
+/**
+ * Cadastra um novo carro no Hotel. Todo carro possui uma descricao, uma placa e a identificacao se eh de luxo ou nao
+ */
 public class NovoCarro extends JPanel {
 	/**
 	 * 

@@ -20,6 +20,9 @@ import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 import org.jfree.util.Rotation;
 
+/**
+ * Mostra graficamente os servicos preferidos dos hospedes
+ */
 public class ServicosPreferidos extends JPanel {
 
 	/**

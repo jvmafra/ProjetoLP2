@@ -31,7 +31,9 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
-
+/**
+ * Tela para aluguel de um novo carro
+ */
 public class AlugaCarro extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Contrato contrato;

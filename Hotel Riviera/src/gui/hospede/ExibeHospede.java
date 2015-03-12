@@ -20,6 +20,10 @@ import javax.swing.JTextField;
 import nucleo.classes.pessoa.Contrato;
 import nucleo.classes.pessoa.Hospede;
 
+/**
+ * Mostra um resumo do hospede
+ * DADOS PESSOAS, QUANTIDADE DE RESERVAS E SE ESTA ATUALMENTE NO HOTEL
+ */
 public class ExibeHospede extends JPanel {
 
 	/**

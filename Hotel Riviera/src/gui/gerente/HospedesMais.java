@@ -18,6 +18,9 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+/**
+ * Lista ordenadamente os hospedes que mais se hospedaram no hotel
+ */
 public class HospedesMais extends JPanel {
 
 	/**

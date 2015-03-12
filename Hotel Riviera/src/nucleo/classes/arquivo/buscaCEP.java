@@ -10,6 +10,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+/**
+ * Manipula a busca por CEP no momento do cadastro de novo hospede
+ * @author Hugo Gabriel Bezerra da Silva
+ */
+
 public class buscaCEP implements Serializable{
 
     /**

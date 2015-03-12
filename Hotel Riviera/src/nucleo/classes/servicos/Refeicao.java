@@ -33,7 +33,7 @@ public class Refeicao implements Servico, Serializable{
 	 * @throws ValorInvalidoException 
 	 * 		Caso o valor passado seja negativo
 	 * @throws PeriodoInvalidoException 
-	 * 		caso a datapassada seja invalida
+	 * 		caso a data passada seja invalida
 	 *
 	 */
 	public Refeicao(double valor, Calendar data) throws ValorInvalidoException, PeriodoInvalidoException  {
@@ -73,11 +73,17 @@ public class Refeicao implements Servico, Serializable{
 
 	
 	
+	/**
+	 * Mostra a data do consumo e seu valor
+	 */
 	@Override
 	public String toString() {
 		return "RESTAURANTE: " + "\nData: " + getDataString() + "\nValor: R$ "  + valor();
 	}
-
+	
+	/**
+	 * Verifica se um servico refeicao eh igual a outro
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (!(obj instanceof Refeicao))
@@ -89,7 +95,9 @@ public class Refeicao implements Servico, Serializable{
 		
 	}
 
-
+	/**
+	 * Retorna o valor consumido pelo hospede
+	 */
 	@Override
 	public double valor() {
 		return valor;

@@ -16,6 +16,10 @@ import javax.swing.JTextField;
 
 import nucleo.classes.formas_cobranca.Estrategia;
 
+
+/**
+ * Edita uma estrategia do hotel, podendo ser alterada seu nome e o fator multiplicador
+ */
 public class EditaEstrategia extends JPanel {
 	private Estrategia estrategia;
 	private JTextField nome;

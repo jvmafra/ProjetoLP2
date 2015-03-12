@@ -1,7 +1,7 @@
 package nucleo.classes.hotel;
 
 /**
- * Interface Servico. Todo servico tem seu valor
+ * Interface Servico. Todo servico, independente de suas particularidades, tem seu valor
  * @author Joao Victor Barroso Mafra
  */
 

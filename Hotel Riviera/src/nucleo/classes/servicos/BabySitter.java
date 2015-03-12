@@ -149,7 +149,11 @@ public class BabySitter implements Servico, Serializable {
 	public Periodo getPeriodo() {
 		return periodo;
 	}
-
+	
+	/**
+	 * Representacao em String do servico Babysitter, que contem o nome da Baba, o periodo 
+	 * e o valor total cobrado
+	 */
 	@Override
 	public String toString() {
 		return "BABYSITTER" + "\nNome da baba: " + getBaba().getNome() + "\n" + periodo.toString() + "\n" + "Valor:" + valor();

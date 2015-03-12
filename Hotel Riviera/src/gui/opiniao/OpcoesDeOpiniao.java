@@ -14,6 +14,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+/**
+ * As opcoes de opiniao sao: Cadastrar uma nova e verificar a media de aceitacao do hotel
+ */
 public class OpcoesDeOpiniao extends JPanel {
 
 	/**

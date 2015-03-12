@@ -61,6 +61,10 @@ public class Periodo implements Serializable{
 	     long m2 = data_final.getTimeInMillis();
 	     return (int) ((m2 - m1) / (24*60*60*1000));
 	}
+	/**
+	 * @return 
+	 * 			O numero total de horas de certo periodo
+	 */
 	public int getTotalDeHoras(){
 		 long m1 = data_inicial.getTimeInMillis();
 	     long m2 = data_final.getTimeInMillis();
@@ -119,6 +123,9 @@ public class Periodo implements Serializable{
 					(outroPeriodo.data_final.compareTo(data_inicial) >= 0 || outroPeriodo.data_inicial.compareTo(data_inicial) >= 0);
 	}
 	
+	/**
+	 * Verifica se uma data esta contida em certo periodo
+	 */
 	public boolean dataIsContida(Calendar data){
 		if(data == null) 
 			return false;

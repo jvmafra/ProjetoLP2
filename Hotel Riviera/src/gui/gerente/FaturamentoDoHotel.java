@@ -23,6 +23,10 @@ import org.jfree.chart.title.TextTitle;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 
+/**
+ * Mostra graficos dos faturamentos do hotel (MENSAL OU ANUAL)
+ * Apenas os contratos ja fechados (pagamento confirmado) sao considerados
+ */
 public class FaturamentoDoHotel extends JPanel {
 	/**
 	 * 

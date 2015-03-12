@@ -11,6 +11,11 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * Pagina inicial do Hotel, que conta com botoes de HOSPEDES, CONTRATOS, RESERVADO, SOBRE E SAIR
+ * @author Joao Victor Barroso Mafra
+ */
+
 public class PaginaInicialHotel extends JPanel {
 	
 	private static final long serialVersionUID = 1L;

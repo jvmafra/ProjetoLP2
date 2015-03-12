@@ -20,6 +20,10 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
+/**
+ * Cadastra um novo funcionario no Hotel. Todo funcionario tem um nome, seu login, senha e um boolean 
+ * se tem permissao para acessar a area reservada
+ */
 public class NovoFuncionario extends JPanel {
 
 	private static final long serialVersionUID = 1L;

@@ -17,6 +17,9 @@ import javax.swing.JTextField;
 
 import nucleo.classes.pessoa.Funcionario;
 
+/**
+ * Edita um funcionario do hotel. Podemos alterar seu nome, login, senha e a pemissao de gerente
+ */
 public class EditaFuncionario extends JPanel {
 	private Funcionario funcionario;
 

@@ -18,6 +18,11 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
 import nucleo.classes.pessoa.Funcionario;
+
+/**
+ * Mostra as opcoes de funcionario que o gerente pode fazer no software.
+ * ADICIONAR, REMOVER, EDITAR
+ */
 public class OpcoesFuncionario extends JPanel {
 	/**
 	 * 

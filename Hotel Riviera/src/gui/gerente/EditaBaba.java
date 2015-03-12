@@ -19,6 +19,9 @@ import java.awt.Color;
 
 import javax.swing.ImageIcon;
 
+/**
+ * Edita uma Baba, seu nome e telefone podem ser alterados
+ */
 public class EditaBaba extends JPanel {
 	private Baba baba;
 	private JTextField nome;

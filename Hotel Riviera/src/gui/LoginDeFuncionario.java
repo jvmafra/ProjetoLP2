@@ -18,6 +18,11 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+/**
+ * Tela de Login do funcionario
+ * @author Joao Victor Barroso Mafra
+ */
+
 public class LoginDeFuncionario extends JPanel implements Serializable {
 	/**
 	 * 

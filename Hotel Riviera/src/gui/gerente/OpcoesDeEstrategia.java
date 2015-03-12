@@ -19,7 +19,10 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
-
+/**
+ * Mostra a visao geral das estrategias do hotel. Podemos editar ou remover alguma
+ * bem como criar uma nova
+ */
 public class OpcoesDeEstrategia extends JPanel {
 	/**
 	 * 

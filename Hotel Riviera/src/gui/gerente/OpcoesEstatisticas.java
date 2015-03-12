@@ -13,6 +13,10 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
+/**
+ * Mostra as opcoes de estatisticas que o gerente pode visualizar no software.
+ * FATURAMENTO, HOSPEDES+, MEDIA DE ACEITACAO E SERVICOS PREFERIDOS
+ */
 public class OpcoesEstatisticas extends JPanel {
 
 	private static final long serialVersionUID = 1L;

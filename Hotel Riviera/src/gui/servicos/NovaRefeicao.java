@@ -22,6 +22,9 @@ import javax.swing.SpinnerDateModel;
 import nucleo.classes.pessoa.Contrato;
 import nucleo.classes.servicos.Refeicao;
 
+/**
+ * Tela que cadastrar um consumo do hospede em um restaurante do hotel
+ */
 public class NovaRefeicao extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JTextField valor;

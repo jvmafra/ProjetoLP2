@@ -21,6 +21,9 @@ import javax.swing.ImageIcon;
 import nucleo.classes.hotel.Alugavel;
 import nucleo.classes.servicos.Carro;
 
+/**
+ * Mostra a visao geral dos carros do hotel. Podemos pesquisar, remover, editar e criar 
+ */
 public class OpcoesDeCarro extends JPanel {
 	private JTextField textField;
 	private JList<Alugavel> list = new JList<Alugavel>();

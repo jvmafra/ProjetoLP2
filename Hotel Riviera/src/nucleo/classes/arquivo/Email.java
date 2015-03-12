@@ -11,6 +11,11 @@ import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.MultiPartEmail;
 import org.apache.commons.mail.SimpleEmail;
 
+/**
+ * Manipula o envio de emails para os hospedes
+ * @author Hugo Gabriel Bezerra da Silva
+ */
+
 public class Email {
 
 	public Email() {

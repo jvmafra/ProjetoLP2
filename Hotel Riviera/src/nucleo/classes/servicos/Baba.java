@@ -94,7 +94,7 @@ public class Baba implements Serializable, Alugavel{
 	}
 
 	/**
-	 * retorna a lista de periodos periodo
+	 * retorna a lista de datas que a baba foi solicitada
 	 */
 	public List<Periodo> getPeriodos() {
 		return periodos;
@@ -134,6 +134,9 @@ public class Baba implements Serializable, Alugavel{
 		return true;
 	}
 	
+	/**
+	 * Verifica se uma baba eh igual a outra
+	 */
 	@Override
 	public boolean equals(Object obj){
 		if (!(obj instanceof Baba))
@@ -144,6 +147,9 @@ public class Baba implements Serializable, Alugavel{
 		return getNome().equals(b.getNome());
 	}
 	
+	/**
+	 * Fornece uma representacao em toString da Baba, contendo nome e telefone
+	 */
 	@Override
 	public String toString(){
 		return "Nome: " + getNome() + " - " + getTelefone();

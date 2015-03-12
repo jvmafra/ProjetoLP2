@@ -24,6 +24,9 @@ import nucleo.classes.pessoa.Contrato;
 import nucleo.classes.servicos.Massagem;
 import nucleo.classes.servicos.TipoDeMassagens;
 
+/**
+ * Tela para servico de massagem
+ */
 public class NovaMassagem extends JPanel {
 
 

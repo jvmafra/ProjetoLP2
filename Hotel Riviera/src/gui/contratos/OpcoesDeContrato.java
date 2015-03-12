@@ -23,6 +23,10 @@ import javax.swing.ListSelectionModel;
 
 import nucleo.classes.pessoa.Contrato;
 
+/**
+ * Mostra a visao geral dos contratos do hotel, bem como as opcoes sobre eles
+ * ABRIR, REMOVER, NOVO e FILTRAR (por nome, ou status)
+ */
 public class OpcoesDeContrato extends JPanel {
 
 	/**

@@ -23,6 +23,9 @@ import javax.swing.text.MaskFormatter;
 import nucleo.classes.arquivo.buscaCEP;
 import nucleo.classes.pessoa.Hospede;
 
+/**
+ * Eh possivel nessa tela atualizar as informacoes de um hospede
+ */
 public class EditaHospede extends JPanel {
 	/**
 	 * 

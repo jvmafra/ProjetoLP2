@@ -42,7 +42,7 @@ public class Hotel implements Serializable{
 
 
 	/**
-	 * Ao ser inicializado o hotel, sao geradas listas de quartos, carros e babas.
+	 * Ao ser inicializado o hotel, sao gerados os quartos, as estrategias e um gerente
 	 */
 	public Hotel() {
 		instanciaPresidenciais();
@@ -56,6 +56,10 @@ public class Hotel implements Serializable{
 		criaGerente();
 		
 	}
+	
+	/**
+	 * Calcula o faturamento total do hotel, a partir dos contratos fechados
+	 */
 	public double faturamentoTotal(){
 		double total = 0;
 		for (int i = 0; i < getContratosFechados().size(); i++) {
@@ -64,7 +68,11 @@ public class Hotel implements Serializable{
 		return total;
 	}
 	
-	
+	/**
+	 * Calcula o faturamento mensal do hotel, a partir dos contratos fechados em certo mes
+	 * @param mes
+	 * 			O mes a ser verificado
+	 */
 	public double getFaturamentoMensal(int mes){
 		double total = 0;
 		for (int i = 0; i < getContratosFechados().size(); i++) {
@@ -74,23 +82,31 @@ public class Hotel implements Serializable{
 		return total;	
 	}
 	
+	/**
+	 * @return A lista de hospedes
+	 */
 	public List<Hospede> getHospedes() {
 		return hospedes;
 	}
 	
+	/**
+	 * @return A lista de funcionarios
+	 */
 	public List<Funcionario> getFuncionarios() {
 		return funcionarios;
 	}
 	
 	/**
-	 * Adiciona um novo contrato
+	 * Adiciona um novo contrato ao hotel
 	 */
 	public void check_in(Contrato c){
 		getContratos().add(c);
 	}
 	
 	/**
-	 * Coloca certo contrato como fechado
+	 * fecha um contrato de um hotel
+	 * @param Contrato c
+	 * 				O contrato a ser fechado
 	 */
 	public void check_out(Contrato c){
 		c.fechaContrato();
@@ -167,7 +183,9 @@ public class Hotel implements Serializable{
 		massagens ++;
 	}
 	
-	
+	/**
+	 * Calcula a media de aceitacao do hotel, baseado nas medias das notas das opinioes cadastradas
+	 */
 	public String MediaDoHotel() {
 		double soma = 0;
 		if (opinioes.size() == 0)
@@ -181,7 +199,7 @@ public class Hotel implements Serializable{
 	}
 	
 	/**
-	 * Retorna uma list com algum tipo de servico alugavel em determinado periodo
+	 * Retorna uma lista filtrada com certos alugaveis disponiveis em certo periodo
 	 */
 	public List<Alugavel> verificaAlugaveisDisponiveis(Periodo p, List<Alugavel> lista){
 		List<Alugavel> disponiveis = new ArrayList<>();
@@ -193,6 +211,9 @@ public class Hotel implements Serializable{
 		return disponiveis;
 	}
 	
+	/**
+	 * Pesquisa um hospede do hotel a partir do seu nome ou cpf
+	 */
 	public Hospede pesquisaHospede(String nome_cpf){
 		for (Hospede hospede: hospedes){
 			if (hospede.getCPF().equals(nome_cpf) || hospede.getNome().equals(nome_cpf))
@@ -229,7 +250,7 @@ public class Hotel implements Serializable{
 	}
 	
 	/**
-	 * Retorna uma list apenas com os contratos em aberto
+	 * Retorna uma list apenas com os contratos ja fechados
 	 */
 	public List<Contrato> getContratosFechados(){
 		List<Contrato> contratos_fechados = new ArrayList<>();
@@ -296,11 +317,11 @@ public class Hotel implements Serializable{
 	}
 	
 	/**
-	 * Adiciona um hospede ao hotel
+	 * Adiciona um hospede ao hotel. Nao se pode cadastrar com um CPF ja cadastrado
 	 */
 	public void adicionaHospede(Hospede h) throws EntradaDeDadosException{
 		for (Hospede hospede : hospedes) {
-			if (h.getCpf().equals(hospede.getCpf()))
+			if (h.getCPF().equals(hospede.getCPF()))
 					throw new EntradaDeDadosException("Hóspede já existente");			
 		}
 		hospedes.add(h);
@@ -378,7 +399,7 @@ public class Hotel implements Serializable{
 		int i = 0, j = 6;
 		while (i < 5){
 			try {
-				Quarto quarto = new QuartoExecutivoSimples(j);
+				Quarto quarto = new QuartoExecutivoSimples(j);     // instancia todos os quartos, organizando pelo numero
 				quartos.add(quarto);
 				i++;
 				j++;
@@ -458,6 +479,9 @@ public class Hotel implements Serializable{
 		}
 	}
 	
+	/**
+	 * Instancia as 6 estrategias default do hotel
+	 */
 	private void instanciaEstrategias(){
 		try {
 			Estrategia alta_temporada = new Estrategia("Alta Temporada", 2.0);
@@ -493,19 +517,30 @@ public class Hotel implements Serializable{
 	}
 	
 	
-
+	/**
+	 * @return A lista de estrategias do hotel
+	 */
 	public List<Estrategia> getEstrategias() {
 		return estrategias;
 	}
-
+	
+	/**
+	 * @return A lista de quartos do hotel
+	 */
 	public List<Alugavel> getQuartos() {
 		return quartos;
 	}
-
+	
+	/**
+	 * @return A lista de babas do hotel
+	 */
 	public List<Alugavel> getBabas() {
 		return babas;
 	}
-
+	
+	/**
+	 * @return A lista de carros do hotel
+	 */
 	public List<Alugavel> getCarros() {
 		return carros;
 	}

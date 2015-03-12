@@ -15,6 +15,10 @@ import javax.swing.JPanel;
 
 import nucleo.classes.pessoa.Contrato;
 
+/**
+ * Mostra as opcoes de servicos
+ * ALUGUEL DE CARRO, BABYSITTER, NOVA REFEICAO e MASSAGEM
+ */
 public class OpcoesDeServicos extends JPanel {
 	/**
 	 * 

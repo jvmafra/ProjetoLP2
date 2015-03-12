@@ -1,0 +1,44 @@
+Login inicial: admin
+Senha inicial: 123456
+
+
+
+
+
+
+Link para o screencast:
+
+https://www.youtube.com/watch?v=ruGQUlObGXk
+
+
+
+
+
+
+
+ASSUNTOS ABORDADOS EM SALA DE AULA NO PROJETO:
+
+
+
+- Arquivo: salvamento de informaçoes do hotel
+- Herança: Todos tipos especiais de Quarto herdam de um quarto abstrato
+- Interface: Presença das interfaces Alugavel (implementada por Quarto, Baba e Carro) /Serviço (implementada por Quarto, Aluguel De Carro e Periodo)
+- ENUM: Criaçao dos tipos de Massagem
+- Design geral das classes, com gets, sets, equals, etc: Presente em todas as classes
+- Excecoes: Criaçao das nossas proprias excecoes para tratamento de erros
+- Coleçoes: Uso de listas para armazenar do que o hotel precisa para funcionamento
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

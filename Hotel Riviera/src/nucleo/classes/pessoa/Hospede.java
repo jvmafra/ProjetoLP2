@@ -74,30 +74,90 @@ public class Hospede implements Serializable{
 	
 	}
 	
-	public String getCpf() {
+	/**
+	 * @return nome.
+	 */
+	public String getNome() {
+		return nome;
+	}
+
+	/**
+	 * @return CPF
+	 */
+	public String getCPF() {
 		return cpf;
 	}
+
+	/**
+	 * @return RG.
+	 */
+	public String getRG() {
+		return rg;
+	}
+
+	/**	
+	 * @return email.
+	 */
+	public String getEmail() {
+		return email;
+	}
 	
+
+	/**	
+	 * @return 
+	 * 		endereco.
+	 */
+	public String getEndereco() {
+		return endereco;
+	}
+	
+	/**	
+	 * @return 
+	 * 		Numero de cartao do hospede
+	 */
+	public String getNumCartao() {
+		return numCartao;
+	}
+	
+	/**
+	 * Retorna a String telefone.
+	 * @returntelefone.
+	 */
+	public String getTelefone() {
+		return telefone;
+	}
+	
+	/**
+	 * Retorna Idade
+	 * @return idade
+	 */
+	public String getIdade() {		
+		
+		return idade;
+
+	}
+	
+	/**
+	 * Modifica o CPF do hospede, verificando se o paramatro eh valido antes
+	 */
 	public void setCpf(String cpf) throws CpfInvalidoExcepcion {
 		if(cpf == null || !(isCPF(cpf)))
 			throw new CpfInvalidoExcepcion("CPF invalido");
 		this.cpf = cpf;
 	}
 	
-	public String getRg() {
-		return rg;
-	}
-	
+	/**
+	 * Modifica o RG do hospede, verificando se o paramatro eh valido antes
+	 */
 	public void setRg(String rg) throws RgInvalidoException {
 		if(rg == null || rg.equals("") || rg.length() != 7 || validoRg(rg))
 			throw new RgInvalidoException("RG invalido");
 		this.rg = rg;
 	}
 	
-	public String getNumCartao() {
-		return numCartao;
-	}
-	
+	/**
+	 * Modifica o Cartao do hospede, verificando se o paramatro eh valido antes
+	 */
 	public void setNumCartao(String numCartao) throws NumeroCartaoException {
 		if (numCartao == null || numCartao.equals("") || !(validaCartaoDeCredito(numCartao))){
 			throw new NumeroCartaoException("Cartao de credito invalido");
@@ -105,12 +165,18 @@ public class Hospede implements Serializable{
 		this.numCartao = numCartao;
 	}
 	
+	/**
+	 * Modifica o nome do hospede, verificando se o paramatro eh valido antes
+	 */
 	public void setNome(String nome) throws NomeInvalidoException {
 		if(nome == null || nome.equals(""))
 			throw new NomeInvalidoException("Nome invalido");
 		this.nome = nome;
 	}
 	
+	/**
+	 * Modifica a idade do hospede, verificando se o paramatro eh valido antes
+	 */
 	public void setIdade(String idade) throws IdadeInvalidaException {
 		if(verificaIdade(idade))
 			throw new IdadeInvalidaException("Idade invalida");
@@ -118,12 +184,18 @@ public class Hospede implements Serializable{
 		this.idade = idade;
 	}
 	
+	/**
+	 * Modifica o email do hospede, verificando se o paramatro eh valido antes
+	 */
 	public void setEmail(String email) throws EmailInvalidoExcepcion {
 		if(email == null || email.equals("") || verificaEmail(email) == false)
 			throw new EmailInvalidoExcepcion("E-mail invalido");
 		this.email = email;
 	}
 	
+	/**
+	 * Modifica o endereco do hospede, verificando se o paramatro eh valido antes
+	 */
 	public void setEndereco(String endereco) throws EnderecoInvalidoException {
 		if(endereco == null || endereco.equals(""))
 			throw new EnderecoInvalidoException("Endereco invalido");
@@ -149,18 +221,12 @@ public class Hospede implements Serializable{
 		}
 		return (s1 + s2) % 10 == 0;
 	}
-/**
- * Retorna a String telefone.
- * @returntelefone.
- */
-	public String getTelefone() {
-		return telefone;
-	}
-/**
- * Muda o telefone, primeiramenteverificase o parametro e valido, no caso de confirmar-se a afirmacao anterior, muda o telefone.
- * @param telefone
- * @throws Exception
- */
+
+	/**
+	 * Muda o telefone, primeiramenteverificase o parametro e valido, no caso de confirmar-se a afirmacao anterior, muda o telefone.
+	 * @param telefone
+	 * @throws Exception
+	 */
 	public void setTelefone(String telefone) throws Exception {
 		if(verificaTelefone(telefone))
 			throw new TelefoneInvalidoException("Telefone invalido");
@@ -169,85 +235,35 @@ public class Hospede implements Serializable{
 	
 	
 	/**
-	 * Retorna Idade
-	 * @return idade
+	 * Mostra um resumo do hospede
 	 */
-	public String getIdade() {		
-		
-		return idade;
-
-	}
-	
-	
-	
-/**
- * Retornanome.
- * @returnnome.
- */
-	public String getNome() {
-		return nome;
-	}
-
-	/**
-	 * retorna Cpf
-	 * @return Cpf
-	 */
-	public String getCPF() {
-		return cpf;
-	}
-
-/**
- * Retorna o RG. 
- * @return RG.
- */
-	public String getRG() {
-		return rg;
-	}
-
-/**
- * Retorna email.	
- * @return email.
- */
-	public String getEmail() {
-		return email;
-	}
-	
-
-/**
- * Retorna endereco.	
- * @return 
- * 		endereco.
- */
-	public String getEndereco() {
-		return endereco;
-	}
-	
 	public String mostraInformacoes(){
 		return "Nome: " + getNome() + "\nCPF: " + getCPF() + "\nRG: " + getRG() + "\nE-mail: " + getEmail()
 				+ "\nTelefone: " + getTelefone() + "\nEndereco: " + getEndereco() + "\nIdade: "+ getIdade();
 	}
-
+	
+	/**
+	 * Mostra nome e cpf do hospede
+	 */
 	@Override
 	public String toString() {
 		return getNome() + " - " + getCPF();
 	}
 
 	
-
+	/**
+	 * Verifica se dois hospedes sao iguais, pelo nome e cpf
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (!(obj instanceof Hospede))
 			return false;
 		Hospede h = (Hospede) obj;
 		
-		return getNome().equals(h.getNome()) && getCpf().equals(h.getCpf());
+		return getNome().equals(h.getNome()) && getCPF().equals(h.getCPF());
 	}
-	/**
-	 * Esse metodo tem como funcao verificar se o cpf recebido e valido.
-	 * @param CPF
-	 * @return
-	 */
-
+	
+	
 	private boolean verificaEmail(String email){
 		Pattern p = Pattern
 				.compile("^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$");
@@ -270,6 +286,11 @@ public class Hospede implements Serializable{
 		
 	}
 	
+	/**
+	 * Esse metodo tem como funcao verificar se o cpf recebido eh valido.
+	 * @param CPF
+	 * @return
+	 */
 	private static boolean isCPF(String CPF) { // considera-se erro CPF's formados por uma sequencia de numeros iguais 
 		if (CPF.equals("00000000000") || CPF.equals("11111111111") || CPF.equals("22222222222") || 
 			CPF.equals("33333333333") || CPF.equals("44444444444") || CPF.equals("55555555555") || 

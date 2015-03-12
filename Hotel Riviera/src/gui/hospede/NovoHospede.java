@@ -25,6 +25,9 @@ import nucleo.classes.arquivo.buscaCEP;
 import nucleo.classes.pessoa.Hospede;
 import nucleo.excecoes.EntradaDeDadosException;
 
+/**
+ * Cadastra um novo hospede no hotel
+ */
 public class NovoHospede extends JPanel {
 	/**
 	 * 

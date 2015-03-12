@@ -17,6 +17,9 @@ import nucleo.classes.formas_cobranca.Estrategia;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * Cadastra uma nova estrategia para o hotel. Toda estrategia tem seu nome e seu fator
+ */
 public class NovaEstrategia extends JPanel {
 
 	/**

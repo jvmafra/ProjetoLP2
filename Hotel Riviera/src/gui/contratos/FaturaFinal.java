@@ -17,6 +17,11 @@ import javax.swing.JTextField;
 
 import nucleo.classes.pessoa.Contrato;
 
+/**
+ * Mostra a fatura final apos o fechamento do contrato
+ * DADOS DO HOSPEDE, SERVICOS E SEUS VALORES
+ * @author Joao Victor Barroso Mafra
+ */
 public class FaturaFinal extends JPanel {
 	/**
 	 * 

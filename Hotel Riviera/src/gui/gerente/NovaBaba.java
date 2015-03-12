@@ -17,7 +17,9 @@ import nucleo.classes.servicos.*;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
-
+/**
+ * Cadastra uma nova baba para o hotel
+ */
 public class NovaBaba extends JPanel {
 	/**
 	 * 
