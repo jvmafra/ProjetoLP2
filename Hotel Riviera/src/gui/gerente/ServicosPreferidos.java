@@ -56,7 +56,7 @@ public class ServicosPreferidos extends JPanel {
 
 		PieDataset dataset = criaDados();
 
-		JFreeChart chart = criaGrafico(dataset, "Servi�os");
+		JFreeChart chart = criaGrafico(dataset, "Servicos");
 
 		ChartPanel chartPanel = new ChartPanel(chart);
 
